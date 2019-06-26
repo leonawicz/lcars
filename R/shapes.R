@@ -15,7 +15,7 @@
 #' plot(0:1, 0:1)
 #' lcars_rect(0.1, 0.9, 0.6, 0.9, "red")
 lcars_rect <- function(xmin, xmax, ymin, ymax, color){
-  rect(xmin, ymin, xmax, ymax, col = color, border = color)
+  graphics::rect(xmin, ymin, xmax, ymax, col = color, border = color)
 }
 
 #' LCARS corner bend
@@ -57,7 +57,7 @@ lcars_bend <- function(xmin, xmax, ymin, ymax, corner, width, height, ro = width
   d <- f2(f(xmin, xmax, ymin, ymax, width, height, ro, ri, n))
   if(draw){
     if(missing(color)) color <- "#CD6363"
-    polygon(d$x, d$y, col = color[1], border = color[1])
+    graphics::polygon(d$x, d$y, col = color[1], border = color[1])
     invisible(d)
   } else d
 }

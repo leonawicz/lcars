@@ -58,7 +58,7 @@ lcars_border <- function(x = NULL, width = 10, height = 6, corners = 1:4,
   gap = c(0.02, 0.01), bg = "black", n = 10){
 
   inset <- x
-  op <- par(mar = rep(0, 4), font = 2, bg = bg)
+  op <- graphics::par(mar = rep(0, 4), font = 2, bg = bg)
   w <- side_width
   l <- length_frac
   f <- function(x) x %in% corners
@@ -66,7 +66,7 @@ lcars_border <- function(x = NULL, width = 10, height = 6, corners = 1:4,
   ro <- rep(ro, length = 4)
   ri <- rep(ri, length = 4)
 
-  plot(0, 0, type = "n", axes = FALSE, xlim = c(0, width), ylim = c(0, height))
+  graphics::plot(0, 0, type = "n", axes = FALSE, xlim = c(0, width), ylim = c(0, height))
   if(f(1)) lcars_bend(0, l[1] * width, height * (1 - l[8]), height,
                       "tl", w[4], w[1], ro[1], ri[1], n, cc[1])
   if(f(2)) lcars_bend(width * (1 - l[2]), width, height * (1 - l[3]), height,
@@ -103,7 +103,7 @@ lcars_border <- function(x = NULL, width = 10, height = 6, corners = 1:4,
       x <- gp(i, s, gx, width)
       lcars_rect(x[1], x[2], height - w[1], height, sc[i - 1])
       if(length(sl) == side_n_segments[1])
-        text(mean(x), height - w[1] / 2, sl[i - 1], cex = label_size, adj = side_label_adj[[1]])
+        graphics::text(mean(x), height - w[1] / 2, sl[i - 1], cex = label_size, adj = side_label_adj[[1]])
     }
   }
   if(side_n_segments[2] > 0){
@@ -114,7 +114,7 @@ lcars_border <- function(x = NULL, width = 10, height = 6, corners = 1:4,
       x <- gp(i, s, gy, height)
       lcars_rect(width - w[2], width, x[1], x[2], sc[i - 1])
       if(length(sl) == side_n_segments[2])
-        text(width - w[2], x[1], sl[i - 1], cex = label_size, adj = side_label_adj[[2]])
+        graphics::text(width - w[2], x[1], sl[i - 1], cex = label_size, adj = side_label_adj[[2]])
     }
   }
   if(side_n_segments[3] > 0){
@@ -125,7 +125,7 @@ lcars_border <- function(x = NULL, width = 10, height = 6, corners = 1:4,
       x <- gp(i, s, gx, width)
       lcars_rect(x[1], x[2], 0, w[3], sc[i - 1])
       if(length(sl) == side_n_segments[3])
-        text(mean(x), w[3] / 2, sl[i - 1], cex = label_size, adj = side_label_adj[[3]])
+        graphics::text(mean(x), w[3] / 2, sl[i - 1], cex = label_size, adj = side_label_adj[[3]])
     }
   }
   if(side_n_segments[4] > 0){
@@ -136,10 +136,10 @@ lcars_border <- function(x = NULL, width = 10, height = 6, corners = 1:4,
       x <- gp(i, s, gy, height)
       lcars_rect(0, w[4], x[1], x[2], sc[i - 1])
       if(length(sl) == side_n_segments[4])
-        text(w[4], x[1], sl[i - 1], cex = label_size, adj = side_label_adj[[4]])
+        graphics::text(w[4], x[1], sl[i - 1], cex = label_size, adj = side_label_adj[[4]])
     }
   }
-  par(op)
+  graphics::par(op)
 
   if(!is.null(inset)){
     mdpt <- c(mean(c(width - w[2], w[4])) / width, mean(c(height - w[1], w[3])) / height)
