@@ -18,6 +18,62 @@ lcars_rect <- function(xmin, xmax, ymin, ymax, color){
   graphics::rect(xmin, ymin, xmax, ymax, col = color, border = color)
 }
 
+
+lcars_pill <- function(xmin, xmax, ymin, ymax, color, direction = c("both", "left", "right"), vertical = FALSE, n = 10){
+  if(n %% 2 == 1) n <- n + 1
+  plot(0:6, 0:6)
+  xmin <- 2; xmax <- 4; ymin <- 2.5; ymax <- 3
+  lcars_rect(xmin, xmax, ymin, ymax, "red")
+
+  direction <- match.arg(direction)
+  if(direction == "both") direction <- c("left", "right")
+  if(vertical){
+    r <- (xmax - xmin) / 2
+    m <- xmax - r
+  } else {
+    r <- (ymax - ymin) / 2
+    m <- ymax - r
+  }
+
+  if("left" %in% direction){
+    if(vertical){
+      a <- pi * seq(1, 2, length.out = n)
+      x <- r * cos(a) + m
+      y <- r * sin(a) + ymin
+      points(x, y)
+    } else {
+      a <- pi * seq(1.5, 0.5, length.out = n)
+      x <- r * cos(a) + xmin
+      y <- r * sin(a) + m
+      points(x, y)
+    }
+  }
+
+  if("right" %in% direction){
+    if(vertical){
+      a <- pi * seq(0, 1, length.out = n)
+      x <- r * cos(a) + m
+      y <- r * sin(a) + ymin
+      points(x, y)
+    } else {
+      a <- pi * seq(1.5, 0.5, length.out = n)
+      x <- -r * cos(a) + xmax
+      y <- r * sin(a) + m
+      points(x, y)
+      n2 <- n / 2
+      p1 <- list(x = x[c(1:n2, (n2 - 1):1)], y = c(rep(m, n2), y[(n2 - 1):1]))
+      p2 <- list(x = x[c(n2:n, n:n2)], y = c(rep(m, length(n2:n)), y[n2:n]))
+      polygon(p1$x, p1$y, border = "blue", col = "blue")
+      polygon(p2$x, p2$y, border = "blue", col = "green")
+    }
+  }
+
+
+  xi <- xi + w + min(xo) - min(xi)
+  yi <- yi - h + max(yo) - max(yi)
+}
+
+
 #' LCARS corner bend
 #'
 #' Draw a 90-degree rounded corner sweep for top left, top right, bottom right and bottom left LCARS corner panels.
