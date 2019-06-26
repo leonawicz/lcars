@@ -7,3 +7,10 @@
 ^clone-comments\.md$
 ^cran-comments\.md$
 ^data-raw$
+^README\.Rmd$
+^revdep$
+^\.lintr$
+^appveyor\.yml$
+^\.travis\.yml$
+^codecov\.yml$
+^tests/testthat/Rplots\.pdf$

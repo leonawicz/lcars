@@ -3,3 +3,5 @@
 .RData
 .Ruserdata
 docs/clone-comments.html
+inst/doc
+tests/testthat/Rplots.pdf

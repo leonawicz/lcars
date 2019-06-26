@@ -1,0 +1,27 @@
+url: http://leonawicz.github.io/lcars
+
+template:
+  params:
+    ganalytics: UA-46129458-3
+
+authors:
+  Author Name:
+    href: http://leonawicz.github.io/
+
+reference:
+- title: Package
+  contents:
+  - lcars
+- title: LCARS functions
+  contents:
+  - lcars_border
+  - lcars_rect
+  - lcars_bend
+- title: Themes
+  contents:
+  - theme_lcars_light
+
+navbar:
+  right:
+    - icon: fa-github fa-lg
+      href: https://github.com/leonawicz/lcars

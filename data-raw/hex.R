@@ -1,19 +1,33 @@
-#install.packages("hexSticker")
 library(hexSticker)
 library(ggplot2)
-pkg <- basename(getwd())
-user <- "username"
-account <- "github"
+library(png)
+library(grid)
 
+pkg <- basename(getwd())
+user <- "leonawicz"
+account <- "github"
 url <- paste0(user, ".", account, ".io/", pkg)
 out <- paste0("man/figures/logo.png")
-dir.create("man/figures", showWarnings = FALSE)
+
+len_frac <- c(0.55, 0.25, 0.2, 0.4, 0.6, 0.1, 0.1, 0.1)
+n_seg <- c(1, 2, 1, 6)
+cc = c("#CD6363", "#CC99CC", "#FFFF9C", "#FFFF9C")
+sc <- list("#FFFF9C", c("#99CCFF", "#CC99CC"), "#FFFF9C", c(rep("#99CCFF", 2), rep("#FF9E63", 4)))
+sw <- c(1, 5, 1, 5) / 5
+
+file <- "data-raw/lcars-0.png"
+png(file, 2400, 1800, type = "cairo", res = 300)
+lcars_border(width = 8, corners = 1:4, length_frac = len_frac, side_n_segments = n_seg,
+             corner_color = cc, side_color = sc, side_width = sw)
+dev.off()
+
+p <- rasterGrob(readPNG(file))
 
 hex_plot <- function(out, mult = 1){
-  g <- ggplot() + theme_void() + theme_transparent()
-  sticker(g, package = pkg, p_y = 1, p_color = "gray20", p_size = 20,
-          h_color = "gray20", h_fill = "burlywood1", h_size =  1.4,
-          url = url, u_color = "gray20", u_size = 3, filename = out)
+  sticker(p, package = "lcars", p_y = 1, p_color = "#FFFF9C", p_size = 36,
+          s_x = 1, s_y = 1, s_width = 1.5, s_height = 1.5,
+          h_color = "#CD6363", h_fill = "#000000", h_size =  1.4,
+          url = url, u_color = "#FFFF9C", u_size = 3, filename = out)
 }
 
 hex_plot(out)
