@@ -1,2 +1,9 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^LICENSE\.md$
+^CODE_OF_CONDUCT\.md$
+^docs$
+^pkgdown$
+^clone-comments\.md$
+^cran-comments\.md$
+^data-raw$
