@@ -16,6 +16,7 @@ reference:
   contents:
   - lcars_border
   - lcars_rect
+  - lcars_pill
   - lcars_bend
 - title: Themes
   contents:
