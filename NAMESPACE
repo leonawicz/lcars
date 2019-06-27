@@ -2,6 +2,12 @@
 
 export(lcars_bend)
 export(lcars_border)
+export(lcars_bottom_pill)
+export(lcars_half_pill)
+export(lcars_left_pill)
+export(lcars_pill)
 export(lcars_rect)
+export(lcars_right_pill)
+export(lcars_top_pill)
 export(theme_lcars_dark)
 export(theme_lcars_light)

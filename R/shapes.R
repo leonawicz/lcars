@@ -19,60 +19,128 @@ lcars_rect <- function(xmin, xmax, ymin, ymax, color){
 }
 
 
-lcars_pill <- function(xmin, xmax, ymin, ymax, color, direction = c("both", "left", "right"), vertical = FALSE, n = 10){
-  if(n %% 2 == 1) n <- n + 1
-  plot(0:6, 0:6)
-  xmin <- 2; xmax <- 4; ymin <- 2.5; ymax <- 3
-  lcars_rect(xmin, xmax, ymin, ymax, "red")
-
+#' LCARS pill
+#'
+#' Wrappers around \code{lcars_rect} that add rounded edges on one side or two opposing sides to make an LCARS pill.
+#'
+#' @param xmin numeric, scalar left x position.
+#' @param xmax numeric, scalar right x position.
+#' @param ymin numeric, scalar bottom y position.
+#' @param ymax numeric, scalar top y position.
+#' @param x numeric, x position for edge of horizontal half pill or midpoint of vertical half pill.
+#' @param y numeric, y position for edge of vertical half pill or midpoint of horizontal half pill.
+#' @param r numeric, radius of half pill.
+#' @param color pill color.
+#' @param direction integer 1:4 or character: \code{topleft}, \code{topright}, \code{bottomleft}, \code{bottomright}. May be abbreviated as \code{tl}, \code{tr}, \code{br}, \code{bl}.
+#' @param vertical logical, vertical pill.
+#' @param gap numeric or \code{"auto"}, the gap between the pill half circle edge and pill rectangle edge.
+#' @param n integer, number of points to define rounded edge.
+#' @param asp numeric, aspect ratio. This is useful for preventing distortion of pill half circle for plots with different width and height.
+#'
+#' @return draws to plot
+#' @export
+#' @name lcars_pill
+#'
+#' @examples
+#' plot(0:1, 0:1, asp = 1)
+#' lcars_pill(0.3, 0.7, 0.7, 0.9, "#CD6363", "left")
+#' lcars_pill(0.3, 0.7, 0.4, 0.6, "#CC99CC", "both")
+#' lcars_pill(0.3, 0.7, 0.1, 0.3, "#FF9E63", "right")
+lcars_pill <- function(xmin, xmax, ymin, ymax, color, direction = c("both", "left", "right"),
+                       vertical = FALSE, gap = "auto", n = 20, asp = 1){
+  if(gap == "auto") gap <- min(c(xmax - xmin, ymax - ymin)) / 10
   direction <- match.arg(direction)
   if(direction == "both") direction <- c("left", "right")
+  gap <- rep(gap, 2)
+  if(!"left" %in% direction) gap[1] <- 0
+  if(!"right" %in% direction) gap[2] <- 0
+  lcars_rect(xmin, xmax, ymin, ymax, color)
   if(vertical){
+    lcars_rect(xmin, xmax, ymin + gap[1], ymax - gap[2], color)
+    lcars_rect(xmin, xmax, ymin + 2 * gap[1], ymax - 2 * gap[2], color)
     r <- (xmax - xmin) / 2
     m <- xmax - r
   } else {
+    lcars_rect(xmin + gap[1], xmax - gap[2], ymin, ymax, "white")
+    lcars_rect(xmin + 2 * gap[1], xmax - 2 * gap[2], ymin, ymax, color)
     r <- (ymax - ymin) / 2
     m <- ymax - r
   }
-
   if("left" %in% direction){
     if(vertical){
-      a <- pi * seq(1, 2, length.out = n)
-      x <- r * cos(a) + m
-      y <- r * sin(a) + ymin
-      points(x, y)
+      lcars_half_pill(m, ymin, r, 3, color, n, asp)
     } else {
-      a <- pi * seq(1.5, 0.5, length.out = n)
-      x <- r * cos(a) + xmin
-      y <- r * sin(a) + m
-      points(x, y)
+      lcars_half_pill(xmin, m, r, 4, color, n, asp)
     }
   }
-
   if("right" %in% direction){
     if(vertical){
-      a <- pi * seq(0, 1, length.out = n)
-      x <- r * cos(a) + m
-      y <- r * sin(a) + ymin
-      points(x, y)
+      lcars_half_pill(m, ymax, r, 1, color, n, asp)
     } else {
-      a <- pi * seq(1.5, 0.5, length.out = n)
-      x <- -r * cos(a) + xmax
-      y <- r * sin(a) + m
-      points(x, y)
-      n2 <- n / 2
-      p1 <- list(x = x[c(1:n2, (n2 - 1):1)], y = c(rep(m, n2), y[(n2 - 1):1]))
-      p2 <- list(x = x[c(n2:n, n:n2)], y = c(rep(m, length(n2:n)), y[n2:n]))
-      polygon(p1$x, p1$y, border = "blue", col = "blue")
-      polygon(p2$x, p2$y, border = "blue", col = "green")
+      lcars_half_pill(xmax, m, r, 2, color, n, asp)
     }
   }
-
-
-  xi <- xi + w + min(xo) - min(xi)
-  yi <- yi - h + max(yo) - max(yi)
+  invisible()
 }
 
+#' @export
+#' @rdname lcars_pill
+lcars_half_pill <- function(x, y, r, direction, color, n = 10, asp = 1){
+  direction <- .lcars_direction(direction, "direction")
+  f <- switch(direction, "1" = lcars_top_pill, "2" = lcars_right_pill,
+              "3" = lcars_bottom_pill, "4" = lcars_left_pill)
+  f(x, y, r, color, n, asp)
+}
+
+#' @export
+#' @rdname lcars_pill
+lcars_left_pill <- function(x, y, r, color, n = 10, asp = 1){
+  if(n %% 2 == 0) n <- n + 1
+  a <- pi * seq(1.5, 0.5, length.out = n)
+  m <- y
+  x <- r * cos(a) / asp + x
+  y <- r * sin(a) + y
+  n2 <- (n + 1) / 2
+  p1 <- list(x = x[c(1:n2, (n2 - 1):1)], y = c(rep(m, n2), y[(n2 - 1):1]))
+  p2 <- list(x = x[c(n2:n, n:n2)], y = c(rep(m, length(n2:n)), y[n:n2]))
+  graphics::polygon(p1$x, p1$y, border = color, col = color)
+  graphics::polygon(p2$x, p2$y, border = color, col = color)
+}
+
+#' @export
+#' @rdname lcars_pill
+lcars_right_pill <- function(x, y, r, color, n = 10, asp = 1){
+  if(n %% 2 == 0) n <- n + 1
+  a <- pi * seq(1.5, 0.5, length.out = n)
+  m <- y
+  x <- -r * cos(a) / asp + x
+  y <- r * sin(a) + y
+  n2 <- (n + 1) / 2
+  p1 <- list(x = x[c(1:n2, (n2 - 1):1)], y = c(rep(m, n2), y[(n2 - 1):1]))
+  p2 <- list(x = x[c(n2:n, n:n2)], y = c(rep(m, length(n2:n)), y[n:n2]))
+  graphics::polygon(p1$x, p1$y, border = color, col = color)
+  graphics::polygon(p2$x, p2$y, border = color, col = color)
+}
+
+#' @export
+#' @rdname lcars_pill
+lcars_bottom_pill <- function(x, y, r, color, n = 10, asp = 1){
+  if(n %% 2 == 0) n <- n + 1
+  a <- pi * seq(1, 2, length.out = n)
+  x <- r * cos(a) + x
+  y <- r * sin(a) * asp + y
+  graphics::polygon(x, y, border = color, col = color)
+}
+
+#' @export
+#' @rdname lcars_pill
+lcars_top_pill <- function(x, y, r, color, n = 10, asp = 1){
+  if(n %% 2 == 0) n <- n + 1
+  a <- pi * seq(0, 1, length.out = n)
+  x <- r * cos(a) + x
+  y <- r * sin(a) * asp + y
+  graphics::polygon(x, y, border = color, col = color)
+}
 
 #' LCARS corner bend
 #'
@@ -97,17 +165,9 @@ lcars_pill <- function(xmin, xmax, ymin, ymax, color, direction = c("both", "lef
 #' @examples
 #' plot(0:1, 0:1)
 #' lcars_bend(0.1, 0.9, 0.6, 0.9, "tl", 0.2, 0.05)
-lcars_bend <- function(xmin, xmax, ymin, ymax, corner, width, height, ro = width / 2, ri = height / 2, n = 10, color, draw = TRUE){
-  id <- c("topleft", "topright", "bottomright", "bottomleft", "tl", "tr", "br", "bl")
-  if(length(corner) > 1) stop("`corner` must be a single value.", call. = FALSE)
-  valid_corners <- paste0("`corner` must be an 1:4 or one of '", paste(id, collapse = "', '"), "'.")
-  if(is.character(corner) & !corner %in% id){
-    stop(valid_corners, call. = FALSE)
-  } else if(is.character(corner)){
-    corner <- switch(corner,
-                     topleft = 1, topright = 2, bottomright = 3, bottomleft = 4,
-                     tl = 1, tr = 2, br = 3, bl = 4)
-  } else if(!corner %in% 1:4) stop(valid_corners, call. = FALSE)
+lcars_bend <- function(xmin, xmax, ymin, ymax, corner, width, height, ro = width / 2, ri = height / 2,
+                       n = 10, color, draw = TRUE){
+  corner <- .lcars_direction(corner, "corner")
   f <- switch(corner, "1" = .tlc, "2" = .trc, "3" = .brc, "4" = .blc)
   f2 <- function(d) list(x = c(d$xo, rev(d$xi)), y = c(d$yo, rev(d$yi)))
   d <- f2(f(xmin, xmax, ymin, ymax, width, height, ro, ri, n))
@@ -116,6 +176,19 @@ lcars_bend <- function(xmin, xmax, ymin, ymax, corner, width, height, ro = width
     graphics::polygon(d$x, d$y, col = color[1], border = color[1])
     invisible(d)
   } else d
+}
+
+.lcars_direction <- function(x, argname){
+  id <- c("topleft", "topright", "bottomright", "bottomleft", "tl", "tr", "br", "bl")
+  if(length(x) > 1) stop(paste0("`", argname, "` must be a single value."), call. = FALSE)
+  valid <- paste0("`", argname, "` must be an 1:4 or one of '", paste(id, collapse = "', '"), "'.")
+  if(is.character(x) & !x %in% id){
+    stop(valid, call. = FALSE)
+  } else if(is.character(x)){
+    x <- switch(x, topleft = 1, topright = 2, bottomright = 3, bottomleft = 4,
+                tl = 1, tr = 2, br = 3, bl = 4)
+  } else if(!x %in% 1:4) stop(valid, call. = FALSE)
+  x
 }
 
 .tlc <- function(xmin, xmax, ymin, ymax, w = 2, h = 0.4, ro = w / 2, ri = h / 2, n = 10){
