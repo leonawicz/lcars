@@ -27,6 +27,9 @@ lcars_rect <- function(xmin, xmax, ymin, ymax, color){
 #' @param xmax numeric, scalar right x position.
 #' @param ymin numeric, scalar bottom y position.
 #' @param ymax numeric, scalar top y position.
+#' @param x numeric, x position for edge of horizontal half pill or midpoint of vertical half pill.
+#' @param y numeric, y position for edge of vertical half pill or midpoint of horizontal half pill.
+#' @param r numeric, radius of half pill.
 #' @param color pill color.
 #' @param direction integer 1:4 or character: \code{topleft}, \code{topright}, \code{bottomleft}, \code{bottomright}. May be abbreviated as \code{tl}, \code{tr}, \code{br}, \code{bl}.
 #' @param vertical logical, vertical pill.

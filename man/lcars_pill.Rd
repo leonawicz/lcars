@@ -45,6 +45,12 @@ lcars_top_pill(x, y, r, color, n = 50, asp = 1)
 \item{asp}{numeric, aspect ratio. This is useful for preventing distortion of pill half circle for plots with different width and height.}
 
 \item{gap_color}{the color of gaps if present. This is likely black, but because of the way the pill is drawn, it must be specified to match if the plot background color is not black.}
+
+\item{x}{numeric, x position for edge of horizontal half pill or midpoint of vertical half pill.}
+
+\item{y}{numeric, y position for edge of vertical half pill or midpoint of horizontal half pill.}
+
+\item{r}{numeric, radius of half pill.}
 }
 \value{
 draws to plot
