@@ -41,7 +41,7 @@ lcars_rect <- function(xmin, xmax, ymin, ymax, color){
 #'
 #' @examples
 #' op <- par(bg = "black")
-#' plot(0:1, 0:1)
+#' plot(0:1, 0:1, asp = 1)
 #' lcars_pill(0.05, 0.45, 0.7, 0.9, "#CD6363", "left")
 #' lcars_pill(0.05, 0.45, 0.4, 0.6, "#CC99CC", "both")
 #' lcars_pill(0.05, 0.45, 0.1, 0.3, "#FF9E63", "right")
