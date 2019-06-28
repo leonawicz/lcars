@@ -25,7 +25,7 @@ clrs <- c("firebrick1", "#FFFF33", "lightseagreen")
 g <- ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) + 
   geom_point() + 
   theme_lcars_dark() + 
-  coord_cartesian(clip = 'off') +
+  coord_cartesian(clip = "off") +
   annotation_custom(logo, xmin = 5.5, xmax = Inf, ymin = 6.9, ymax = Inf) +
   scale_color_manual(values = clrs)
 

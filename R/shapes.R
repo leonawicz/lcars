@@ -94,7 +94,7 @@ lcars_pill <- function(xmin, xmax, ymin, ymax, color, direction = c("both", "lef
 
 #' @export
 #' @rdname lcars_pill
-lcars_half_pill <- function(x, y, r, direction, color, n = 10, asp = 1){
+lcars_half_pill <- function(x, y, r, direction, color, n = 50, asp = 1){
   direction <- .lcars_direction(direction, "direction")
   f <- switch(direction, "1" = lcars_top_pill, "2" = lcars_right_pill,
               "3" = lcars_bottom_pill, "4" = lcars_left_pill)
@@ -103,7 +103,7 @@ lcars_half_pill <- function(x, y, r, direction, color, n = 10, asp = 1){
 
 #' @export
 #' @rdname lcars_pill
-lcars_left_pill <- function(x, y, r, color, n = 10, asp = 1){
+lcars_left_pill <- function(x, y, r, color, n = 50, asp = 1){
   if(n %% 2 == 0) n <- n + 1
   a <- pi * seq(1.5, 0.5, length.out = n)
   m <- y
@@ -118,7 +118,7 @@ lcars_left_pill <- function(x, y, r, color, n = 10, asp = 1){
 
 #' @export
 #' @rdname lcars_pill
-lcars_right_pill <- function(x, y, r, color, n = 10, asp = 1){
+lcars_right_pill <- function(x, y, r, color, n = 50, asp = 1){
   if(n %% 2 == 0) n <- n + 1
   a <- pi * seq(1.5, 0.5, length.out = n)
   m <- y
@@ -133,7 +133,7 @@ lcars_right_pill <- function(x, y, r, color, n = 10, asp = 1){
 
 #' @export
 #' @rdname lcars_pill
-lcars_bottom_pill <- function(x, y, r, color, n = 10, asp = 1){
+lcars_bottom_pill <- function(x, y, r, color, n = 50, asp = 1){
   if(n %% 2 == 0) n <- n + 1
   a <- pi * seq(1, 2, length.out = n)
   x <- r * cos(a) + x
@@ -143,7 +143,7 @@ lcars_bottom_pill <- function(x, y, r, color, n = 10, asp = 1){
 
 #' @export
 #' @rdname lcars_pill
-lcars_top_pill <- function(x, y, r, color, n = 10, asp = 1){
+lcars_top_pill <- function(x, y, r, color, n = 50, asp = 1){
   if(n %% 2 == 0) n <- n + 1
   a <- pi * seq(0, 1, length.out = n)
   x <- r * cos(a) + x
@@ -175,7 +175,7 @@ lcars_top_pill <- function(x, y, r, color, n = 10, asp = 1){
 #' plot(0:1, 0:1)
 #' lcars_bend(0.1, 0.9, 0.6, 0.9, "tl", 0.2, 0.05)
 lcars_bend <- function(xmin, xmax, ymin, ymax, corner, width, height, ro = width / 2, ri = height / 2,
-                       n = 10, color, draw = TRUE){
+                       n = 20, color, draw = TRUE){
   corner <- .lcars_direction(corner, "corner")
   f <- switch(corner, "1" = .tlc, "2" = .trc, "3" = .brc, "4" = .blc)
   f2 <- function(d) list(x = c(d$xo, rev(d$xi)), y = c(d$yo, rev(d$yi)))

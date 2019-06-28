@@ -5,7 +5,7 @@
 \title{LCARS corner bend}
 \usage{
 lcars_bend(xmin, xmax, ymin, ymax, corner, width, height, ro = width/2,
-  ri = height/2, n = 10, color, draw = TRUE)
+  ri = height/2, n = 20, color, draw = TRUE)
 }
 \arguments{
 \item{xmin}{numeric, scalar left x position.}

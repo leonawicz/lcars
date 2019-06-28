@@ -10,17 +10,18 @@
 \title{LCARS pill}
 \usage{
 lcars_pill(xmin, xmax, ymin, ymax, color, direction = c("both", "left",
-  "right"), vertical = FALSE, gap = "auto", n = 20, asp = 1)
+  "right"), vertical = FALSE, gap = "auto", n = 50, asp = 1,
+  gap_color = "black")
 
-lcars_half_pill(x, y, r, direction, color, n = 10, asp = 1)
+lcars_half_pill(x, y, r, direction, color, n = 50, asp = 1)
 
-lcars_left_pill(x, y, r, color, n = 10, asp = 1)
+lcars_left_pill(x, y, r, color, n = 50, asp = 1)
 
-lcars_right_pill(x, y, r, color, n = 10, asp = 1)
+lcars_right_pill(x, y, r, color, n = 50, asp = 1)
 
-lcars_bottom_pill(x, y, r, color, n = 10, asp = 1)
+lcars_bottom_pill(x, y, r, color, n = 50, asp = 1)
 
-lcars_top_pill(x, y, r, color, n = 10, asp = 1)
+lcars_top_pill(x, y, r, color, n = 50, asp = 1)
 }
 \arguments{
 \item{xmin}{numeric, scalar left x position.}
@@ -43,11 +44,7 @@ lcars_top_pill(x, y, r, color, n = 10, asp = 1)
 
 \item{asp}{numeric, aspect ratio. This is useful for preventing distortion of pill half circle for plots with different width and height.}
 
-\item{x}{numeric, x position for edge of horizontal half pill or midpoint of vertical half pill.}
-
-\item{y}{numeric, y position for edge of vertical half pill or midpoint of horizontal half pill.}
-
-\item{r}{numeric, radius of half pill.}
+\item{gap_color}{the color of gaps if present. This is likely black, but because of the way the pill is drawn, it must be specified to match if the plot background color is not black.}
 }
 \value{
 draws to plot
@@ -56,8 +53,13 @@ draws to plot
 Wrappers around \code{lcars_rect} that add rounded edges on one side or two opposing sides to make an LCARS pill.
 }
 \examples{
+op <- par(bg = "black")
 plot(0:1, 0:1, asp = 1)
-lcars_pill(0.3, 0.7, 0.7, 0.9, "#CD6363", "left")
-lcars_pill(0.3, 0.7, 0.4, 0.6, "#CC99CC", "both")
-lcars_pill(0.3, 0.7, 0.1, 0.3, "#FF9E63", "right")
+lcars_pill(0.05, 0.45, 0.7, 0.9, "#CD6363", "left")
+lcars_pill(0.05, 0.45, 0.4, 0.6, "#CC99CC", "both")
+lcars_pill(0.05, 0.45, 0.1, 0.3, "#FF9E63", "right")
+lcars_pill(0.55, 0.65, 0.1, 0.9, "#CD6363", "left", vertical = TRUE)
+lcars_pill(0.7, 0.8, 0.1, 0.9, "#CC99CC", "both", vertical = TRUE)
+lcars_pill(0.85, 0.95, 0.1, 0.9, "#FF9E63", "right", vertical = TRUE)
+par(op)
 }

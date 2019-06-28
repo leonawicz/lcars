@@ -25,5 +25,5 @@ A simple wrapper around \code{rect}.
 }
 \examples{
 plot(0:1, 0:1)
-lcars_rect(0.1, 0.9, 0.6, 0.9, "red")
+lcars_rect(0.1, 0.9, 0.6, 0.9, "#CD6363")
 }

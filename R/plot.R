@@ -55,7 +55,7 @@ lcars_border <- function(x = NULL, width = 10, height = 6, corners = 1:4,
   side_n_segments = rep(0, 4), side_color = list("#99CCFF", "#99CCFF", "#99CCFF", "#99CCFF"),
   side_label = rep(NA, 4), label_size = 1,
   side_label_adj = list(c(0.5, 0.5), c(-0.2, -0.2), c(0.5, 0.5), c(1.1, -0.2)),
-  gap = c(0.02, 0.01), bg = "black", n = 10){
+  gap = c(0.02, 0.01), bg = "black", n = 20){
 
   inset <- x
   op <- graphics::par(mar = rep(0, 4), font = 2, bg = bg)
