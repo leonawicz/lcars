@@ -22,5 +22,5 @@ theme_lcars_dark(base_size = 11, base_family = "",
 \item{base_rect_size}{base size for rect elements.}
 }
 \description{
-LCARS ggplot themes
+A collection of ggplot2 themes that go well with LCARS styles and colors.
 }

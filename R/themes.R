@@ -1,5 +1,7 @@
 #' LCARS ggplot themes
 #'
+#' A collection of ggplot2 themes that go well with LCARS styles and colors.
+#'
 #' @param base_size base font size.
 #' @param base_family base font family.
 #' @param base_line_size base size for line elements.
