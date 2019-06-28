@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' plot(0:1, 0:1)
-#' lcars_rect(0.1, 0.9, 0.6, 0.9, "red")
+#' lcars_rect(0.1, 0.9, 0.6, 0.9, "#CD6363")
 lcars_rect <- function(xmin, xmax, ymin, ymax, color){
   graphics::rect(xmin, ymin, xmax, ymax, col = color, border = color)
 }
@@ -27,44 +27,53 @@ lcars_rect <- function(xmin, xmax, ymin, ymax, color){
 #' @param xmax numeric, scalar right x position.
 #' @param ymin numeric, scalar bottom y position.
 #' @param ymax numeric, scalar top y position.
-#' @param x numeric, x position for edge of horizontal half pill or midpoint of vertical half pill.
-#' @param y numeric, y position for edge of vertical half pill or midpoint of horizontal half pill.
-#' @param r numeric, radius of half pill.
 #' @param color pill color.
 #' @param direction integer 1:4 or character: \code{topleft}, \code{topright}, \code{bottomleft}, \code{bottomright}. May be abbreviated as \code{tl}, \code{tr}, \code{br}, \code{bl}.
 #' @param vertical logical, vertical pill.
 #' @param gap numeric or \code{"auto"}, the gap between the pill half circle edge and pill rectangle edge.
 #' @param n integer, number of points to define rounded edge.
 #' @param asp numeric, aspect ratio. This is useful for preventing distortion of pill half circle for plots with different width and height.
+#' @param gap_color the color of gaps if present. This is likely black, but because of the way the pill is drawn, it must be specified to match if the plot background color is not black.
 #'
 #' @return draws to plot
 #' @export
 #' @name lcars_pill
 #'
 #' @examples
-#' plot(0:1, 0:1, asp = 1)
-#' lcars_pill(0.3, 0.7, 0.7, 0.9, "#CD6363", "left")
-#' lcars_pill(0.3, 0.7, 0.4, 0.6, "#CC99CC", "both")
-#' lcars_pill(0.3, 0.7, 0.1, 0.3, "#FF9E63", "right")
+#' op <- par(bg = "black")
+#' plot(0:1, 0:1)
+#' lcars_pill(0.05, 0.45, 0.7, 0.9, "#CD6363", "left")
+#' lcars_pill(0.05, 0.45, 0.4, 0.6, "#CC99CC", "both")
+#' lcars_pill(0.05, 0.45, 0.1, 0.3, "#FF9E63", "right")
+#' lcars_pill(0.55, 0.65, 0.1, 0.9, "#CD6363", "left", vertical = TRUE)
+#' lcars_pill(0.7, 0.8, 0.1, 0.9, "#CC99CC", "both", vertical = TRUE)
+#' lcars_pill(0.85, 0.95, 0.1, 0.9, "#FF9E63", "right", vertical = TRUE)
+#' par(op)
 lcars_pill <- function(xmin, xmax, ymin, ymax, color, direction = c("both", "left", "right"),
-                       vertical = FALSE, gap = "auto", n = 20, asp = 1){
+                       vertical = FALSE, gap = "auto", n = 50, asp = 1, gap_color = "black"){
   if(gap == "auto") gap <- min(c(xmax - xmin, ymax - ymin)) / 10
   direction <- match.arg(direction)
   if(direction == "both") direction <- c("left", "right")
   gap <- rep(gap, 2)
   if(!"left" %in% direction) gap[1] <- 0
   if(!"right" %in% direction) gap[2] <- 0
-  lcars_rect(xmin, xmax, ymin, ymax, color)
+  #lcars_rect(xmin, xmax, ymin, ymax, color)
   if(vertical){
-    lcars_rect(xmin, xmax, ymin + gap[1], ymax - gap[2], color)
-    lcars_rect(xmin, xmax, ymin + 2 * gap[1], ymax - 2 * gap[2], color)
     r <- (xmax - xmin) / 2
     m <- xmax - r
+    ymin <- ymin + r
+    ymax <- ymax - r
+    lcars_rect(xmin, xmax, ymin, ymax, color)
+    lcars_rect(xmin, xmax, ymin + gap[1], ymax - gap[2], gap_color)
+    lcars_rect(xmin, xmax, ymin + 2 * gap[1], ymax - 2 * gap[2], color)
   } else {
-    lcars_rect(xmin + gap[1], xmax - gap[2], ymin, ymax, "white")
-    lcars_rect(xmin + 2 * gap[1], xmax - 2 * gap[2], ymin, ymax, color)
     r <- (ymax - ymin) / 2
     m <- ymax - r
+    xmin <- xmin + r
+    xmax <- xmax - r
+    lcars_rect(xmin, xmax, ymin, ymax, color)
+    lcars_rect(xmin + gap[1], xmax - gap[2], ymin, ymax, gap_color)
+    lcars_rect(xmin + 2 * gap[1], xmax - 2 * gap[2], ymin, ymax, color)
   }
   if("left" %in% direction){
     if(vertical){
