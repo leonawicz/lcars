@@ -1,16 +1,14 @@
 library(lcars)
 library(ggplot2)
-library(grid)
-library(png)
 
-logo <- rasterGrob(readPNG(system.file("stlogo-white.png", package = "lcars")))
+logo <- grid::rasterGrob(png::readPNG(system.file("stlogo-white.png", package = "lcars")))
 clrs <- c("firebrick1", "#FFFF33", "lightseagreen")
 
-g <- ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
+g <- ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
   geom_point() +
-  theme_lcars_dark() +
+  rtrek::theme_rtrek_dark() + theme(plot.background = element_rect(color = "black")) +
   coord_cartesian(clip = "off") +
-  annotation_custom(logo, xmin = 5.1, xmax = Inf, ymin = 6.7, ymax = Inf) +
+  annotation_custom(logo, xmin = 8.9, xmax = Inf, ymin = 3.6, ymax = Inf) +
   scale_color_manual(values = clrs)
 
 len_frac <- c(0.55, 0.25, 0.2, 0.4, 0.1, 0.2, 0.1, 0.1)
@@ -20,9 +18,9 @@ side_colors <- list("#FFFF9C", c("#99CCFF", "#CC99CC"), NA,
                     c("#000000", rep("#99CCFF", 2), rep("#FF9E63", 5)))
 side_labels <- list(
   "R 47.0.2", c("47", "B4"), NA,
-  c(NA, "../ ", "47174-A", "O'Brien", "Lefler", "La Forge", "Barclay", "Argyle"))
+  c(NA, "..", "47174-A", "O'Brien", "Lefler", "La Forge", "Barclay", "Argyle"))
 
-png("lcars-ex1.png", 3000, 1800, type = "cairo", res = 300)
+png("data-raw/lcars-ex1.png", 3000, 1800, type = "cairo", res = 300)
 lcars_border(g, corners = 1:3, length_frac = len_frac, side_n_segments = n_seg,
              corner_color = corner_colors, side_color = side_colors,
              side_label = side_labels, label_size = 1)
@@ -40,8 +38,8 @@ text(0.5, 0.45, "LCARS", col = "#000000", font = 2, cex = 1)
 lcars_pill(8.3, 9.4, 3.25, 3.45, clrs[1])
 lcars_pill(8.3, 9.4, 3.0, 3.2, clrs[2])
 lcars_pill(8.3, 9.4, 2.75, 2.95, clrs[3])
-text(9.225, 3.275, "setosa", cex = 0.8, adj = c(1, 0), font = 2)
-text(9.225, 3.025, "versicolor", cex = 0.8, adj = c(1, 0), font = 2)
-text(9.225, 2.775, "virginica", cex = 0.8, adj = c(1, 0), font = 2)
+text(9.225, 3.28, "setosa", cex = 0.8, adj = c(1, 0), font = 2)
+text(9.225, 3.03, "versicolor", cex = 0.8, adj = c(1, 0), font = 2)
+text(9.225, 2.78, "virginica", cex = 0.8, adj = c(1, 0), font = 2)
 dev.off()
 

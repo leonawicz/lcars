@@ -22,11 +22,11 @@ library(png)
 logo <- rasterGrob(readPNG(system.file("stlogo-white.png", package = "lcars")))
 clrs <- c("firebrick1", "#FFFF33", "lightseagreen")
 
-g <- ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) + 
+g <- ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
   geom_point() + 
   theme_lcars_dark() + 
   coord_cartesian(clip = "off") +
-  annotation_custom(logo, xmin = 5.5, xmax = Inf, ymin = 6.9, ymax = Inf) +
+  annotation_custom(logo, xmin = 9.4, xmax = Inf, ymin = 3.6, ymax = Inf) +
   scale_color_manual(values = clrs)
 
 len_frac <- c(0.55, 0.25, 0.2, 0.4, 0.1, 0.2, 0.1, 0.1)

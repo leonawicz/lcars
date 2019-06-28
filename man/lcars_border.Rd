@@ -67,7 +67,6 @@ All arguments that take vectors or lists of length four are in clockwise order f
 the top side for side-related arguments.
 }
 \examples{
-layout(matrix(1:4), 2)
 lcars_border()
 
 sw <- seq(0.2, 2, length = 4)
@@ -75,10 +74,9 @@ lcars_border(width = 5, height = 5, ro = sw, ri = sw / 2, side_width = sw)
 
 len_frac <- c(0.3, 0.5, 0.2, 0.4, 0.3, 0.2, 0.1, 0.3)
 n_seg <- c(1, 2, 0, 8)
-lcars_border(corners = 1:3, length_frac = len_frac, side_n_segments = n_seg)
 
 library(ggplot2)
-g <- ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
+g <- ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
   geom_point() + facet_wrap(~Species, 2) + theme_lcars_light()
 lcars_border(g, corners = 1:3, length_frac = len_frac, side_n_segments = n_seg)
 }

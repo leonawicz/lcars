@@ -35,7 +35,6 @@
 #' @export
 #'
 #' @examples
-#' layout(matrix(1:4), 2)
 #' lcars_border()
 #'
 #' sw <- seq(0.2, 2, length = 4)
@@ -43,10 +42,9 @@
 #'
 #' len_frac <- c(0.3, 0.5, 0.2, 0.4, 0.3, 0.2, 0.1, 0.3)
 #' n_seg <- c(1, 2, 0, 8)
-#' lcars_border(corners = 1:3, length_frac = len_frac, side_n_segments = n_seg)
 #'
 #' library(ggplot2)
-#' g <- ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
+#' g <- ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
 #'   geom_point() + facet_wrap(~Species, 2) + theme_lcars_light()
 #' lcars_border(g, corners = 1:3, length_frac = len_frac, side_n_segments = n_seg)
 lcars_border <- function(x = NULL, width = 10, height = 6, corners = 1:4,
