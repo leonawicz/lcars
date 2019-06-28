@@ -138,17 +138,18 @@
     </div>
 
     <pre class="usage"><span class='fu'>lcars_pill</span>(<span class='no'>xmin</span>, <span class='no'>xmax</span>, <span class='no'>ymin</span>, <span class='no'>ymax</span>, <span class='no'>color</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"both"</span>, <span class='st'>"left"</span>,
-  <span class='st'>"right"</span>), <span class='kw'>vertical</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>gap</span> <span class='kw'>=</span> <span class='st'>"auto"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>)
+  <span class='st'>"right"</span>), <span class='kw'>vertical</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>gap</span> <span class='kw'>=</span> <span class='st'>"auto"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>gap_color</span> <span class='kw'>=</span> <span class='st'>"black"</span>)
 
-<span class='fu'>lcars_half_pill</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>r</span>, <span class='no'>direction</span>, <span class='no'>color</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>)
+<span class='fu'>lcars_half_pill</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>r</span>, <span class='no'>direction</span>, <span class='no'>color</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>)
 
-<span class='fu'>lcars_left_pill</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>r</span>, <span class='no'>color</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>)
+<span class='fu'>lcars_left_pill</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>r</span>, <span class='no'>color</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>)
 
-<span class='fu'>lcars_right_pill</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>r</span>, <span class='no'>color</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>)
+<span class='fu'>lcars_right_pill</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>r</span>, <span class='no'>color</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>)
 
-<span class='fu'>lcars_bottom_pill</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>r</span>, <span class='no'>color</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>)
+<span class='fu'>lcars_bottom_pill</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>r</span>, <span class='no'>color</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>)
 
-<span class='fu'>lcars_top_pill</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>r</span>, <span class='no'>color</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
+<span class='fu'>lcars_top_pill</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>r</span>, <span class='no'>color</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -194,16 +195,8 @@
       <td><p>numeric, aspect ratio. This is useful for preventing distortion of pill half circle for plots with different width and height.</p></td>
     </tr>
     <tr>
-      <th>x</th>
-      <td><p>numeric, x position for edge of horizontal half pill or midpoint of vertical half pill.</p></td>
-    </tr>
-    <tr>
-      <th>y</th>
-      <td><p>numeric, y position for edge of vertical half pill or midpoint of horizontal half pill.</p></td>
-    </tr>
-    <tr>
-      <th>r</th>
-      <td><p>numeric, radius of half pill.</p></td>
+      <th>gap_color</th>
+      <td><p>the color of gaps if present. This is likely black, but because of the way the pill is drawn, it must be specified to match if the plot background color is not black.</p></td>
     </tr>
     </table>
     
@@ -213,7 +206,8 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='fl'>0</span>:<span class='fl'>1</span>, <span class='fl'>0</span>:<span class='fl'>1</span>, <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='input'><span class='fu'>lcars_pill</span>(<span class='fl'>0.3</span>, <span class='fl'>0.7</span>, <span class='fl'>0.7</span>, <span class='fl'>0.9</span>, <span class='st'>"#CD6363"</span>, <span class='st'>"left"</span>)</div><div class='input'><span class='fu'>lcars_pill</span>(<span class='fl'>0.3</span>, <span class='fl'>0.7</span>, <span class='fl'>0.4</span>, <span class='fl'>0.6</span>, <span class='st'>"#CC99CC"</span>, <span class='st'>"both"</span>)</div><div class='input'><span class='fu'>lcars_pill</span>(<span class='fl'>0.3</span>, <span class='fl'>0.7</span>, <span class='fl'>0.1</span>, <span class='fl'>0.3</span>, <span class='st'>"#FF9E63"</span>, <span class='st'>"right"</span>)</div><div class='img'><img src='lcars_pill-1.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='no'>op</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/par'>par</a></span>(<span class='kw'>bg</span> <span class='kw'>=</span> <span class='st'>"black"</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='fl'>0</span>:<span class='fl'>1</span>, <span class='fl'>0</span>:<span class='fl'>1</span>, <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='input'><span class='fu'>lcars_pill</span>(<span class='fl'>0.05</span>, <span class='fl'>0.45</span>, <span class='fl'>0.7</span>, <span class='fl'>0.9</span>, <span class='st'>"#CD6363"</span>, <span class='st'>"left"</span>)</div><div class='input'><span class='fu'>lcars_pill</span>(<span class='fl'>0.05</span>, <span class='fl'>0.45</span>, <span class='fl'>0.4</span>, <span class='fl'>0.6</span>, <span class='st'>"#CC99CC"</span>, <span class='st'>"both"</span>)</div><div class='input'><span class='fu'>lcars_pill</span>(<span class='fl'>0.05</span>, <span class='fl'>0.45</span>, <span class='fl'>0.1</span>, <span class='fl'>0.3</span>, <span class='st'>"#FF9E63"</span>, <span class='st'>"right"</span>)</div><div class='input'><span class='fu'>lcars_pill</span>(<span class='fl'>0.55</span>, <span class='fl'>0.65</span>, <span class='fl'>0.1</span>, <span class='fl'>0.9</span>, <span class='st'>"#CD6363"</span>, <span class='st'>"left"</span>, <span class='kw'>vertical</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='input'><span class='fu'>lcars_pill</span>(<span class='fl'>0.7</span>, <span class='fl'>0.8</span>, <span class='fl'>0.1</span>, <span class='fl'>0.9</span>, <span class='st'>"#CC99CC"</span>, <span class='st'>"both"</span>, <span class='kw'>vertical</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='input'><span class='fu'>lcars_pill</span>(<span class='fl'>0.85</span>, <span class='fl'>0.95</span>, <span class='fl'>0.1</span>, <span class='fl'>0.9</span>, <span class='st'>"#FF9E63"</span>, <span class='st'>"right"</span>, <span class='kw'>vertical</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='lcars_pill-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/par'>par</a></span>(<span class='no'>op</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
