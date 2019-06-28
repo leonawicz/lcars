@@ -21,7 +21,7 @@ side_labels <- list(
   c(NA, "..", "47174-A", "O'Brien", "Lefler", "La Forge", "Barclay", "Argyle"))
 
 png("data-raw/lcars-ex1.png", 3000, 1800, type = "cairo", res = 300)
-lcars_border(g, corners = 1:3, length_frac = len_frac, side_n_segments = n_seg,
+lcars_border(g, corners = 1:3, ro = 0.35, length_frac = len_frac, side_n_segments = n_seg,
              corner_color = corner_colors, side_color = side_colors,
              side_label = side_labels, label_size = 1)
 
