@@ -4,38 +4,38 @@ library(ggrepel)
 load("demoApp.RData")
 
 p_totals <- ggplot(totals, aes(character, words, fill = uniform)) +
-    geom_col(color = NA, show.legend = FALSE) +
-    scale_fill_manual(values = uniform_colors) +
-    geom_text(aes(label = paste0(round(words / 1000), "K")),
-              size = 3, color = "white", vjust = 1.3) +
-    scale_x_discrete(expand = c(0, 0)) +
-    scale_y_continuous(expand = c(0, 0)) +
-    theme_lcars_dark(9) + labs(x = NULL, y = "Total words")
+  geom_col(color = NA, show.legend = FALSE) +
+  scale_fill_manual(values = uniform_colors) +
+  geom_text(aes(label = paste0(round(words / 1000), "K")),
+            size = 3, color = "white", vjust = 1.3) +
+  scale_x_discrete(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_lcars_dark(9) + labs(x = NULL, y = "Total words")
 
 p_biggest <- ggplot(biggest, aes(season, words)) +
-    geom_linerange(aes(ymin = ymn, ymax = ymx), color = "#FFFFCC") +
-    geom_point(aes(fill = uniform), shape = 21, size = 2, color = "#FFFFCC", show.legend = FALSE) +
-    scale_fill_manual(values = uniform_colors) +
-    geom_text_repel(aes(label = paste0(title, " (", character, ")")), color = "#FFFFCC",
-                    size = 1, hjust = -0.1, direction = "y", min.segment.length = 0.65) +
-    scale_x_continuous(breaks = 1:7, labels = 1:7, expand = expand_scale(0, c(0.1, 0.8))) +
-    theme_lcars_dark(9) + theme(panel.grid.minor = element_blank()) +
-    labs(y = "Total words")
+  geom_linerange(aes(ymin = ymn, ymax = ymx), color = "#FFFFCC") +
+  geom_point(aes(fill = uniform), shape = 21, size = 2, color = "#FFFFCC", show.legend = FALSE) +
+  scale_fill_manual(values = uniform_colors) +
+  geom_text_repel(aes(label = paste0(title, " (", character, ")")), color = "#FFFFCC",
+                  size = 1, hjust = -0.1, direction = "y", min.segment.length = 0.65) +
+  scale_x_continuous(breaks = 1:7, labels = 1:7, expand = expand_scale(0, c(0.1, 0.8))) +
+  theme_lcars_dark(9) + theme(panel.grid.minor = element_blank()) +
+  labs(y = "Total words")
 
 bc1 <- buttonColumn(
-    lcarsButton("btn_totals", "Total words"),
-    lcarsButton("btn_best", "Top episodes")
+  lcarsButton("btn_totals", "Total words"),
+  lcarsButton("btn_best", "Top episodes")
 )
 
 bc2 <- buttonColumn(
-    lcarsButton("btn_picard", "Picard"),
-    lcarsButton("btn_data", "Data"),
-    lcarsButton("btn_riker", "Riker"),
-    lcarsButton("btn_laforge", "La Forge"),
-    lcarsButton("btn_crusher", "Crusher"),
-    lcarsButton("btn_troi", "Troi"),
-    lcarsButton("btn_worf", "Worf"),
-    lcarsButton("btn_wesley", "Wesley")
+  lcarsButton("btn_picard", "Picard"),
+  lcarsButton("btn_data", "Data"),
+  lcarsButton("btn_riker", "Riker"),
+  lcarsButton("btn_laforge", "La Forge"),
+  lcarsButton("btn_crusher", "Crusher"),
+  lcarsButton("btn_troi", "Troi"),
+  lcarsButton("btn_worf", "Worf"),
+  lcarsButton("btn_wesley", "Wesley")
 )
 
 ui <- lcarsPage(
