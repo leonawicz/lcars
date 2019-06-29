@@ -24,7 +24,9 @@ knitr::opts_chunk$set(
 
 ## Library Computer Access/Retrieval System ([LCARS](https://en.wikipedia.org/wiki/LCARS))
 
-The `lcars` package provides simple approximations to LCARS style and appearance to give plots an LCARS theme. The key feature in `lcars` is the ability to wrap plots in an LCARS-themed border.
+The `lcars` package provides simple approximations to LCARS style and appearance to give plots an LCARS theme. The key feature in `lcars` is the ability to wrap ggplot objects in an LCARS-themed border.
+
+There is also nomimal support for an LCARS-themed Shiny UI using `lcarsPage` and related functions.
 
 ## Installation
 

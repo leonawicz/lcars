@@ -8,3 +8,6 @@
 #' @docType package
 #' @name lcars
 NULL
+
+#' @importFrom shiny div HTML
+NULL
