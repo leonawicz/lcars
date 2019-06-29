@@ -1,6 +1,6 @@
 Package: lcars
 Title: LCARS theme for R Graphics
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: person("Matthew", "Leonawicz", email = "matt_leonawicz@esource.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-9452-2771"))
 Description: Provides simple approximations to 'Library Computer Access/Retrieval System' (LCARS) style and appearance to give plots an LCARS theme. More details about LCARS can be found at <https://en.wikipedia.org/wiki/LCARS>.
 License: MIT + file LICENSE
@@ -8,15 +8,18 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/leonawicz/lcars
 BugReports: https://github.com/leonawicz/lcars/issues
+Depends: R (>= 3.5.0)
 Imports: 
     grid,
-    ggplot2
+    ggplot2,
+    shiny
 Suggests: 
     testthat,
     knitr,
     rmarkdown,
     covr,
-    png
+    png,
+    ggrepel
 VignetteBuilder: knitr
 Language: en-US
 RoxygenNote: 6.1.1

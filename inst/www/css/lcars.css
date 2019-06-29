@@ -1,0 +1,284 @@
+/* This CSS is a modification and expansion of the original: Copyright 2018 Harry Thomas - hmt3design.com (ISC) https://github.com/hmt3design */
+/* This accompanying sprites.svg file: Copyright 2018 Harry Thomas - hmt3design.com (ISC) https://github.com/hmt3design */
+
+Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
+
+@import url(https://fonts.googleapis.com/css?family=Oswald|Roboto);
+
+body {
+    background-color: black;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-family: Oswald, Roboto, sans-serif;
+    text-transform: uppercase;
+}
+
+.text {
+    color: white;
+}
+
+/*Block text*/
+.blocktext_black {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: right;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 28px;
+    color: black;
+    padding-right: 5px;
+}
+
+.blocktext_white {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: right;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 28px;
+    color: white;
+    padding-right: 5px;
+}
+
+/*buttons*/
+.lcars-btn, .lcars-btn-filtered {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: black;
+    padding-right: 5px;
+    padding-top: 35px;
+    text-align: right;
+    background-color: #ff9900;
+    height: 60px;
+    width: 150px;
+    border: none;
+    margin-bottom: 5px;
+}
+
+.lcars-btn-filtered:hover {
+    filter: brightness(85%);
+}
+
+/* button hover colors */
+.lcars-btn-pale-canary:hover {
+    background-color: #ffff99 !important;
+}
+.lcars-btn-neon-carrot:hover {
+    background-color: #ff9933 !important;
+}
+.lcars-btn-golden-tanoi:hover {
+    background-color: #ffcc66 !important;
+}
+.lcars-btn-lilac:hover {
+    background-color: #cc99cc !important;
+}
+.lcars-btn-eggplant:hover {
+    background-color: #664466 !important;
+}
+.lcars-btn-anakiwa:hover {
+    background-color: #99ccff !important;
+}
+.lcars-btn-mariner:hover {
+    background-color: #3366cc !important;
+}
+.lcars-btn-bahama-blue:hover {
+    background-color: #006699 !important;
+}
+.lcars-btn-blue-bell:hover {
+    background-color: #9999cc !important;
+}
+.lcars-btn-melrose:hover {
+    background-color: #9999ff !important;
+}
+.lcars-btn-hopbush:hover {
+    background-color: #cc6699 !important;
+}
+.lcars-btn-chestnut-rose:hover {
+    background-color: #cc6666 !important;
+}
+.lcars-btn-orange-peel:hover {
+    background-color: #ff9966 !important;
+}
+.lcars-btn-atomic-tangerine:hover {
+    background-color: #ff9900 !important;
+}
+.lcars-btn-danub:hover {
+    background-color: #6688cc !important;
+}
+.lcars-btn-indigo:hover {
+    background-color: #4455bb !important;
+}
+.lcars-btn-lavender-purple:hover {
+    background-color: #9977aa !important;
+}
+.lcars-btn-cosmic:hover {
+    background-color: #774466 !important;
+}
+.lcars-btn-red-damask:hover {
+    background-color: #dd6644 !important;
+}
+.lcars-btn-medium-carmine:hover {
+    background-color: #aa5533 !important;
+}
+.lcars-btn-bourbon:hover {
+    background-color: #bb6622 !important;
+}
+.lcars-btn-sandy-brown:hover {
+    background-color: #ee9955 !important;
+}
+.lcars-btn-periwinkle:hover {
+    background-color: #ccddff !important;
+}
+.lcars-btn-dodger-pale:hover {
+    background-color: #5599ff !important;
+}
+.lcars-btn-dodger-soft:hover {
+    background-color: #3366ff !important;
+}
+.lcars-btn-near-blue:hover {
+    background-color: #0011ee !important;
+}
+.lcars-btn-navy-blue:hover {
+    background-color: #000088 !important;
+}
+.lcars-btn-husk:hover {
+    background-color: #bbaa55 !important;
+}
+.lcars-btn-rust:hover {
+    background-color: #bb4411 !important;
+}
+.lcars-btn-tamarillo:hover {
+    background-color: #882211 !important;
+}
+
+/*lcarsHeader*/
+.lcars-hdr {
+    display: grid;
+    grid-template-columns: 45px minmax(200px, 1fr) auto 45px;
+    grid-template-rows: 30px;
+    grid-template-areas: "hdr-pill-left lcars-hdr-rect lcars-hdr-title hdr-pill-right";
+    grid-column-gap: 5px;
+}
+.lcars-hdr2 {
+    display: grid;
+    grid-template-columns: 45px minmax(200px, 1fr) 45px;
+    grid-template-rows: 30px;
+    grid-template-areas: "hdr-pill-left lcars-hdr-rect hdr-pill-right";
+    grid-column-gap: 5px;
+}
+.hdr-pill-left {
+    grid-area: hdr-pill-left;
+}
+.hdr-pill-right {
+    grid-area: hdr-pill-right;
+}
+.lcars-hdr-rect {
+    grid-area: lcars-hdr-rect;
+    background-color: #ffcc66;
+}
+.lcars-hdr-title {
+    grid-area: lcars-hdr-title;
+    color: #ffcc66;
+    font-size: 30px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    position: relative;
+    top: -8px;
+}
+
+/*lcarsBox*/
+.lcars-box {
+    display: grid;
+    grid-template-areas: "lcars-box-top" "main-section" "main-bottom";
+    grid-row-gap: 5px;
+}
+.lcars-box-top {
+    display: grid;
+    grid-template-columns: 300px minmax(1px, 1fr) 5px auto 5px 45px;
+    grid-template-rows: 90px;
+    grid-template-areas: "lcars-box-top-elbow-left lcars-rect-top . lcars-box-title . lcars-box-top-pill-right";
+}
+.lcars-box-top2 {
+    display: grid;
+    grid-template-columns: 300px minmax(1px, 1fr) 5px auto 5px 35px;
+    grid-template-rows: 90px;
+    grid-template-areas: "lcars-box-top-elbow-left lcars-rect-top lcars-box-top-pill-right";
+}
+.lcars-box-top-elbow-left {
+    grid-area: lcars-box-top-elbow-left;
+}
+.lcars-rect-top {
+    grid-area: lcars-rect-top;
+    background-color: #ff9900;
+    height: 30px;
+}
+.lcars-box-title {
+    grid-area: lcars-box-title;
+    color: #ff9900;
+    font-size: 30px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    position: relative;
+    top: -8px;
+}
+.lcars-box-top-pill-right {
+    grid-area: lcars-box-top-pill-right;
+}
+.lcars-box-center {
+    display: grid;
+    grid-template-columns: 150px auto;
+    grid-template-areas: "lcars-box-buttons lcars-box-main";
+    grid-column-gap: 20px;
+}
+.lcars-box-buttons {
+    grid-area: lcars-box-buttons;
+    display: grid;
+    grid-template-rows: auto minmax(60px, 1fr);
+    grid-template-areas: "main_button_column" "lcars-rect-left";
+}
+.lcars-rect-left {
+    grid-area: lcars-rect-left;
+    background-color: #ff9900;
+}
+.lcars-box-main {
+    grid-area: lcars-box-main;
+}
+.lcars-box-bot {
+    display: grid;
+    grid-template-columns: 300px minmax(1px, 1fr) 5px auto 5px 35px;
+    grid-template-rows: 90px;
+    grid-template-areas: "lcars-box-bot-elbow-left lcars-rect-bot lcars-box-bot-pill-right";
+}
+.lcars-box-bot2 {
+    display: grid;
+    grid-template-columns: 300px minmax(1px, 1fr) 5px auto 5px 45px;
+    grid-template-rows: 90px;
+    grid-template-areas: "lcars-box-bot-elbow-left lcars-rect-bot . lcars-box-subtitle . lcars-box-bot-pill-right";
+}
+.lcars-box-bot-elbow-left {
+    grid-area: lcars-box-bot-elbow-left;
+}
+.lcars-rect-bot {
+    grid-area: lcars-rect-bot;
+    background-color: #ff9900;
+    height: 30px;
+    margin-top: 60px;
+}
+.lcars-box-subtitle {
+    grid-area: lcars-box-subtitle;
+    color: #ff9900;
+    font-size: 30px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    position: relative;
+    top: -8px;
+    margin-top: 60px;
+}
+.lcars-box-bot-pill-right {
+    grid-area: lcars-box-bot-pill-right;
+    margin-top: 60px;
+}

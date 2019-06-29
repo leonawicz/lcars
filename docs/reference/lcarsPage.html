@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LCARS rectangle — lcars_rect • lcars</title>
+<title>LCARS Shiny UI — lcarsPage • lcars</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -39,9 +39,9 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="LCARS rectangle — lcars_rect" />
+<meta property="og:title" content="LCARS Shiny UI — lcarsPage" />
 
-<meta property="og:description" content="A simple wrapper around rect." />
+<meta property="og:description" content="Create a Shiny UI page with an LCARS theme." />
 
 <meta property="og:image" content="http://leonawicz.github.io/lcars/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -126,51 +126,37 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>LCARS rectangle</h1>
-    <small class="dont-index">Source: <a href='https://github.com/leonawicz/lcars/blob/master/R/shapes.R'><code>R/shapes.R</code></a></small>
-    <div class="hidden name"><code>lcars_rect.Rd</code></div>
+    <h1>LCARS Shiny UI</h1>
+    <small class="dont-index">Source: <a href='https://github.com/leonawicz/lcars/blob/master/R/shiny.R'><code>R/shiny.R</code></a></small>
+    <div class="hidden name"><code>lcarsPage.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>A simple wrapper around <code>rect</code>.</p>
+    <p>Create a Shiny UI page with an LCARS theme.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>lcars_rect</span>(<span class='no'>xmin</span>, <span class='no'>xmax</span>, <span class='no'>ymin</span>, <span class='no'>ymax</span>, <span class='no'>color</span>)</pre>
+    <pre class="usage"><span class='fu'>lcarsPage</span>(<span class='no'>...</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>xmin</th>
-      <td><p>numeric, left x positions.</p></td>
+      <th>...</th>
+      <td><p>The contents of the document body.</p></td>
     </tr>
     <tr>
-      <th>xmax</th>
-      <td><p>numeric, right x positions.</p></td>
-    </tr>
-    <tr>
-      <th>ymin</th>
-      <td><p>numeric, bottom y positions.</p></td>
-    </tr>
-    <tr>
-      <th>ymax</th>
-      <td><p>numeric, top y positions.</p></td>
-    </tr>
-    <tr>
-      <th>color</th>
-      <td><p>fill and border color.</p></td>
+      <th>title</th>
+      <td><p>The browser window title (defaults to the host URL of the page).</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>draws a rectangle</p>
+    <p>A UI definition that can be passed to the shinyUI function.</p>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='fl'>0</span>:<span class='fl'>1</span>, <span class='fl'>0</span>:<span class='fl'>1</span>)</div><div class='input'><span class='fu'>lcars_rect</span>(<span class='fl'>0.1</span>, <span class='fl'>0.9</span>, <span class='fl'>0.6</span>, <span class='fl'>0.9</span>, <span class='st'>"#CD6363"</span>)</div><div class='img'><img src='lcars_rect-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -178,9 +164,7 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+          </ul>
 
   </div>
 </div>

@@ -12,7 +12,18 @@ reference:
 - title: Package
   contents:
   - lcars
-- title: LCARS functions
+- title: Datasets
+  contents:
+  - lcarsColors
+- title: Shiny functions
+  contents:
+  - lcarsPage
+  - lcarsButton
+  - buttonColumn
+  - lcarsHeader
+  - lcarsBox
+  - lcarsApp
+- title: Plotting functions
   contents:
   - lcars_border
   - lcars_rect

@@ -24,7 +24,10 @@ coverage](https://codecov.io/gh/leonawicz/lcars/branch/master/graph/badge.svg)](
 
 The `lcars` package provides simple approximations to LCARS style and
 appearance to give plots an LCARS theme. The key feature in `lcars` is
-the ability to wrap plots in an LCARS-themed border.
+the ability to wrap ggplot objects in an LCARS-themed border.
+
+There is also nomimal support for an LCARS-themed Shiny UI using
+`lcarsPage` and related functions.
 
 ## Installation
 
@@ -48,7 +51,7 @@ remotes::install_github("leonawicz/lcars")
 library(lcars)
 library(ggplot2)
 
-g <- ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) + 
+g <- ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
   geom_point() + facet_wrap(~Species, 2) + theme_lcars_light()
 
 len_frac <- c(0.3, 0.5, 0.2, 0.4, 0.3, 0.2, 0.1, 0.3)

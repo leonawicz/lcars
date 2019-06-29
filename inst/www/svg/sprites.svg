@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 0; height: 0; visibility: hidden; position: absolute;" aria-hidden="true"><symbol  viewBox='0 0 150 60' id='lcars-svg-button_1'>
+    <path d="M0 0h150v60H0z" data-name="Button 1"></path>
+  </symbol><symbol  viewBox='0 0 300 90' id='lcars-svg-elbow_left_bottom'>
+    <path d="M150 90H75C33.58 90 0 56.61 0 15.41V0h150v22.87A37.26 37.26 0 0 0 187.5 60H300v30z"></path>
+  </symbol><symbol  viewBox='0 0 300 90' id='lcars-svg-elbow_left_top'>
+    <path d="M150 0H75C33.58 0 0 33.39 0 74.59V90h150V67.13A37.26 37.26 0 0 1 187.5 30H300V0z"></path>
+  </symbol><symbol  viewBox='0 0 45 30' id='lcars-svg-endcap_left'>
+    <path d="M15 30h30V0H15a15 15 0 0 0 0 30z" data-name="Sprite End Cap Left"></path>
+  </symbol><symbol  viewBox='0 0 45 30' id='lcars-svg-endcap_right'>
+    <path d="M30 0H0v30h30a15 15 0 0 0 0-30z" data-name="Sprite End Cap Right"></path>
+  </symbol></svg>
