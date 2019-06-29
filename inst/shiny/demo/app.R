@@ -22,25 +22,6 @@ p_biggest <- ggplot(biggest, aes(season, words)) +
     theme_lcars_dark(9) + theme(panel.grid.minor = element_blank()) +
     labs(y = "Total words")
 
-blurb <- HTML('<h1>LCARS CSS Grid</h1>
-            <p>Based on the Star Trek: The Next Generation LCARS (Library Catalog and Retrieval System) computer
-                interface created by Michael Okuda. I also got the specifications from <a
-                        href="https://www.lcars47.com/" target="_blank">LCARS47.com</a> for the shape specifications and
-                color palettes, modifying the dimensions to be a bit more rounded. The <a
-                        href="http://www.lcarssdk.org/" target="_blank">LCARS SDK</a> is also helpful.</p>
-            <p>This design makes use of <a href="https://gridbyexample.com/" target="_blank">CSS Grid</a> and SVG to
-                recreate the designs in an HMTL document. The odd shapes (endcaps, elbows, etc.) are created as SVGs
-                using Adobe Illustrator. The responsive layout and design is possible through the flexibility of CSS
-                Grid. Resizing the window will show that the horizontal and vertical block elements resize to fit the
-                space. </p>
-            <p>There is still some work to be done on device sizing, and eventually I hope to make a WordPress template
-                out of it, But for now, this will do.</p>
-            <p>This project is stored on <a href="https://github.com/hmt3design/LCARS_CSS_Grid"
-                                            target="_blank">GitHub</a> if you wish to examine it. If you wish to access
-                the Illustrator file with the complete collection of LCARS shapes that I created, it is also on <a
-                        href="https://github.com/hmt3design/Illustrator-templates/blob/master/LCARS%20Shapes.ai"
-                        target="_blank">GitHub</a>.</p>')
-
 bc1 <- buttonColumn(
     lcarsButton("btn_totals", "Total words"),
     lcarsButton("btn_best", "Top episodes")
