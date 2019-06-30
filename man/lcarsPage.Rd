@@ -4,16 +4,24 @@
 \alias{lcarsPage}
 \title{LCARS Shiny UI}
 \usage{
-lcarsPage(..., title = NULL)
+lcarsPage(..., title = NULL, force_uppercase = FALSE)
 }
 \arguments{
 \item{...}{The contents of the document body.}
 
 \item{title}{The browser window title (defaults to the host URL of the page).}
+
+\item{force_uppercase}{logical, see details.}
 }
 \value{
 A UI definition that can be passed to the shinyUI function.
 }
 \description{
 Create a Shiny UI page with an LCARS theme.
+}
+\details{
+The LCARS style heavily emphasizes uppercase text. Set \code{force_uppercase = TRUE} to force this standard via CSS. This does not make everything uppercase; things like input labels are left alone. However, text in general in uppercased.
+Although it deviates from traditional LCARS, the default is \code{FALSE}.
+This makes it easier for R developers to exert sensible judgment and control over how to balance the tension between
+making something that conforms well to the familiar LCARS aesthetic and making something that communicates information with a lower cognitive load for the user.
 }

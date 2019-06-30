@@ -9,5 +9,5 @@
 #' @name lcars
 NULL
 
-#' @importFrom shiny div HTML
+#' @importFrom shiny tags div HTML
 NULL

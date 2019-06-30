@@ -7,8 +7,9 @@
 buttonColumn(...)
 }
 \arguments{
-\item{...}{\code{lcarsBUtton} objects.}
+\item{...}{\code{lcarsButton} objects.}
 }
 \description{
-An LCARS button column is a container for \code{lcarsButton} that can be passed to \code{lcarsBox}. The buttons occur vertically in the left side panel of the box.
+An LCARS button column is a container for \code{lcarsButton} and \code{lcarsToggle} buttons that can be passed to \code{lcarsBox}.
+The buttons occur vertically in the left side panel of the box. Toggle button width should be 150px.
 }

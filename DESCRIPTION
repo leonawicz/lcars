@@ -19,7 +19,8 @@ Suggests:
     rmarkdown,
     covr,
     png,
-    ggrepel
+    ggrepel,
+    showtext
 VignetteBuilder: knitr
 Language: en-US
 RoxygenNote: 6.1.1

@@ -137,7 +137,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>lcarsPage</span>(<span class='no'>...</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>lcarsPage</span>(<span class='no'>...</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>force_uppercase</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -150,11 +150,22 @@
       <th>title</th>
       <td><p>The browser window title (defaults to the host URL of the page).</p></td>
     </tr>
+    <tr>
+      <th>force_uppercase</th>
+      <td><p>logical, see details.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A UI definition that can be passed to the shinyUI function.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The LCARS style heavily emphasizes uppercase text. Set <code>force_uppercase = TRUE</code> to force this standard via CSS. This does not make everything uppercase; things like input labels are left alone. However, text in general in uppercased.
+Although it deviates from traditional LCARS, the default is <code>FALSE</code>.
+This makes it easier for R developers to exert sensible judgment and control over how to balance the tension between
+making something that conforms well to the familiar LCARS aesthetic and making something that communicates information with a lower cognitive load for the user.</p>
     
 
   </div>
@@ -164,6 +175,8 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
           </ul>
 
   </div>
