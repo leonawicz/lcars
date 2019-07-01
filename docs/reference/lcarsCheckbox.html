@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • lcars</title>
+<title>LCARS checkbox — lcarsCheckbox • lcars</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -39,7 +39,9 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="LCARS checkbox — lcarsCheckbox" />
+
+<meta property="og:description" content="An LCARS styled toggle button that can be used in place of checkboxInput." />
 
 <meta property="og:image" content="http://leonawicz.github.io/lcars/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -69,7 +71,7 @@
   </head>
 
   <body>
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -124,39 +126,87 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/leonawicz/lcars/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>LCARS checkbox</h1>
+    <small class="dont-index">Source: <a href='https://github.com/leonawicz/lcars/blob/master/R/shiny.R'><code>R/shiny.R</code></a></small>
+    <div class="hidden name"><code>lcarsCheckbox.Rd</code></div>
     </div>
 
-    <div id="lcars-020" class="section level1">
-<h1 class="page-header">
-<a href="#lcars-020" class="anchor"></a>lcars 0.2.0</h1>
-<ul>
-<li>Added support for a minimal LCARS theme Shiny UI.</li>
-<li>New functions: <code>lcarsPage</code>, <code>lcarsButton</code>, <code>lcarsCheckbox</code>, <code>lcarsToggle</code>, <code>buttonColumn</code>, <code>lcarsHeader</code>, <code>lcarsBox</code> and <code>lcarsApp</code>.</li>
-<li>Added named LCARS colors from different palettes; see <code>lcarsColors</code>.</li>
-</ul>
-</div>
-    <div id="lcars-010" class="section level1">
-<h1 class="page-header">
-<a href="#lcars-010" class="anchor"></a>lcars 0.1.0</h1>
-<ul>
-<li>Added package scaffolding.</li>
-<li>Added initial functions and documentation.</li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    
+    <p>An LCARS styled toggle button that can be used in place of <code>checkboxInput</code>.</p>
+    
+    </div>
 
+    <pre class="usage"><span class='fu'>lcarsCheckbox</span>(<span class='no'>inputId</span>, <span class='no'>label</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>, <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
+  <span class='kw'>label_color</span> <span class='kw'>=</span> <span class='st'>"#FFFFFF"</span>, <span class='kw'>label_right</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>inputId</th>
+      <td><p>character, the input slot that will be used to access the value.</p></td>
+    </tr>
+    <tr>
+      <th>label</th>
+      <td><p>character, display label for the control, or <code>NULL</code> for no label.</p></td>
+    </tr>
+    <tr>
+      <th>value</th>
+      <td><p>logical, initial value.</p></td>
+    </tr>
+    <tr>
+      <th>color</th>
+      <td><p>Check color. Can be any color given in hex format. Named colors must be LCARS colors. See <code><a href='lcarsColors.html'>lcarsColors</a></code> for options.</p></td>
+    </tr>
+    <tr>
+      <th>background_color</th>
+      <td><p>background color, as above.</p></td>
+    </tr>
+    <tr>
+      <th>label_color</th>
+      <td><p>label text color, as above.</p></td>
+    </tr>
+    <tr>
+      <th>label_right</th>
+      <td><p>logical, set to <code>TRUE</code> to right align the label.</p></td>
+    </tr>
+    <tr>
+      <th>width</th>
+      <td><p>a valid CSS unit.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A checkbox control that can be added to a UI definition</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'>## Only run examples in interactive R sessions</span>
+<span class='kw'>if</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/interactive'>interactive</a></span>()){
+  <span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='lcarsPage.html'>lcarsPage</a></span>(
+    <span class='fu'>lcarsCheckbox</span>(<span class='st'>"somevalue"</span>, <span class='st'>"Some value"</span>, <span class='fl'>FALSE</span>),
+    <span class='fu'>verbatimTextOutput</span>(<span class='st'>"value"</span>)
+  )
+  <span class='no'>server</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) {
+    <span class='no'>output</span>$<span class='no'>value</span> <span class='kw'>&lt;-</span> <span class='fu'>renderText</span>({ <span class='no'>input</span>$<span class='no'>somevalue</span> })
+  }
+  <span class='fu'>shinyApp</span>(<span class='no'>ui</span>, <span class='no'>server</span>)
+}</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#lcars-020">0.2.0</a></li>
-        <li><a href="#lcars-010">0.1.0</a></li>
-      </ul>
-    </div>
-  </div>
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
+  </div>
 </div>
 
       <footer>

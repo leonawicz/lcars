@@ -137,7 +137,9 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>lcarsPage</span>(<span class='no'>...</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>force_uppercase</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>lcarsPage</span>(<span class='no'>...</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>force_uppercase</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>label_uppercase</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>lcars_font_headers</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>lcars_font_labels</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>lcars_font_text</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -154,6 +156,22 @@
       <th>force_uppercase</th>
       <td><p>logical, see details.</p></td>
     </tr>
+    <tr>
+      <th>label_uppercase</th>
+      <td><p>logical, also make widget labels uppercase globally.</p></td>
+    </tr>
+    <tr>
+      <th>lcars_font_headers</th>
+      <td><p>use LCARS-style font famliy for major heading text. See details.</p></td>
+    </tr>
+    <tr>
+      <th>lcars_font_labels</th>
+      <td><p>use LCARS-style font famliy for LCARS widget labels/titles.</p></td>
+    </tr>
+    <tr>
+      <th>lcars_font_text</th>
+      <td><p>use LCARS-style font famliy for general text (paragraphs, lists, etc.).</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -162,12 +180,26 @@
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The LCARS style heavily emphasizes uppercase text. Set <code>force_uppercase = TRUE</code> to force this standard via CSS. This does not make everything uppercase; things like input labels are left alone. However, text in general in uppercased.
-Although it deviates from traditional LCARS, the default is <code>FALSE</code>.
-This makes it easier for R developers to exert sensible judgment and control over how to balance the tension between
-making something that conforms well to the familiar LCARS aesthetic and making something that communicates information with a lower cognitive load for the user.</p>
+    <p>The LCARS style heavily emphasizes uppercase text. Set <code>force_uppercase = TRUE</code> to force this standard via CSS.
+This does not make everything uppercase; things like input labels are left alone (use <code>label_uppercase = TRUE</code>). However, text in general in uppercased.</p>
+<p>Set these to <code>FALSE</code> if you need control over casing.
+This allows sensible judgment over how to balance the tension between
+making something that conforms well to the familiar LCARS aesthetic
+and making something that communicates information with a lower cognitive load for the user.
+Similarly, set <code>lcars_font*</code> arguments to <code>FALSE</code> to use a more readbale sans serif font as desired.
+See examples for recommendations.</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='co'># Recommended settings</span>
+<span class='co'># for a more standard LCARS style: default settings.</span>
+<span class='fu'>lcarsPage</span>()
+
+<span class='co'># for a more readable style: less uppercase, switch to sans font</span>
+<span class='fu'>lcarsPage</span>(<span class='kw'>force_uppercase</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>label_uppercase</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>lcars_font_labels</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>lcars_font_text</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -177,7 +209,9 @@ making something that conforms well to the familiar LCARS aesthetic and making s
       <li><a href="#value">Value</a></li>
 
       <li><a href="#details">Details</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
