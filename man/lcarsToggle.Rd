@@ -10,12 +10,12 @@ lcarsToggle(inputId, label, value = FALSE, pill = FALSE,
   background_color = "#000000", border_color = ifelse(inverse,
   false_color, background_color), outer_border = FALSE,
   outer_color = "#000000", label_color = "#FFFFFF",
-  label_right = FALSE, width = "150px")
+  label_right = FALSE, width = NULL)
 }
 \arguments{
-\item{inputId}{The input slot that will be used to access the value.}
+\item{inputId}{character, the input slot that will be used to access the value.}
 
-\item{label}{Display label for the control, or NULL for no label.}
+\item{label}{character, display label for the control, or \code{NULL} for no label.}
 
 \item{value}{logical, initial value.}
 
@@ -43,15 +43,16 @@ lcarsToggle(inputId, label, value = FALSE, pill = FALSE,
 
 \item{label_right}{logical, set to \code{TRUE} to right align label text.}
 
-\item{width}{character, valid CSS unit, e.g. \code{"100px"}. Using a percentage works, but not as well. Fixed widths recommended.}
+\item{width}{character, use only \code{px} units for this widget, e.g. \code{"150px"} (the default when \code{NULL}). Percentage is the only other unit allowed. It works, but not as well. Fixed widths recommended.}
 }
 \value{
-a toggle button control that can be added to a UI
+A toggle button control that can be added to a UI definition.
 }
 \description{
-An LCARS styled toggle button that can be used in place of \code{checkboxInput}.
+An LCARS styled toggle button that can be used in place of \code{checkboxInput} and \code{lcarsCheckbox}.
 }
 \examples{
+## Only run examples in interactive R sessions
 if(interactive()){
   ui <- lcarsPage(
     lcarsToggle("somevalue", "Some value", FALSE),

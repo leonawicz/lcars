@@ -28,7 +28,7 @@ bc2 <- buttonColumn(
   lcarsButton("btn_wesley", "Wesley")
 )
 
-ui <- lcarsPage(force_uppercase = TRUE,
+ui <- lcarsPage(
   br(),
   lcarsHeader("Enterprise NCC-1701-D"),
   br(),

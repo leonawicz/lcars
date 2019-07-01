@@ -1,9 +1,9 @@
 library(shiny)
 
-ui <- lcarsPage(force_uppercase = TRUE,
+ui <- lcarsPage(lcars_font_labels = FALSE,
   br(), lcarsHeader("LCARS Demo: lcarsToggle"), br(),
   fluidRow(
-    column(2, style = "padding-left:30px;",
+    column(4, style = "padding-left:30px;",
       p("You can control several aspects of the LCARS toggle button with the available arguments."),
       HTML(
         "<ul>
@@ -15,7 +15,7 @@ ui <- lcarsPage(force_uppercase = TRUE,
         </ul>"),
       HTML("<p>Fixed widths, e.g., <code>\"100px\"</code> recommended. <code>\"100%\"</code> can be used but button movement is not smooth.</p>")
     ),
-    column(5,
+    column(4,
       lcarsToggle("tog1", "Default", FALSE, pill = FALSE, inverse = FALSE, "Yes", "No", width = "100px"),
       lcarsToggle("tog2", "Inverse", FALSE, pill = FALSE, inverse = TRUE, "True", "False", width = "100px"),
       lcarsToggle("tog3", "Widths/color", FALSE, pill = FALSE, inverse = FALSE, "On", "Off", "periwinkle", "red-damask", width = "150px"),
@@ -25,7 +25,7 @@ ui <- lcarsPage(force_uppercase = TRUE,
       lcarsToggle("tog7", "Border/outer/label colors", FALSE, pill = FALSE, inverse = FALSE, "Include variables", "Exclude variables", "pale-canary", "bourbon",
                   outer_border = TRUE, outer_color  = "atomic-tangerine", label_color = "lilac", width = "250px")
     ),
-    column(5,
+    column(4,
       lcarsToggle("tog8", "Pill", FALSE, pill = TRUE, inverse = FALSE, "Yes", "No", width = "100px"),
       lcarsToggle("tog9", "Pill inverse", FALSE, pill = TRUE, inverse = TRUE, "True", "False", width = "100px"),
       lcarsToggle("tog10", "Widths/color", FALSE, pill = TRUE, inverse = FALSE, "On", "Off", "periwinkle", "red-damask", width = "150px"),

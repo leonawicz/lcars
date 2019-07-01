@@ -2,27 +2,73 @@
 #'
 #' Create a Shiny UI page with an LCARS theme.
 #'
-#' The LCARS style heavily emphasizes uppercase text. Set \code{force_uppercase = TRUE} to force this standard via CSS. This does not make everything uppercase; things like input labels are left alone. However, text in general in uppercased.
-#' Although it deviates from traditional LCARS, the default is \code{FALSE}.
-#' This makes it easier for R developers to exert sensible judgment and control over how to balance the tension between
-#' making something that conforms well to the familiar LCARS aesthetic and making something that communicates information with a lower cognitive load for the user.
+#' The LCARS style heavily emphasizes uppercase text. Set \code{force_uppercase = TRUE} to force this standard via CSS.
+#' This does not make everything uppercase; things like input labels are left alone (use \code{label_uppercase = TRUE}). However, text in general in uppercased.
+#'
+#' Set these to \code{FALSE} if you need control over casing.
+#' This allows sensible judgment over how to balance the tension between
+#' making something that conforms well to the familiar LCARS aesthetic
+#' and making something that communicates information with a lower cognitive load for the user.
+#' Similarly, set \code{lcars_font*} arguments to \code{FALSE} to use a more readbale sans serif font as desired.
+#' See examples for recommendations.
 #'
 #' @param ... The contents of the document body.
 #' @param title The browser window title (defaults to the host URL of the page).
 #' @param force_uppercase logical, see details.
+#' @param label_uppercase logical, also make widget labels uppercase globally.
+#' @param lcars_font_headers use LCARS-style font famliy for major heading text. See details.
+#' @param lcars_font_labels use LCARS-style font famliy for LCARS widget labels/titles.
+#' @param lcars_font_text use LCARS-style font famliy for general text (paragraphs, lists, etc.).
+
 #'
 #' @return A UI definition that can be passed to the shinyUI function.
 #' @export
-lcarsPage <- function (..., title = NULL, force_uppercase = FALSE){
-  shiny::bootstrapPage(div(class = "container-fluid", lcars_init(force_uppercase), ...), title = title)
+#'
+#' @examples
+#' \dontrun{
+#' # Recommended settings
+#' # for a more standard LCARS style: default settings.
+#' lcarsPage()
+#'
+#' # for a more readable style: less uppercase, switch to sans font
+#' lcarsPage(force_uppercase = FALSE, label_uppercase = FALSE,
+#'   lcars_font_labels = FALSE, lcars_font_text = FALSE)
+#' }
+lcarsPage <- function (..., title = NULL, force_uppercase = TRUE, label_uppercase = TRUE,
+                       lcars_font_headers = TRUE, lcars_font_labels = TRUE,
+                       lcars_font_text = TRUE){
+  shiny::bootstrapPage(
+    div(
+      class = "container-fluid",
+      lcars_init(force_uppercase, label_uppercase, lcars_font_headers,
+                 lcars_font_labels, lcars_font_text), ...),
+    title = title
+  )
 }
 
-lcars_init <- function(force_uppercase = FALSE){
+lcars_init <- function(force_uppercase = FALSE, label_uppercase = FALSE, lcars_font_headers = TRUE,
+                       lcars_font_labels = TRUE, lcars_font_text = TRUE){
+  lcars_font_headers <- if(lcars_font_headers) "Oswald" else "sans-serif"
+  lcars_font_labels <- if(lcars_font_labels) "Oswald" else "sans-serif"
+  lcars_font_text <- if(lcars_font_text) "Oswald" else "sans-serif"
   shiny::addResourcePath("svg", system.file("www/svg", package = "lcars"))
   shiny::tagList(
     shiny::includeCSS(system.file("www/css/lcars.css", package = "lcars")),
     if(force_uppercase)
-      shiny::includeCSS(system.file("www/css/uppercase.css", package = "lcars"))
+      tags$style("h1, h2, h3, h4, h5, h6, p, li, .blocktext_black, .blocktext_white, .lcars-btn,
+                  .lcars-btn-filtered, .lcars-hdr-title, .lcars-box-title, .lcars-box-subtitle {
+                  text-transform: uppercase;}"),
+    if(label_uppercase) tags$style("label {text-transform: uppercase;}"),
+    tags$style(paste0(
+      "h1, h2, h3, h4, h5, h6, .lcars-hdr-title,
+      .lcars-box-title, .lcars-box-subtitle {
+      font-family: ", lcars_font_headers, ";}")),
+    tags$style(paste0(
+      "label, .lcars-btn, .lcars-btn-filtered, .lcars-checkbox label {
+      font-family: ", lcars_font_labels, ";}")),
+    tags$style(paste0(
+      "p, li, .text, code, .blocktext_white, .blocktext_black {
+      font-family: ", lcars_font_text, ";}"))
   )
 }
 
@@ -89,12 +135,59 @@ lcarsHeader <- function(title = NULL, color = "golden-tanoi", title_color = colo
   )
 }
 
-#' LCARS toggle button
+#' LCARS checkbox
 #'
 #' An LCARS styled toggle button that can be used in place of \code{checkboxInput}.
 #'
-#' @param inputId The input slot that will be used to access the value.
-#' @param label Display label for the control, or NULL for no label.
+#' @param inputId character, the input slot that will be used to access the value.
+#' @param label character, display label for the control, or \code{NULL} for no label.
+#' @param value logical, initial value.
+#' @param color Check color. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsColors}} for options.
+#' @param background_color background color, as above.
+#' @param label_color label text color, as above.
+#' @param label_right logical, set to \code{TRUE} to right align the label.
+#' @param width a valid CSS unit.
+#'
+#' @return A checkbox control that can be added to a UI definition
+#' @export
+#'
+#' @examples
+#' ## Only run examples in interactive R sessions
+#' if(interactive()){
+#'   ui <- lcarsPage(
+#'     lcarsCheckbox("somevalue", "Some value", FALSE),
+#'     verbatimTextOutput("value")
+#'   )
+#'   server <- function(input, output) {
+#'     output$value <- renderText({ input$somevalue })
+#'   }
+#'   shinyApp(ui, server)
+#' }
+lcarsCheckbox <- function(inputId, label, value = FALSE, color = "atomic-tangerine",
+                          background_color = "#000000", label_color = "#FFFFFF",
+                          label_right = FALSE, width = NULL){
+  x <- c(color, background_color, label_color)
+  x <- .lcars_color_check(x)
+  value <- restoreInput(id = inputId, default = value)
+  inputTag <- tags$input(id = inputId, type = "checkbox")
+  if(!is.null(value) && value) inputTag$attribs$checked <- "checked"
+  width <- shiny::validateCssUnit(width)
+  if(is.null(width)) width <- "150px"
+  style <- paste0("text-align:", if(label_right) "right" else "left", ";")
+  div(class = "form-group shiny-input-container", style = paste0(";width:", width, ";"),
+    div(class = "checkbox lcars-checkbox", style = style,
+        tags$label(
+          inputTag,
+          style = paste0("color:", x[3], ";--chk-main-color:", x[1], ";"),
+          tags$span(class = "checkmark", style = paste0("--chk-bg-color:", x[2], ";")), label)))
+}
+
+#' LCARS toggle button
+#'
+#' An LCARS styled toggle button that can be used in place of \code{checkboxInput} and \code{lcarsCheckbox}.
+#'
+#' @param inputId character, the input slot that will be used to access the value.
+#' @param label character, display label for the control, or \code{NULL} for no label.
 #' @param value logical, initial value.
 #' @param pill logical, use an LCARS pill style with rounded ends instead of the default rounded rectangle.
 #' @param inverse logical, invert the color presentation.
@@ -108,12 +201,13 @@ lcarsHeader <- function(title = NULL, color = "golden-tanoi", title_color = colo
 #' @param outer_color outer border color, as above.
 #' @param label_color label text color, as above.
 #' @param label_right logical, set to \code{TRUE} to right align label text.
-#' @param width character, valid CSS unit, e.g. \code{"100px"}. Using a percentage works, but not as well. Fixed widths recommended.
+#' @param width character, use only \code{px} units for this widget, e.g. \code{"150px"} (the default when \code{NULL}). Percentage is the only other unit allowed. It works, but not as well. Fixed widths recommended.
 #'
-#' @return a toggle button control that can be added to a UI
+#' @return A toggle button control that can be added to a UI definition.
 #' @export
 #'
 #' @examples
+#' ## Only run examples in interactive R sessions
 #' if(interactive()){
 #'   ui <- lcarsPage(
 #'     lcarsToggle("somevalue", "Some value", FALSE),
@@ -129,13 +223,13 @@ lcarsToggle <- function(inputId, label, value = FALSE, pill = FALSE, inverse = F
                         false_color = "atomic-tangerine", background_color = "#000000",
                         border_color = ifelse(inverse, false_color, background_color),
                         outer_border = FALSE, outer_color = "#000000",
-                        label_color = "#FFFFFF", label_right = FALSE, width = "150px"){
+                        label_color = "#FFFFFF", label_right = FALSE, width = NULL){
   value <- shiny::restoreInput(id = inputId, default = value)
   x <- c(true_color, false_color, background_color, border_color, outer_color, label_color)
   x <- .lcars_color_check(x)
   cl <- if(inverse) "inverse" else "default"
   cl <- paste0("lcars-toggle-", cl, " lcars-toggle-tf")
-  if(is.null(width)) width <- "100px"
+  if(is.null(width)) width <- "150px"
   r1 <- if(pill) "26px" else "4px"
   r2 <- if(pill) "18px" else "2px"
   f <- function(x){
@@ -148,6 +242,8 @@ lcarsToggle <- function(inputId, label, value = FALSE, pill = FALSE, inverse = F
     if(grepl("px", width)) width <- paste0(as.integer(gsub("px", "", width)) - 12, "px") else
       width <- paste0(as.integer(gsub("\\%", "", width)) - 0, "%")
   }
+  inputTag <- tags$input(type = "checkbox", name = "lcars-toggle", class = "lcars-toggle-checkbox", id = inputId)
+  if(!is.null(value) && value) inputTag$attribs$checked <- "checked"
   shiny::tagList(
     div(class = "form-group shiny-input-container",
         style = paste0(if(label_right) "text-align:right;", "margin-bottom:0px;width:", width0, ";"),
@@ -159,11 +255,10 @@ lcarsToggle <- function(inputId, label, value = FALSE, pill = FALSE, inverse = F
                          if(outer_border)
                            paste0("border: 2px solid ", x[5],
                                   "; border-radius: 4px; padding-left:4px; padding-right:4px; margin-top:4px;margin-bottom:4px;")),
-        div(class = "lcars-toggle",
-          tags$input(type = "checkbox", name = "lcars-toggle", class = "lcars-toggle-checkbox",
-                     id = inputId, checked = if(value) "" else NULL),
+        div(class = "lcars-toggle", inputTag,
           tags$label(class = "lcars-toggle-label",
-          style = paste0("text-align:left;border: 2px solid ", x[4], ";width:", width, ";--tog-w:", width, ";",
+          style = paste0("text-align:left;border: 2px solid ", x[4],
+                         ";width:", width, ";--tog-w:", width, ";",
                          "--tog-radius-label:", r1, ";"), `for` = inputId,
             tags$span(class = "lcars-toggle-inner",
             style = paste0("--tog-true-label: '", true, "';--tog-false-label: '", false, "';",
