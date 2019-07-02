@@ -40,7 +40,7 @@ A minimal replacement for \code{radioButtons} that provides two additional color
 ## Only run examples in interactive R sessions
 if (interactive()) {
 
-  ui <- fluidPage(
+  ui <- lcarsPage(
     lcarsRadio("dist", "Distribution type:",
                  c("Normal" = "norm",
                    "Uniform" = "unif",
