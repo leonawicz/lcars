@@ -22,6 +22,7 @@ reference:
   - lcarsCheckbox
   - lcarsToggle
   - buttonColumn
+  - lcarsRadio
   - lcarsHeader
   - lcarsBox
   - lcarsApp
