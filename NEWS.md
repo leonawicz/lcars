@@ -1,7 +1,7 @@
 # lcars 0.2.0
 
 * Added support for a minimal LCARS theme Shiny UI.
-* New functions: `lcarsPage`, `lcarsButton`, `lcarsCheckbox`, `lcarsToggle`, `buttonColumn`, `lcarsHeader`, `lcarsBox` and `lcarsApp`.
+* New functions: `lcarsPage`, `lcarsButton`, `lcarsCheckbox`, `lcarsToggle`, `buttonColumn`, `lcarsRadio`, `lcarsHeader`, `lcarsBox` and `lcarsApp`.
 * Added named LCARS colors from different palettes; see `lcarsColors`.
 
 # lcars 0.1.0

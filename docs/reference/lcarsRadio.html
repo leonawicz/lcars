@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LCARS checkbox — lcarsCheckbox • lcars</title>
+<title>LCARS radio buttons — lcarsRadio • lcars</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -39,9 +39,9 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="LCARS checkbox — lcarsCheckbox" />
+<meta property="og:title" content="LCARS radio buttons — lcarsRadio" />
 
-<meta property="og:description" content="An LCARS styled toggle button that can be used in place of checkboxInput." />
+<meta property="og:description" content="A minimal replacement for radioButtons that provides two additional color arguments for consistency with functions like lcarsCheckbox." />
 
 <meta property="og:image" content="http://leonawicz.github.io/lcars/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -126,20 +126,21 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>LCARS checkbox</h1>
-    <small class="dont-index">Source: <a href='https://github.com/leonawicz/lcars/blob/master/R/checkbox.R'><code>R/checkbox.R</code></a></small>
-    <div class="hidden name"><code>lcarsCheckbox.Rd</code></div>
+    <h1>LCARS radio buttons</h1>
+    <small class="dont-index">Source: <a href='https://github.com/leonawicz/lcars/blob/master/R/radio.R'><code>R/radio.R</code></a></small>
+    <div class="hidden name"><code>lcarsRadio.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>An LCARS styled toggle button that can be used in place of <code>checkboxInput</code>.</p>
+    <p>A minimal replacement for <code>radioButtons</code> that provides two additional color arguments for consistency with functions like <code>lcarsCheckbox</code>.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>lcarsCheckbox</span>(<span class='no'>inputId</span>, <span class='no'>label</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>, <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
-  <span class='kw'>label_color</span> <span class='kw'>=</span> <span class='st'>"#FFFFFF"</span>, <span class='kw'>label_right</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>lcarsRadio</span>(<span class='no'>inputId</span>, <span class='no'>label</span>, <span class='kw'>choices</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>selected</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>inline</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>choiceNames</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>choiceValues</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>label_color</span> <span class='kw'>=</span> <span class='st'>"#FFFFFF"</span>,
+  <span class='kw'>choice_color</span> <span class='kw'>=</span> <span class='no'>label_color</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -153,48 +154,75 @@
       <td><p>character, display label for the control, or <code>NULL</code> for no label.</p></td>
     </tr>
     <tr>
-      <th>value</th>
-      <td><p>logical, initial value.</p></td>
+      <th>choices</th>
+      <td><p>see <code><a href='https://www.rdocumentation.org/packages/shiny/topics/radioButtons'>shiny::radioButtons</a></code> for details.</p></td>
     </tr>
     <tr>
-      <th>color</th>
-      <td><p>Check color. Can be any color given in hex format. Named colors must be LCARS colors. See <code><a href='lcarsColors.html'>lcarsColors</a></code> for options.</p></td>
+      <th>selected</th>
+      <td><p>The initially selected value (if not specified then defaults to the first value).</p></td>
     </tr>
     <tr>
-      <th>background_color</th>
-      <td><p>background color, as above.</p></td>
-    </tr>
-    <tr>
-      <th>label_color</th>
-      <td><p>label text color, as above.</p></td>
-    </tr>
-    <tr>
-      <th>label_right</th>
-      <td><p>logical, set to <code>TRUE</code> to right align the label.</p></td>
+      <th>inline</th>
+      <td><p>If <code>TRUE</code>, render the choices inline (i.e. horizontally).</p></td>
     </tr>
     <tr>
       <th>width</th>
       <td><p>a valid CSS unit.</p></td>
     </tr>
+    <tr>
+      <th>choiceNames</th>
+      <td><p>see <code><a href='https://www.rdocumentation.org/packages/shiny/topics/radioButtons'>shiny::radioButtons</a></code> for details.</p></td>
+    </tr>
+    <tr>
+      <th>choiceValues</th>
+      <td><p>see <code><a href='https://www.rdocumentation.org/packages/shiny/topics/radioButtons'>shiny::radioButtons</a></code> for details.</p></td>
+    </tr>
+    <tr>
+      <th>label_color</th>
+      <td><p>Label color. Can be any color given in hex format. Named colors must be LCARS colors. See <code><a href='lcarsColors.html'>lcarsColors</a></code> for options.</p></td>
+    </tr>
+    <tr>
+      <th>choice_color</th>
+      <td><p>choice text color, as above.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A checkbox control that can be added to a UI definition</p>
+    <p>A set of radio buttons that can be added to a UI definition.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Only run examples in interactive R sessions</span>
-<span class='kw'>if</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/interactive'>interactive</a></span>()){
+<span class='kw'>if</span> (<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/interactive'>interactive</a></span>()) {
+
   <span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='lcarsPage.html'>lcarsPage</a></span>(
-    <span class='fu'>lcarsCheckbox</span>(<span class='st'>"somevalue"</span>, <span class='st'>"Some value"</span>, <span class='fl'>FALSE</span>),
-    <span class='fu'>verbatimTextOutput</span>(<span class='st'>"value"</span>)
+    <span class='fu'>lcarsRadio</span>(<span class='st'>"dist"</span>, <span class='st'>"Distribution type:"</span>,
+                 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Normal"</span> <span class='kw'>=</span> <span class='st'>"norm"</span>,
+                   <span class='st'>"Uniform"</span> <span class='kw'>=</span> <span class='st'>"unif"</span>,
+                   <span class='st'>"Log-normal"</span> <span class='kw'>=</span> <span class='st'>"lnorm"</span>,
+                   <span class='st'>"Exponential"</span> <span class='kw'>=</span> <span class='st'>"exp"</span>),
+               <span class='kw'>label_color</span> <span class='kw'>=</span> <span class='st'>"lilac"</span>,
+               <span class='kw'>choice_color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>
+              ),
+    <span class='fu'>plotOutput</span>(<span class='st'>"distPlot"</span>)
   )
+
   <span class='no'>server</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) {
-    <span class='no'>output</span>$<span class='no'>value</span> <span class='kw'>&lt;-</span> <span class='fu'>renderText</span>({ <span class='no'>input</span>$<span class='no'>somevalue</span> })
+    <span class='no'>output</span>$<span class='no'>distPlot</span> <span class='kw'>&lt;-</span> <span class='fu'>renderPlot</span>({
+      <span class='no'>dist</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/switch'>switch</a></span>(<span class='no'>input</span>$<span class='no'>dist</span>,
+                     <span class='kw'>norm</span> <span class='kw'>=</span> <span class='no'>rnorm</span>,
+                     <span class='kw'>unif</span> <span class='kw'>=</span> <span class='no'>runif</span>,
+                     <span class='kw'>lnorm</span> <span class='kw'>=</span> <span class='no'>rlnorm</span>,
+                     <span class='kw'>exp</span> <span class='kw'>=</span> <span class='no'>rexp</span>,
+                     <span class='no'>rnorm</span>)
+
+      <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/hist'>hist</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/dist'>dist</a></span>(<span class='fl'>500</span>))
+    })
   }
-  <span class='fu'>shinyApp</span>(<span class='no'>ui</span>, <span class='no'>server</span>)
-}</div></pre>
+}
+
+<span class='fu'>shinyApp</span>(<span class='no'>ui</span>, <span class='no'>server</span>)</div><div class='output co'>#&gt; <span class='error'>Error in shinyApp(ui, server): could not find function "shinyApp"</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
