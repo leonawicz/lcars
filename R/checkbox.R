@@ -31,7 +31,7 @@ lcarsCheckbox <- function(inputId, label, value = FALSE, color = "atomic-tangeri
                           label_right = FALSE, width = NULL){
   x <- c(color, background_color, label_color)
   x <- .lcars_color_check(x)
-  value <- restoreInput(id = inputId, default = value)
+  value <- shiny::restoreInput(id = inputId, default = value)
   inputTag <- tags$input(id = inputId, type = "checkbox")
   if(!is.null(value) && value) inputTag$attribs$checked <- "checked"
   width <- shiny::validateCssUnit(width)

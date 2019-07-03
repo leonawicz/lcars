@@ -44,16 +44,16 @@
 #'       hist(dist(500))
 #'     })
 #'   }
-#' }
 #'
-#' shinyApp(ui, server)
+#'   shinyApp(ui, server)
+#' }
 lcarsRadio <- function(inputId, label, choices = NULL, selected = NULL, inline = FALSE,
                        width = NULL, choiceNames = NULL, choiceValues = NULL,
                        label_color = "#FFFFFF", choice_color = label_color){
   x <- c(label_color, choice_color)
   x <- .lcars_color_check(x)
-  tagList(
-    radioButtons(inputId, label, choices, selected, inline,
+  shiny::tagList(
+    shiny::radioButtons(inputId, label, choices, selected, inline,
                  width, choiceNames, choiceValues),
     tags$style(paste0("#", inputId, " label{color:", x[1], ";}
                         #", inputId, " input[type='radio']+span{color: ", x[2], ";}")),

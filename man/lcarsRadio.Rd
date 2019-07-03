@@ -64,7 +64,7 @@ if (interactive()) {
       hist(dist(500))
     })
   }
-}
 
-shinyApp(ui, server)
+  shinyApp(ui, server)
+}
 }

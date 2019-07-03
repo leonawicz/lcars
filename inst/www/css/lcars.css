@@ -199,10 +199,10 @@ code {
 }
 .checkmark {
   position: absolute;
-  top: 0;
+  top: 2px;
   left: 0;
-  height: 20px;
-  width: 20px;
+  height: 17px;
+  width: 17px;
   background-color: var(--chk-bg-color);
   border: 1px #ff9900 solid;
   border-color: var(--chk-main-color);
@@ -225,10 +225,10 @@ code {
   display: block;
 }
 .lcars-checkbox .checkmark:after {
-  left: 6px;
-  top: 0px;
+  left: 4px;
+  top: 1px;
   width: 5px;
-  height: 14px;
+  height: 10px;
   color: var(--chk-main-color);
   background-color: var(--chk-bg-color);
   border: 2px #ff9900 solid;
