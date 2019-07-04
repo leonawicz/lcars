@@ -16,7 +16,7 @@
 #' @param x optional inset ggplot object.
 #' @param width full plot width in inches.
 #' @param height full plot height in inches.
-#' @param corners integer, \code{1:4}, specifying which corners to include: top left, top right, bottom right, bottom left.
+#' @param corners integer, \code{1:4}, a vector specifying which corner elbows to include the LCARS elbow bend: top left, top right, bottom right, bottom left.
 #' @param length_frac numeric, the fraction of a side that a corner extends over. See details.
 #' @param corner_color vector of corner colors, clockwise from top left.
 #' @param ro vector of corner outer radii, clockwise from top left.
@@ -55,6 +55,9 @@ lcars_border <- function(x = NULL, width = 10, height = 6, corners = 1:4,
   side_label_adj = list(c(0.5, 0.5), c(-0.2, -0.2), c(0.5, 0.5), c(1.1, -0.2)),
   gap = c(0.02, 0.01), bg = "black", n = 20){
 
+  if(!is.null(corners)){
+    if(any(!corners %in% 1:4)) stop("`corners` must be values in 1:4 or NULL.")
+  }
   inset <- x
   op <- graphics::par(mar = rep(0, 4), font = 2, bg = bg)
   w <- side_width
@@ -65,13 +68,13 @@ lcars_border <- function(x = NULL, width = 10, height = 6, corners = 1:4,
   ri <- rep(ri, length = 4)
 
   graphics::plot(0, 0, type = "n", axes = FALSE, xlim = c(0, width), ylim = c(0, height))
-  if(f(1)) lcars_bend(0, l[1] * width, height * (1 - l[8]), height,
+  if(f(1)) lcars_elbow(0, l[1] * width, height * (1 - l[8]), height,
                       "tl", w[4], w[1], ro[1], ri[1], n, cc[1])
-  if(f(2)) lcars_bend(width * (1 - l[2]), width, height * (1 - l[3]), height,
+  if(f(2)) lcars_elbow(width * (1 - l[2]), width, height * (1 - l[3]), height,
                       "tr", w[2], w[1], ro[2], ri[2], n, cc[2])
-  if(f(3)) lcars_bend(width * (1 - l[5]), width, 0, l[4] * height,
+  if(f(3)) lcars_elbow(width * (1 - l[5]), width, 0, l[4] * height,
                       "br", w[2], w[3], ro[3], ri[3], n, cc[3])
-  if(f(4)) lcars_bend(0, l[6] * width, 0, l[7] * height,
+  if(f(4)) lcars_elbow(0, l[6] * width, 0, l[7] * height,
                       "bl", w[4], w[3], ro[4], ri[4], n, cc[4])
 
   lim_top <- c(if(f(1)) width * l[1] else 0, if(f(2)) width * (1 - l[2]) else width)

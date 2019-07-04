@@ -84,17 +84,17 @@ lcars_init <- function(force_uppercase = FALSE, label_uppercase = FALSE, lcars_f
 #' @seealso \code{\link{lcarsColors}}.
 #' @export
 lcarsHeader <- function(title = NULL, color = "golden-tanoi", title_color = color){
-  color <- .lcars_color_check(color)
+  x <- .lcars_color_check(c(color, title_color))
   div(class = if(is.null(title)) "lcars-hdr2" else "lcars-hdr",
     div(class = "hdr-pill-left",
-      shiny::HTML('<svg style = "fill:', color, ';">
+      shiny::HTML('<svg style = "fill:', x[1], ';">
            <use xlink:href="svg/sprites.svg#lcars-svg-endcap_left" height="30" width="45"></use>
            </svg>')
     ),
-    div(class ="blocktext_black lcars-hdr-rect"),
-    if(!is.null(title)) div(class = "lcars-hdr-title", title),
+    div(class = "blocktext_black lcars-hdr-rect", style = paste0("background-color:", x[1], ";")),
+    if(!is.null(title)) div(class = "lcars-hdr-title", style = paste0("color:", x[2], ";"), title),
     div(class = "hdr-pill-right",
-      shiny::HTML('<svg style = "fill:', color[1], ';">
+      shiny::HTML('<svg style = "fill:', x[1], ';">
            <use xlink:href="svg/sprites.svg#lcars-svg-endcap_right" height="30" width="45"></use>
            </svg>')
     )

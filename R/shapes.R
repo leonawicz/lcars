@@ -154,9 +154,9 @@ lcars_top_pill <- function(x, y, r, color, n = 50, asp = 1){
   graphics::polygon(x, y, border = color, col = color)
 }
 
-#' LCARS corner bend
+#' LCARS corner elbow
 #'
-#' Draw a 90-degree rounded corner sweep for top left, top right, bottom right and bottom left LCARS corner panels.
+#' Draw a, LCARS elbow polygon. This is a 90-degree rounded corner bend for top left, top right, bottom right and bottom left LCARS corner panels.
 #'
 #' @param xmin numeric, scalar left x position.
 #' @param xmax numeric, scalar right x position.
@@ -176,8 +176,8 @@ lcars_top_pill <- function(x, y, r, color, n = 50, asp = 1){
 #'
 #' @examples
 #' plot(0:1, 0:1)
-#' lcars_bend(0.1, 0.9, 0.6, 0.9, "tl", 0.2, 0.05)
-lcars_bend <- function(xmin, xmax, ymin, ymax, corner, width, height, ro = width / 2, ri = height / 2,
+#' lcars_elbow(0.1, 0.9, 0.6, 0.9, "tl", 0.2, 0.05)
+lcars_elbow <- function(xmin, xmax, ymin, ymax, corner, width, height, ro = width / 2, ri = height / 2,
                        n = 20, color, draw = TRUE){
   corner <- .lcars_direction(corner, "corner")
   f <- switch(corner, "1" = .tlc, "2" = .trc, "3" = .brc, "4" = .blc)

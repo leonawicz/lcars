@@ -20,7 +20,7 @@ lcars_border(x = NULL, width = 10, height = 6, corners = 1:4,
 
 \item{height}{full plot height in inches.}
 
-\item{corners}{integer, \code{1:4}, specifying which corners to include: top left, top right, bottom right, bottom left.}
+\item{corners}{integer, \code{1:4}, a vector specifying which corner elbows to include the LCARS elbow bend: top left, top right, bottom right, bottom left.}
 
 \item{length_frac}{numeric, the fraction of a side that a corner extends over. See details.}
 

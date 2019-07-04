@@ -1,7 +1,7 @@
 lcars_2357 <- data.frame(
   series = 2357L,
-  name = c("pale-canary", "neon-carrot", "golden-tanoi", "lilac", "eggplant", "anakiwa", "mariner", "bahama-blue"),
-  value = c("#ffff99", "#ff9933", "#ffcc66", "#cc99cc", "#664466", "#99ccff", "#3366cc", "#006699"),
+  name = c("pale-canary", "neon-carrot", "tanoi", "golden-tanoi", "lilac", "eggplant", "anakiwa", "mariner", "bahama-blue"),
+  value = c("#ffff99", "#ff9933", "#ffcc99", "#ffcc66", "#cc99cc", "#664466", "#99ccff", "#3366cc", "#006699"),
   stringsAsFactors = FALSE
 )
 

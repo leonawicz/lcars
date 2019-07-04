@@ -33,11 +33,11 @@ ui <- lcarsPage(
   lcarsHeader("Enterprise NCC-1701-D"),
   br(),
   lcarsBox(uiOutput("topPanel"),
-    title = "Crew summary", buttonColumn = bc1, color = c("#ffcc99", "#ffcc66"), title_color = "atomic-tangerine"
+    title = "Crew summary", buttonColumn = bc1, color = "tanoi", title_color = "atomic-tangerine"
   ),
   br(),
   lcarsBox(uiOutput("bottomPanel"),
-    title = "Crew members", buttonColumn = bc2, color = c("#ffcc99", "#ffcc66"), title_color = "atomic-tangerine"
+    title = "Crew members", buttonColumn = bc2, color = "tanoi", title_color = "atomic-tangerine"
   ),
   br(),
   lcarsHeader(),

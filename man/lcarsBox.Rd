@@ -4,9 +4,9 @@
 \alias{lcarsBox}
 \title{LCARS box}
 \usage{
-lcarsBox(..., title = NULL, subtitle = NULL, buttonColumn = NULL,
-  color = "atomic-tangerine", title_color = color,
-  subtitle_color = color)
+lcarsBox(..., title = NULL, subtitle = NULL, corners = c(1, 4),
+  buttonColumn = NULL, color = "atomic-tangerine",
+  title_color = color, subtitle_color = color)
 }
 \arguments{
 \item{...}{box contents.}
@@ -14,6 +14,8 @@ lcarsBox(..., title = NULL, subtitle = NULL, buttonColumn = NULL,
 \item{title}{character, box title at top right.}
 
 \item{subtitle}{character, box subtitle at bottom right.}
+
+\item{corners}{integer, \code{1:4}, a vector specifying which corner elbows to include: top left, top right, bottom right, bottom left.}
 
 \item{buttonColumn}{optional button column made with \code{buttonColumn}.}
 
@@ -28,5 +30,5 @@ An LCARS box.
 }
 \details{
 Box color can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsColors}} for options.
-Use a vector of three colors for the top, left side, and bottom box panels, respectively.
+Use a vector of four colors for the top, right side, bottom, and left side box panels, respectively.
 }
