@@ -137,9 +137,9 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>lcarsBox</span>(<span class='no'>...</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>buttonColumn</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>, <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>,
-  <span class='kw'>subtitle_color</span> <span class='kw'>=</span> <span class='no'>color</span>)</pre>
+    <pre class="usage"><span class='fu'>lcarsBox</span>(<span class='no'>...</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>corners</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>4</span>),
+  <span class='kw'>buttonColumn</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>,
+  <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>subtitle_color</span> <span class='kw'>=</span> <span class='no'>color</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -155,6 +155,10 @@
     <tr>
       <th>subtitle</th>
       <td><p>character, box subtitle at bottom right.</p></td>
+    </tr>
+    <tr>
+      <th>corners</th>
+      <td><p>integer, <code>1:4</code>, a vector specifying which corner elbows to include: top left, top right, bottom right, bottom left.</p></td>
     </tr>
     <tr>
       <th>buttonColumn</th>
@@ -177,7 +181,7 @@
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Box color can be any color given in hex format. Named colors must be LCARS colors. See <code><a href='lcarsColors.html'>lcarsColors</a></code> for options.
-Use a vector of three colors for the top, left side, and bottom box panels, respectively.</p>
+Use a vector of four colors for the top, right side, bottom, and left side box panels, respectively.</p>
     
 
   </div>

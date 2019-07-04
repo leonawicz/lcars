@@ -31,7 +31,7 @@ reference:
   - lcars_border
   - lcars_rect
   - lcars_pill
-  - lcars_bend
+  - lcars_elbow
 - title: Themes
   contents:
   - theme_lcars_light
