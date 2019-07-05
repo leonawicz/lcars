@@ -9,7 +9,7 @@
 #' @param inverse logical, invert the color presentation.
 #' @param true character, text label for \code{TRUE} position.
 #' @param false character, text label for \code{FALSE} position.
-#' @param true_color Color for \code{TRUE} position. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsColors}} for options.
+#' @param true_color Color for \code{TRUE} position. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.
 #' @param false_color Color for \code{FALSE} position, as above.
 #' @param background_color background color, as above.
 #' @param border_color border color, as above.

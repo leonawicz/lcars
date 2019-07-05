@@ -27,7 +27,7 @@ lcarsToggle(inputId, label, value = FALSE, pill = FALSE,
 
 \item{false}{character, text label for \code{FALSE} position.}
 
-\item{true_color}{Color for \code{TRUE} position. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsColors}} for options.}
+\item{true_color}{Color for \code{TRUE} position. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.}
 
 \item{false_color}{Color for \code{FALSE} position, as above.}
 

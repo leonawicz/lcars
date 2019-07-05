@@ -15,7 +15,7 @@ lcarsCheckbox(inputId, label, value = FALSE,
 
 \item{value}{logical, initial value.}
 
-\item{color}{Check color. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsColors}} for options.}
+\item{color}{Check color. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.}
 
 \item{background_color}{background color, as above.}
 

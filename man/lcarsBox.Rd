@@ -83,7 +83,7 @@ The main content area extends left or right to fill any completely missing left 
 
 \section{Colors}{
 
-Box color can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsColors}} for options.
+Box color can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.
 By default, all border colors inherit from a single color passed to \code{color}.
 
 \code{color} is recycled to length four as needed. \code{color} actually defines all four corner elbow colors.

@@ -14,7 +14,7 @@ lcarsButton(inputId, label, icon = NULL, color = "atomic-tangerine",
 
 \item{icon}{An optional icon to appear on the button.}
 
-\item{color}{button color. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsColors}} for options.}
+\item{color}{button color. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.}
 
 \item{hover_color}{Named colors must be LCARS colors. Other arbitrary colors are not supported for hovering. If \code{hover_color = NULL}, the button will darken on hover.}
 
@@ -24,5 +24,5 @@ lcarsButton(inputId, label, icon = NULL, color = "atomic-tangerine",
 An LCARS wrapper around \code{shiny::actionButton} with additional color control.
 }
 \seealso{
-\code{\link{lcarsColors}}
+\code{\link{lcarsdata}}
 }

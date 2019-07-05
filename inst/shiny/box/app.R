@@ -24,7 +24,7 @@ bc2 <- buttonColumn(
 )
 corners <- c("Top left", "Top right", "Bottom right", "Bottom left")
 sides <- c("Top", "Right", "Bottom", "Left")
-clrs <- c("black" = "#000000", unique(lcarsColors$name))
+clrs <- c("black" = "#000000", unique(lcarsdata$name))
 clr <- "atomic-tangerine"
 txt <- c("Title", "Subtitle")
 w <- 240

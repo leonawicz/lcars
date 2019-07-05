@@ -5,7 +5,7 @@
 #' @param inputId character, the input slot that will be used to access the value.
 #' @param label character, display label for the control, or \code{NULL} for no label.
 #' @param value logical, initial value.
-#' @param color Check color. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsColors}} for options.
+#' @param color Check color. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.
 #' @param background_color background color, as above.
 #' @param label_color label text color, as above.
 #' @param label_right logical, set to \code{TRUE} to right align the label.

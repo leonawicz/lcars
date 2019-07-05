@@ -69,5 +69,5 @@ In addition to \code{lcarsHeader} there are also some LCARS style heading replac
 These default to centered text, whereas \code{lcarsHeader} is strictly right or left.
 }
 \seealso{
-\code{\link{lcarsColors}}.
+\code{\link{lcarsdata}}.
 }

@@ -26,7 +26,7 @@ lcarsRadio(inputId, label, choices = NULL, selected = NULL,
 
 \item{choiceValues}{see \code{shiny::radioButtons} for details.}
 
-\item{label_color}{Label color. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsColors}} for options.}
+\item{label_color}{Label color. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.}
 
 \item{choice_color}{choice text color, as above.}
 }

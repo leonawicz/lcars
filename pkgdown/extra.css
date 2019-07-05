@@ -10,3 +10,23 @@ td p {
 body, p, h1, h2, h3, h4, h5, h6{
   font-family: Helvetica, Arial, sans-serif;
 }
+
+/* syntaxt highlighting */
+.fl      {color: #63B8FF;}
+.fu      {color: #00F5FF;} /* function */
+.fu a    {color: #00F5FF;}
+code.sourceCode.r a    {color: #00FFFF;}
+.ch,.st  {color: #7AC5CD;} /* string */
+.kw      {color: #00FFFF;} /* keyword */
+.kw a    {color: #00CFFF;}
+.co      {color: #D0F8FF;} /* comment */
+
+.message { color: orange;   font-weight: bolder;}
+.error   { color: red;  font-weight: bolder;}
+.warning { color: purple; font-weight: bolder;
+}
+
+.sourceCode .r, .examples, .usage, pre, pre code {
+  background-color: #000030;
+  color: #A9F3EE;
+}

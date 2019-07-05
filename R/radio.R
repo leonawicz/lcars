@@ -10,7 +10,7 @@
 #' @param width a valid CSS unit.
 #' @param choiceNames see \code{shiny::radioButtons} for details.
 #' @param choiceValues see \code{shiny::radioButtons} for details.
-#' @param label_color Label color. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsColors}} for options.
+#' @param label_color Label color. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.
 #' @param choice_color choice text color, as above.
 #'
 #' @return A set of radio buttons that can be added to a UI definition.

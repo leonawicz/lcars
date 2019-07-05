@@ -5,7 +5,7 @@ template:
     ganalytics: UA-46129458-3
 
 authors:
-  Author Name:
+  Matthew Leonawicz:
     href: http://leonawicz.github.io/
 
 reference:
@@ -14,7 +14,7 @@ reference:
   - lcars
 - title: Datasets
   contents:
-  - lcarsColors
+  - lcarsdata
 - title: Shiny functions
   contents:
   - lcarsPage
@@ -38,6 +38,17 @@ reference:
   - theme_lcars_light
 
 navbar:
+  type: inverse
+  left:
+    - text: "Home"
+      icon: fa-home
+      href: "index.html"
+    - text: "Get Started"
+      href: "articles/lcars.html"
+    - text: "Reference"
+      href: "reference/index.html"
+    - text: "Changelog"
+      href: "news/index.html"
   right:
     - icon: fa-github fa-lg
       href: https://github.com/leonawicz/lcars

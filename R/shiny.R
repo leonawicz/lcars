@@ -89,7 +89,7 @@ lcars_init <- function(force_uppercase = FALSE, label_uppercase = FALSE, lcars_f
 #' @param title_invert logical, invert the color and background color for the title rectangle.
 #' @param width a valid CSS unit.
 #'
-#' @seealso \code{\link{lcarsColors}}.
+#' @seealso \code{\link{lcarsdata}}.
 #' @name lcarsHeader
 #' @export
 lcarsHeader <- function(title = NULL, color = "golden-tanoi", title_color = color,
@@ -278,8 +278,8 @@ lcarsApp <- function(id = "demo"){
 .lcars_color_check <- function(x){
   idx <- grepl("^#", x)
   if(all(idx)) return(x)
-  y <- match(x[!idx], lcars::lcarsColors$name)
+  y <- match(x[!idx], lcars::lcarsdata$name)
   if(any(is.na(y))) stop("Invalid LCARS color name. Provide non-LCARS colors in hex format.")
-  x[!idx] <- lcars::lcarsColors$value[y]
+  x[!idx] <- lcars::lcarsdata$value[y]
   x
 }
