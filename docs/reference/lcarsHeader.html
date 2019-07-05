@@ -41,7 +41,7 @@
   
 <meta property="og:title" content="LCARS header — lcarsHeader" />
 
-<meta property="og:description" content="A, LCARS header panel." />
+<meta property="og:description" content="An LCARS header panel." />
 
 <meta property="og:image" content="http://leonawicz.github.io/lcars/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -133,12 +133,43 @@
 
     <div class="ref-description">
     
-    <p>A, LCARS header panel.</p>
+    <p>An LCARS header panel.</p>
     
     </div>
 
     <pre class="usage"><span class='fu'>lcarsHeader</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"golden-tanoi"</span>,
-  <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>)</pre>
+  <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
+  <span class='kw'>title_right</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>title_invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>)
+
+<span class='fu'>lcarsh1</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>,
+  <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
+  <span class='kw'>title_align</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"center"</span>, <span class='st'>"right"</span>, <span class='st'>"left"</span>), <span class='kw'>title_invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"auto"</span>)
+
+<span class='fu'>lcarsh2</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>,
+  <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
+  <span class='kw'>title_align</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"center"</span>, <span class='st'>"right"</span>, <span class='st'>"left"</span>), <span class='kw'>title_invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"auto"</span>)
+
+<span class='fu'>lcarsh3</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>,
+  <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
+  <span class='kw'>title_align</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"center"</span>, <span class='st'>"right"</span>, <span class='st'>"left"</span>), <span class='kw'>title_invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"auto"</span>)
+
+<span class='fu'>lcarsh4</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>,
+  <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
+  <span class='kw'>title_align</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"center"</span>, <span class='st'>"right"</span>, <span class='st'>"left"</span>), <span class='kw'>title_invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"auto"</span>)
+
+<span class='fu'>lcarsh5</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>,
+  <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
+  <span class='kw'>title_align</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"center"</span>, <span class='st'>"right"</span>, <span class='st'>"left"</span>), <span class='kw'>title_invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"auto"</span>)
+
+<span class='fu'>lcarsh6</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>,
+  <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
+  <span class='kw'>title_align</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"center"</span>, <span class='st'>"right"</span>, <span class='st'>"left"</span>), <span class='kw'>title_invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"auto"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -155,7 +186,32 @@
       <th>title_color</th>
       <td><p>text color. Any hex color or a named LCARS color.</p></td>
     </tr>
+    <tr>
+      <th>background_color</th>
+      <td><p>color behind text.</p></td>
+    </tr>
+    <tr>
+      <th>title_right</th>
+      <td><p>logical, right align title.</p></td>
+    </tr>
+    <tr>
+      <th>title_invert</th>
+      <td><p>logical, invert the color and background color for the title rectangle.</p></td>
+    </tr>
+    <tr>
+      <th>width</th>
+      <td><p>a valid CSS unit.</p></td>
+    </tr>
+    <tr>
+      <th>title_align</th>
+      <td><p>character, for the heading replacers: center, right or left.</p></td>
+    </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>In addition to <code>lcarsHeader</code> there are also some LCARS style heading replacers, <code>lcarsh1</code> through <code>lcarsh6</code>.
+These default to centered text, whereas <code>lcarsHeader</code> is strictly right or left.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -168,6 +224,8 @@
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#details">Details</a></li>
+
       <li><a href="#see-also">See also</a></li>
           </ul>
 

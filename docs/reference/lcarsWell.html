@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • lcars</title>
+<title>LCARS well — lcarsWell • lcars</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -39,7 +39,9 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="LCARS well — lcarsWell" />
+
+<meta property="og:description" content="A simple LCARS well panel wrapper that takes color and background color arguments and understands LCARS color names." />
 
 <meta property="og:image" content="http://leonawicz.github.io/lcars/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -69,7 +71,7 @@
   </head>
 
   <body>
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -124,40 +126,52 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/leonawicz/lcars/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>LCARS well</h1>
+    <small class="dont-index">Source: <a href='https://github.com/leonawicz/lcars/blob/master/R/shiny.R'><code>R/shiny.R</code></a></small>
+    <div class="hidden name"><code>lcarsWell.Rd</code></div>
     </div>
 
-    <div id="lcars-020" class="section level1">
-<h1 class="page-header">
-<a href="#lcars-020" class="anchor"></a>lcars 0.2.0</h1>
-<ul>
-<li>Added support for a minimal LCARS theme Shiny UI.</li>
-<li>New functions: <code>lcarsPage</code>, <code>lcarsButton</code>, <code>lcarsCheckbox</code>, <code>lcarsToggle</code>, <code>buttonColumn</code>, <code>lcarsRadio</code>, <code>lcarsHeader</code> and other header functions, <code>lcarsBox</code>, <code>lcarsWell</code> and <code>lcarsApp</code>.</li>
-<li>Added named LCARS colors from different palettes; see <code>lcarsColors</code>.</li>
-<li>Added readme and vignette content.</li>
-</ul>
-</div>
-    <div id="lcars-010" class="section level1">
-<h1 class="page-header">
-<a href="#lcars-010" class="anchor"></a>lcars 0.1.0</h1>
-<ul>
-<li>Added package scaffolding.</li>
-<li>Added initial functions and documentation.</li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    
+    <p>A simple LCARS well panel wrapper that takes color and background color arguments and understands LCARS color names.</p>
+    
+    </div>
 
+    <pre class="usage"><span class='fu'>lcarsWell</span>(<span class='no'>...</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>,
+  <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='st'>"#111111"</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>...</th>
+      <td><p>panel contents.</p></td>
+    </tr>
+    <tr>
+      <th>color</th>
+      <td><p>border color. Any hex color or a named LCARS color.</p></td>
+    </tr>
+    <tr>
+      <th>background_color</th>
+      <td><p>background color. Any hex color or a named LCARS color.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>a div</p>
+    
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#lcars-020">0.2.0</a></li>
-        <li><a href="#lcars-010">0.1.0</a></li>
-      </ul>
-    </div>
-  </div>
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+          </ul>
 
+  </div>
 </div>
 
       <footer>

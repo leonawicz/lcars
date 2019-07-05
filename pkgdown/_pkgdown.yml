@@ -25,6 +25,7 @@ reference:
   - lcarsRadio
   - lcarsHeader
   - lcarsBox
+  - lcarsWell
   - lcarsApp
 - title: Plotting functions
   contents:

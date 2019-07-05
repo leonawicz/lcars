@@ -10,7 +10,7 @@ lcarsApp(id = "demo")
 \item{id}{character, app id.}
 }
 \description{
-Currently available apps include: \code{demo}, \code{toggle}.
+Currently available apps include: \code{demo}, \code{box}, \code{toggle}.
 }
 \examples{
 \dontrun{lcarsApp("demo")}

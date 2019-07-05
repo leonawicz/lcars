@@ -5,8 +5,10 @@
 \title{LCARS box}
 \usage{
 lcarsBox(..., title = NULL, subtitle = NULL, corners = c(1, 4),
-  buttonColumn = NULL, color = "atomic-tangerine",
-  title_color = color, subtitle_color = color)
+  sides = c(1, 3, 4), left_inputs = NULL, right_inputs = NULL,
+  color = "atomic-tangerine", side_color = color,
+  title_color = color, subtitle_color = color, title_right = TRUE,
+  subtitle_right = TRUE, clip = TRUE, width = "100\%")
 }
 \arguments{
 \item{...}{box contents.}
@@ -15,20 +17,125 @@ lcarsBox(..., title = NULL, subtitle = NULL, corners = c(1, 4),
 
 \item{subtitle}{character, box subtitle at bottom right.}
 
-\item{corners}{integer, \code{1:4}, a vector specifying which corner elbows to include: top left, top right, bottom right, bottom left.}
+\item{corners}{integer, \code{1:4}, a vector specifying which corner elbows to include: top left, top right, bottom right, bottom left. See details.}
 
-\item{buttonColumn}{optional button column made with \code{buttonColumn}.}
+\item{sides}{integer, \code{1:4}, a vector specifying which sides to include panels: top, right, bottom, left. See details.}
 
-\item{color}{box color. See details.}
+\item{left_inputs}{optional input column for left side, for example a button column made with \code{buttonColumn}. See details.}
+
+\item{right_inputs}{optional input column for right side, for example a button column made with \code{buttonColumn}. See details.}
+
+\item{color}{box border colors. See details.}
+
+\item{side_color}{box border colors. See details.}
 
 \item{title_color}{text title color.}
 
 \item{subtitle_color}{text subtitle color.}
+
+\item{title_right}{logical, right align title.}
+
+\item{subtitle_right}{logical, right align subtitle.}
+
+\item{clip}{logical, use empty margin space. See details.}
+
+\item{width}{a valid CSS unit.}
 }
 \description{
-An LCARS box.
+Create a configurable LCARS box.
 }
 \details{
+This function allows you to customize the inclusion and colors of specific border components of the box. The defaults are closer to standard LCARS style.
+You can turn on or off specific corner elbows, connecting side panels, control colors of each, as well as title and subtitle inclusion, color and alignment.
+}
+\section{Corner elbows}{
+
+Control which corners of the box display the characteristic LCARS elbow, clockwise from top left.
+The top and bottom borders are independent of one another. Each work in the same manner. For each, you can have a left elbow (default), a right elbow, or both.
+
+When only one is corner present (on top or on bottom), the bar extends to the other corner and terminates with the characteristic LCARS half pill if the panel border is included (see side panel section below).
+If the side between the elbow areas is excluded, only the elbows are displayed.
+
+If both elbows are excluded from the top or from the bottom, a simple, straight \code{lcarsHeader} element is placed above or below the main content area instead, but this can be controlled via \code{sides}.
+}
+
+\section{Side panels}{
+
+Control which sides of the box include an LCARS-styled border, clockwise from top left.
+Sides connect elbows using straight bars. The top and bottom sides are where title and subtitle text are placed.
+The title for the top and subtitle for the bottom are included in the bar with standard LCARS right alignment, which can be switched to left.
+The \code{title} or \code{subtitle} arguments are ignored if the top or bottom side panel is excluded, respectively.
+
+By default, left and right sides are 150 pixels wide; top and bottom sides are 30 pixels tall. Currently this cannot be changed, but may be configurable in a future version.
+}
+
+\section{Side inputs columns}{
+
+Input columns are different from left and right sides. The latter refers to whether or not their are connecting bars from elbow to elbow.
+An input column represents a separate element that is placed in the left or right side panel area above the plain side panel bar itself.
+
+If the side is included and a column of inputs is provided, they combine vertically to form the side panel. Some amount of plain sidebar will pad the bottom beneath any input column, however tall.
+If the side is excluded, the input column will take up the entire vertical space.
+
+If the side is excluded and no input column is provided, the side panel area is blank.
+The main content area extends left or right to fill any completely missing left or right side panel. To restrict this, use a black side panel to match the background.
+}
+
+\section{Colors}{
+
 Box color can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsColors}} for options.
-Use a vector of four colors for the top, right side, bottom, and left side box panels, respectively.
+By default, all border colors inherit from a single color passed to \code{color}.
+
+\code{color} is recycled to length four as needed. \code{color} actually defines all four corner elbow colors.
+For corner elbows, use a vector of four colors for the top left, top right, bottom right, and bottom left, respectively.
+
+Similarly for the bars between elbows with \code{side_colors}, use a vector of four colors for the top, right side, bottom, and left side.
+This is also recycled to length four. If not provided, it inherits from \code{color}.
+
+\code{title_color} and \code{subtitle_color} are scalar. They inherit from the first color in \code{color}.
+}
+
+\section{Margin space}{
+
+When at least one corner elbow is present on a top or bottom side, that side will include empty margin space to the inside of the elbow.
+This space is part of the grid area of the side panel. This is why main panel content does not extend into it.
+You can override this and make use of this space by setting \code{clip = FALSE}.
+
+Note that this should only be done when both side panels are present so that the main panel content is not directly under or above the elbow near the extreme edge of the box.
+If you do not want a side panel, you can include it but set its color to match the background.
+}
+
+\examples{
+## Only run examples in interactive R sessions
+if (interactive()) {
+
+  ui <- lcarsPage(
+    lcarsBox(
+      fluidRow(
+        column(3,
+          h4("Main panel area"),
+          HTML("<p>Some paragraph text and <a href='#'>a link</a>
+          with LCARS styling.</p>
+          <p>Use <code>lcarsPage</code>
+          to apply the LCARS theme and <code>lcarsBox</code>
+          to draw a characteristic box for framing content.</p>
+          <p>Many of the <code>lcarsBox</code>
+          properties are configurable.
+          See <code>lcars::lcarsApp(\\"box\\")</code> for a demo</p>")
+        ),
+        column(9, plotOutput("plot1"))
+      ),
+      title = "box title",
+      left_inputs = buttonColumn(lcarsButton("btn1", "A button"))
+    )
+  )
+
+  server <- function(input, output) {
+    output$plot1 <- renderPlot({
+      hist(rnorm(500))
+    })
+  }
+
+  shinyApp(ui, server)
+}
 }

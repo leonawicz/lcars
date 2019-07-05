@@ -1,7 +1,7 @@
 library(shiny)
 
 ui <- lcarsPage(lcars_font_labels = FALSE,
-  br(), lcarsHeader("LCARS Demo: lcarsToggle"), br(),
+  lcarsHeader("LCARS Demo: lcarsToggle"),
   fluidRow(
     column(4, style = "padding-left:30px;",
       p("You can control several aspects of the LCARS toggle button with the available arguments."),
@@ -36,7 +36,7 @@ ui <- lcarsPage(lcars_font_labels = FALSE,
                   outer_border = TRUE, outer_color  = "atomic-tangerine", label_right = TRUE, width = "100%")
     )
   ),
-  br(), lcarsHeader(), br()
+  lcarsHeader()
 )
 
 server <- function(input, output) {}

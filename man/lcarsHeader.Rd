@@ -2,10 +2,47 @@
 % Please edit documentation in R/shiny.R
 \name{lcarsHeader}
 \alias{lcarsHeader}
+\alias{lcarsh1}
+\alias{lcarsh2}
+\alias{lcarsh3}
+\alias{lcarsh4}
+\alias{lcarsh5}
+\alias{lcarsh6}
 \title{LCARS header}
 \usage{
 lcarsHeader(title = NULL, color = "golden-tanoi",
-  title_color = color)
+  title_color = color, background_color = "#000000",
+  title_right = TRUE, title_invert = FALSE, width = "100\%")
+
+lcarsh1(title = NULL, color = "atomic-tangerine",
+  title_color = color, background_color = "#000000",
+  title_align = c("center", "right", "left"), title_invert = FALSE,
+  width = "auto")
+
+lcarsh2(title = NULL, color = "atomic-tangerine",
+  title_color = color, background_color = "#000000",
+  title_align = c("center", "right", "left"), title_invert = FALSE,
+  width = "auto")
+
+lcarsh3(title = NULL, color = "atomic-tangerine",
+  title_color = color, background_color = "#000000",
+  title_align = c("center", "right", "left"), title_invert = FALSE,
+  width = "auto")
+
+lcarsh4(title = NULL, color = "atomic-tangerine",
+  title_color = color, background_color = "#000000",
+  title_align = c("center", "right", "left"), title_invert = FALSE,
+  width = "auto")
+
+lcarsh5(title = NULL, color = "atomic-tangerine",
+  title_color = color, background_color = "#000000",
+  title_align = c("center", "right", "left"), title_invert = FALSE,
+  width = "auto")
+
+lcarsh6(title = NULL, color = "atomic-tangerine",
+  title_color = color, background_color = "#000000",
+  title_align = c("center", "right", "left"), title_invert = FALSE,
+  width = "auto")
 }
 \arguments{
 \item{title}{character, optional title.}
@@ -13,9 +50,23 @@ lcarsHeader(title = NULL, color = "golden-tanoi",
 \item{color}{header color. Any hex color or a named LCARS color.}
 
 \item{title_color}{text color. Any hex color or a named LCARS color.}
+
+\item{background_color}{color behind text.}
+
+\item{title_right}{logical, right align title.}
+
+\item{title_invert}{logical, invert the color and background color for the title rectangle.}
+
+\item{width}{a valid CSS unit.}
+
+\item{title_align}{character, for the heading replacers: center, right or left.}
 }
 \description{
-A, LCARS header panel.
+An LCARS header panel.
+}
+\details{
+In addition to \code{lcarsHeader} there are also some LCARS style heading replacers, \code{lcarsh1} through \code{lcarsh6}.
+These default to centered text, whereas \code{lcarsHeader} is strictly right or left.
 }
 \seealso{
 \code{\link{lcarsColors}}.

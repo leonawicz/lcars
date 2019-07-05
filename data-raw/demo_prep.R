@@ -14,11 +14,11 @@ x <- filter(scriptData, format == "episode" & series == "TNG") %>%
   group_by(season, title, character) %>%
   summarize(lines = n(), words = length(unlist(strsplit(line, " "))))
 
-x <- mutate(x, character = case_when(
+x <- mutate(x, character = toupper(case_when(
   character == "Beverly" ~ "Crusher",
   character == "Geordi" ~ "La Forge",
   TRUE ~ character
-))
+)))
 
 totals <- group_by(x, character) %>%
   summarize(lines = sum(lines), words = sum(words)) %>%
@@ -42,4 +42,4 @@ biggest <- mutate(biggest, winner = character[which.max(words)],
   mutate(uniform = factor(uniform[match(biggest$character, id)], levels = ulev))
 
 plot_theme <- theme_rtrek_dark
-save(totals, biggest, uniform, uniform_colors, plot_theme, file = "inst/shiny/demo1/demoApp.RData")
+save(totals, biggest, uniform, uniform_colors, plot_theme, file = "inst/shiny/demo/demoApp.RData")

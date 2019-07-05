@@ -55,7 +55,7 @@ lcars_init <- function(force_uppercase = FALSE, label_uppercase = FALSE, lcars_f
   shiny::tagList(
     shiny::includeCSS(system.file("www/css/lcars.css", package = "lcars")),
     if(force_uppercase)
-      tags$style("h1, h2, h3, h4, h5, h6, p, li, .blocktext_black, .blocktext_white, .lcars-btn,
+      tags$style("h1, h2, h3, h4, h5, h6, p, li, a, .blocktext_black, .blocktext_white, .lcars-btn,
                   .lcars-btn-filtered, .lcars-hdr-title, .lcars-box-title, .lcars-box-subtitle {
                   text-transform: uppercase;}"),
     if(label_uppercase) tags$style("label {text-transform: uppercase;}"),
@@ -67,7 +67,7 @@ lcars_init <- function(force_uppercase = FALSE, label_uppercase = FALSE, lcars_f
       "label, .lcars-btn, .lcars-btn-filtered, .lcars-checkbox label {
       font-family: ", lcars_font_labels, ";}")),
     tags$style(paste0(
-      "p, li, .text, code, .blocktext_white, .blocktext_black {
+      "p, li, a, .text, code, .blocktext_white, .blocktext_black {
       font-family: ", lcars_font_text, ";}"))
   )
 }
@@ -75,35 +75,179 @@ lcars_init <- function(force_uppercase = FALSE, label_uppercase = FALSE, lcars_f
 
 #' LCARS header
 #'
-#' A, LCARS header panel.
+#' An LCARS header panel.
+#'
+#' In addition to \code{lcarsHeader} there are also some LCARS style heading replacers, \code{lcarsh1} through \code{lcarsh6}.
+#' These default to centered text, whereas \code{lcarsHeader} is strictly right or left.
 #'
 #' @param title character, optional title.
 #' @param color header color. Any hex color or a named LCARS color.
 #' @param title_color text color. Any hex color or a named LCARS color.
+#' @param background_color color behind text.
+#' @param title_right logical, right align title.
+#' @param title_align character, for the heading replacers: center, right or left.
+#' @param title_invert logical, invert the color and background color for the title rectangle.
+#' @param width a valid CSS unit.
 #'
 #' @seealso \code{\link{lcarsColors}}.
+#' @name lcarsHeader
 #' @export
-lcarsHeader <- function(title = NULL, color = "golden-tanoi", title_color = color){
-  x <- .lcars_color_check(c(color, title_color))
-  div(class = if(is.null(title)) "lcars-hdr2" else "lcars-hdr",
+lcarsHeader <- function(title = NULL, color = "golden-tanoi", title_color = color,
+                        background_color = "#000000", title_right = TRUE,
+                        title_invert = FALSE, width = "100%"){
+  width <- shiny::validateCssUnit(width)
+  if(is.null(width)) width <- "100%"
+  x <- .lcars_color_check(c(color, title_color, background_color))
+  if(is.null(title)){
+    cl <- "lcars-hdr2"
+  } else {
+    cl <- if(title_right) "lcars-hdr" else "lcars-hdr-ljust"
+  }
+  title_div <- div(class = "lcars-hdr-title",
+                   style = paste0("color:", if(title_invert) x[3] else x[2], ";",
+                                  "background-color:", if(title_invert) x[2] else x[3], ";",
+                                  ";font-size:30px;line-height:29px;"), title)
+  div(class = cl, style = paste0("width:", width, ";"),
     div(class = "hdr-pill-left",
-      shiny::HTML('<svg style = "fill:', x[1], ';">
+      shiny::HTML('<svg style = "fill:', x[1], ';height:30px;width:45px;">
            <use xlink:href="svg/sprites.svg#lcars-svg-endcap_left" height="30" width="45"></use>
            </svg>')
     ),
+    if(!is.null(title) & !title_right) title_div,
     div(class = "blocktext_black lcars-hdr-rect", style = paste0("background-color:", x[1], ";")),
-    if(!is.null(title)) div(class = "lcars-hdr-title", style = paste0("color:", x[2], ";"), title),
+    if(!is.null(title) & title_right) title_div,
     div(class = "hdr-pill-right",
-      shiny::HTML('<svg style = "fill:', x[1], ';">
+      shiny::HTML('<svg style = "fill:', x[1], ';height:30px;width:45px;">
            <use xlink:href="svg/sprites.svg#lcars-svg-endcap_right" height="30" width="45"></use>
            </svg>')
     )
   )
 }
 
+#' @name lcarsHeader
+#' @export
+lcarsh1 <- function(title = NULL, color = "atomic-tangerine", title_color = color,
+                    background_color = "#000000",
+                    title_align = c("center", "right", "left"),
+                    title_invert = FALSE, width = "auto"){
+  title_align <- match.arg(title_align)
+  .lcarshx(title, "h1", color, title_color, background_color,
+           title_align, title_invert, width)
+}
+
+#' @name lcarsHeader
+#' @export
+lcarsh2 <- function(title = NULL, color = "atomic-tangerine", title_color = color,
+                    background_color = "#000000",
+                    title_align = c("center", "right", "left"),
+                    title_invert = FALSE, width = "auto"){
+  title_align <- match.arg(title_align)
+  .lcarshx(title, "h2", color, title_color, background_color,
+           title_align, title_invert, width)
+}
+
+#' @name lcarsHeader
+#' @export
+lcarsh3 <- function(title = NULL, color = "atomic-tangerine", title_color = color,
+                    background_color = "#000000",
+                    title_align = c("center", "right", "left"),
+                    title_invert = FALSE, width = "auto"){
+  title_align <- match.arg(title_align)
+  .lcarshx(title, "h3", color, title_color, background_color,
+           title_align, title_invert, width)
+}
+
+#' @name lcarsHeader
+#' @export
+lcarsh4 <- function(title = NULL, color = "atomic-tangerine", title_color = color,
+                    background_color = "#000000",
+                    title_align = c("center", "right", "left"),
+                    title_invert = FALSE, width = "auto"){
+  title_align <- match.arg(title_align)
+  .lcarshx(title, "h4", color, title_color, background_color,
+           title_align, title_invert, width)
+}
+
+#' @name lcarsHeader
+#' @export
+lcarsh5 <- function(title = NULL, color = "atomic-tangerine", title_color = color,
+                    background_color = "#000000",
+                    title_align = c("center", "right", "left"),
+                    title_invert = FALSE, width = "auto"){
+  title_align <- match.arg(title_align)
+  .lcarshx(title, "h5", color, title_color, background_color,
+           title_align, title_invert, width)
+}
+
+#' @name lcarsHeader
+#' @export
+lcarsh6 <- function(title = NULL, color = "atomic-tangerine", title_color = color,
+                    background_color = "#000000",
+                    title_align = c("center", "right", "left"),
+                    title_invert = FALSE, width = "auto"){
+  title_align <- match.arg(title_align)
+  .lcarshx(title, "h6", color, title_color, background_color,
+           title_align, title_invert, width)
+}
+
+.lcarshx <- function(title, heading, color, title_color, background_color,
+                     title_align, title_invert, width){
+  width <- shiny::validateCssUnit(width)
+  if(is.null(width)) width <- "100%"
+  x <- .lcars_color_check(c(color, title_color, background_color))
+  h <- .lcars_hdr_ht(heading, 30)
+  w <- round(1.5 * h)
+  title_div <- div(class = "lcars-hx-title",
+                   style = paste0("color:", if(title_invert) x[3] else x[2],
+                                  ";background-color:", if(title_invert) x[2] else x[3],
+                                  ";font-size: ", h, "px;line-height:", h - 1,
+                                  "px;text-align:", title_align, ";"), title)
+
+  div(style = "margin: 4px 0px;",
+    div(class = "lcars-hx",
+        style = paste0("width:", width, ";",
+                       "grid-template-columns: ", w, "px auto ", w, "px;",
+                       "grid-template-rows: ", h, "px;"),
+        div(class = "hx-pill-left", style = paste0("height:", h, "px;width:", w, "px;line-height:", h, "px;"),
+            shiny::HTML(paste0('<svg style = "fill:', x[1], ';height:', h, 'px;width:', w, 'px;">
+             <use xlink:href="svg/sprites.svg#lcars-svg-endcap_left" height="', h, '" width="', w, '"></use>
+             </svg>'))
+        ),
+        title_div,
+        div(class = "hx-pill-right", style = paste0("height:", h, "px;width:", w, "px;line-height:", h, "px;"),
+            shiny::HTML(paste0('<svg style = "fill:', x[1], ';height:', h, 'px;width:', w, 'px;">
+             <use xlink:href="svg/sprites.svg#lcars-svg-endcap_right" height="', h, '" width="', w, '"></use>
+             </svg>'))
+        )
+    )
+  )
+}
+
+.lcars_hdr_ht <- function(heading, x = 30){
+  x <- round(seq(1, 0.5, length.out = 6) * x)
+  switch(heading, "h1" = x[1], "h2" = x[2], "h3" = x[3],
+         "h4" = x[4], "h5" = x[5], "h6" = x[6])
+}
+
+#' LCARS well
+#'
+#' A simple LCARS well panel wrapper that takes color and background color arguments and understands LCARS color names.
+#'
+#' @param ... panel contents.
+#' @param color border color. Any hex color or a named LCARS color.
+#' @param background_color background color. Any hex color or a named LCARS color.
+#'
+#' @return a div
+#' @export
+lcarsWell <- function(..., color = "atomic-tangerine", background_color = "#111111"){
+  x <- .lcars_color_check(c(color, background_color))
+  div(class = "well",
+      style = paste0("border-color:", x[1], ";background-color:", x[2], ";"), ...)
+}
+
 #' Launch LCARS demo apps.
 #'
-#' Currently available apps include: \code{demo}, \code{toggle}.
+#' Currently available apps include: \code{demo}, \code{box}, \code{toggle}.
 #'
 #' @param id character, app id.
 
@@ -116,6 +260,12 @@ lcarsApp <- function(id = "demo"){
       message("This app requires the `ggrepel` package. Install and rerun.")
       return(invisible())
     }
+    if(!requireNamespace("showtext", quietly = TRUE)){
+      message("This app requires the `showtext` package. Install and rerun.")
+      return(invisible())
+    }
+  }
+  if(id == "box"){
     if(!requireNamespace("showtext", quietly = TRUE)){
       message("This app requires the `showtext` package. Install and rerun.")
       return(invisible())

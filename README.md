@@ -24,14 +24,23 @@ coverage](https://codecov.io/gh/leonawicz/lcars/branch/master/graph/badge.svg)](
 
 The `lcars` package provides simple approximations to LCARS style and
 appearance to give static plots and interactive data analysis an LCARS
-theme. This splits the package into two area:
+theme. This splits the package into two areas:
 
   - One key feature in `lcars` is the ability to wrap ggplot objects in
-    an LCARS-themed border.
-  - There is also nominal support for an LCARS-themed Shiny UI using
-    `lcarsPage` and related functions.
+    an LCARS-themed border using `lcars_border`.
+  - There is also support for an LCARS-themed Shiny UI using `lcarsPage`
+    and related functions.
+
+While the former is fun and useful for nerdy static graphs, the latter
+is much more exciting because it means you can make something with the
+look and feel of LCARS that also *actually functions*\!
 
 ![](man/figures/README-banner.png)
+
+That’s right. Make your Shiny app, view it on a touch screen device like
+your very own Federation issue data PADD, and transport yourself into
+the future of the Star Trek universe with this 1980s sci-fi television
+aesthetic\!
 
 ## Installation
 

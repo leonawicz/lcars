@@ -41,7 +41,7 @@
   
 <meta property="og:title" content="LCARS box — lcarsBox" />
 
-<meta property="og:description" content="An LCARS box." />
+<meta property="og:description" content="Create a configurable LCARS box." />
 
 <meta property="og:image" content="http://leonawicz.github.io/lcars/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -133,13 +133,15 @@
 
     <div class="ref-description">
     
-    <p>An LCARS box.</p>
+    <p>Create a configurable LCARS box.</p>
     
     </div>
 
     <pre class="usage"><span class='fu'>lcarsBox</span>(<span class='no'>...</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>corners</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>4</span>),
-  <span class='kw'>buttonColumn</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>,
-  <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>subtitle_color</span> <span class='kw'>=</span> <span class='no'>color</span>)</pre>
+  <span class='kw'>sides</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>3</span>, <span class='fl'>4</span>), <span class='kw'>left_inputs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>right_inputs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>, <span class='kw'>side_color</span> <span class='kw'>=</span> <span class='no'>color</span>,
+  <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>subtitle_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>title_right</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>subtitle_right</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>clip</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -158,15 +160,27 @@
     </tr>
     <tr>
       <th>corners</th>
-      <td><p>integer, <code>1:4</code>, a vector specifying which corner elbows to include: top left, top right, bottom right, bottom left.</p></td>
+      <td><p>integer, <code>1:4</code>, a vector specifying which corner elbows to include: top left, top right, bottom right, bottom left. See details.</p></td>
     </tr>
     <tr>
-      <th>buttonColumn</th>
-      <td><p>optional button column made with <code>buttonColumn</code>.</p></td>
+      <th>sides</th>
+      <td><p>integer, <code>1:4</code>, a vector specifying which sides to include panels: top, right, bottom, left. See details.</p></td>
+    </tr>
+    <tr>
+      <th>left_inputs</th>
+      <td><p>optional input column for left side, for example a button column made with <code>buttonColumn</code>. See details.</p></td>
+    </tr>
+    <tr>
+      <th>right_inputs</th>
+      <td><p>optional input column for right side, for example a button column made with <code>buttonColumn</code>. See details.</p></td>
     </tr>
     <tr>
       <th>color</th>
-      <td><p>box color. See details.</p></td>
+      <td><p>box border colors. See details.</p></td>
+    </tr>
+    <tr>
+      <th>side_color</th>
+      <td><p>box border colors. See details.</p></td>
     </tr>
     <tr>
       <th>title_color</th>
@@ -176,14 +190,111 @@
       <th>subtitle_color</th>
       <td><p>text subtitle color.</p></td>
     </tr>
+    <tr>
+      <th>title_right</th>
+      <td><p>logical, right align title.</p></td>
+    </tr>
+    <tr>
+      <th>subtitle_right</th>
+      <td><p>logical, right align subtitle.</p></td>
+    </tr>
+    <tr>
+      <th>clip</th>
+      <td><p>logical, use empty margin space. See details.</p></td>
+    </tr>
+    <tr>
+      <th>width</th>
+      <td><p>a valid CSS unit.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
+    <p>This function allows you to customize the inclusion and colors of specific border components of the box. The defaults are closer to standard LCARS style.
+You can turn on or off specific corner elbows, connecting side panels, control colors of each, as well as title and subtitle inclusion, color and alignment.</p>
+    
+    <h2 class="hasAnchor" id="corner-elbows"><a class="anchor" href="#corner-elbows"></a>Corner elbows</h2>
+
+    
+    <p>Control which corners of the box display the characteristic LCARS elbow, clockwise from top left.
+The top and bottom borders are independent of one another. Each work in the same manner. For each, you can have a left elbow (default), a right elbow, or both.</p>
+<p>When only one is corner present (on top or on bottom), the bar extends to the other corner and terminates with the characteristic LCARS half pill if the panel border is included (see side panel section below).
+If the side between the elbow areas is excluded, only the elbows are displayed.</p>
+<p>If both elbows are excluded from the top or from the bottom, a simple, straight <code>lcarsHeader</code> element is placed above or below the main content area instead, but this can be controlled via <code>sides</code>.</p>
+    
+    <h2 class="hasAnchor" id="side-panels"><a class="anchor" href="#side-panels"></a>Side panels</h2>
+
+    
+    <p>Control which sides of the box include an LCARS-styled border, clockwise from top left.
+Sides connect elbows using straight bars. The top and bottom sides are where title and subtitle text are placed.
+The title for the top and subtitle for the bottom are included in the bar with standard LCARS right alignment, which can be switched to left.
+The <code>title</code> or <code>subtitle</code> arguments are ignored if the top or bottom side panel is excluded, respectively.</p>
+<p>By default, left and right sides are 150 pixels wide; top and bottom sides are 30 pixels tall. Currently this cannot be changed, but may be configurable in a future version.</p>
+    
+    <h2 class="hasAnchor" id="side-inputs-columns"><a class="anchor" href="#side-inputs-columns"></a>Side inputs columns</h2>
+
+    
+    <p>Input columns are different from left and right sides. The latter refers to whether or not their are connecting bars from elbow to elbow.
+An input column represents a separate element that is placed in the left or right side panel area above the plain side panel bar itself.</p>
+<p>If the side is included and a column of inputs is provided, they combine vertically to form the side panel. Some amount of plain sidebar will pad the bottom beneath any input column, however tall.
+If the side is excluded, the input column will take up the entire vertical space.</p>
+<p>If the side is excluded and no input column is provided, the side panel area is blank.
+The main content area extends left or right to fill any completely missing left or right side panel. To restrict this, use a black side panel to match the background.</p>
+    
+    <h2 class="hasAnchor" id="colors"><a class="anchor" href="#colors"></a>Colors</h2>
+
+    
     <p>Box color can be any color given in hex format. Named colors must be LCARS colors. See <code><a href='lcarsColors.html'>lcarsColors</a></code> for options.
-Use a vector of four colors for the top, right side, bottom, and left side box panels, respectively.</p>
+By default, all border colors inherit from a single color passed to <code>color</code>.</p>
+<p><code>color</code> is recycled to length four as needed. <code>color</code> actually defines all four corner elbow colors.
+For corner elbows, use a vector of four colors for the top left, top right, bottom right, and bottom left, respectively.</p>
+<p>Similarly for the bars between elbows with <code>side_colors</code>, use a vector of four colors for the top, right side, bottom, and left side.
+This is also recycled to length four. If not provided, it inherits from <code>color</code>.</p>
+<p><code>title_color</code> and <code>subtitle_color</code> are scalar. They inherit from the first color in <code>color</code>.</p>
+    
+    <h2 class="hasAnchor" id="margin-space"><a class="anchor" href="#margin-space"></a>Margin space</h2>
+
+    
+    <p>When at least one corner elbow is present on a top or bottom side, that side will include empty margin space to the inside of the elbow.
+This space is part of the grid area of the side panel. This is why main panel content does not extend into it.
+You can override this and make use of this space by setting <code>clip = FALSE</code>.</p>
+<p>Note that this should only be done when both side panels are present so that the main panel content is not directly under or above the elbow near the extreme edge of the box.
+If you do not want a side panel, you can include it but set its color to match the background.</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'>## Only run examples in interactive R sessions</span>
+<span class='kw'>if</span> (<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/interactive'>interactive</a></span>()) {
+
+  <span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='lcarsPage.html'>lcarsPage</a></span>(
+    <span class='fu'>lcarsBox</span>(
+      <span class='fu'>fluidRow</span>(
+        <span class='fu'>column</span>(<span class='fl'>3</span>,
+          <span class='fu'>h4</span>(<span class='st'>"Main panel area"</span>),
+          <span class='fu'>HTML</span>(<span class='st'>"&lt;p&gt;Some paragraph text and &lt;a href='#'&gt;a link&lt;/a&gt;
+          with LCARS styling.&lt;/p&gt;
+          &lt;p&gt;Use &lt;code&gt;lcarsPage&lt;/code&gt;
+          to apply the LCARS theme and &lt;code&gt;lcarsBox&lt;/code&gt;
+          to draw a characteristic box for framing content.&lt;/p&gt;
+          &lt;p&gt;Many of the &lt;code&gt;lcarsBox&lt;/code&gt;
+          properties are configurable.
+          See &lt;code&gt;lcars::lcarsApp(\"box\")&lt;/code&gt; for a demo&lt;/p&gt;"</span>)
+        ),
+        <span class='fu'>column</span>(<span class='fl'>9</span>, <span class='fu'>plotOutput</span>(<span class='st'>"plot1"</span>))
+      ),
+      <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"box title"</span>,
+      <span class='kw'>left_inputs</span> <span class='kw'>=</span> <span class='fu'><a href='buttonColumn.html'>buttonColumn</a></span>(<span class='fu'><a href='lcarsButton.html'>lcarsButton</a></span>(<span class='st'>"btn1"</span>, <span class='st'>"A button"</span>))
+    )
+  )
+
+  <span class='no'>server</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) {
+    <span class='no'>output</span>$<span class='no'>plot1</span> <span class='kw'>&lt;-</span> <span class='fu'>renderPlot</span>({
+      <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/hist'>hist</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>500</span>))
+    })
+  }
+
+  <span class='fu'>shinyApp</span>(<span class='no'>ui</span>, <span class='no'>server</span>)
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -191,7 +302,19 @@ Use a vector of four colors for the top, right side, bottom, and left side box p
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#details">Details</a></li>
-          </ul>
+
+      <li><a href="#corner-elbows">Corner elbows</a></li>
+
+      <li><a href="#side-panels">Side panels</a></li>
+
+      <li><a href="#side-inputs-columns">Side inputs columns</a></li>
+
+      <li><a href="#colors">Colors</a></li>
+
+      <li><a href="#margin-space">Margin space</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
