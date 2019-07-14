@@ -113,6 +113,16 @@ lcarsApp("toggle")
 lcarsApp("box")
 ```
 
+The `box` example is helpful for exploring the many ways you can control the style of an `lcarsBox`. Here are a couple examples highlighting some of the versatility:
+
+#### Corner elbows only
+
+<img src="../man/figures/lcarsBox-ex1.png">
+
+#### Colored segments and input panels
+
+<img src="../man/figures/lcarsBox-ex2.png">
+
 Running these apps will prompt you to install required packages if you do not already have them installed. These are necessary for the examples but not a necessary component of `lcars`, specifically `ggrepel` and `showtext`.
 
 ### Recommendations

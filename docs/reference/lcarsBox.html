@@ -142,7 +142,8 @@
   <span class='kw'>sides</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>3</span>, <span class='fl'>4</span>), <span class='kw'>left_inputs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>right_inputs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>, <span class='kw'>side_color</span> <span class='kw'>=</span> <span class='no'>color</span>,
   <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>subtitle_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>title_right</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>subtitle_right</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>clip</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>)</pre>
+  <span class='kw'>subtitle_right</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>clip</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>width_left</span> <span class='kw'>=</span> <span class='fl'>150</span>,
+  <span class='kw'>width_right</span> <span class='kw'>=</span> <span class='fl'>150</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -204,8 +205,16 @@
       <td><p>logical, use empty margin space. See details.</p></td>
     </tr>
     <tr>
+      <th>width_left</th>
+      <td><p>numeric, the width of the left side panel in pixels. This also adjusts associated corner elbows to match. Defaults to the maximum allowed: 150.</p></td>
+    </tr>
+    <tr>
+      <th>width_right</th>
+      <td><p>numeric, the width of the right side panel in pixels. This also adjusts associated corner elbows to match. Defaults to the maximum allowed: 150.</p></td>
+    </tr>
+    <tr>
       <th>width</th>
-      <td><p>a valid CSS unit.</p></td>
+      <td><p>a valid CSS unit, the width of the entire box.</p></td>
     </tr>
     </table>
     
@@ -219,7 +228,7 @@ You can turn on or off specific corner elbows, connecting side panels, control c
     
     <p>Control which corners of the box display the characteristic LCARS elbow, clockwise from top left.
 The top and bottom borders are independent of one another. Each work in the same manner. For each, you can have a left elbow (default), a right elbow, or both.</p>
-<p>When only one is corner present (on top or on bottom), the bar extends to the other corner and terminates with the characteristic LCARS half pill if the panel border is included (see side panel section below).
+<p>When only one corner is present (on top or on bottom), the bar extends to the other corner and terminates with the characteristic LCARS half pill if the panel border is included (see side panel section below).
 If the side between the elbow areas is excluded, only the elbows are displayed.</p>
 <p>If both elbows are excluded from the top or from the bottom, a simple, straight <code>lcarsHeader</code> element is placed above or below the main content area instead, but this can be controlled via <code>sides</code>.</p>
     
@@ -229,18 +238,22 @@ If the side between the elbow areas is excluded, only the elbows are displayed.<
     <p>Control which sides of the box include an LCARS-styled border, clockwise from top left.
 Sides connect elbows using straight bars. The top and bottom sides are where title and subtitle text are placed.
 The title for the top and subtitle for the bottom are included in the bar with standard LCARS right alignment, which can be switched to left.
-The <code>title</code> or <code>subtitle</code> arguments are ignored if the top or bottom side panel is excluded, respectively.</p>
-<p>By default, left and right sides are 150 pixels wide; top and bottom sides are 30 pixels tall. Currently this cannot be changed, but may be configurable in a future version.</p>
+If the top or bottom side panel is excluded, the vertical space remains if <code>title</code> or <code>subtitle</code> are included, respectively, retaining the text labels; otherwise the space is removed.</p>
+<p>By default, left and right sides are 150 pixels wide; top and bottom sides are 30 pixels tall.
+The top and bottom are fixed, but the widths of the left and right side panels can be adjusted using <code>width_left</code> and <code>width_right</code>, respectively.
+They can only be adjusted down to smaller widths. This is to ensure proper scaling for connected corners.
+The side panels are not meant to accommodate wider inputs and should primarily be used for small buttons and short text.</p>
     
     <h2 class="hasAnchor" id="side-inputs-columns"><a class="anchor" href="#side-inputs-columns"></a>Side inputs columns</h2>
 
     
-    <p>Input columns are different from left and right sides. The latter refers to whether or not their are connecting bars from elbow to elbow.
+    <p>Input columns are different from left and right sides. The latter refers to whether or not there are vertical connecting bars from elbow to elbow.
 An input column represents a separate element that is placed in the left or right side panel area above the plain side panel bar itself.</p>
 <p>If the side is included and a column of inputs is provided, they combine vertically to form the side panel. Some amount of plain sidebar will pad the bottom beneath any input column, however tall.
 If the side is excluded, the input column will take up the entire vertical space.</p>
 <p>If the side is excluded and no input column is provided, the side panel area is blank.
 The main content area extends left or right to fill any completely missing left or right side panel. To restrict this, use a black side panel to match the background.</p>
+<p>Since the inputs contained in an input column are defined separately and passed to <code>lcarsBox</code>, they should be defined to have widths that match the box side panel widths.</p>
     
     <h2 class="hasAnchor" id="colors"><a class="anchor" href="#colors"></a>Colors</h2>
 
