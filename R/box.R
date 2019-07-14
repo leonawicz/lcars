@@ -10,7 +10,7 @@
 #' Control which corners of the box display the characteristic LCARS elbow, clockwise from top left.
 #' The top and bottom borders are independent of one another. Each work in the same manner. For each, you can have a left elbow (default), a right elbow, or both.
 #'
-#' When only one is corner present (on top or on bottom), the bar extends to the other corner and terminates with the characteristic LCARS half pill if the panel border is included (see side panel section below).
+#' When only one corner is present (on top or on bottom), the bar extends to the other corner and terminates with the characteristic LCARS half pill if the panel border is included (see side panel section below).
 #' If the side between the elbow areas is excluded, only the elbows are displayed.
 #'
 #' If both elbows are excluded from the top or from the bottom, a simple, straight \code{lcarsHeader} element is placed above or below the main content area instead, but this can be controlled via \code{sides}.
@@ -19,12 +19,15 @@
 #' Control which sides of the box include an LCARS-styled border, clockwise from top left.
 #' Sides connect elbows using straight bars. The top and bottom sides are where title and subtitle text are placed.
 #' The title for the top and subtitle for the bottom are included in the bar with standard LCARS right alignment, which can be switched to left.
-#' The \code{title} or \code{subtitle} arguments are ignored if the top or bottom side panel is excluded, respectively.
+#' If the top or bottom side panel is excluded, the vertical space remains if \code{title} or \code{subtitle} are included, respectively, retaining the text labels; otherwise the space is removed.
 #'
-#' By default, left and right sides are 150 pixels wide; top and bottom sides are 30 pixels tall. Currently this cannot be changed, but may be configurable in a future version.
+#' By default, left and right sides are 150 pixels wide; top and bottom sides are 30 pixels tall.
+#' The top and bottom are fixed, but the widths of the left and right side panels can be adjusted using \code{width_left} and \code{width_right}, respectively.
+#' They can only be adjusted down to smaller widths. This is to ensure proper scaling for connected corners.
+#' The side panels are not meant to accommodate wider inputs and should primarily be used for small buttons and short text.
 #'
 #' @section Side inputs columns:
-#' Input columns are different from left and right sides. The latter refers to whether or not their are connecting bars from elbow to elbow.
+#' Input columns are different from left and right sides. The latter refers to whether or not there are vertical connecting bars from elbow to elbow.
 #' An input column represents a separate element that is placed in the left or right side panel area above the plain side panel bar itself.
 #'
 #' If the side is included and a column of inputs is provided, they combine vertically to form the side panel. Some amount of plain sidebar will pad the bottom beneath any input column, however tall.
@@ -32,6 +35,8 @@
 #'
 #' If the side is excluded and no input column is provided, the side panel area is blank.
 #' The main content area extends left or right to fill any completely missing left or right side panel. To restrict this, use a black side panel to match the background.
+#'
+#' Since the inputs contained in an input column are defined separately and passed to \code{lcarsBox}, they should be defined to have widths that match the box side panel widths.
 #'
 #' @section Colors:
 #' Box color can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.
@@ -67,7 +72,9 @@
 #' @param title_right logical, right align title.
 #' @param subtitle_right logical, right align subtitle.
 #' @param clip logical, use empty margin space. See details.
-#' @param width a valid CSS unit.
+#' @param width_left numeric, the width of the left side panel in pixels. This also adjusts associated corner elbows to match. Defaults to the maximum allowed: 150.
+#' @param width_right numeric, the width of the right side panel in pixels. This also adjusts associated corner elbows to match. Defaults to the maximum allowed: 150.
+#' @param width a valid CSS unit, the width of the entire box.
 #'
 #' @export
 #'
@@ -108,9 +115,22 @@ lcarsBox <- function(..., title = NULL, subtitle = NULL, corners = c(1, 4), side
                      left_inputs = NULL, right_inputs = NULL,
                      color = "atomic-tangerine", side_color = color,
                      title_color = color, subtitle_color = color,
-                     title_right = TRUE, subtitle_right = TRUE, clip = TRUE, width = "100%"){
+                     title_right = TRUE, subtitle_right = TRUE, clip = TRUE,
+                     width_left = 150, width_right = 150, width = "100%"){
   width <- shiny::validateCssUnit(width)
+  width_left <- as.numeric(width_left)
+  width_right <- as.numeric(width_right)
+  wrn <- "Side panel widths must each be <= 150 pixels to ensure proper corner scaling."
+  if(width_left > 150){
+    warning(wrn)
+    width_left <- 150
+  }
+  if(width_right > 150){
+    warning(wrn)
+    width_right <- 150
+  }
   if(is.null(width)) width <- "100%"
+
   if(is.null(corners)){
     corners <- 0
   } else {
@@ -121,6 +141,7 @@ lcarsBox <- function(..., title = NULL, subtitle = NULL, corners = c(1, 4), side
   } else {
     if(any(!sides %in% 1:4)) stop("`sides` must be values in 1:4 or NULL.")
   }
+
   color <- c(rep(color, length = 4), rep(side_color, length = 4))
   x <- .lcars_color_check(c(color, title_color[1], subtitle_color[1]))
   topclass <- .box_top_class(corners, title, title_right)
@@ -128,6 +149,7 @@ lcarsBox <- function(..., title = NULL, subtitle = NULL, corners = c(1, 4), side
   left_input <- !is.null(left_inputs)
   right_input <- !is.null(right_inputs)
   centerclass <- .box_center_class(sides, left_input, right_input)
+  centerstyle <- .box_center_style(centerclass, width_left, width_right)
   left_bar <- !is.null(sides) && 4 %in% sides
   right_bar <- !is.null(sides) && 2 %in% sides
   title_div <- div(class = "lcars-box-title", title, style = paste0("color:", x[9], ";"))
@@ -138,20 +160,23 @@ lcarsBox <- function(..., title = NULL, subtitle = NULL, corners = c(1, 4), side
                      "width:", width, ";"),
       if(grepl("none", topclass)){
         if(is.null(title)){
-          lcarsHeader(NULL, x[5], x[9])
+          if(1 %in% sides) lcarsHeader(NULL, x[5], x[9])
         } else {
-          lcarsHeader(title, x[5], x[9],  title_right = title_right)
+          lcarsHeader(title, if(1 %in% sides) x[5] else "#000000", x[9],  title_right = title_right)
         }
       } else {
         div(class = topclass,
-            .box_tl_div(corners, x[1]),
+            style = paste0("--corner-width-left: ", 2 * width_left, "px; --corner-width-right: ", 2* width_right, "px;"),
+            .box_tl_div(corners, x[1], width_left),
             if(!is.null(title) & !title_right) title_div,
-            div(class = "lcars-rect-top", style = paste0("background-color:", x[5], ";")),
+            div(class = "lcars-rect-top",
+                style = paste0("background-color:", if(1 %in% sides) x[5] else "#000000", ";")),
             if(!is.null(title) & title_right) title_div,
-            .box_tr_div(corners, x[2])
+            .box_tr_div(corners, x[2], width_right)
         )
       },
       div(class = centerclass,
+          style = centerstyle,
           if(left_bar | left_input){
             div(class  = "lcars-box-buttons-left",
                 style = if(left_bar){
@@ -178,17 +203,19 @@ lcarsBox <- function(..., title = NULL, subtitle = NULL, corners = c(1, 4), side
       ),
       if(grepl("none", botclass)){
         if(is.null(subtitle)){
-          lcarsHeader(NULL, x[7], x[10])
+          if(3 %in% sides) lcarsHeader(NULL, x[7], x[10])
         } else {
-          lcarsHeader(subtitle, x[7], x[10], title_right = subtitle_right)
+          lcarsHeader(subtitle, if(3 %in% sides) x[7] else "#000000", x[10], title_right = subtitle_right)
         }
       } else {
         div(class = botclass,
-            .box_bl_div(corners, x[4]),
+            style = paste0("--corner-width-left: ", 2 * width_left, "px; --corner-width-right: ", 2* width_right, "px;"),
+            .box_bl_div(corners, x[4], width_left),
             if(!is.null(subtitle) & !subtitle_right) subtitle_div,
-            div(class = "lcars-rect-bot", style = paste0("background-color:", x[7], ";")),
+            div(class = "lcars-rect-bot",
+                style = paste0("background-color:", if(3 %in% sides) x[7] else "#000000", ";")),
             if(!is.null(subtitle) & subtitle_right) subtitle_div,
-            .box_br_div(corners, x[3])
+            .box_br_div(corners, x[3], width_right)
         )
       }
   )
@@ -205,6 +232,14 @@ lcarsBox <- function(..., title = NULL, subtitle = NULL, corners = c(1, 4), side
     x <- "lcars-box-centernone"
   }
   x
+}
+
+.box_center_style <- function(x, wl, wr){
+  if(x == "lcars-box-centernone") return("")
+  switch(x,
+         "lcars-box-center" = paste0("grid-template-columns: ", wl, "px auto ", wr, "px;"),
+         "lcars-box-centerleft" = paste0("grid-template-columns: ", wl, "px auto;"),
+         "lcars-box-centerright" = paste0("grid-template-columns: auto ", wr, "px;"))
 }
 
 .box_top_class <- function(corners, title, right){
@@ -225,12 +260,14 @@ lcarsBox <- function(..., title = NULL, subtitle = NULL, corners = c(1, 4), side
   x
 }
 
-.box_tl_div <- function(corners, color){
+.box_tl_div <- function(corners, color, w){
+  w <- 2 * w
+  r <-  300 / w
   if(1 %in% corners){
     div(class = "lcars-box-top-elbow-left",
-        shiny::HTML('<svg style = "fill:', color, ';height:90px;width:300px;">
-                    <use xlink:href="svg/sprites.svg#lcars-svg-elbow_left_top" height="90" width="300"></use>
-                    </svg>')
+        shiny::HTML(paste0('<svg style = "fill:', color, ';height:90px;width:', w, 'px;">
+                    <use xlink:href="svg/sprites.svg#lcars-svg-elbow_left_top" height="90" width="', w, '" transform="translate(0 ', -(r - 1) * 45, ') scale(1, ', r, ')"></use>
+                    </svg>'))
     )
   } else {
     div(class = "lcars-box-top-pill-left",
@@ -241,12 +278,14 @@ lcarsBox <- function(..., title = NULL, subtitle = NULL, corners = c(1, 4), side
   }
 }
 
-.box_tr_div <- function(corners, color){
+.box_tr_div <- function(corners, color, w){
+  w <- 2 * w
+  r <-  300 / w
   if(2 %in% corners){
     div(class = "lcars-box-top-elbow-right",
-        shiny::HTML('<svg style = "fill:', color, ';height:90px;width:300px;">
-                    <use xlink:href="svg/sprites.svg#lcars-svg-elbow_left_bottom" height="90" width="300" transform="rotate(180, 150, 45)"></use>
-                    </svg>')
+        shiny::HTML(paste0('<svg style = "fill:', color, ';height:90px;width:', w, 'px;">
+                    <use xlink:href="svg/sprites.svg#lcars-svg-elbow_left_bottom" height="90" width="', w, '" transform="rotate(180, 150, 45) translate(', 300 - w, ' ', -(r - 1) * 45, ') scale(1, ', r, ')"></use>
+                    </svg>'))
     )
   } else {
     div(class = "lcars-box-top-pill-right",
@@ -274,12 +313,15 @@ lcarsBox <- function(..., title = NULL, subtitle = NULL, corners = c(1, 4), side
   x
 }
 
-.box_bl_div <- function(corners, color){
+.box_bl_div <- function(corners, color, w){
+  w <- 2 * w
+  r <-  300 / w
   if(4 %in% corners){
     div(class = "lcars-box-bot-elbow-left",
-        shiny::HTML('<svg style = "fill:', color, ';height:90px;width:300px;">
-                    <use xlink:href="svg/sprites.svg#lcars-svg-elbow_left_bottom" height="90" width="300"></use>
-                    </svg>')
+        shiny::HTML(paste0('<svg style = "fill:', color, ';height:90px;width:', w, 'px;">
+                    <use xlink:href="svg/sprites.svg#lcars-svg-elbow_left_bottom" height="90" width="', w,
+                    '" transform="translate(0 ', -(r - 1) * 45, ') scale(1, ', r, ')"></use>
+                    </svg>'))
     )
   } else {
     div(class = "lcars-box-bot-pill-left",
@@ -290,12 +332,15 @@ lcarsBox <- function(..., title = NULL, subtitle = NULL, corners = c(1, 4), side
   }
 }
 
-.box_br_div <- function(corners, color){
+.box_br_div <- function(corners, color, w){
+  w <- 2 * w
+  r <-  300 / w
   if(3 %in% corners){
     div(class = "lcars-box-bot-elbow-right",
-        shiny::HTML('<svg style = "fill:', color, ';height:90px;width:300px;">
-                    <use xlink:href="svg/sprites.svg#lcars-svg-elbow_left_top" height="90" width="300" transform="rotate(180, 150, 45)"></use>
-                    </svg>')
+        shiny::HTML(paste0('<svg style = "fill:', color, ';height:90px;width:', w, 'px;">
+                    <use xlink:href="svg/sprites.svg#lcars-svg-elbow_left_top" height="90" width="', w,
+                    '" transform="rotate(180, 150, 45) translate(', 300 - w, ' ', -(r - 1) * 45, ') scale(1, ', r, ')"></use>
+                    </svg>'))
     )
   } else {
     div(class = "lcars-box-bot-pill-right",

@@ -132,57 +132,57 @@ a:hover {
 
 .lcars-box-top {
   display: grid;
-  grid-template-columns: 300px minmax(1px, 1fr) 5px auto 5px 300px;
+  grid-template-columns: var(--corner-width-left) minmax(1px, 1fr) 5px auto 5px var(--corner-width-right);
   grid-template-rows: 90px;
   grid-template-areas: "lcars-box-top-elbow-left lcars-rect-top . lcars-box-title . lcars-box-top-elbow-right";
 }
 .lcars-box-topleft {
   display: grid;
-  grid-template-columns: 300px minmax(1px, 1fr) 5px auto 5px 45px;
+  grid-template-columns: var(--corner-width-left) minmax(1px, 1fr) 5px auto 5px 45px;
   grid-template-rows: 90px;
   grid-template-areas: "lcars-box-top-elbow-left lcars-rect-top . lcars-box-title . lcars-box-top-pill-right";
 }
 .lcars-box-topright {
   display: grid;
-  grid-template-columns: 45px 5px minmax(1px, 1fr) 5px auto 5px 300px;
+  grid-template-columns: 45px 5px minmax(1px, 1fr) 5px auto 5px var(--corner-width-right);
   grid-template-rows: 90px;
   grid-template-areas: "lcars-box-top-pill-left . lcars-rect-top . lcars-box-title . lcars-box-top-elbow-right";
 }
 
 .lcars-box-top2 {
   display: grid;
-  grid-template-columns: 300px minmax(1px, 1fr) 300px;
+  grid-template-columns: var(--corner-width-left) minmax(1px, 1fr) var(--corner-width-right);
   grid-template-rows: 90px;
   grid-template-areas: "lcars-box-top-elbow-left lcars-rect-top lcars-box-top-elbow-right";
 }
 .lcars-box-topleft2 {
   display: grid;
-  grid-template-columns: 300px minmax(1px, 1fr) 5px 45px;
+  grid-template-columns: var(--corner-width-left) minmax(1px, 1fr) 5px 45px;
   grid-template-rows: 90px;
   grid-template-areas: "lcars-box-top-elbow-left lcars-rect-top . lcars-box-top-pill-right";
 }
 .lcars-box-topright2 {
   display: grid;
-  grid-template-columns: 45px 5px minmax(1px, 1fr) 300px;
+  grid-template-columns: 45px 5px minmax(1px, 1fr) var(--corner-width-right);
   grid-template-rows: 90px;
   grid-template-areas: "lcars-box-top-pill-left . lcars-rect-top lcars-box-top-elbow-right";
 }
 
 .lcars-box-top-ljust {
   display: grid;
-  grid-template-columns: 300px 5px auto 5px minmax(1px, 1fr) 300px;
+  grid-template-columns: var(--corner-width-left) 5px auto 5px minmax(1px, 1fr) var(--corner-width-right);
   grid-template-rows: 90px;
   grid-template-areas: "lcars-box-top-elbow-left . lcars-box-title . lcars-rect-top lcars-box-top-elbow-right";
 }
 .lcars-box-topleft-ljust {
   display: grid;
-  grid-template-columns: 300px 5px auto 5px minmax(1px, 1fr) 5px 45px;
+  grid-template-columns: var(--corner-width-left) 5px auto 5px minmax(1px, 1fr) 5px 45px;
   grid-template-rows: 90px;
   grid-template-areas: "lcars-box-top-elbow-left . lcars-box-title . lcars-rect-top . lcars-box-top-pill-right";
 }
 .lcars-box-topright-ljust {
   display: grid;
-  grid-template-columns: 45px 5px auto 5px minmax(1px, 1fr) 300px;
+  grid-template-columns: 45px 5px auto 5px minmax(1px, 1fr) var(--corner-width-right);
   grid-template-rows: 90px;
   grid-template-areas: "lcars-box-top-pill-left . lcars-box-title . lcars-rect-top lcars-box-top-elbow-right";
 }
@@ -256,57 +256,57 @@ a:hover {
 
 .lcars-box-bot {
   display: grid;
-  grid-template-columns: 300px minmax(1px, 1fr) 300px;
+  grid-template-columns: var(--corner-width-left) minmax(1px, 1fr) var(--corner-width-right);
   grid-template-rows: 90px;
   grid-template-areas: "lcars-box-bot-elbow-left lcars-rect-bot lcars-box-bot-elbow-right";
 }
 .lcars-box-botleft {
   display: grid;
-  grid-template-columns: 300px minmax(1px, 1fr) 5px 45px;
+  grid-template-columns: var(--corner-width-left) minmax(1px, 1fr) 5px 45px;
   grid-template-rows: 90px;
   grid-template-areas: "lcars-box-bot-elbow-left lcars-rect-bot . lcars-box-bot-pill-right";
 }
 .lcars-box-botright {
   display: grid;
-  grid-template-columns: 45px 5px minmax(1px, 1fr) 300px;
+  grid-template-columns: 45px 5px minmax(1px, 1fr) var(--corner-width-right);
   grid-template-rows: 90px;
   grid-template-areas: "lcars-box-bot-pill-left . lcars-rect-bot lcars-box-bot-elbow-right";
 }
 
 .lcars-box-bot2 {
   display: grid;
-  grid-template-columns: 300px minmax(1px, 1fr) 5px auto 5px 300px;
+  grid-template-columns: var(--corner-width-left) minmax(1px, 1fr) 5px auto 5px var(--corner-width-right);
   grid-template-rows: 90px;
   grid-template-areas: "lcars-box-bot-elbow-left lcars-rect-bot . lcars-box-subtitle . lcars-box-bot-elbow-right";
 }
 .lcars-box-botleft2 {
   display: grid;
-  grid-template-columns: 300px minmax(1px, 1fr) 5px auto 5px 45px;
+  grid-template-columns: var(--corner-width-left) minmax(1px, 1fr) 5px auto 5px 45px;
   grid-template-rows: 90px;
   grid-template-areas: "lcars-box-bot-elbow-left lcars-rect-bot . lcars-box-subtitle . lcars-box-bot-pill-right";
 }
 .lcars-box-botright2 {
   display: grid;
-  grid-template-columns: 45px 5px minmax(1px, 1fr) 5px auto 5px 300px;
+  grid-template-columns: 45px 5px minmax(1px, 1fr) 5px auto 5px var(--corner-width-right);
   grid-template-rows: 90px;
   grid-template-areas: "lcars-box-bot-pill-left . lcars-rect-bot . lcars-box-subtitle . lcars-box-bot-elbow-right";
 }
 
 .lcars-box-bot2-ljust {
   display: grid;
-  grid-template-columns: 300px 5px auto 5px minmax(1px, 1fr) 300px;
+  grid-template-columns: var(--corner-width-left) 5px auto 5px minmax(1px, 1fr) var(--corner-width-right);
   grid-template-rows: 90px;
   grid-template-areas: "lcars-box-bot-elbow-left . lcars-box-subtitle . lcars-rect-bot lcars-box-bot-elbow-right";
 }
 .lcars-box-botleft2-ljust {
   display: grid;
-  grid-template-columns: 300px 5px auto 5px minmax(1px, 1fr) 5px 45px;
+  grid-template-columns: var(--corner-width-left) 5px auto 5px minmax(1px, 1fr) 5px 45px;
   grid-template-rows: 90px;
   grid-template-areas: "lcars-box-bot-elbow-left . lcars-box-subtitle . lcars-rect-bot . lcars-box-bot-pill-right";
 }
 .lcars-box-botright2-ljust {
   display: grid;
-  grid-template-columns: 45px 5px auto 5px  minmax(1px, 1fr) 300px;
+  grid-template-columns: 45px 5px auto 5px  minmax(1px, 1fr) var(--corner-width-right);
   grid-template-rows: 90px;
   grid-template-areas: "lcars-box-bot-pill-left . lcars-box-subtitle . lcars-rect-bot lcars-box-bot-elbow-right";
 }

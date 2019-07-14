@@ -34,7 +34,7 @@ ui <- lcarsPage(
     lcarsHeader("LCARS Box properties"),
     fluidRow(
       column(3,
-        lcarsh4("Customize box", color = lab_clr, title_invert = TRUE, width = w),
+        lcarsh4("Customize box", color = lab_clr, width = 220),
         HTML("<p>Make selections in this box to configure the layout and style of the <code>lcarsBox</code> widget below.</p>"),
         lcarsWell(
           lcarsh4("Border elements", color = lab_clr, title_invert = TRUE, width = w),
@@ -61,22 +61,26 @@ ui <- lcarsPage(
           )
         )),
         lcarsWell(
-            lcarsh4("Side colors", color = lab_clr, title_invert = TRUE, width = w),
+            lcarsh4("Sides", color = lab_clr, title_invert = TRUE, width = w),
             fluidRow(
               column(6,
                 selectInput("clr5", "Top", clrs, clr),
-                selectInput("clr6", "Right", clrs, clr)
+                selectInput("clr8", "Left", clrs, clr),
+                selectInput("wl", "Left width", c(30, 60, 100, 150, 200), 150)
               ),
               column(6,
                 selectInput("clr7", "Bottom", clrs, clr),
-                selectInput("clr8", "Left", clrs, clr)
+                selectInput("clr6", "Right", clrs, clr),
+                selectInput("wr", "Right width", c(30, 60, 100, 150, 200), 150)
               )
             )
         ),
         lcarsWell(
             lcarsh4("Title text", color = lab_clr, title_invert = TRUE, width = w),
-            checkboxGroupInput("titles", "Include titles", txt, "Title", inline = TRUE),
-            checkboxGroupInput("rightjust", "Right align titles", txt, txt, inline = TRUE),
+            fluidRow(
+              column(6, checkboxGroupInput("titles", "Include titles", txt, "Title", inline = TRUE)),
+              column(6, checkboxGroupInput("rightjust", "Right align", txt, txt, inline = TRUE))
+            ),
             selectInput("clr9", "Title color", clrs, clr),
             selectInput("clr10", "Subtitle color", clrs, clr)
         )
@@ -124,7 +128,9 @@ server <- function(input, output) {
           subtitle_color = input$clr9,
           title_right = "Title" %in% input$rightjust,
           subtitle_right = "Subtitle" %in% input$rightjust,
-          clip = input$clip
+          clip = input$clip,
+          width_left = input$wl,
+          width_right = input$wr
       )
   })
 
@@ -150,7 +156,9 @@ server <- function(input, output) {
           subtitle_color = input$clr10,
           title_right = "Title" %in% input$rightjust,
           subtitle_right = "Subtitle" %in% input$rightjust,
-          clip = input$clip
+          clip = input$clip,
+          width_left = input$wl,
+          width_right = input$wr
       )
   })
 

@@ -8,7 +8,8 @@ lcarsBox(..., title = NULL, subtitle = NULL, corners = c(1, 4),
   sides = c(1, 3, 4), left_inputs = NULL, right_inputs = NULL,
   color = "atomic-tangerine", side_color = color,
   title_color = color, subtitle_color = color, title_right = TRUE,
-  subtitle_right = TRUE, clip = TRUE, width = "100\%")
+  subtitle_right = TRUE, clip = TRUE, width_left = 150,
+  width_right = 150, width = "100\%")
 }
 \arguments{
 \item{...}{box contents.}
@@ -39,7 +40,11 @@ lcarsBox(..., title = NULL, subtitle = NULL, corners = c(1, 4),
 
 \item{clip}{logical, use empty margin space. See details.}
 
-\item{width}{a valid CSS unit.}
+\item{width_left}{numeric, the width of the left side panel in pixels. This also adjusts associated corner elbows to match. Defaults to the maximum allowed: 150.}
+
+\item{width_right}{numeric, the width of the right side panel in pixels. This also adjusts associated corner elbows to match. Defaults to the maximum allowed: 150.}
+
+\item{width}{a valid CSS unit, the width of the entire box.}
 }
 \description{
 Create a configurable LCARS box.
@@ -53,7 +58,7 @@ You can turn on or off specific corner elbows, connecting side panels, control c
 Control which corners of the box display the characteristic LCARS elbow, clockwise from top left.
 The top and bottom borders are independent of one another. Each work in the same manner. For each, you can have a left elbow (default), a right elbow, or both.
 
-When only one is corner present (on top or on bottom), the bar extends to the other corner and terminates with the characteristic LCARS half pill if the panel border is included (see side panel section below).
+When only one corner is present (on top or on bottom), the bar extends to the other corner and terminates with the characteristic LCARS half pill if the panel border is included (see side panel section below).
 If the side between the elbow areas is excluded, only the elbows are displayed.
 
 If both elbows are excluded from the top or from the bottom, a simple, straight \code{lcarsHeader} element is placed above or below the main content area instead, but this can be controlled via \code{sides}.
@@ -64,14 +69,17 @@ If both elbows are excluded from the top or from the bottom, a simple, straight 
 Control which sides of the box include an LCARS-styled border, clockwise from top left.
 Sides connect elbows using straight bars. The top and bottom sides are where title and subtitle text are placed.
 The title for the top and subtitle for the bottom are included in the bar with standard LCARS right alignment, which can be switched to left.
-The \code{title} or \code{subtitle} arguments are ignored if the top or bottom side panel is excluded, respectively.
+If the top or bottom side panel is excluded, the vertical space remains if \code{title} or \code{subtitle} are included, respectively, retaining the text labels; otherwise the space is removed.
 
-By default, left and right sides are 150 pixels wide; top and bottom sides are 30 pixels tall. Currently this cannot be changed, but may be configurable in a future version.
+By default, left and right sides are 150 pixels wide; top and bottom sides are 30 pixels tall.
+The top and bottom are fixed, but the widths of the left and right side panels can be adjusted using \code{width_left} and \code{width_right}, respectively.
+They can only be adjusted down to smaller widths. This is to ensure proper scaling for connected corners.
+The side panels are not meant to accommodate wider inputs and should primarily be used for small buttons and short text.
 }
 
 \section{Side inputs columns}{
 
-Input columns are different from left and right sides. The latter refers to whether or not their are connecting bars from elbow to elbow.
+Input columns are different from left and right sides. The latter refers to whether or not there are vertical connecting bars from elbow to elbow.
 An input column represents a separate element that is placed in the left or right side panel area above the plain side panel bar itself.
 
 If the side is included and a column of inputs is provided, they combine vertically to form the side panel. Some amount of plain sidebar will pad the bottom beneath any input column, however tall.
@@ -79,6 +87,8 @@ If the side is excluded, the input column will take up the entire vertical space
 
 If the side is excluded and no input column is provided, the side panel area is blank.
 The main content area extends left or right to fill any completely missing left or right side panel. To restrict this, use a black side panel to match the background.
+
+Since the inputs contained in an input column are defined separately and passed to \code{lcarsBox}, they should be defined to have widths that match the box side panel widths.
 }
 
 \section{Colors}{
