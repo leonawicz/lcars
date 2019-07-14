@@ -65,6 +65,9 @@ remotes::install_github("leonawicz/lcars")
 
 ## Example
 
+Below is a simple example using `lcars_border` to wrap a basic
+LCARS-like border around a ggplot object and draw the new plot.
+
 ``` r
 library(lcars)
 library(ggplot2)
@@ -79,4 +82,5 @@ lcars_border(g, corners = 1:3, length_frac = len_frac, side_n_segments = n_seg)
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
-For more examples see the [introduction](articles/lcars.html) vignette.
+For more detailed examples including Shiny app examples, see the package
+[vignette](https://leonawicz.github.io/lcars/articles/lcars.html).
