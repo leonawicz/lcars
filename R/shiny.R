@@ -61,17 +61,16 @@ lcars_init <- function(force_uppercase = FALSE, label_uppercase = FALSE, lcars_f
     if(label_uppercase) tags$style("label {text-transform: uppercase;}"),
     tags$style(paste0(
       "h1, h2, h3, h4, h5, h6, .lcars-hdr-title,
-      .lcars-box-title, .lcars-box-subtitle {
+      .lcars-box-title, .lcars-box-subtitle, .lcars-element-addition {
       font-family: ", lcars_font_headers, ";}")),
     tags$style(paste0(
       "label, .lcars-btn, .lcars-btn-filtered, .lcars-checkbox label {
       font-family: ", lcars_font_labels, ";}")),
     tags$style(paste0(
-      "p, li, a, .text, code, .blocktext_white, .blocktext_black {
+      "p, li, a, .text, code, .blocktext_white, .blocktext_black, .lcars-element-text {
       font-family: ", lcars_font_text, ";}"))
   )
 }
-
 
 #' LCARS header
 #'
@@ -105,7 +104,7 @@ lcarsHeader <- function(title = NULL, color = "golden-tanoi", title_color = colo
   }
   title_div <- div(class = "lcars-hdr-title",
                    style = paste0("color:", if(title_invert) x[3] else x[2], ";",
-                                  "background-color:", if(title_invert) x[2] else x[3], ";",
+                                  "background-color:", if(title_invert) x[2] else x[3],
                                   ";font-size:30px;line-height:29px;"), title)
   div(class = cl, style = paste0("width:", width, ";"),
     div(class = "hdr-pill-left",
@@ -239,7 +238,7 @@ lcarsh6 <- function(title = NULL, color = "atomic-tangerine", title_color = colo
 #'
 #' @return a div
 #' @export
-lcarsWell <- function(..., color = "atomic-tangerine", background_color = "#111111"){
+lcarsWell <- function(..., color = "atomic-tangerine", background_color = "#000000"){
   x <- .lcars_color_check(c(color, background_color))
   div(class = "well",
       style = paste0("border-color:", x[1], ";background-color:", x[2], ";"), ...)
@@ -247,7 +246,7 @@ lcarsWell <- function(..., color = "atomic-tangerine", background_color = "#1111
 
 #' Launch LCARS demo apps.
 #'
-#' Currently available apps include: \code{demo}, \code{box}, \code{toggle}.
+#' Currently available apps include: \code{demo}, \code{box}, \code{toggle}, \code{elements}.
 #'
 #' @param id character, app id.
 

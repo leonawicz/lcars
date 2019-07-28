@@ -5,7 +5,7 @@
 \title{LCARS well}
 \usage{
 lcarsWell(..., color = "atomic-tangerine",
-  background_color = "#111111")
+  background_color = "#000000")
 }
 \arguments{
 \item{...}{panel contents.}

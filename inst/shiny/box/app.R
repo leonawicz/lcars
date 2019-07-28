@@ -8,7 +8,7 @@ g <- ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + geom_point(
 g1 <- g + theme_lcars_dark(20, "Oswald")
 g2 <- g + theme_lcars_light(20, "Oswald")
 
-bc1 <- buttonColumn(
+bc1 <- inputColumn(
     lcarsButton("btn1", "A button"),
     lcarsButton("btn2", "Another button"),
     lcarsToggle("tog1", "Toggle 1", FALSE, pill = FALSE, inverse = FALSE, "Yes", "No",
@@ -19,7 +19,7 @@ bc1 <- buttonColumn(
                 false_color = "tamarillo", outer_border = TRUE, outer_color = "tamarillo", label_color = "tamarillo")
 )
 
-bc2 <- buttonColumn(
+bc2 <- inputColumn(
     lcarsButton("btn4", "Right side")
 )
 corners <- c("Top left", "Top right", "Bottom right", "Bottom left")

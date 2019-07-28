@@ -128,7 +128,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>LCARS box</h1>
-    <small class="dont-index">Source: <a href='https://github.com/leonawicz/lcars/blob/master/R/box.R'><code>R/box.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/leonawicz/lcars/blob/master/R/shiny-box.R'><code>R/shiny-box.R</code></a></small>
     <div class="hidden name"><code>lcarsBox.Rd</code></div>
     </div>
 
@@ -170,11 +170,11 @@
     </tr>
     <tr>
       <th>left_inputs</th>
-      <td><p>optional input column for left side, for example a button column made with <code>buttonColumn</code>. See details.</p></td>
+      <td><p>optional input column for left side, for example a column of buttons made with <code>inputColumn</code>. See details.</p></td>
     </tr>
     <tr>
       <th>right_inputs</th>
-      <td><p>optional input column for right side, for example a button column made with <code>buttonColumn</code>. See details.</p></td>
+      <td><p>optional input column for right side, for example a column of buttons made with <code>inputColumn</code>. See details.</p></td>
     </tr>
     <tr>
       <th>color</th>
@@ -297,7 +297,7 @@ If you do not want a side panel, you can include it but set its color to match t
         <span class='fu'>column</span>(<span class='fl'>9</span>, <span class='fu'>plotOutput</span>(<span class='st'>"plot1"</span>))
       ),
       <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"box title"</span>,
-      <span class='kw'>left_inputs</span> <span class='kw'>=</span> <span class='fu'><a href='buttonColumn.html'>buttonColumn</a></span>(<span class='fu'><a href='lcarsButton.html'>lcarsButton</a></span>(<span class='st'>"btn1"</span>, <span class='st'>"A button"</span>))
+      <span class='kw'>left_inputs</span> <span class='kw'>=</span> <span class='fu'><a href='inputColumn.html'>inputColumn</a></span>(<span class='fu'><a href='lcarsButton.html'>lcarsButton</a></span>(<span class='st'>"btn1"</span>, <span class='st'>"A button"</span>))
     )
   )
 

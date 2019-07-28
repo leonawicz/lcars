@@ -63,8 +63,8 @@
 #' @param subtitle character, box subtitle at bottom right.
 #' @param corners integer, \code{1:4}, a vector specifying which corner elbows to include: top left, top right, bottom right, bottom left. See details.
 #' @param sides integer, \code{1:4}, a vector specifying which sides to include panels: top, right, bottom, left. See details.
-#' @param left_inputs optional input column for left side, for example a button column made with \code{buttonColumn}. See details.
-#' @param right_inputs optional input column for right side, for example a button column made with \code{buttonColumn}. See details.
+#' @param left_inputs optional input column for left side, for example a column of buttons made with \code{inputColumn}. See details.
+#' @param right_inputs optional input column for right side, for example a column of buttons made with \code{inputColumn}. See details.
 #' @param color box border colors. See details.
 #' @param side_color box border colors. See details.
 #' @param title_color text title color.
@@ -99,7 +99,7 @@
 #'         column(9, plotOutput("plot1"))
 #'       ),
 #'       title = "box title",
-#'       left_inputs = buttonColumn(lcarsButton("btn1", "A button"))
+#'       left_inputs = inputColumn(lcarsButton("btn1", "A button"))
 #'     )
 #'   )
 #'

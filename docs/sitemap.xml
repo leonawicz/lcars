@@ -4,7 +4,7 @@
     <loc>http://leonawicz.github.io/lcars/index.html</loc>
   </url>
   <url>
-    <loc>http://leonawicz.github.io/lcars/reference/buttonColumn.html</loc>
+    <loc>http://leonawicz.github.io/lcars/reference/inputColumn.html</loc>
   </url>
   <url>
     <loc>http://leonawicz.github.io/lcars/reference/lcars.html</loc>
@@ -14,6 +14,9 @@
   </url>
   <url>
     <loc>http://leonawicz.github.io/lcars/reference/lcarsBox.html</loc>
+  </url>
+  <url>
+    <loc>http://leonawicz.github.io/lcars/reference/lcarsBracket.html</loc>
   </url>
   <url>
     <loc>http://leonawicz.github.io/lcars/reference/lcarsButton.html</loc>
@@ -32,6 +35,9 @@
   </url>
   <url>
     <loc>http://leonawicz.github.io/lcars/reference/lcarsRadio.html</loc>
+  </url>
+  <url>
+    <loc>http://leonawicz.github.io/lcars/reference/lcarsRect.html</loc>
   </url>
   <url>
     <loc>http://leonawicz.github.io/lcars/reference/lcarsToggle.html</loc>

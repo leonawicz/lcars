@@ -580,3 +580,97 @@ a:hover {
 .lcars-btn-tamarillo:hover {
   background-color: #882211 !important;
 }
+
+/* This CSS below is a modification of the original css: Copyright 2014 Garrett https://github.com/joernweissenborn/lcars (MIT) */
+.lcars-element {
+  position: relative;
+  color: #000;
+  text-align: right;
+  background: #fc6;
+  height: 3rem;
+  width: 7.5rem;
+  box-sizing: border-box;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.lcars-element * {
+  margin: 0;
+}
+.lcars-element.left-rounded {
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+  padding-left: 1.5rem;
+}
+.lcars-element.right-rounded {
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  padding-right: 1.5rem;
+}
+.lcars-element.rounded {
+  border-radius: 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.lcars-element.button {
+  cursor: pointer;
+}
+.lcars-element.button:active {
+  background-color: #c69;
+}
+.lcars-element .lcars-element-addition {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  background-color: #000;
+    color: #fff;
+    font-size: 2.000000000000001rem;
+  margin-left: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.lcars-element .lcars-element-decorator {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  width: 2rem;
+  left: -2.25rem;
+  height: 100%;
+  background-color: #fc6;
+    border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+
+.lcars-element .lcars-element-decorator.right {
+  right: -2.25rem;
+  left: unset;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.lcars-bracket {
+  background-color: #fc6;
+}
+.lcars-bracket.top {
+  height: 3rem;
+  border-top-left-radius: 3rem;
+  border-top-right-radius: 3rem;
+  border-width: 0.5rem 1.5rem 0 1.5rem;
+}
+.lcars-bracket.bottom {
+  height: 3rem;
+  border-bottom-left-radius: 3rem;
+  border-bottom-right-radius: 3rem;
+  border-width: 0 1.5rem 0.5rem 1.5rem;
+}
+.lcars-bracket.hollow {
+  background-color: #000;
+    border-style: solid;
+  border-color: #fc6;
+}

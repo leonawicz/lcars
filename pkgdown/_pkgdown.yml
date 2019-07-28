@@ -15,19 +15,27 @@ reference:
 - title: Datasets
   contents:
   - lcarsdata
-- title: Shiny functions
+- title: UI setup and containers
   contents:
   - lcarsPage
+  - lcarsBox
+  - lcarsBracket
+  - lcarsWell
+  - inputColumn
+- title: Headers and indicators
+  contents:
+  - lcarsHeader
+  - lcarsRect
+- title: Input controls
+  contents:
   - lcarsButton
   - lcarsCheckbox
   - lcarsToggle
-  - buttonColumn
   - lcarsRadio
-  - lcarsHeader
-  - lcarsBox
-  - lcarsWell
+- title: Shiny demos
+  contents:
   - lcarsApp
-- title: Plotting functions
+- title: Plotting (non-Shiny)
   contents:
   - lcars_border
   - lcars_rect

@@ -6,7 +6,7 @@ font_add_google("Oswald", "Oswald")
 showtext_auto()
 load("demoApp.RData")
 
-bc1 <- buttonColumn(
+bc1 <- inputColumn(
   lcarsButton("btn_totals", "Total words"),
   lcarsButton("btn_best", "Top episodes"),
   lcarsToggle("bars", "Bar values", FALSE, pill = FALSE, inverse = FALSE, "Yes", "No",
@@ -17,7 +17,7 @@ bc1 <- buttonColumn(
               false_color = "tamarillo", outer_border = TRUE, outer_color = "tamarillo", label_color = "tamarillo")
 )
 
-bc2 <- buttonColumn(
+bc2 <- inputColumn(
   lcarsButton("btn_picard", "PICARD"),
   lcarsButton("btn_data", "DATA"),
   lcarsButton("btn_riker", "RIKER"),

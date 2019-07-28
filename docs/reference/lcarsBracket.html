@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LCARS well — lcarsWell • lcars</title>
+<title>LCARS bracket element — lcarsBracket • lcars</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -39,9 +39,9 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="LCARS well — lcarsWell" />
+<meta property="og:title" content="LCARS bracket element — lcarsBracket" />
 
-<meta property="og:description" content="A simple LCARS well panel wrapper that takes color and background color arguments and understands LCARS color names." />
+<meta property="og:description" content="A top and bottom bracket pair element used to visually group contents." />
 
 <meta property="og:image" content="http://leonawicz.github.io/lcars/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -127,40 +127,48 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>LCARS well</h1>
-    <small class="dont-index">Source: <a href='https://github.com/leonawicz/lcars/blob/master/R/shiny.R'><code>R/shiny.R</code></a></small>
-    <div class="hidden name"><code>lcarsWell.Rd</code></div>
+    <h1>LCARS bracket element</h1>
+    <small class="dont-index">Source: <a href='https://github.com/leonawicz/lcars/blob/master/R/shiny-rect.R'><code>R/shiny-rect.R</code></a></small>
+    <div class="hidden name"><code>lcarsBracket.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>A simple LCARS well panel wrapper that takes color and background color arguments and understands LCARS color names.</p>
+    <p>A top and bottom bracket pair element used to visually group contents.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>lcarsWell</span>(<span class='no'>...</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>,
-  <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>)</pre>
+    <pre class="usage"><span class='fu'>lcarsBracket</span>(<span class='no'>...</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"golden-tanoi"</span>, <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
+  <span class='kw'>hollow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>panel contents.</p></td>
+      <td><p>div contents.</p></td>
     </tr>
     <tr>
       <th>color</th>
-      <td><p>border color. Any hex color or a named LCARS color.</p></td>
+      <td><p>bracket color. Any hex color or a named LCARS color.</p></td>
     </tr>
     <tr>
       <th>background_color</th>
-      <td><p>background color. Any hex color or a named LCARS color.</p></td>
+      <td><p>background color. Any hex color or a named LCARS color. Applies when <code>hollow = TRUE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>hollow</th>
+      <td><p>logical, use a hollow bracket. The cutout section has <code>background_color</code>.</p></td>
+    </tr>
+    <tr>
+      <th>width</th>
+      <td><p>a valid CSS unit.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a div</p>
+    <p>an HTML widget</p>
     
 
   </div>

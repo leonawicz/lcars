@@ -20,15 +20,16 @@ lcarsButton <- function(inputId, label, icon = NULL, color = "atomic-tangerine",
   shiny::actionButton(inputId, label, icon, NULL, class = cl, style = style, ...)
 }
 
-#' LCARS button column
+#' LCARS input column
 #'
-#' An LCARS button column is a container for \code{lcarsButton} and \code{lcarsToggle} buttons that can be passed to \code{lcarsBox}.
-#' The buttons occur vertically in the left side panel of the box. Toggle button width should be 150px.
+#' An LCARS input column is a container for inputs like \code{lcarsButton} and \code{lcarsToggle} that can be passed to \code{lcarsBox}.
+#' The inputs occur vertically in the left or right side panel of the box. To fit properly, input widths should be 150px or less,
+#' matching the widths of the side panels of the given \code{lcarsBox} container.
 #'
 #'
-#' @param ... \code{lcarsButton} objects.
+#' @param ... div contents such as \code{lcarsButton} elements.
 #'
 #' @export
-buttonColumn <- function(...){
+inputColumn <- function(...){
   div(class = "lcars-button-col", ...)
 }
