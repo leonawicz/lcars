@@ -47,7 +47,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">lcars</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -102,7 +102,7 @@
 <div id="library-computer-accessretrieval-system-lcars" class="section level2">
 <h2 class="hasAnchor">
 <a href="#library-computer-accessretrieval-system-lcars" class="anchor"></a>Library Computer Access/Retrieval System (<a href="https://en.wikipedia.org/wiki/LCARS">LCARS</a>)</h2>
-<p>The <code>lcars</code> package provides simple approximations to LCARS style and appearance to give static plots and interactive data analysis an LCARS theme. This splits the package into two areas:</p>
+<p>The <code>lcars</code> package provides simple approximations to LCARS style and appearance to give static plots and interactive data analysis an LCARS theme.</p>
 <ul>
 <li>One key feature in <code>lcars</code> is the ability to wrap ggplot objects in an LCARS-themed border using <code>lcars_border</code>.</li>
 <li>There is also support for an LCARS-themed Shiny UI using <code>lcarsPage</code> and related functions.</li>
@@ -111,6 +111,42 @@
 <p><img src="reference/figures/README-banner.png"></p>
 <p>That’s right. Make your Shiny app, view it on a touch screen device like your very own Federation issue data PADD, and transport yourself into the future of the Star Trek universe with this 1980s sci-fi television aesthetic!</p>
 <p>The static plot border and Shiny <code>lcarsBox</code> widget both give plenty of control over the style. Given their different fundamental designs, they provide somewhat different aspects of design control via their respective function arguments.</p>
+<div id="function-names" class="section level3">
+<h3 class="hasAnchor">
+<a href="#function-names" class="anchor"></a>Function names</h3>
+<p>On the topic of the split between Shiny and non-Shiny functions, most of the package is Shiny-related. There is less focus on the ggplot border effect and related border component functions. Shiny functions use camel case like <code>lcarsBox</code> whereas non-Shiny functions use snake case like <code>lcars_border</code>.</p>
+</div>
+<div id="shiny-functions" class="section level3">
+<h3 class="hasAnchor">
+<a href="#shiny-functions" class="anchor"></a>Shiny functions</h3>
+<p>There are several Shiny functions available. These are UI containers and widgets that provide various LCARS aesthetics.</p>
+<p>UI setup and containers:</p>
+<ul>
+<li><code>lcarsPage</code></li>
+<li><code>lcarsBox</code></li>
+<li><code>lcarsSweep</code></li>
+<li><code>lcarsBracket</code></li>
+<li><code>lcarsWell</code></li>
+<li><code>inputColumn</code></li>
+</ul>
+<p>Headers and indicators:</p>
+<ul>
+<li>
+<code>lcarsHeader</code>, <code>lcarsh1</code> through <code>lcarsh6</code>.</li>
+<li>
+<code>lcarsRect</code>, <code>lcarsPill</code>, etc.</li>
+</ul>
+<p>Input controls</p>
+<ul>
+<li><code>lcarsButton</code></li>
+<li><code>lcarsCheckbox</code></li>
+<li><code>lcarsToggle</code></li>
+<li><code>lcarsRadio</code></li>
+</ul>
+<p>The key widgets are <code>lcarsHeader</code>, <code>lcarsBox</code> and <code>lcarsSweep</code>. An example of the header and box is shown above. Here is a combined LCARS sweep and reverse sweep:</p>
+<p><img src="reference/figures/README-sweep.png"></p>
+<p>The screenshots above are taken directly from demo apps included in the package. See <code><a href="reference/lcarsApp.html">?lcarsApp</a></code> for details.</p>
+</div>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -124,7 +160,7 @@
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<p>Below is a simple example using <code>lcars_border</code> to wrap a basic LCARS-like border around a ggplot object and draw the new plot.</p>
+<p>Below is a basic example using <code>lcars_border</code> to wrap a basic LCARS-like border around a ggplot object and draw the new plot.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(lcars)</a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggplot2)</a>
 <a class="sourceLine" id="cb3-3" title="3"></a>
@@ -135,6 +171,7 @@
 <a class="sourceLine" id="cb3-8" title="8">n_seg &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">8</span>)</a>
 <a class="sourceLine" id="cb3-9" title="9"><span class="kw"><a href="reference/lcars_border.html">lcars_border</a></span>(g, <span class="dt">corners =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">length_frac =</span> len_frac, <span class="dt">side_n_segments =</span> n_seg)</a></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"></p>
+<p>The appearance can be improved and customized significantly from the basic example above, as shown in the vignette. However, the Shiny widgets are not only interactive, which is a critical feature for an LCARS display, but they also look much better; to the point that you may find it preferable to take a screenshot of a shiny widget rather than using <code>lcars_border</code> with a ggplot object when you want to share a static plot.</p>
 <p>For more detailed examples including Shiny app examples, see the package <a href="https://leonawicz.github.io/lcars/articles/lcars.html">vignette</a>.</p>
 </div>
 </div>

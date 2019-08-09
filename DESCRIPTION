@@ -1,6 +1,6 @@
 Package: lcars
 Title: LCARS theme for R Graphics
-Version: 0.2.0
+Version: 0.3.0
 Authors@R: person("Matthew", "Leonawicz", email = "matt_leonawicz@esource.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-9452-2771"))
 Description: Provides simple approximations to 'Library Computer Access/Retrieval System' (LCARS) style and appearance to give plots an LCARS theme. 
     This package also includes a collection of functions for generating HTML widgets. 

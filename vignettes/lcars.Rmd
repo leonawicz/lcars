@@ -109,8 +109,10 @@ Use `lcarsApp` to loads various demo apps:
 
 ```{r apps, eval=FALSE}
 lcarsApp("demo")
-lcarsApp("toggle")
 lcarsApp("box")
+lcarsApp("sweep")
+lcarsApp("toggle")
+lcarsApp("elements")
 ```
 
 The `box` example is helpful for exploring the many ways you can control the style of an `lcarsBox`. Here are a couple examples highlighting some of the versatility:
@@ -127,7 +129,21 @@ Running these apps will prompt you to install required packages if you do not al
 
 ### Recommendations
 
+#### Font and casing
+
 Pay attention to the arguments to `lcarsPage`. Depending on the nature of text content in your app, you may find you need to deviate from some LCARS-style defaults (e.g., uppercase font) to make the text in your app more pleasant to read.
 It will also allow you to revert to sans serif. It is not an all or nothing switch; you have some control over what to change and what to leave alone.
 
+#### Responsiveness limitations
+
+There are limitations to the container responsiveness of the LCARS box and sweep. In some cases, using percentage width, e.g., `width = "100%"` will work, but it may respond sluggishly or may not work at all. Fixed pixel width is recommended for `lcarsBox` and `lcarsSweep`. Regardless of responsiveness, these widgets are also not intended to fit very small displays.
+
+#### Official LCARS colors
+
 Familiarize yourself with LCARS colors from the `trekcolors` package. This package is a dependency of `lcars`. It includes various other Star Trek color palettes. Most notably it includes a function for previewing the palettes.
+
+```{r lcars-colors}
+# show lcars colors here
+```
+
+There are several generations of LCARS color palettes. Functions in `lcars` that accept color arguments will take any hex color, but will also accept official LCARS colors by name.

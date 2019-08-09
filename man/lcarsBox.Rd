@@ -44,7 +44,10 @@ lcarsBox(..., title = NULL, subtitle = NULL, corners = c(1, 4),
 
 \item{width_right}{numeric, the width of the right side panel in pixels. This also adjusts associated corner elbows to match. Defaults to the maximum allowed: 150.}
 
-\item{width}{a valid CSS unit, the width of the entire box.}
+\item{width}{a valid CSS unit, the width of the entire box. Fixed pixel width recommended. See details.}
+}
+\value{
+an HTML widget
 }
 \description{
 Create a configurable LCARS box.
@@ -115,6 +118,12 @@ Note that this should only be done when both side panels are present so that the
 If you do not want a side panel, you can include it but set its color to match the background.
 }
 
+\section{Sizing}{
+
+There are limitations to the container responsiveness of the LCARS box and sweep. In some cases, using percentage width, e.g., \code{width = "100\%"} will work, but it may respond sluggishly or may not work at all.
+Fixed pixel width is recommended for \code{lcarsBox} and \code{lcarsSweep}. Regardless of responsiveness, these widgets are also not intended to fit very small displays.
+}
+
 \examples{
 ## Only run examples in interactive R sessions
 if (interactive()) {
@@ -148,4 +157,7 @@ if (interactive()) {
 
   shinyApp(ui, server)
 }
+}
+\seealso{
+\code{\link{lcarsSweep}}
 }

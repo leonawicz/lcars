@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lcars</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -182,8 +182,10 @@
 <p>Rather than post lots of code here in a non-interactive package vignette, the best suggestion is to explore the example apps included in the package. The source code is easy to browse in the GitHub repository.</p>
 <p>Use <code>lcarsApp</code> to loads various demo apps:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="../reference/lcarsApp.html">lcarsApp</a></span>(<span class="st">"demo"</span>)</a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="kw"><a href="../reference/lcarsApp.html">lcarsApp</a></span>(<span class="st">"toggle"</span>)</a>
-<a class="sourceLine" id="cb3-3" title="3"><span class="kw"><a href="../reference/lcarsApp.html">lcarsApp</a></span>(<span class="st">"box"</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw"><a href="../reference/lcarsApp.html">lcarsApp</a></span>(<span class="st">"box"</span>)</a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw"><a href="../reference/lcarsApp.html">lcarsApp</a></span>(<span class="st">"sweep"</span>)</a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="kw"><a href="../reference/lcarsApp.html">lcarsApp</a></span>(<span class="st">"toggle"</span>)</a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="kw"><a href="../reference/lcarsApp.html">lcarsApp</a></span>(<span class="st">"elements"</span>)</a></code></pre></div>
 <p>The <code>box</code> example is helpful for exploring the many ways you can control the style of an <code>lcarsBox</code>. Here are a couple examples highlighting some of the versatility:</p>
 <div id="corner-elbows-only" class="section level4">
 <h4 class="hasAnchor">
@@ -200,8 +202,23 @@
 <div id="recommendations" class="section level3">
 <h3 class="hasAnchor">
 <a href="#recommendations" class="anchor"></a>Recommendations</h3>
+<div id="font-and-casing" class="section level4">
+<h4 class="hasAnchor">
+<a href="#font-and-casing" class="anchor"></a>Font and casing</h4>
 <p>Pay attention to the arguments to <code>lcarsPage</code>. Depending on the nature of text content in your app, you may find you need to deviate from some LCARS-style defaults (e.g., uppercase font) to make the text in your app more pleasant to read. It will also allow you to revert to sans serif. It is not an all or nothing switch; you have some control over what to change and what to leave alone.</p>
+</div>
+<div id="responsiveness-limitations" class="section level4">
+<h4 class="hasAnchor">
+<a href="#responsiveness-limitations" class="anchor"></a>Responsiveness limitations</h4>
+<p>There are limitations to the container responsiveness of the LCARS box and sweep. In some cases, using percentage width, e.g., <code>width = "100%"</code> will work, but it may respond sluggishly or may not work at all. Fixed pixel width is recommended for <code>lcarsBox</code> and <code>lcarsSweep</code>. Regardless of responsiveness, these widgets are also not intended to fit very small displays.</p>
+</div>
+<div id="official-lcars-colors" class="section level4">
+<h4 class="hasAnchor">
+<a href="#official-lcars-colors" class="anchor"></a>Official LCARS colors</h4>
 <p>Familiarize yourself with LCARS colors from the <code>trekcolors</code> package. This package is a dependency of <code>lcars</code>. It includes various other Star Trek color palettes. Most notably it includes a function for previewing the palettes.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="co"># show lcars colors here</span></a></code></pre></div>
+<p>There are several generations of LCARS color palettes. Functions in <code>lcars</code> that accept color arguments will take any hex color, but will also accept official LCARS colors by name.</p>
+</div>
 </div>
 </div>
   </div>

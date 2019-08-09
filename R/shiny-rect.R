@@ -58,8 +58,8 @@ lcarsPill <- function(text = "", decorate = c("none", "both", "left", "right"),
                       title_color = color, text_size = 16, title = NULL,
                       width = "100%", height = 30){
   decorate <- match.arg(decorate)
-  lcarsRect(text, width, height, "both", decorate,
-            color, text_color, title_color, text_size, title)
+  lcarsRect(text, "both", decorate, color, text_color, title_color,
+            text_size, title, width, height)
 }
 
 #' @export
@@ -68,8 +68,8 @@ lcarsLeftPill <- function(text = "", decorate = FALSE, color = "golden-tanoi",
                           text_color = "#000000", title_color = color,
                           text_size = 16, title = NULL, width = "100%", height = 30){
   decorate <- if(decorate) "left" else "none"
-  lcarsRect(text, width, height, "left", decorate,
-            color, text_color, title_color, text_size, title)
+  lcarsRect(text, "left", decorate, color, text_color, title_color,
+            text_size, title, width, height)
 }
 
 #' @export
@@ -78,8 +78,8 @@ lcarsRightPill <- function(text = "", decorate = FALSE, color = "golden-tanoi",
                            text_color = "#000000", title_color = color,
                            text_size = 16, title = NULL, width = "100%", height = 30){
   decorate <- if(decorate) "right" else "none"
-  lcarsRect(text, width, height, "right", decorate,
-            color, text_color, title_color, text_size, title)
+  lcarsRect(text, "right", decorate, color, text_color, title_color,
+            text_size, title, width, height)
 }
 
 #' LCARS bracket element

@@ -84,7 +84,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lcars</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -214,9 +214,13 @@
     </tr>
     <tr>
       <th>width</th>
-      <td><p>a valid CSS unit, the width of the entire box.</p></td>
+      <td><p>a valid CSS unit, the width of the entire box. Fixed pixel width recommended. See details.</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>an HTML widget</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -275,6 +279,16 @@ You can override this and make use of this space by setting <code>clip = FALSE</
 <p>Note that this should only be done when both side panels are present so that the main panel content is not directly under or above the elbow near the extreme edge of the box.
 If you do not want a side panel, you can include it but set its color to match the background.</p>
     
+    <h2 class="hasAnchor" id="sizing"><a class="anchor" href="#sizing"></a>Sizing</h2>
+
+    
+    <p>There are limitations to the container responsiveness of the LCARS box and sweep. In some cases, using percentage width, e.g., <code>width = "100%"</code> will work, but it may respond sluggishly or may not work at all.
+Fixed pixel width is recommended for <code>lcarsBox</code> and <code>lcarsSweep</code>. Regardless of responsiveness, these widgets are also not intended to fit very small displays.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='lcarsSweep.html'>lcarsSweep</a></code></p></div>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Only run examples in interactive R sessions</span>
@@ -315,6 +329,8 @@ If you do not want a side panel, you can include it but set its color to match t
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#value">Value</a></li>
+
       <li><a href="#details">Details</a></li>
 
       <li><a href="#corner-elbows">Corner elbows</a></li>
@@ -326,6 +342,10 @@ If you do not want a side panel, you can include it but set its color to match t
       <li><a href="#colors">Colors</a></li>
 
       <li><a href="#margin-space">Margin space</a></li>
+
+      <li><a href="#sizing">Sizing</a></li>
+
+      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

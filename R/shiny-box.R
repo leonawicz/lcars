@@ -58,6 +58,10 @@
 #' Note that this should only be done when both side panels are present so that the main panel content is not directly under or above the elbow near the extreme edge of the box.
 #' If you do not want a side panel, you can include it but set its color to match the background.
 #'
+#' @section Sizing:
+#' There are limitations to the container responsiveness of the LCARS box and sweep. In some cases, using percentage width, e.g., \code{width = "100\%"} will work, but it may respond sluggishly or may not work at all.
+#' Fixed pixel width is recommended for \code{lcarsBox} and \code{lcarsSweep}. Regardless of responsiveness, these widgets are also not intended to fit very small displays.
+#'
 #' @param ... box contents.
 #' @param title character, box title at top right.
 #' @param subtitle character, box subtitle at bottom right.
@@ -74,9 +78,11 @@
 #' @param clip logical, use empty margin space. See details.
 #' @param width_left numeric, the width of the left side panel in pixels. This also adjusts associated corner elbows to match. Defaults to the maximum allowed: 150.
 #' @param width_right numeric, the width of the right side panel in pixels. This also adjusts associated corner elbows to match. Defaults to the maximum allowed: 150.
-#' @param width a valid CSS unit, the width of the entire box.
+#' @param width a valid CSS unit, the width of the entire box. Fixed pixel width recommended. See details.
 #'
+#' @return an HTML widget
 #' @export
+#' @seealso \code{\link{lcarsSweep}}
 #'
 #' @examples
 #' ## Only run examples in interactive R sessions

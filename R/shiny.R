@@ -86,6 +86,7 @@ lcars_init <- function(force_uppercase = FALSE, label_uppercase = FALSE, lcars_f
 #' @param title_right logical, right align title.
 #' @param title_align character, for the heading replacers: center, right or left.
 #' @param title_invert logical, invert the color and background color for the title rectangle.
+#' @param round character, sides of header to round. The default is to present the header in LCARS full pill style.
 #' @param width a valid CSS unit.
 #'
 #' @seealso \code{\link{lcarsdata}}.
@@ -93,21 +94,28 @@ lcars_init <- function(force_uppercase = FALSE, label_uppercase = FALSE, lcars_f
 #' @export
 lcarsHeader <- function(title = NULL, color = "golden-tanoi", title_color = color,
                         background_color = "#000000", title_right = TRUE,
-                        title_invert = FALSE, width = "100%"){
+                        title_invert = FALSE, round = c("both", "right", "left", "none"),
+                        width = "100%"){
   width <- shiny::validateCssUnit(width)
   if(is.null(width)) width <- "100%"
   x <- .lcars_color_check(c(color, title_color, background_color))
+  round <- match.arg(round)
   if(is.null(title)){
     cl <- "lcars-hdr2"
   } else {
     cl <- if(title_right) "lcars-hdr" else "lcars-hdr-ljust"
   }
+  f <- function(x, r){
+    r <- switch(r, both = "", left = "-left", right = "-right", none = "-none")
+    paste0(x, r)
+  }
+  cl <- f(cl, round)
   title_div <- div(class = "lcars-hdr-title",
                    style = paste0("color:", if(title_invert) x[3] else x[2], ";",
                                   "background-color:", if(title_invert) x[2] else x[3],
                                   ";font-size:30px;line-height:29px;"), title)
   div(class = cl, style = paste0("width:", width, ";"),
-    div(class = "hdr-pill-left",
+    if(round %in% c("both", "left")) div(class = "hdr-pill-left",
       shiny::HTML('<svg style = "fill:', x[1], ';height:30px;width:45px;">
            <use xlink:href="svg/sprites.svg#lcars-svg-endcap_left" height="30" width="45"></use>
            </svg>')
@@ -115,7 +123,7 @@ lcarsHeader <- function(title = NULL, color = "golden-tanoi", title_color = colo
     if(!is.null(title) & !title_right) title_div,
     div(class = "blocktext_black lcars-hdr-rect", style = paste0("background-color:", x[1], ";")),
     if(!is.null(title) & title_right) title_div,
-    div(class = "hdr-pill-right",
+    if(round %in% c("both", "right")) div(class = "hdr-pill-right",
       shiny::HTML('<svg style = "fill:', x[1], ';height:30px;width:45px;">
            <use xlink:href="svg/sprites.svg#lcars-svg-endcap_right" height="30" width="45"></use>
            </svg>')
@@ -246,7 +254,7 @@ lcarsWell <- function(..., color = "atomic-tangerine", background_color = "#0000
 
 #' Launch LCARS demo apps.
 #'
-#' Currently available apps include: \code{demo}, \code{box}, \code{toggle}, \code{elements}.
+#' Currently available apps include: \code{demo}, \code{box}, \code{sweep}, \code{toggle}, \code{elements}.
 #'
 #' @param id character, app id.
 
@@ -254,6 +262,8 @@ lcarsWell <- function(..., color = "atomic-tangerine", background_color = "#0000
 #' @examples
 #' \dontrun{lcarsApp("demo")}
 lcarsApp <- function(id = "demo"){
+  ids <- c("demo", "box", "sweep", "toggle", "elements")
+  if(!id %in% ids) stop("Invalid app `id`.")
   if(id == "demo"){
     if(!requireNamespace("ggrepel", quietly = TRUE)){
       message("This app requires the `ggrepel` package. Install and rerun.")

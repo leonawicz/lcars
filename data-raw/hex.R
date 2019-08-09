@@ -11,8 +11,8 @@ out <- paste0("man/figures/logo.png")
 
 len_frac <- c(0.55, 0.25, 0.2, 0.4, 0.6, 0.1, 0.1, 0.1)
 n_seg <- c(1, 2, 1, 6)
-cc = c("#CD6363", "#CC99CC", "#FFFF9C", "#FFFF9C")
-sc <- list("#FFFF9C", c("#99CCFF", "#CC99CC"), "#FFFF9C", c(rep("#99CCFF", 2), rep("#FF9E63", 4)))
+cc = c("#CC6699", "#CC99CC", "#CC6699", "#FFFF99")
+sc <- list("#FFFF99", c("#99CCFF", "#FFFF99"), "#FFFF99", rep(c("#FF9900", "#99CCFF", "#FFCC66"), each = 2))
 sw <- c(1, 5, 1, 5) / 5
 
 file <- "data-raw/lcars-0.png"
@@ -24,10 +24,10 @@ dev.off()
 p <- rasterGrob(readPNG(file))
 
 hex_plot <- function(out, mult = 1){
-  sticker(p, package = "lcars", p_y = 1, p_color = "#FFFF9C", p_size = 36,
+  sticker(p, package = "lcars", p_y = 1, p_color = "#FFFF99", p_size = 36,
           s_x = 1, s_y = 1, s_width = 1.5, s_height = 1.5,
-          h_color = "#CD6363", h_fill = "#000000", h_size =  1.4,
-          url = url, u_color = "#FFFF9C", u_size = 3, filename = out)
+          h_color = "#FFFF99", h_fill = "#000000", h_size =  1.6,
+          url = url, u_color = "#FFFF99", u_size = 3, filename = out)
 }
 
 hex_plot(out)

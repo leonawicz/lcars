@@ -1,3 +1,9 @@
+# lcars 0.3.0
+
+* Added `lcarsSweep`.
+* Added demo app for sweep.
+* Updated documentation.
+
 # lcars 0.2.0
 
 * Added support for a minimal LCARS theme Shiny UI.

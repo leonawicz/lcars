@@ -12,7 +12,8 @@
 \usage{
 lcarsHeader(title = NULL, color = "golden-tanoi",
   title_color = color, background_color = "#000000",
-  title_right = TRUE, title_invert = FALSE, width = "100\%")
+  title_right = TRUE, title_invert = FALSE, round = c("both",
+  "right", "left", "none"), width = "100\%")
 
 lcarsh1(title = NULL, color = "atomic-tangerine",
   title_color = color, background_color = "#000000",
@@ -56,6 +57,8 @@ lcarsh6(title = NULL, color = "atomic-tangerine",
 \item{title_right}{logical, right align title.}
 
 \item{title_invert}{logical, invert the color and background color for the title rectangle.}
+
+\item{round}{character, sides of header to round. The default is to present the header in LCARS full pill style.}
 
 \item{width}{a valid CSS unit.}
 

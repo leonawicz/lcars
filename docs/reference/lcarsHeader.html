@@ -84,7 +84,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lcars</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -140,7 +140,8 @@
 
     <pre class="usage"><span class='fu'>lcarsHeader</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"golden-tanoi"</span>,
   <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
-  <span class='kw'>title_right</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>title_invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>)
+  <span class='kw'>title_right</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>title_invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>round</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"both"</span>,
+  <span class='st'>"right"</span>, <span class='st'>"left"</span>, <span class='st'>"none"</span>), <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>)
 
 <span class='fu'>lcarsh1</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>,
   <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
@@ -198,6 +199,10 @@
     <tr>
       <th>title_invert</th>
       <td><p>logical, invert the color and background color for the title rectangle.</p></td>
+    </tr>
+    <tr>
+      <th>round</th>
+      <td><p>character, sides of header to round. The default is to present the header in LCARS full pill style.</p></td>
     </tr>
     <tr>
       <th>width</th>
