@@ -15,21 +15,25 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -39,12 +43,12 @@
 
   <link href="../extra.css" rel="stylesheet">
   
+
 <meta property="og:title" content="LCARS box — lcarsBox" />
-
 <meta property="og:description" content="Create a configurable LCARS box." />
-
 <meta property="og:image" content="http://leonawicz.github.io/lcars/logo.png" />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -67,6 +71,7 @@
 
   gtag('config', 'UA-46129458-3');
 </script>
+
 
   </head>
 
@@ -107,7 +112,6 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/leonawicz/lcars">
@@ -122,6 +126,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -133,18 +138,16 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Create a configurable LCARS box.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>lcarsBox</span>(<span class='no'>...</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>corners</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>4</span>),
-  <span class='kw'>sides</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>3</span>, <span class='fl'>4</span>), <span class='kw'>left_inputs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>right_inputs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+    <pre class="usage"><span class='fu'>lcarsBox</span>(<span class='no'>...</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>corners</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>4</span>),
+  <span class='kw'>sides</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>3</span>, <span class='fl'>4</span>), <span class='kw'>left_inputs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>right_inputs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>, <span class='kw'>side_color</span> <span class='kw'>=</span> <span class='no'>color</span>,
   <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>subtitle_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>title_right</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>subtitle_right</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>clip</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>width_left</span> <span class='kw'>=</span> <span class='fl'>150</span>,
   <span class='kw'>width_right</span> <span class='kw'>=</span> <span class='fl'>150</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -217,29 +220,28 @@
       <td><p>a valid CSS unit, the width of the entire box. Fixed pixel width recommended. See details.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>an HTML widget</p>
-    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>This function allows you to customize the inclusion and colors of specific border components of the box. The defaults are closer to standard LCARS style.
 You can turn on or off specific corner elbows, connecting side panels, control colors of each, as well as title and subtitle inclusion, color and alignment.</p>
-    
     <h2 class="hasAnchor" id="corner-elbows"><a class="anchor" href="#corner-elbows"></a>Corner elbows</h2>
 
     
-    <p>Control which corners of the box display the characteristic LCARS elbow, clockwise from top left.
+
+<p>Control which corners of the box display the characteristic LCARS elbow, clockwise from top left.
 The top and bottom borders are independent of one another. Each work in the same manner. For each, you can have a left elbow (default), a right elbow, or both.</p>
 <p>When only one corner is present (on top or on bottom), the bar extends to the other corner and terminates with the characteristic LCARS half pill if the panel border is included (see side panel section below).
 If the side between the elbow areas is excluded, only the elbows are displayed.</p>
 <p>If both elbows are excluded from the top or from the bottom, a simple, straight <code>lcarsHeader</code> element is placed above or below the main content area instead, but this can be controlled via <code>sides</code>.</p>
-    
     <h2 class="hasAnchor" id="side-panels"><a class="anchor" href="#side-panels"></a>Side panels</h2>
 
     
-    <p>Control which sides of the box include an LCARS-styled border, clockwise from top left.
+
+<p>Control which sides of the box include an LCARS-styled border, clockwise from top left.
 Sides connect elbows using straight bars. The top and bottom sides are where title and subtitle text are placed.
 The title for the top and subtitle for the bottom are included in the bar with standard LCARS right alignment, which can be switched to left.
 If the top or bottom side panel is excluded, the vertical space remains if <code>title</code> or <code>subtitle</code> are included, respectively, retaining the text labels; otherwise the space is removed.</p>
@@ -247,52 +249,50 @@ If the top or bottom side panel is excluded, the vertical space remains if <code
 The top and bottom are fixed, but the widths of the left and right side panels can be adjusted using <code>width_left</code> and <code>width_right</code>, respectively.
 They can only be adjusted down to smaller widths. This is to ensure proper scaling for connected corners.
 The side panels are not meant to accommodate wider inputs and should primarily be used for small buttons and short text.</p>
-    
     <h2 class="hasAnchor" id="side-inputs-columns"><a class="anchor" href="#side-inputs-columns"></a>Side inputs columns</h2>
 
     
-    <p>Input columns are different from left and right sides. The latter refers to whether or not there are vertical connecting bars from elbow to elbow.
+
+<p>Input columns are different from left and right sides. The latter refers to whether or not there are vertical connecting bars from elbow to elbow.
 An input column represents a separate element that is placed in the left or right side panel area above the plain side panel bar itself.</p>
 <p>If the side is included and a column of inputs is provided, they combine vertically to form the side panel. Some amount of plain sidebar will pad the bottom beneath any input column, however tall.
 If the side is excluded, the input column will take up the entire vertical space.</p>
 <p>If the side is excluded and no input column is provided, the side panel area is blank.
 The main content area extends left or right to fill any completely missing left or right side panel. To restrict this, use a black side panel to match the background.</p>
 <p>Since the inputs contained in an input column are defined separately and passed to <code>lcarsBox</code>, they should be defined to have widths that match the box side panel widths.</p>
-    
     <h2 class="hasAnchor" id="colors"><a class="anchor" href="#colors"></a>Colors</h2>
 
     
-    <p>Box color can be any color given in hex format. Named colors must be LCARS colors. See <code><a href='lcarsdata.html'>lcarsdata</a></code> for options.
+
+<p>Box color can be any color given in hex format. Named colors must be LCARS colors. See <code><a href='lcarsdata.html'>lcarsdata</a></code> for options.
 By default, all border colors inherit from a single color passed to <code>color</code>.</p>
 <p><code>color</code> is recycled to length four as needed. <code>color</code> actually defines all four corner elbow colors.
 For corner elbows, use a vector of four colors for the top left, top right, bottom right, and bottom left, respectively.</p>
 <p>Similarly for the bars between elbows with <code>side_colors</code>, use a vector of four colors for the top, right side, bottom, and left side.
 This is also recycled to length four. If not provided, it inherits from <code>color</code>.</p>
 <p><code>title_color</code> and <code>subtitle_color</code> are scalar. They inherit from the first color in <code>color</code>.</p>
-    
     <h2 class="hasAnchor" id="margin-space"><a class="anchor" href="#margin-space"></a>Margin space</h2>
 
     
-    <p>When at least one corner elbow is present on a top or bottom side, that side will include empty margin space to the inside of the elbow.
+
+<p>When at least one corner elbow is present on a top or bottom side, that side will include empty margin space to the inside of the elbow.
 This space is part of the grid area of the side panel. This is why main panel content does not extend into it.
 You can override this and make use of this space by setting <code>clip = FALSE</code>.</p>
 <p>Note that this should only be done when both side panels are present so that the main panel content is not directly under or above the elbow near the extreme edge of the box.
 If you do not want a side panel, you can include it but set its color to match the background.</p>
-    
     <h2 class="hasAnchor" id="sizing"><a class="anchor" href="#sizing"></a>Sizing</h2>
 
     
-    <p>There are limitations to the container responsiveness of the LCARS box and sweep. In some cases, using percentage width, e.g., <code>width = "100%"</code> will work, but it may respond sluggishly or may not work at all.
+
+<p>There are limitations to the container responsiveness of the LCARS box and sweep. In some cases, using percentage width, e.g., <code>width = "100%"</code> will work, but it may respond sluggishly or may not work at all.
 Fixed pixel width is recommended for <code>lcarsBox</code> and <code>lcarsSweep</code>. Regardless of responsiveness, these widgets are also not intended to fit very small displays.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='lcarsSweep.html'>lcarsSweep</a></code></p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Only run examples in interactive R sessions</span>
-<span class='kw'>if</span> (<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/interactive'>interactive</a></span>()) {
+<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
 
   <span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='lcarsPage.html'>lcarsPage</a></span>(
     <span class='fu'>lcarsBox</span>(
@@ -317,7 +317,7 @@ Fixed pixel width is recommended for <code>lcarsBox</code> and <code>lcarsSweep<
 
   <span class='no'>server</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) {
     <span class='no'>output</span>$<span class='no'>plot1</span> <span class='kw'>&lt;-</span> <span class='fu'>renderPlot</span>({
-      <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/hist'>hist</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>500</span>))
+      <span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>500</span>))
     })
   }
 
@@ -328,30 +328,21 @@ Fixed pixel width is recommended for <code>lcarsBox</code> and <code>lcarsSweep<
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#details">Details</a></li>
-
       <li><a href="#corner-elbows">Corner elbows</a></li>
-
       <li><a href="#side-panels">Side panels</a></li>
-
       <li><a href="#side-inputs-columns">Side inputs columns</a></li>
-
       <li><a href="#colors">Colors</a></li>
-
       <li><a href="#margin-space">Margin space</a></li>
-
       <li><a href="#sizing">Sizing</a></li>
-
       <li><a href="#see-also">See also</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -359,13 +350,16 @@ Fixed pixel width is recommended for <code>lcarsBox</code> and <code>lcarsSweep<
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

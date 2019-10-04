@@ -8,17 +8,22 @@
 <image class="orcid" src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" height="16"></a>
 <br/> **License:** [MIT](https://opensource.org/licenses/MIT)<br/>
 
-[![CRAN
-status](http://www.r-pkg.org/badges/version/lcars)](https://cran.r-project.org/package=lcars)
-[![CRAN
-downloads](http://cranlogs.r-pkg.org/badges/grand-total/lcars)](https://cran.r-project.org/package=lcars)
-[![Rdoc](http://www.rdocumentation.org/badges/version/lcars)](http://www.rdocumentation.org/packages/lcars)
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Travis build
 status](https://travis-ci.org/leonawicz/lcars.svg?branch=master)](https://travis-ci.org/leonawicz/lcars)
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/leonawicz/lcars?branch=master&svg=true)](https://ci.appveyor.com/project/leonawicz/lcars)
 [![Codecov test
 coverage](https://codecov.io/gh/leonawicz/lcars/branch/master/graph/badge.svg)](https://codecov.io/gh/leonawicz/lcars?branch=master)
+
+[![CRAN
+status](http://www.r-pkg.org/badges/version/lcars)](https://cran.r-project.org/package=lcars)
+[![CRAN
+downloads](http://cranlogs.r-pkg.org/badges/grand-total/lcars)](https://cran.r-project.org/package=lcars)
+[![Github
+Stars](https://img.shields.io/github/stars/leonawicz/lcars.svg?style=social&label=Github)](https://github.com/leonawicz/lcars)
 
 ## Library Computer Access/Retrieval System ([LCARS](https://en.wikipedia.org/wiki/LCARS))
 
@@ -80,6 +85,7 @@ Input controls
   - `lcarsCheckbox`
   - `lcarsToggle`
   - `lcarsRadio`
+  - `lcarsRadioToggle`
 
 The key widgets are `lcarsHeader`, `lcarsBox` and `lcarsSweep`. An
 example of the header and box is shown above. Here is a combined LCARS
@@ -128,10 +134,16 @@ lcars_border(g, corners = 1:3, length_frac = len_frac, side_n_segments = n_seg)
 The appearance can be improved and customized significantly from the
 basic example above, as shown in the vignette. However, the Shiny
 widgets are not only interactive, which is a critical feature for an
-LCARS display, but they also look much better; to the point that you may
-find it preferable to take a screenshot of a shiny widget rather than
-using `lcars_border` with a ggplot object when you want to share a
-static plot.
+LCARS display, but they also look much better; to the point that when
+sharing a static plot, you may still find it preferable to take a
+screenshot of a shiny widget rather than using `lcars_border` with a
+ggplot object.
 
 For more detailed examples including Shiny app examples, see the package
 [vignette](https://leonawicz.github.io/lcars/articles/lcars.html).
+
+-----
+
+Please note that this project is released with a [Contributor Code of
+Conduct](https://leonawicz.github.io/lcars/CODE_OF_CONDUCT.html). By
+participating in this project you agree to abide by its terms.

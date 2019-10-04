@@ -621,6 +621,47 @@ a:hover {
   content: var(--tog-false-label);
 }
 
+/* lcarsRadio */
+.lcars-radio-toggle > .form-group > .shiny-options-group{
+  margin-top: 0;
+}
+.lcars-radio-toggle > .form-group > .shiny-options-group input{
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	overflow: hidden;
+	position: absolute !important;
+	width: 1px;
+}
+.lcars-radio-toggle > .form-group > .shiny-options-group span {
+	background-color: #ffff99;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	color: #000000;
+	font-size: 14px;
+	line-height: 1;
+	padding: 4px 8px 3px 8px;
+	text-align: center;
+	transition: all 0.2s ease-in-out;
+}
+.lcars-radio-toggle > .form-group > .shiny-options-group label{
+  padding-left:0;
+}
+.lcars-radio-toggle > .form-group > .control-label{
+  margin-bottom: 0;
+}
+.lcars-radio-toggle > .form-group > .shiny-options-group > .radio{
+  float: left;
+  margin: 6px 0 11px 0;
+}
+.lcars-radio-toggle > .form-group > .shiny-options-group span:hover {
+	cursor: pointer;
+}
+.lcars-radio-toggle > .form-group > .shiny-options-group input:checked + span {
+	background-color: #ff9900;
+	box-shadow: none;
+	color: #000000;
+}
+
 /* button hover colors */
 .lcars-btn-pale-canary:hover {
   background-color: #ffff99 !important;

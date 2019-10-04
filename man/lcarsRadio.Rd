@@ -2,12 +2,19 @@
 % Please edit documentation in R/shiny-radio.R
 \name{lcarsRadio}
 \alias{lcarsRadio}
+\alias{lcarsRadioToggle}
 \title{LCARS radio buttons}
 \usage{
 lcarsRadio(inputId, label, choices = NULL, selected = NULL,
   inline = FALSE, width = NULL, choiceNames = NULL,
   choiceValues = NULL, label_color = "#FFFFFF",
   choice_color = label_color)
+
+lcarsRadioToggle(inputId, label, choices = NULL, selected = NULL,
+  width = NULL, choiceNames = NULL, choiceValues = NULL,
+  label_color = "atomic-tangerine", choice_color = "#000000",
+  background_color = label_color, checked_color = choice_color,
+  checked_background = "pale-canary")
 }
 \arguments{
 \item{inputId}{character, the input slot that will be used to access the value.}
@@ -22,45 +29,68 @@ lcarsRadio(inputId, label, choices = NULL, selected = NULL,
 
 \item{width}{a valid CSS unit.}
 
-\item{choiceNames}{see \code{shiny::radioButtons} for details.}
+\item{choiceNames, choiceValues}{see \code{shiny::radioButtons} for details.}
 
-\item{choiceValues}{see \code{shiny::radioButtons} for details.}
-
-\item{label_color}{Label color. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.}
-
-\item{choice_color}{choice text color, as above.}
+\item{label_color, choice_color, background_color, checked_color, checked_background, }{Color for the label, choices text, choices background, checked text and checked background. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.}
 }
 \value{
 A set of radio buttons that can be added to a UI definition.
 }
 \description{
-A minimal replacement for \code{radioButtons} that provides two additional color arguments for consistency with functions like \code{lcarsCheckbox}.
+LCARS-styled radio buttons functions.
+}
+\details{
+\code{lcarsRadio} is a minimal replacement for \code{radioButtons} that provides two additional color arguments for consistency with functions like \code{lcarsCheckbox}.
+\code{lcarsRadioToggle} is a more customized toggle style radio buttons wrapper with more color controls.
 }
 \examples{
 ## Only run examples in interactive R sessions
 if (interactive()) {
 
   ui <- lcarsPage(
-    lcarsRadio("dist", "Distribution type:",
-                 c("Normal" = "norm",
-                   "Uniform" = "unif",
-                   "Log-normal" = "lnorm",
-                   "Exponential" = "exp"),
-               label_color = "lilac",
-               choice_color = "atomic-tangerine"
-              ),
-    plotOutput("distPlot")
+    fluidRow(
+      column(6,
+        lcarsRadio("dist1", "Distribution type:",
+          c("Normal" = "norm",
+            "Uniform" = "unif",
+            "Log-normal" = "lnorm",
+            "Exponential" = "exp"),
+          inline = TRUE,
+          label_color = "lilac",
+          choice_color = "atomic-tangerine"
+        ),
+        plotOutput("distPlot1")
+      ),
+      column(6,
+        lcarsRadioToggle("dist2", "Distribution type:",
+          c("Normal" = "norm",
+            "Uniform" = "unif",
+            "Log-normal" = "lnorm",
+            "Exponential" = "exp"),
+          width = "100\%"
+        ),
+        plotOutput("distPlot2")
+      )
+    )
   )
 
   server <- function(input, output) {
-    output$distPlot <- renderPlot({
-      dist <- switch(input$dist,
+    output$distPlot1 <- renderPlot({
+      dist <- switch(input$dist1,
                      norm = rnorm,
                      unif = runif,
                      lnorm = rlnorm,
                      exp = rexp,
                      rnorm)
-
+      hist(dist(500))
+    })
+    output$distPlot2 <- renderPlot({
+      dist <- switch(input$dist2,
+                     norm = rnorm,
+                     unif = runif,
+                     lnorm = rlnorm,
+                     exp = rexp,
+                     rnorm)
       hist(dist(500))
     })
   }
