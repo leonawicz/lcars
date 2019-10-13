@@ -4,9 +4,9 @@ library(showtext)
 font_add_google("Oswald", "Oswald")
 showtext_auto()
 
-g <- ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + geom_point()
-g1 <- g + theme_lcars_dark(20, "Oswald")
-g2 <- g + theme_lcars_light(20, "Oswald")
+g <- ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + geom_point(size = 3)
+g1 <- g + theme_lcars_dark(28, "Oswald")
+g2 <- g + theme_lcars_light(28, "Oswald")
 
 bc1 <- inputColumn(
     lcarsButton("btn1", "A button"),
@@ -106,7 +106,7 @@ server <- function(input, output) {
   incol1 <- reactive("Left side" %in% input$incols)
   incol2 <- reactive("Right side" %in% input$incols)
 
-  output$box2a <- renderUI({
+  output$box2a <- renderLcarsBox({
       lcarsBox(
           fluidRow(
               column(3,
@@ -134,7 +134,7 @@ server <- function(input, output) {
       )
   })
 
-  output$box2b <- renderUI({
+  output$box2b <- renderLcarsBox({
       lcarsBox(
           fluidRow(
               column(3,

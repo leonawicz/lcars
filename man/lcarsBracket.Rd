@@ -24,3 +24,30 @@ an HTML widget
 \description{
 A top and bottom bracket pair element used to visually group contents.
 }
+\examples{
+## Only run examples in interactive R sessions
+if (interactive()) {
+
+  ui <- lcarsPage(
+    fluidRow(
+      column(4,
+        h4("Hollow bracket"),
+        lcarsBracket(
+          lcarsRect("Some text.", text_size = 24, height = 40)
+        ),
+        h4("Solid bracket"),
+        lcarsBracket(
+          lcarsRect("Some text.", color = "#000000",
+                    text_color = "golden-tanoi",
+                    text_size = 24, height = 40),
+          hollow = FALSE
+        )
+      )
+    )
+  )
+
+  server <- function(input, output) {}
+
+  shinyApp(ui, server)
+}
+}

@@ -56,3 +56,22 @@ A basic rectangle HTML element that conforms to LCARS specifications.
 \details{
 While \code{text} can be made arbitrarily large using \code{text_size}, the font size of the optional \code{title} is fixed at standard header size (\code{height = 0.5}).
 }
+\examples{
+if (interactive()) {
+
+  ui <- lcarsPage(
+    fluidRow(
+      column(4,
+        h4("Rectangle"),
+        lcarsRect("Some text.", text_size = 24, width = 200),
+        h4("Pill"),
+        lcarsPill("Some text.", text_size = 24, width = 200)
+      )
+    )
+  )
+
+  server <- function(input, output) {}
+
+  shinyApp(ui, server)
+}
+}

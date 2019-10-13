@@ -89,9 +89,13 @@ lcars_init <- function(force_uppercase = FALSE, label_uppercase = FALSE, lcars_f
 #' @param round character, sides of header to round. The default is to present the header in LCARS full pill style.
 #' @param width a valid CSS unit.
 #'
+#' @return HTML
 #' @seealso \code{\link{lcarsdata}}.
 #' @name lcarsHeader
 #' @export
+#'
+#' @examples
+#' # lcarsHeader("A title")
 lcarsHeader <- function(title = NULL, color = "golden-tanoi", title_color = color,
                         background_color = "#000000", title_right = TRUE,
                         title_invert = FALSE, round = c("both", "right", "left", "none"),
@@ -244,8 +248,11 @@ lcarsh6 <- function(title = NULL, color = "atomic-tangerine", title_color = colo
 #' @param color border color. Any hex color or a named LCARS color.
 #' @param background_color background color. Any hex color or a named LCARS color.
 #'
-#' @return a div
+#' @return HTML
 #' @export
+#'
+#' @examples
+#' # lcarsWell()
 lcarsWell <- function(..., color = "atomic-tangerine", background_color = "#000000"){
   x <- .lcars_color_check(c(color, background_color))
   div(class = "well",

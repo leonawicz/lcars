@@ -9,8 +9,12 @@
 #' @param hover_color Named colors must be LCARS colors. Other arbitrary colors are not supported for hovering. If \code{hover_color = NULL}, the button will darken on hover.
 #' @param ... Named attributes to be applied to the button.
 #'
+#' @return HTML
 #' @seealso \code{\link{lcarsdata}}
 #' @export
+#'
+#' @examples
+#' # lcarsButton("btn", "A button")
 lcarsButton <- function(inputId, label, icon = NULL, color = "atomic-tangerine",
                         hover_color = "red-damask", ...){
   cl <- if(!is.null(hover_color) && hover_color %in% lcars::lcarsdata$name)
@@ -29,7 +33,11 @@ lcarsButton <- function(inputId, label, icon = NULL, color = "atomic-tangerine",
 #'
 #' @param ... div contents such as \code{lcarsButton} elements.
 #'
+#' @return HTML
 #' @export
+#'
+#' @examples
+#' # inputColumn()
 inputColumn <- function(...){
   div(class = "lcars-button-col", ...)
 }

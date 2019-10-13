@@ -20,8 +20,14 @@ lcarsButton(inputId, label, icon = NULL, color = "atomic-tangerine",
 
 \item{...}{Named attributes to be applied to the button.}
 }
+\value{
+HTML
+}
 \description{
 An LCARS wrapper around \code{shiny::actionButton} with additional color control.
+}
+\examples{
+# lcarsButton("btn", "A button")
 }
 \seealso{
 \code{\link{lcarsdata}}

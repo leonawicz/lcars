@@ -17,6 +17,25 @@
 #'
 #' @return a div
 #' @export
+#'
+#' @examples
+#' if (interactive()) {
+#'
+#'   ui <- lcarsPage(
+#'     fluidRow(
+#'       column(4,
+#'         h4("Rectangle"),
+#'         lcarsRect("Some text.", text_size = 24, width = 200),
+#'         h4("Pill"),
+#'         lcarsPill("Some text.", text_size = 24, width = 200)
+#'       )
+#'     )
+#'   )
+#'
+#'   server <- function(input, output) {}
+#'
+#'   shinyApp(ui, server)
+#' }
 lcarsRect <- function(text = "", round = c("none", "both", "left", "right"),
                       decorate = c("none", "both", "left", "right"),
                       color = "golden-tanoi", text_color = "#000000",
@@ -94,6 +113,33 @@ lcarsRightPill <- function(text = "", decorate = FALSE, color = "golden-tanoi",
 #'
 #' @return an HTML widget
 #' @export
+#'
+#' @examples
+#' ## Only run examples in interactive R sessions
+#' if (interactive()) {
+#'
+#'   ui <- lcarsPage(
+#'     fluidRow(
+#'       column(4,
+#'         h4("Hollow bracket"),
+#'         lcarsBracket(
+#'           lcarsRect("Some text.", text_size = 24, height = 40)
+#'         ),
+#'         h4("Solid bracket"),
+#'         lcarsBracket(
+#'           lcarsRect("Some text.", color = "#000000",
+#'                     text_color = "golden-tanoi",
+#'                     text_size = 24, height = 40),
+#'           hollow = FALSE
+#'         )
+#'       )
+#'     )
+#'   )
+#'
+#'   server <- function(input, output) {}
+#'
+#'   shinyApp(ui, server)
+#' }
 lcarsBracket <- function(..., color = "golden-tanoi", background_color = "#000000",
                          hollow = TRUE, width = "100%"){
   width <- shiny::validateCssUnit(width)
@@ -102,6 +148,8 @@ lcarsBracket <- function(..., color = "golden-tanoi", background_color = "#00000
   cl <- paste0("lcars-bracket ", c("top", "bottom"), if(hollow) " hollow")
   style <- paste0("border-color:", x[1], ";background-color:", x[2], ";")
   div(style = paste0("width:", width, ";"),
-    div(class = cl[1], style = style), div(...), div(class = cl[2], style = style)
+    div(class = cl[1], style = style),
+    div(...),
+    div(class = cl[2], style = style)
   )
 }

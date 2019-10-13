@@ -64,12 +64,18 @@ lcarsh6(title = NULL, color = "atomic-tangerine",
 
 \item{title_align}{character, for the heading replacers: center, right or left.}
 }
+\value{
+HTML
+}
 \description{
 An LCARS header panel.
 }
 \details{
 In addition to \code{lcarsHeader} there are also some LCARS style heading replacers, \code{lcarsh1} through \code{lcarsh6}.
 These default to centered text, whereas \code{lcarsHeader} is strictly right or left.
+}
+\examples{
+# lcarsHeader("A title")
 }
 \seealso{
 \code{\link{lcarsdata}}.

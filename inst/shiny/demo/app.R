@@ -55,7 +55,7 @@ server <- function(input, output) {
   observeEvent(input$btn_wesley, { rv$cur2 <- "WESLEY" })
 
   ptheme <- reactive({
-    if(input$dark) theme_lcars_dark(9, "Oswald", 0.1) else theme_lcars_light(9, "Oswald", 0.1)
+    if(input$dark) theme_lcars_dark(20, "Oswald", 0.1) else theme_lcars_light(20, "Oswald", 0.1)
   })
   clr <- reactive(if(input$dark) "#FFFFCC" else "#000000")
   clr2 <- reactive(if(input$dark) "#99ccff" else "#664466")
@@ -68,11 +68,11 @@ server <- function(input, output) {
     g <- g + scale_fill_manual(values = uniform_colors) +
       scale_x_discrete(expand = c(0, 0)) +
       scale_y_continuous(expand = c(0, 0)) +
-      ptheme() + theme(text = element_text(size = 18)) +
+      ptheme() + theme(text = element_text(size = 30)) +
       labs(x = NULL, y = "TOTAL WORDS")
     if(input$bars){
       g <- g + geom_text(aes(label = paste0(round(words / 1000), "K")),
-        size = 10, color = "white", vjust = 1.3, family = "Oswald")
+        size = 14, color = "white", vjust = 1.3, family = "Oswald")
     }
     g
   })
@@ -85,9 +85,9 @@ server <- function(input, output) {
         geom_point(size = 1, color = clr(), show.legend = FALSE)
     g + scale_color_manual(values = uniform_colors) +
       geom_text_repel(aes(label = paste0(title, " (", character, ")")), color = clr(),
-                      size = 3, hjust = -0.1, direction = "y", segment.size = 0.15, min.segment.length = 0.65) +
+                      size = 5, hjust = -0.1, direction = "y", segment.size = 0.15, min.segment.length = 0.65) +
       scale_x_continuous(breaks = 1:7, labels = 1:7, expand = expand_scale(0, c(0.1, 0.8))) +
-      ptheme() + theme(panel.grid.minor = element_blank(), text = element_text(size = 18)) +
+      ptheme() + theme(panel.grid.minor = element_blank(), text = element_text(size = 30)) +
       labs(x = "SEASON", y = "TOTAL WORDS")
   })
 
@@ -122,9 +122,9 @@ server <- function(input, output) {
         geom_point(size = 1, color = clr(), show.legend = FALSE)
     g + scale_color_manual(values = clrs) +
       geom_text_repel(aes(label = paste0(title, " (", character, ")")), color = clr(),
-                      size = 4, hjust = -0.1, direction = "y", segment.size = 0.15, min.segment.length = 0.65) +
+                      size = 6, hjust = -0.1, direction = "y", segment.size = 0.15, min.segment.length = 0.65) +
       scale_x_continuous(breaks = 1:7, labels = 1:7, expand = expand_scale(0, c(0.1, 0.8))) +
-      ptheme() + theme(panel.grid.minor = element_blank(), text = element_text(size = 18)) +
+      ptheme() + theme(panel.grid.minor = element_blank(), text = element_text(size = 30)) +
       labs(x = "SEASON", y = "TOTAL WORDS")
   })
 
