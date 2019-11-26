@@ -25,6 +25,8 @@ downloads](http://cranlogs.r-pkg.org/badges/grand-total/lcars)](https://cran.r-p
 [![Github
 Stars](https://img.shields.io/github/stars/leonawicz/lcars.svg?style=social&label=Github)](https://github.com/leonawicz/lcars)
 
+[![Donate](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-yellowgreen.svg)](https://ko-fi.com/leonawicz)
+
 ## Library Computer Access/Retrieval System ([LCARS](https://en.wikipedia.org/wiki/LCARS))
 
 The `lcars` package provides simple approximations to LCARS style and
@@ -134,13 +136,95 @@ lcars_border(g, corners = 1:3, length_frac = len_frac, side_n_segments = n_seg)
 The appearance can be improved and customized significantly from the
 basic example above, as shown in the vignette. However, the Shiny
 widgets are not only interactive, which is a critical feature for an
-LCARS display, but they also look much better; to the point that when
-sharing a static plot, you may still find it preferable to take a
-screenshot of a shiny widget rather than using `lcars_border` with a
-ggplot object.
+LCARS display, but they also look much better. When sharing a static
+plot, you may still find it preferable to take a screenshot of a shiny
+widget rather than using `lcars_border` with a ggplot object.
 
 For more detailed examples including Shiny app examples, see the package
 [vignette](https://leonawicz.github.io/lcars/articles/lcars.html).
+
+## Packges in the trekverse
+
+<div class="row">
+
+<div class="col-sm-2">
+
+<a href="https://github.com/leonawicz/rtrek"><img src="https://raw.githubusercontent.com/leonawicz/rtrek/master/man/figures/logo.png" style="margin-right:20px;margin-bottom:0;" width="60" align="left"></a>
+
+</div>
+
+<div class="col-sm-10">
+
+<h4 style="padding:30px 0 0 0;margin-top:5px;margin-bottom:5px;">
+
+<a href="https://github.com/leonawicz/rtrek">rtrek</a>: The core Star
+Trek package
+
+</h4>
+
+Datasets related to Star Trek, API wrappers to external data sources,
+and more.
+
+</div>
+
+</div>
+
+<br/>
+
+<div class="row">
+
+<div class="col-sm-2">
+
+<a href="https://github.com/leonawicz/trekcolors"><img src="https://raw.githubusercontent.com/leonawicz/trekcolors/master/man/figures/logo.png" style="margin-right:20px;margin-bottom:0;" width="60" align="left"></a>
+
+</div>
+
+<div class="col-sm-10">
+
+<h4 style="padding:30px 0 0 0;margin-top:5px;margin-bottom:5px;">
+
+<a href="https://github.com/leonawicz/trekcolors">trekcolors</a>: A
+color palette package
+
+</h4>
+
+Predefined and customizable Star Trek themed color palettes and related
+functions.
+
+</div>
+
+</div>
+
+<br/>
+
+<div class="row">
+
+<div class="col-sm-2">
+
+<a href="https://github.com/leonawicz/trekfont"><img src="https://raw.githubusercontent.com/leonawicz/trekfont/master/man/figures/logo.png" style="margin-right:20px;margin-bottom:0;" width="60" align="left"></a>
+
+</div>
+
+<div class="col-sm-10">
+
+<h4 style="padding:30px 0 0 0;margin-top:5px;margin-bottom:5px;">
+
+<a href="https://github.com/leonawicz/trekfont">trekfont</a>: A fonts
+package
+
+</h4>
+
+True (Trek) type fonts to style your Star Trek themed graphics text.
+
+</div>
+
+</div>
+
+-----
+
+*If you enjoy my R community contributions, consider* ***[buying me a
+coffee in Ko-fi](https://ko-fi.com/leonawicz)*** *so I can keep
+developing and maintaining this and other packages :)*
 
 -----
 
