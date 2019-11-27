@@ -62,16 +62,6 @@
 <![endif]-->
 
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46129458-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-46129458-3');
-</script>
-
 
   </head>
 
@@ -141,16 +131,33 @@
     <p>LCARS-styled radio buttons functions.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>lcarsRadio</span>(<span class='no'>inputId</span>, <span class='no'>label</span>, <span class='kw'>choices</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>selected</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>inline</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>choiceNames</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>choiceValues</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>label_color</span> <span class='kw'>=</span> <span class='st'>"#FFFFFF"</span>,
-  <span class='kw'>choice_color</span> <span class='kw'>=</span> <span class='no'>label_color</span>)
+    <pre class="usage"><span class='fu'>lcarsRadio</span>(
+  <span class='no'>inputId</span>,
+  <span class='no'>label</span>,
+  <span class='kw'>choices</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>selected</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>inline</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>choiceNames</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>choiceValues</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>label_color</span> <span class='kw'>=</span> <span class='st'>"#FFFFFF"</span>,
+  <span class='kw'>choice_color</span> <span class='kw'>=</span> <span class='no'>label_color</span>
+)
 
-<span class='fu'>lcarsRadioToggle</span>(<span class='no'>inputId</span>, <span class='no'>label</span>, <span class='kw'>choices</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>selected</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>choiceNames</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>choiceValues</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>label_color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>, <span class='kw'>choice_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
-  <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='no'>label_color</span>, <span class='kw'>checked_color</span> <span class='kw'>=</span> <span class='no'>choice_color</span>,
-  <span class='kw'>checked_background</span> <span class='kw'>=</span> <span class='st'>"pale-canary"</span>)</pre>
+<span class='fu'>lcarsRadioToggle</span>(
+  <span class='no'>inputId</span>,
+  <span class='no'>label</span>,
+  <span class='kw'>choices</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>selected</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>choiceNames</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>choiceValues</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>label_color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>,
+  <span class='kw'>choice_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
+  <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='no'>label_color</span>,
+  <span class='kw'>checked_color</span> <span class='kw'>=</span> <span class='no'>choice_color</span>,
+  <span class='kw'>checked_background</span> <span class='kw'>=</span> <span class='st'>"pale-canary"</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -267,7 +274,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='http://leonawicz.github.io/'>Matthew Leonawicz</a>.</p>
+  <p>Developed by <a href='https://github.com/leonawicz'>Matthew Leonawicz</a>.</p>
 </div>
 
 <div class="pkgdown">

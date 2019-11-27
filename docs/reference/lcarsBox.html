@@ -62,16 +62,6 @@
 <![endif]-->
 
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46129458-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-46129458-3');
-</script>
-
 
   </head>
 
@@ -141,12 +131,25 @@
     <p>Create a configurable LCARS box.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>lcarsBox</span>(<span class='no'>...</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>corners</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>4</span>),
-  <span class='kw'>sides</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>3</span>, <span class='fl'>4</span>), <span class='kw'>left_inputs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>right_inputs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>, <span class='kw'>side_color</span> <span class='kw'>=</span> <span class='no'>color</span>,
-  <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>subtitle_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>title_right</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>subtitle_right</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>clip</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>width_left</span> <span class='kw'>=</span> <span class='fl'>150</span>,
-  <span class='kw'>width_right</span> <span class='kw'>=</span> <span class='fl'>150</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>)</pre>
+    <pre class="usage"><span class='fu'>lcarsBox</span>(
+  <span class='no'>...</span>,
+  <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>corners</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>4</span>),
+  <span class='kw'>sides</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>3</span>, <span class='fl'>4</span>),
+  <span class='kw'>left_inputs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>right_inputs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>,
+  <span class='kw'>side_color</span> <span class='kw'>=</span> <span class='no'>color</span>,
+  <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>,
+  <span class='kw'>subtitle_color</span> <span class='kw'>=</span> <span class='no'>color</span>,
+  <span class='kw'>title_right</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>subtitle_right</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>clip</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>width_left</span> <span class='kw'>=</span> <span class='fl'>150</span>,
+  <span class='kw'>width_right</span> <span class='kw'>=</span> <span class='fl'>150</span>,
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -346,7 +349,7 @@ Fixed pixel width is recommended for <code>lcarsBox</code> and <code>lcarsSweep<
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='http://leonawicz.github.io/'>Matthew Leonawicz</a>.</p>
+  <p>Developed by <a href='https://github.com/leonawicz'>Matthew Leonawicz</a>.</p>
 </div>
 
 <div class="pkgdown">

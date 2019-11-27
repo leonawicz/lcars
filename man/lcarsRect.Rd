@@ -7,24 +7,54 @@
 \alias{lcarsRightPill}
 \title{LCARS rectangle element}
 \usage{
-lcarsRect(text = "", round = c("none", "both", "left", "right"),
+lcarsRect(
+  text = "",
+  round = c("none", "both", "left", "right"),
   decorate = c("none", "both", "left", "right"),
-  color = "golden-tanoi", text_color = "#000000",
-  title_color = color, text_size = 16, title = NULL,
-  width = "100\%", height = 30)
+  color = "golden-tanoi",
+  text_color = "#000000",
+  title_color = color,
+  text_size = 16,
+  title = NULL,
+  width = "100\%",
+  height = 30
+)
 
-lcarsPill(text = "", decorate = c("none", "both", "left", "right"),
-  color = "golden-tanoi", text_color = "#000000",
-  title_color = color, text_size = 16, title = NULL,
-  width = "100\%", height = 30)
+lcarsPill(
+  text = "",
+  decorate = c("none", "both", "left", "right"),
+  color = "golden-tanoi",
+  text_color = "#000000",
+  title_color = color,
+  text_size = 16,
+  title = NULL,
+  width = "100\%",
+  height = 30
+)
 
-lcarsLeftPill(text = "", decorate = FALSE, color = "golden-tanoi",
-  text_color = "#000000", title_color = color, text_size = 16,
-  title = NULL, width = "100\%", height = 30)
+lcarsLeftPill(
+  text = "",
+  decorate = FALSE,
+  color = "golden-tanoi",
+  text_color = "#000000",
+  title_color = color,
+  text_size = 16,
+  title = NULL,
+  width = "100\%",
+  height = 30
+)
 
-lcarsRightPill(text = "", decorate = FALSE, color = "golden-tanoi",
-  text_color = "#000000", title_color = color, text_size = 16,
-  title = NULL, width = "100\%", height = 30)
+lcarsRightPill(
+  text = "",
+  decorate = FALSE,
+  color = "golden-tanoi",
+  text_color = "#000000",
+  title_color = color,
+  text_size = 16,
+  title = NULL,
+  width = "100\%",
+  height = 30
+)
 }
 \arguments{
 \item{text}{character, rectangle text.}

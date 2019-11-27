@@ -143,7 +143,7 @@ widget rather than using `lcars_border` with a ggplot object.
 For more detailed examples including Shiny app examples, see the package
 [vignette](https://leonawicz.github.io/lcars/articles/lcars.html).
 
-## Packges in the trekverse
+## Packages in the trekverse
 
 <div class="row">
 
@@ -228,6 +228,7 @@ developing and maintaining this and other packages :)*
 
 -----
 
-Please note that this project is released with a [Contributor Code of
-Conduct](https://leonawicz.github.io/lcars/CODE_OF_CONDUCT.html). By
-participating in this project you agree to abide by its terms.
+Please note that the `lcars` project is released with a [Contributor
+Code of
+Conduct](https://github.com/leonawicz/lcars/blob/master/CODE_OF_CONDUCT.md).
+By contributing to this project, you agree to abide by its terms.

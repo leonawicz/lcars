@@ -1,12 +1,8 @@
 url: http://leonawicz.github.io/lcars
 
-template:
-  params:
-    ganalytics: UA-46129458-3
-
 authors:
   Matthew Leonawicz:
-    href: http://leonawicz.github.io/
+    href: https://github.com/leonawicz
 
 reference:
 - title: Package
@@ -23,6 +19,8 @@ reference:
   - lcarsBracket
   - lcarsWell
   - inputColumn
+  - renderLcars
+  - lcarsOutput
 - title: Headers and indicators
   contents:
   - lcarsHeader

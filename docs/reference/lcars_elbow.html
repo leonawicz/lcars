@@ -62,16 +62,6 @@
 <![endif]-->
 
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46129458-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-46129458-3');
-</script>
-
 
   </head>
 
@@ -141,8 +131,20 @@
     <p>Draw a, LCARS elbow polygon. This is a 90-degree rounded corner bend for top left, top right, bottom right and bottom left LCARS corner panels.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>lcars_elbow</span>(<span class='no'>xmin</span>, <span class='no'>xmax</span>, <span class='no'>ymin</span>, <span class='no'>ymax</span>, <span class='no'>corner</span>, <span class='no'>width</span>, <span class='no'>height</span>, <span class='kw'>ro</span> <span class='kw'>=</span> <span class='no'>width</span>/<span class='fl'>2</span>,
-  <span class='kw'>ri</span> <span class='kw'>=</span> <span class='no'>height</span>/<span class='fl'>2</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='no'>color</span>, <span class='kw'>draw</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>lcars_elbow</span>(
+  <span class='no'>xmin</span>,
+  <span class='no'>xmax</span>,
+  <span class='no'>ymin</span>,
+  <span class='no'>ymax</span>,
+  <span class='no'>corner</span>,
+  <span class='no'>width</span>,
+  <span class='no'>height</span>,
+  <span class='kw'>ro</span> <span class='kw'>=</span> <span class='no'>width</span>/<span class='fl'>2</span>,
+  <span class='kw'>ri</span> <span class='kw'>=</span> <span class='no'>height</span>/<span class='fl'>2</span>,
+  <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>20</span>,
+  <span class='no'>color</span>,
+  <span class='kw'>draw</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -218,7 +220,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='http://leonawicz.github.io/'>Matthew Leonawicz</a>.</p>
+  <p>Developed by <a href='https://github.com/leonawicz'>Matthew Leonawicz</a>.</p>
 </div>
 
 <div class="pkgdown">

@@ -5,16 +5,33 @@
 \alias{lcarsRadioToggle}
 \title{LCARS radio buttons}
 \usage{
-lcarsRadio(inputId, label, choices = NULL, selected = NULL,
-  inline = FALSE, width = NULL, choiceNames = NULL,
-  choiceValues = NULL, label_color = "#FFFFFF",
-  choice_color = label_color)
+lcarsRadio(
+  inputId,
+  label,
+  choices = NULL,
+  selected = NULL,
+  inline = FALSE,
+  width = NULL,
+  choiceNames = NULL,
+  choiceValues = NULL,
+  label_color = "#FFFFFF",
+  choice_color = label_color
+)
 
-lcarsRadioToggle(inputId, label, choices = NULL, selected = NULL,
-  width = NULL, choiceNames = NULL, choiceValues = NULL,
-  label_color = "atomic-tangerine", choice_color = "#000000",
-  background_color = label_color, checked_color = choice_color,
-  checked_background = "pale-canary")
+lcarsRadioToggle(
+  inputId,
+  label,
+  choices = NULL,
+  selected = NULL,
+  width = NULL,
+  choiceNames = NULL,
+  choiceValues = NULL,
+  label_color = "atomic-tangerine",
+  choice_color = "#000000",
+  background_color = label_color,
+  checked_color = choice_color,
+  checked_background = "pale-canary"
+)
 }
 \arguments{
 \item{inputId}{character, the input slot that will be used to access the value.}

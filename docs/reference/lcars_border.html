@@ -62,16 +62,6 @@
 <![endif]-->
 
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46129458-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-46129458-3');
-</script>
-
 
   </head>
 
@@ -141,14 +131,25 @@
     <p>Wrap a ggplot object with an LCARS-themed border or only plot the border.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>lcars_border</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>6</span>, <span class='kw'>corners</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>4</span>,
-  <span class='kw'>length_frac</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0.5</span>, <span class='fl'>8</span>), <span class='kw'>corner_color</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"#CD6363"</span>, <span class='st'>"#CC99CC"</span>,
-  <span class='st'>"#FF9E63"</span>, <span class='st'>"#FFFF9C"</span>), <span class='kw'>ro</span> <span class='kw'>=</span> <span class='no'>width</span>/<span class='fl'>20</span>, <span class='kw'>ri</span> <span class='kw'>=</span> <span class='no'>height</span>/<span class='fl'>60</span>,
-  <span class='kw'>side_width</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>5</span>)/<span class='fl'>5</span>, <span class='kw'>side_n_segments</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0</span>, <span class='fl'>4</span>),
+    <pre class="usage"><span class='fu'>lcars_border</span>(
+  <span class='kw'>x</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>10</span>,
+  <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>6</span>,
+  <span class='kw'>corners</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>4</span>,
+  <span class='kw'>length_frac</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0.5</span>, <span class='fl'>8</span>),
+  <span class='kw'>corner_color</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"#CD6363"</span>, <span class='st'>"#CC99CC"</span>, <span class='st'>"#FF9E63"</span>, <span class='st'>"#FFFF9C"</span>),
+  <span class='kw'>ro</span> <span class='kw'>=</span> <span class='no'>width</span>/<span class='fl'>20</span>,
+  <span class='kw'>ri</span> <span class='kw'>=</span> <span class='no'>height</span>/<span class='fl'>60</span>,
+  <span class='kw'>side_width</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>5</span>)/<span class='fl'>5</span>,
+  <span class='kw'>side_n_segments</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0</span>, <span class='fl'>4</span>),
   <span class='kw'>side_color</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='st'>"#99CCFF"</span>, <span class='st'>"#99CCFF"</span>, <span class='st'>"#99CCFF"</span>, <span class='st'>"#99CCFF"</span>),
-  <span class='kw'>side_label</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>NA</span>, <span class='fl'>4</span>), <span class='kw'>label_size</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>side_label_adj</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.5</span>, <span class='fl'>0.5</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(-<span class='fl'>0.2</span>, -<span class='fl'>0.2</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.5</span>, <span class='fl'>0.5</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1.1</span>,
-  -<span class='fl'>0.2</span>)), <span class='kw'>gap</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.02</span>, <span class='fl'>0.01</span>), <span class='kw'>bg</span> <span class='kw'>=</span> <span class='st'>"black"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>20</span>)</pre>
+  <span class='kw'>side_label</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>NA</span>, <span class='fl'>4</span>),
+  <span class='kw'>label_size</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>side_label_adj</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.5</span>, <span class='fl'>0.5</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(-<span class='fl'>0.2</span>, -<span class='fl'>0.2</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.5</span>, <span class='fl'>0.5</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1.1</span>, -<span class='fl'>0.2</span>)),
+  <span class='kw'>gap</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.02</span>, <span class='fl'>0.01</span>),
+  <span class='kw'>bg</span> <span class='kw'>=</span> <span class='st'>"black"</span>,
+  <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>20</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -263,7 +264,7 @@ the top side for side-related arguments.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='http://leonawicz.github.io/'>Matthew Leonawicz</a>.</p>
+  <p>Developed by <a href='https://github.com/leonawicz'>Matthew Leonawicz</a>.</p>
 </div>
 
 <div class="pkgdown">

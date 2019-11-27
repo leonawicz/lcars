@@ -9,9 +9,19 @@
 \alias{lcars_top_pill}
 \title{LCARS pill}
 \usage{
-lcars_pill(xmin, xmax, ymin, ymax, color, direction = c("both", "left",
-  "right"), vertical = FALSE, gap = "auto", n = 50, asp = 1,
-  gap_color = "black")
+lcars_pill(
+  xmin,
+  xmax,
+  ymin,
+  ymax,
+  color,
+  direction = c("both", "left", "right"),
+  vertical = FALSE,
+  gap = "auto",
+  n = 50,
+  asp = 1,
+  gap_color = "black"
+)
 
 lcars_half_pill(x, y, r, direction, color, n = 50, asp = 1)
 

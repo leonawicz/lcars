@@ -62,16 +62,6 @@
 <![endif]-->
 
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46129458-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-46129458-3');
-</script>
-
 
   </head>
 
@@ -141,24 +131,54 @@
     <p>A basic rectangle HTML element that conforms to LCARS specifications.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>lcarsRect</span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>round</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"none"</span>, <span class='st'>"both"</span>, <span class='st'>"left"</span>, <span class='st'>"right"</span>),
+    <pre class="usage"><span class='fu'>lcarsRect</span>(
+  <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>round</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"none"</span>, <span class='st'>"both"</span>, <span class='st'>"left"</span>, <span class='st'>"right"</span>),
   <span class='kw'>decorate</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"none"</span>, <span class='st'>"both"</span>, <span class='st'>"left"</span>, <span class='st'>"right"</span>),
-  <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"golden-tanoi"</span>, <span class='kw'>text_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
-  <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>text_size</span> <span class='kw'>=</span> <span class='fl'>16</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>30</span>)
+  <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"golden-tanoi"</span>,
+  <span class='kw'>text_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
+  <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>,
+  <span class='kw'>text_size</span> <span class='kw'>=</span> <span class='fl'>16</span>,
+  <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>,
+  <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>30</span>
+)
 
-<span class='fu'>lcarsPill</span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>decorate</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"none"</span>, <span class='st'>"both"</span>, <span class='st'>"left"</span>, <span class='st'>"right"</span>),
-  <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"golden-tanoi"</span>, <span class='kw'>text_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
-  <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>text_size</span> <span class='kw'>=</span> <span class='fl'>16</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>30</span>)
+<span class='fu'>lcarsPill</span>(
+  <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>decorate</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"none"</span>, <span class='st'>"both"</span>, <span class='st'>"left"</span>, <span class='st'>"right"</span>),
+  <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"golden-tanoi"</span>,
+  <span class='kw'>text_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
+  <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>,
+  <span class='kw'>text_size</span> <span class='kw'>=</span> <span class='fl'>16</span>,
+  <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>,
+  <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>30</span>
+)
 
-<span class='fu'>lcarsLeftPill</span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>decorate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"golden-tanoi"</span>,
-  <span class='kw'>text_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>, <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>text_size</span> <span class='kw'>=</span> <span class='fl'>16</span>,
-  <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>30</span>)
+<span class='fu'>lcarsLeftPill</span>(
+  <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>decorate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"golden-tanoi"</span>,
+  <span class='kw'>text_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
+  <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>,
+  <span class='kw'>text_size</span> <span class='kw'>=</span> <span class='fl'>16</span>,
+  <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>,
+  <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>30</span>
+)
 
-<span class='fu'>lcarsRightPill</span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>decorate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"golden-tanoi"</span>,
-  <span class='kw'>text_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>, <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>, <span class='kw'>text_size</span> <span class='kw'>=</span> <span class='fl'>16</span>,
-  <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>30</span>)</pre>
+<span class='fu'>lcarsRightPill</span>(
+  <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>decorate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"golden-tanoi"</span>,
+  <span class='kw'>text_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
+  <span class='kw'>title_color</span> <span class='kw'>=</span> <span class='no'>color</span>,
+  <span class='kw'>text_size</span> <span class='kw'>=</span> <span class='fl'>16</span>,
+  <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>,
+  <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>30</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -212,6 +232,24 @@
 
     <p>While <code>text</code> can be made arbitrarily large using <code>text_size</code>, the font size of the optional <code>title</code> is fixed at standard header size (<code>height = 0.5</code>).</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+
+  <span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='lcarsPage.html'>lcarsPage</a></span>(
+    <span class='fu'>fluidRow</span>(
+      <span class='fu'>column</span>(<span class='fl'>4</span>,
+        <span class='fu'>h4</span>(<span class='st'>"Rectangle"</span>),
+        <span class='fu'>lcarsRect</span>(<span class='st'>"Some text."</span>, <span class='kw'>text_size</span> <span class='kw'>=</span> <span class='fl'>24</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>200</span>),
+        <span class='fu'>h4</span>(<span class='st'>"Pill"</span>),
+        <span class='fu'>lcarsPill</span>(<span class='st'>"Some text."</span>, <span class='kw'>text_size</span> <span class='kw'>=</span> <span class='fl'>24</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>200</span>)
+      )
+    )
+  )
+
+  <span class='no'>server</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) {}
+
+  <span class='fu'>shinyApp</span>(<span class='no'>ui</span>, <span class='no'>server</span>)
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -219,6 +257,7 @@
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
@@ -227,7 +266,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='http://leonawicz.github.io/'>Matthew Leonawicz</a>.</p>
+  <p>Developed by <a href='https://github.com/leonawicz'>Matthew Leonawicz</a>.</p>
 </div>
 
 <div class="pkgdown">

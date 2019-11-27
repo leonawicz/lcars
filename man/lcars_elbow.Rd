@@ -4,8 +4,20 @@
 \alias{lcars_elbow}
 \title{LCARS corner elbow}
 \usage{
-lcars_elbow(xmin, xmax, ymin, ymax, corner, width, height, ro = width/2,
-  ri = height/2, n = 20, color, draw = TRUE)
+lcars_elbow(
+  xmin,
+  xmax,
+  ymin,
+  ymax,
+  corner,
+  width,
+  height,
+  ro = width/2,
+  ri = height/2,
+  n = 20,
+  color,
+  draw = TRUE
+)
 }
 \arguments{
 \item{xmin}{numeric, scalar left x position.}

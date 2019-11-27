@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • lcars</title>
+<title>Create an LCARS outputs (server side) — renderLcars • lcars</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -44,7 +44,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Create an LCARS outputs (server side) — renderLcars" />
+<meta property="og:description" content="Server-side functions for creating dynamic lcarBox and lcarsSweep." />
 <meta property="og:image" content="http://leonawicz.github.io/lcars/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -65,7 +66,7 @@
   </head>
 
   <body>
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -121,51 +122,70 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/leonawicz/lcars/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>Create an LCARS outputs (server side)</h1>
+    <small class="dont-index">Source: <a href='https://github.com/leonawicz/lcars/blob/master/R/shiny-render.R'><code>R/shiny-render.R</code></a></small>
+    <div class="hidden name"><code>renderLcars.Rd</code></div>
     </div>
 
-    <div id="lcars-030" class="section level1">
-<h1 class="page-header">
-<a href="#lcars-030" class="anchor"></a>lcars 0.3.0</h1>
-<ul>
-<li>Added <code>lcarsSweep</code>.</li>
-<li>Added demo app for sweep.</li>
-<li>Updated documentation.</li>
-</ul>
-</div>
-    <div id="lcars-020" class="section level1">
-<h1 class="page-header">
-<a href="#lcars-020" class="anchor"></a>lcars 0.2.0</h1>
-<ul>
-<li>Added support for a minimal LCARS theme Shiny UI.</li>
-<li>New functions: <code>lcarsPage</code>, <code>lcarsButton</code>, <code>lcarsCheckbox</code>, <code>lcarsToggle</code>, <code>buttonColumn</code>, <code>lcarsRadio</code>, <code>lcarsHeader</code> and other header functions, <code>lcarsBox</code>, <code>lcarsWell</code> and <code>lcarsApp</code>.</li>
-<li>Added named LCARS colors from different palettes; see <code>lcarsdata</code>.</li>
-<li>Added basic rectangle, pill and bracket elements: <code>lcarsRect</code>, <code>lcarsPill</code>, <code>lcarsLeftPill</code>, <code>lcarsRightPill</code>, <code>lcarsBracket</code>.</li>
-<li>Added readme and vignette content.</li>
-</ul>
-</div>
-    <div id="lcars-010" class="section level1">
-<h1 class="page-header">
-<a href="#lcars-010" class="anchor"></a>lcars 0.1.0</h1>
-<ul>
-<li>Added package scaffolding.</li>
-<li>Added initial functions and documentation.</li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Server-side functions for creating dynamic <code>lcarBox</code> and <code>lcarsSweep</code>.</p>
+    </div>
 
+    <pre class="usage"><span class='fu'>renderLcarsBox</span>(<span class='no'>expr</span>, <span class='kw'>env</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sys.parent.html'>parent.frame</a></span>(), <span class='kw'>quoted</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+
+<span class='fu'>renderLcarsSweep</span>(<span class='no'>expr</span>, <span class='kw'>env</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sys.parent.html'>parent.frame</a></span>(), <span class='kw'>quoted</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>expr</th>
+      <td><p>An expression that returns a Shiny tag object, HTML, or a list of such objects.</p></td>
+    </tr>
+    <tr>
+      <th>env</th>
+      <td><p>The environment in which to evaluate <code>expr</code>.</p></td>
+    </tr>
+    <tr>
+      <th>quoted</th>
+      <td><p>Is <code>expr</code> a quoted expression (with <code><a href='https://rdrr.io/r/base/substitute.html'>quote()</a></code>)? This is useful if you want to save an expression in a variable.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='lcarsOutput.html'>lcarsOutput</a></code> for the corresponding UI-side function.</p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'>## Only run examples in interactive R sessions</span>
+<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+
+  <span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='lcarsPage.html'>lcarsPage</a></span>(
+    <span class='fu'><a href='lcarsOutput.html'>lcarsBoxOutput</a></span>(<span class='st'>"box"</span>),
+    <span class='fu'><a href='lcarsOutput.html'>lcarsSweepOutput</a></span>(<span class='st'>"sweep"</span>)
+  )
+
+  <span class='no'>server</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) {
+    <span class='no'>output</span>$<span class='no'>box</span> <span class='kw'>&lt;-</span> <span class='fu'>renderLcarsBox</span>({
+      <span class='fu'><a href='lcarsBox.html'>lcarsBox</a></span>()
+    })
+    <span class='no'>output</span>$<span class='no'>sweep</span> <span class='kw'>&lt;-</span> <span class='fu'>renderLcarsSweep</span>({
+      <span class='fu'><a href='lcarsSweep.html'>lcarsSweep</a></span>()
+    })
+  }
+
+  <span class='fu'>shinyApp</span>(<span class='no'>ui</span>, <span class='no'>server</span>)
+}</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#lcars-030">0.3.0</a></li>
-        <li><a href="#lcars-020">0.2.0</a></li>
-        <li><a href="#lcars-010">0.1.0</a></li>
-      </ul>
-    </div>
-  </div>
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#see-also">See also</a></li>
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
+  </div>
 </div>
 
 

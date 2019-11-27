@@ -4,8 +4,14 @@
 \alias{lcarsButton}
 \title{LCARS button}
 \usage{
-lcarsButton(inputId, label, icon = NULL, color = "atomic-tangerine",
-  hover_color = "red-damask", ...)
+lcarsButton(
+  inputId,
+  label,
+  icon = NULL,
+  color = "atomic-tangerine",
+  hover_color = "red-damask",
+  ...
+)
 }
 \arguments{
 \item{inputId}{The input slot that will be used to access the value.}

@@ -4,13 +4,24 @@
 \alias{lcarsToggle}
 \title{LCARS toggle button}
 \usage{
-lcarsToggle(inputId, label, value = FALSE, pill = FALSE,
-  inverse = FALSE, true = "Yes", false = "No",
-  true_color = "dodger-pale", false_color = "atomic-tangerine",
-  background_color = "#000000", border_color = ifelse(inverse,
-  false_color, background_color), outer_border = FALSE,
-  outer_color = "#000000", label_color = "#FFFFFF",
-  label_right = FALSE, width = NULL)
+lcarsToggle(
+  inputId,
+  label,
+  value = FALSE,
+  pill = FALSE,
+  inverse = FALSE,
+  true = "Yes",
+  false = "No",
+  true_color = "dodger-pale",
+  false_color = "atomic-tangerine",
+  background_color = "#000000",
+  border_color = ifelse(inverse, false_color, background_color),
+  outer_border = FALSE,
+  outer_color = "#000000",
+  label_color = "#FFFFFF",
+  label_right = FALSE,
+  width = NULL
+)
 }
 \arguments{
 \item{inputId}{character, the input slot that will be used to access the value.}

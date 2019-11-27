@@ -4,14 +4,25 @@
 \alias{lcars_border}
 \title{LCARS border plot}
 \usage{
-lcars_border(x = NULL, width = 10, height = 6, corners = 1:4,
-  length_frac = rep(0.5, 8), corner_color = c("#CD6363", "#CC99CC",
-  "#FF9E63", "#FFFF9C"), ro = width/20, ri = height/60,
-  side_width = c(1, 2, 1, 5)/5, side_n_segments = rep(0, 4),
+lcars_border(
+  x = NULL,
+  width = 10,
+  height = 6,
+  corners = 1:4,
+  length_frac = rep(0.5, 8),
+  corner_color = c("#CD6363", "#CC99CC", "#FF9E63", "#FFFF9C"),
+  ro = width/20,
+  ri = height/60,
+  side_width = c(1, 2, 1, 5)/5,
+  side_n_segments = rep(0, 4),
   side_color = list("#99CCFF", "#99CCFF", "#99CCFF", "#99CCFF"),
-  side_label = rep(NA, 4), label_size = 1,
-  side_label_adj = list(c(0.5, 0.5), c(-0.2, -0.2), c(0.5, 0.5), c(1.1,
-  -0.2)), gap = c(0.02, 0.01), bg = "black", n = 20)
+  side_label = rep(NA, 4),
+  label_size = 1,
+  side_label_adj = list(c(0.5, 0.5), c(-0.2, -0.2), c(0.5, 0.5), c(1.1, -0.2)),
+  gap = c(0.02, 0.01),
+  bg = "black",
+  n = 20
+)
 }
 \arguments{
 \item{x}{optional inset ggplot object.}

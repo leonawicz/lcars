@@ -4,12 +4,25 @@
 \alias{lcarsBox}
 \title{LCARS box}
 \usage{
-lcarsBox(..., title = NULL, subtitle = NULL, corners = c(1, 4),
-  sides = c(1, 3, 4), left_inputs = NULL, right_inputs = NULL,
-  color = "atomic-tangerine", side_color = color,
-  title_color = color, subtitle_color = color, title_right = TRUE,
-  subtitle_right = TRUE, clip = TRUE, width_left = 150,
-  width_right = 150, width = "100\%")
+lcarsBox(
+  ...,
+  title = NULL,
+  subtitle = NULL,
+  corners = c(1, 4),
+  sides = c(1, 3, 4),
+  left_inputs = NULL,
+  right_inputs = NULL,
+  color = "atomic-tangerine",
+  side_color = color,
+  title_color = color,
+  subtitle_color = color,
+  title_right = TRUE,
+  subtitle_right = TRUE,
+  clip = TRUE,
+  width_left = 150,
+  width_right = 150,
+  width = "100\%"
+)
 }
 \arguments{
 \item{...}{box contents.}
@@ -140,7 +153,7 @@ if (interactive()) {
           to draw a characteristic box for framing content.</p>
           <p>Many of the <code>lcarsBox</code>
           properties are configurable.
-          See <code>lcars::lcarsApp(\\"box\\")</code> for a demo</p>")
+          See <code>lcars::lcarsApp(\"box\")</code> for a demo</p>")
         ),
         column(9, plotOutput("plot1"))
       ),

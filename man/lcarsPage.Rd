@@ -4,9 +4,15 @@
 \alias{lcarsPage}
 \title{LCARS Shiny UI}
 \usage{
-lcarsPage(..., title = NULL, force_uppercase = TRUE,
-  label_uppercase = TRUE, lcars_font_headers = TRUE,
-  lcars_font_labels = TRUE, lcars_font_text = TRUE)
+lcarsPage(
+  ...,
+  title = NULL,
+  force_uppercase = TRUE,
+  label_uppercase = TRUE,
+  lcars_font_headers = TRUE,
+  lcars_font_labels = TRUE,
+  lcars_font_text = TRUE
+)
 }
 \arguments{
 \item{...}{The contents of the document body.}

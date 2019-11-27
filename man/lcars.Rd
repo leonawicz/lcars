@@ -3,7 +3,6 @@
 \docType{package}
 \name{lcars}
 \alias{lcars}
-\alias{lcars-package}
 \title{lcars: an LCARS R package}
 \description{
 Library Computer Access/Retrieval System (\href{https://en.wikipedia.org/wiki/LCARS}{LCARS}.

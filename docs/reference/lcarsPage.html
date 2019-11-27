@@ -62,16 +62,6 @@
 <![endif]-->
 
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46129458-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-46129458-3');
-</script>
-
 
   </head>
 
@@ -141,9 +131,15 @@
     <p>Create a Shiny UI page with an LCARS theme.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>lcarsPage</span>(<span class='no'>...</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>force_uppercase</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>label_uppercase</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>lcars_font_headers</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>lcars_font_labels</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>lcars_font_text</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>lcarsPage</span>(
+  <span class='no'>...</span>,
+  <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>force_uppercase</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>label_uppercase</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>lcars_font_headers</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>lcars_font_labels</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>lcars_font_text</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -218,7 +214,7 @@ See examples for recommendations.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='http://leonawicz.github.io/'>Matthew Leonawicz</a>.</p>
+  <p>Developed by <a href='https://github.com/leonawicz'>Matthew Leonawicz</a>.</p>
 </div>
 
 <div class="pkgdown">

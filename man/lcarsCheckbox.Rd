@@ -4,9 +4,16 @@
 \alias{lcarsCheckbox}
 \title{LCARS checkbox}
 \usage{
-lcarsCheckbox(inputId, label, value = FALSE,
-  color = "atomic-tangerine", background_color = "#000000",
-  label_color = "#FFFFFF", label_right = FALSE, width = NULL)
+lcarsCheckbox(
+  inputId,
+  label,
+  value = FALSE,
+  color = "atomic-tangerine",
+  background_color = "#000000",
+  label_color = "#FFFFFF",
+  label_right = FALSE,
+  width = NULL
+)
 }
 \arguments{
 \item{inputId}{character, the input slot that will be used to access the value.}

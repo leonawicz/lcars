@@ -4,10 +4,19 @@
 \alias{lcarsSweep}
 \title{LCARS sweep}
 \usage{
-lcarsSweep(column_inputs = NULL, left_inputs = NULL,
-  right_inputs = NULL, title = NULL, subtitle = NULL,
-  color = "atomic-tangerine", reverse = FALSE, expand = c(0, 0),
-  column_width = 150, left_width = 0.5, width = "100\%")
+lcarsSweep(
+  column_inputs = NULL,
+  left_inputs = NULL,
+  right_inputs = NULL,
+  title = NULL,
+  subtitle = NULL,
+  color = "atomic-tangerine",
+  reverse = FALSE,
+  expand = c(0, 0),
+  column_width = 150,
+  left_width = 0.5,
+  width = "100\%"
+)
 }
 \arguments{
 \item{column_inputs}{optional input column for right side, for example a column of buttons made with \code{inputColumn}. See details.}

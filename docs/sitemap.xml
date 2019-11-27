@@ -31,6 +31,9 @@
     <loc>http://leonawicz.github.io/lcars/reference/lcarsHeader.html</loc>
   </url>
   <url>
+    <loc>http://leonawicz.github.io/lcars/reference/lcarsOutput.html</loc>
+  </url>
+  <url>
     <loc>http://leonawicz.github.io/lcars/reference/lcarsPage.html</loc>
   </url>
   <url>
@@ -59,6 +62,9 @@
   </url>
   <url>
     <loc>http://leonawicz.github.io/lcars/reference/lcars_rect.html</loc>
+  </url>
+  <url>
+    <loc>http://leonawicz.github.io/lcars/reference/renderLcars.html</loc>
   </url>
   <url>
     <loc>http://leonawicz.github.io/lcars/reference/theme_lcars.html</loc>

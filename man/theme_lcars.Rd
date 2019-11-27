@@ -6,11 +6,19 @@
 \alias{theme_lcars_dark}
 \title{LCARS ggplot themes}
 \usage{
-theme_lcars_light(base_size = 11, base_family = "",
-  base_line_size = base_size/22, base_rect_size = base_size/22)
+theme_lcars_light(
+  base_size = 11,
+  base_family = "",
+  base_line_size = base_size/22,
+  base_rect_size = base_size/22
+)
 
-theme_lcars_dark(base_size = 11, base_family = "",
-  base_line_size = base_size/22, base_rect_size = base_size/22)
+theme_lcars_dark(
+  base_size = 11,
+  base_family = "",
+  base_line_size = base_size/22,
+  base_rect_size = base_size/22
+)
 }
 \arguments{
 \item{base_size}{base font size.}

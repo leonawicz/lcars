@@ -4,8 +4,13 @@
 \alias{lcarsBracket}
 \title{LCARS bracket element}
 \usage{
-lcarsBracket(..., color = "golden-tanoi", background_color = "#000000",
-  hollow = TRUE, width = "100\%")
+lcarsBracket(
+  ...,
+  color = "golden-tanoi",
+  background_color = "#000000",
+  hollow = TRUE,
+  width = "100\%"
+)
 }
 \arguments{
 \item{...}{div contents.}

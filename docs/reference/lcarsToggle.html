@@ -62,16 +62,6 @@
 <![endif]-->
 
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46129458-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-46129458-3');
-</script>
-
 
   </head>
 
@@ -141,13 +131,24 @@
     <p>An LCARS styled toggle button that can be used in place of <code>checkboxInput</code> and <code>lcarsCheckbox</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>lcarsToggle</span>(<span class='no'>inputId</span>, <span class='no'>label</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>pill</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>true</span> <span class='kw'>=</span> <span class='st'>"Yes"</span>, <span class='kw'>false</span> <span class='kw'>=</span> <span class='st'>"No"</span>,
-  <span class='kw'>true_color</span> <span class='kw'>=</span> <span class='st'>"dodger-pale"</span>, <span class='kw'>false_color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>,
-  <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>, <span class='kw'>border_color</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span>(<span class='no'>inverse</span>,
-  <span class='no'>false_color</span>, <span class='no'>background_color</span>), <span class='kw'>outer_border</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>outer_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>, <span class='kw'>label_color</span> <span class='kw'>=</span> <span class='st'>"#FFFFFF"</span>,
-  <span class='kw'>label_right</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>lcarsToggle</span>(
+  <span class='no'>inputId</span>,
+  <span class='no'>label</span>,
+  <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>pill</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>true</span> <span class='kw'>=</span> <span class='st'>"Yes"</span>,
+  <span class='kw'>false</span> <span class='kw'>=</span> <span class='st'>"No"</span>,
+  <span class='kw'>true_color</span> <span class='kw'>=</span> <span class='st'>"dodger-pale"</span>,
+  <span class='kw'>false_color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>,
+  <span class='kw'>background_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
+  <span class='kw'>border_color</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span>(<span class='no'>inverse</span>, <span class='no'>false_color</span>, <span class='no'>background_color</span>),
+  <span class='kw'>outer_border</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>outer_color</span> <span class='kw'>=</span> <span class='st'>"#000000"</span>,
+  <span class='kw'>label_color</span> <span class='kw'>=</span> <span class='st'>"#FFFFFF"</span>,
+  <span class='kw'>label_right</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -249,7 +250,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='http://leonawicz.github.io/'>Matthew Leonawicz</a>.</p>
+  <p>Developed by <a href='https://github.com/leonawicz'>Matthew Leonawicz</a>.</p>
 </div>
 
 <div class="pkgdown">

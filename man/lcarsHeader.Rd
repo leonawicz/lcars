@@ -10,40 +10,76 @@
 \alias{lcarsh6}
 \title{LCARS header}
 \usage{
-lcarsHeader(title = NULL, color = "golden-tanoi",
-  title_color = color, background_color = "#000000",
-  title_right = TRUE, title_invert = FALSE, round = c("both",
-  "right", "left", "none"), width = "100\%")
+lcarsHeader(
+  title = NULL,
+  color = "golden-tanoi",
+  title_color = color,
+  background_color = "#000000",
+  title_right = TRUE,
+  title_invert = FALSE,
+  round = c("both", "right", "left", "none"),
+  width = "100\%"
+)
 
-lcarsh1(title = NULL, color = "atomic-tangerine",
-  title_color = color, background_color = "#000000",
-  title_align = c("center", "right", "left"), title_invert = FALSE,
-  width = "auto")
+lcarsh1(
+  title = NULL,
+  color = "atomic-tangerine",
+  title_color = color,
+  background_color = "#000000",
+  title_align = c("center", "right", "left"),
+  title_invert = FALSE,
+  width = "auto"
+)
 
-lcarsh2(title = NULL, color = "atomic-tangerine",
-  title_color = color, background_color = "#000000",
-  title_align = c("center", "right", "left"), title_invert = FALSE,
-  width = "auto")
+lcarsh2(
+  title = NULL,
+  color = "atomic-tangerine",
+  title_color = color,
+  background_color = "#000000",
+  title_align = c("center", "right", "left"),
+  title_invert = FALSE,
+  width = "auto"
+)
 
-lcarsh3(title = NULL, color = "atomic-tangerine",
-  title_color = color, background_color = "#000000",
-  title_align = c("center", "right", "left"), title_invert = FALSE,
-  width = "auto")
+lcarsh3(
+  title = NULL,
+  color = "atomic-tangerine",
+  title_color = color,
+  background_color = "#000000",
+  title_align = c("center", "right", "left"),
+  title_invert = FALSE,
+  width = "auto"
+)
 
-lcarsh4(title = NULL, color = "atomic-tangerine",
-  title_color = color, background_color = "#000000",
-  title_align = c("center", "right", "left"), title_invert = FALSE,
-  width = "auto")
+lcarsh4(
+  title = NULL,
+  color = "atomic-tangerine",
+  title_color = color,
+  background_color = "#000000",
+  title_align = c("center", "right", "left"),
+  title_invert = FALSE,
+  width = "auto"
+)
 
-lcarsh5(title = NULL, color = "atomic-tangerine",
-  title_color = color, background_color = "#000000",
-  title_align = c("center", "right", "left"), title_invert = FALSE,
-  width = "auto")
+lcarsh5(
+  title = NULL,
+  color = "atomic-tangerine",
+  title_color = color,
+  background_color = "#000000",
+  title_align = c("center", "right", "left"),
+  title_invert = FALSE,
+  width = "auto"
+)
 
-lcarsh6(title = NULL, color = "atomic-tangerine",
-  title_color = color, background_color = "#000000",
-  title_align = c("center", "right", "left"), title_invert = FALSE,
-  width = "auto")
+lcarsh6(
+  title = NULL,
+  color = "atomic-tangerine",
+  title_color = color,
+  background_color = "#000000",
+  title_align = c("center", "right", "left"),
+  title_invert = FALSE,
+  width = "auto"
+)
 }
 \arguments{
 \item{title}{character, optional title.}

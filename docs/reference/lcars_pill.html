@@ -62,16 +62,6 @@
 <![endif]-->
 
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46129458-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-46129458-3');
-</script>
-
 
   </head>
 
@@ -141,9 +131,19 @@
     <p>Wrappers around <code>lcars_rect</code> that add rounded edges on one side or two opposing sides to make an LCARS pill.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>lcars_pill</span>(<span class='no'>xmin</span>, <span class='no'>xmax</span>, <span class='no'>ymin</span>, <span class='no'>ymax</span>, <span class='no'>color</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"both"</span>, <span class='st'>"left"</span>,
-  <span class='st'>"right"</span>), <span class='kw'>vertical</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>gap</span> <span class='kw'>=</span> <span class='st'>"auto"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>gap_color</span> <span class='kw'>=</span> <span class='st'>"black"</span>)
+    <pre class="usage"><span class='fu'>lcars_pill</span>(
+  <span class='no'>xmin</span>,
+  <span class='no'>xmax</span>,
+  <span class='no'>ymin</span>,
+  <span class='no'>ymax</span>,
+  <span class='no'>color</span>,
+  <span class='kw'>direction</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"both"</span>, <span class='st'>"left"</span>, <span class='st'>"right"</span>),
+  <span class='kw'>vertical</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>gap</span> <span class='kw'>=</span> <span class='st'>"auto"</span>,
+  <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>50</span>,
+  <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>gap_color</span> <span class='kw'>=</span> <span class='st'>"black"</span>
+)
 
 <span class='fu'>lcars_half_pill</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>r</span>, <span class='no'>direction</span>, <span class='no'>color</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>)
 
@@ -238,7 +238,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='http://leonawicz.github.io/'>Matthew Leonawicz</a>.</p>
+  <p>Developed by <a href='https://github.com/leonawicz'>Matthew Leonawicz</a>.</p>
 </div>
 
 <div class="pkgdown">
