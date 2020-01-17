@@ -45,7 +45,8 @@
   
 
 <meta property="og:title" content="LCARS corner elbow — lcars_elbow" />
-<meta property="og:description" content="Draw a, LCARS elbow polygon. This is a 90-degree rounded corner bend for top left, top right, bottom right and bottom left LCARS corner panels." />
+<meta property="og:description" content="Draw a, LCARS elbow polygon. This is a 90-degree rounded corner bend for top
+left, top right, bottom right and bottom left LCARS corner panels." />
 <meta property="og:image" content="http://leonawicz.github.io/lcars/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -128,7 +129,8 @@
     </div>
 
     <div class="ref-description">
-    <p>Draw a, LCARS elbow polygon. This is a 90-degree rounded corner bend for top left, top right, bottom right and bottom left LCARS corner panels.</p>
+    <p>Draw a, LCARS elbow polygon. This is a 90-degree rounded corner bend for top
+left, top right, bottom right and bottom left LCARS corner panels.</p>
     </div>
 
     <pre class="usage"><span class='fu'>lcars_elbow</span>(
@@ -142,7 +144,7 @@
   <span class='kw'>ro</span> <span class='kw'>=</span> <span class='no'>width</span>/<span class='fl'>2</span>,
   <span class='kw'>ri</span> <span class='kw'>=</span> <span class='no'>height</span>/<span class='fl'>2</span>,
   <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>20</span>,
-  <span class='no'>color</span>,
+  <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"atomic-tangerine"</span>,
   <span class='kw'>draw</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
 )</pre>
 
@@ -167,7 +169,9 @@
     </tr>
     <tr>
       <th>corner</th>
-      <td><p>integer 1:4 or character: <code>topleft</code>, <code>topright</code>, <code>bottomleft</code>, <code>bottomright</code>. May be abbreviated as <code>tl</code>, <code>tr</code>, <code>br</code>, <code>bl</code>.</p></td>
+      <td><p>integer 1:4 or character: <code>topleft</code>, <code>topright</code>,
+<code>bottomleft</code>, <code>bottomright</code>. May be abbreviated as <code>tl</code>,
+<code>tr</code>, <code>br</code>, <code>bl</code>.</p></td>
     </tr>
     <tr>
       <th>width</th>
@@ -187,11 +191,15 @@
     </tr>
     <tr>
       <th>n</th>
-      <td><p>number of points to define the curve of the inner radial quarter circle. The number of points then used to define the outer curve and extensions of the segments are scaled respectively based on this.</p></td>
+      <td><p>number of points to define the curve of the inner radial quarter
+circle. The number of points then used to define the outer curve and
+extensions of the segments are scaled respectively based on this.</p></td>
     </tr>
     <tr>
       <th>color</th>
-      <td><p>ignored if <code>draw = FALSE</code>.</p></td>
+      <td><p>ignored if <code>draw = FALSE</code>. Can be any color given in hex
+format. Named colors must be LCARS colors. See <code><a href='lcarsdata.html'>lcarsdata</a></code> for
+options.</p></td>
     </tr>
     <tr>
       <th>draw</th>

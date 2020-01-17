@@ -137,12 +137,12 @@
   <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>6</span>,
   <span class='kw'>corners</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>4</span>,
   <span class='kw'>length_frac</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0.5</span>, <span class='fl'>8</span>),
-  <span class='kw'>corner_color</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"#CD6363"</span>, <span class='st'>"#CC99CC"</span>, <span class='st'>"#FF9E63"</span>, <span class='st'>"#FFFF9C"</span>),
+  <span class='kw'>corner_color</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"atomic-tangerine"</span>, <span class='fl'>4</span>),
   <span class='kw'>ro</span> <span class='kw'>=</span> <span class='no'>width</span>/<span class='fl'>20</span>,
   <span class='kw'>ri</span> <span class='kw'>=</span> <span class='no'>height</span>/<span class='fl'>60</span>,
   <span class='kw'>side_width</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>5</span>)/<span class='fl'>5</span>,
   <span class='kw'>side_n_segments</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0</span>, <span class='fl'>4</span>),
-  <span class='kw'>side_color</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='st'>"#99CCFF"</span>, <span class='st'>"#99CCFF"</span>, <span class='st'>"#99CCFF"</span>, <span class='st'>"#99CCFF"</span>),
+  <span class='kw'>side_color</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>as.list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"atomic-tangerine"</span>, <span class='fl'>4</span>)),
   <span class='kw'>side_label</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>NA</span>, <span class='fl'>4</span>),
   <span class='kw'>label_size</span> <span class='kw'>=</span> <span class='fl'>1</span>,
   <span class='kw'>side_label_adj</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.5</span>, <span class='fl'>0.5</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(-<span class='fl'>0.2</span>, -<span class='fl'>0.2</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.5</span>, <span class='fl'>0.5</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1.1</span>, -<span class='fl'>0.2</span>)),
@@ -168,15 +168,20 @@
     </tr>
     <tr>
       <th>corners</th>
-      <td><p>integer, <code>1:4</code>, a vector specifying which corner elbows to include the LCARS elbow bend: top left, top right, bottom right, bottom left.</p></td>
+      <td><p>integer, <code>1:4</code>, a vector specifying which corner elbows
+to include the LCARS elbow bend: top left, top right, bottom right, bottom
+left.</p></td>
     </tr>
     <tr>
       <th>length_frac</th>
-      <td><p>numeric, the fraction of a side that a corner extends over. See details.</p></td>
+      <td><p>numeric, the fraction of a side that a corner extends
+over. See details.</p></td>
     </tr>
     <tr>
       <th>corner_color</th>
-      <td><p>vector of corner colors, clockwise from top left.</p></td>
+      <td><p>vector of corner colors, clockwise from top left. Can be
+any color given in hex format. Named colors must be LCARS colors.
+See <code><a href='lcarsdata.html'>lcarsdata</a></code> for options.</p></td>
     </tr>
     <tr>
       <th>ro</th>
@@ -192,15 +197,20 @@
     </tr>
     <tr>
       <th>side_n_segments</th>
-      <td><p>for each side clockwise from top left, the number of rectangle segments used to evenly fill the space between corner bends.</p></td>
+      <td><p>for each side clockwise from top left, the number of
+rectangle segments used to evenly fill the space between corner bends.</p></td>
     </tr>
     <tr>
       <th>side_color</th>
-      <td><p>list of color vectors for side segments. Each vector must have the same number of colors as the number of segments for a given side.</p></td>
+      <td><p>list of color vectors for side segments. Each vector must
+have the same number of colors as the number of segments for a given side.
+Can be any color given in hex format. Named colors must be LCARS colors.
+See <code><a href='lcarsdata.html'>lcarsdata</a></code> for options.</p></td>
     </tr>
     <tr>
       <th>side_label</th>
-      <td><p>list of label vectors for side segments. Each vector must have the same number of colors as the number of segments for a given side.</p></td>
+      <td><p>list of label vectors for side segments. Each vector must
+have the same number of colors as the number of segments for a given side.</p></td>
     </tr>
     <tr>
       <th>label_size</th>
@@ -208,11 +218,14 @@
     </tr>
     <tr>
       <th>side_label_adj</th>
-      <td><p>list of four vectors, each giving the <code>adj</code> argument to <code>text</code> for each side.</p></td>
+      <td><p>list of four vectors, each giving the <code>adj</code>
+argument to <code>text</code> for each side.</p></td>
     </tr>
     <tr>
       <th>gap</th>
-      <td><p>vector of two values giving the gap fraction from 0 to 1, based on full plot width and height, for the gap between horizontal and vertical segments, respectively.</p></td>
+      <td><p>vector of two values giving the gap fraction from 0 to 1, based
+on full plot width and height, for the gap between horizontal and vertical
+segments, respectively.</p></td>
     </tr>
     <tr>
       <th>bg</th>
@@ -220,7 +233,8 @@
     </tr>
     <tr>
       <th>n</th>
-      <td><p>integer, number of points used to define inner radii quarter circles for corner bends.</p></td>
+      <td><p>integer, number of points used to define inner radii quarter
+circles for corner bends.</p></td>
     </tr>
     </table>
 
@@ -230,13 +244,20 @@
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>This function draws a plot. It does not return a new ggplot object.</p>
-<p>For <code>length_frac</code>, a vector of eight values from 0 to 1 is required. Starting from the top side, clockwise around to the left side,
-they refer to fraction of that side's length over which the relevant corner bend extends.
-For example, the first value refers to the top left corner bend's rightward horizontal segment.
-The second value refers to the top right corner bend's leftward horizontal segment. This takes care of the top side.
-Finally, the last value refers to the downward vertical arm of the top left corner bend.</p>
-<p>All arguments that take vectors or lists of length four are in clockwise order from either the top left corner for corner-related arguments or
-the top side for side-related arguments.</p>
+<p>For <code>length_frac</code>, a vector of eight values from 0 to 1 is required.
+Starting from the top side, clockwise around to the left side,
+they refer to fraction of that side's length over which the relevant corner
+bend extends.
+For example, the first value refers to the top left corner bend's rightward
+horizontal segment.
+The second value refers to the top right corner bend's leftward horizontal
+segment. This takes care of the top side.
+Finally, the last value refers to the downward vertical arm of the top left
+corner bend.</p>
+<p>All arguments that take vectors or lists of length four are in clockwise
+order from either the top left corner for corner-related arguments or
+the top side for side-related arguments. Colors may be given as official
+LCARS color names.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>lcars_border</span>()</div><div class='img'><img src='lcars_border-1.png' alt='' width='700' height='433' /></div><div class='input'>

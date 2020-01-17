@@ -45,8 +45,10 @@
   
 
 <meta property="og:title" content="LCARS sweep — lcarsSweep" />
-<meta property="og:description" content="Create an LCARS sweep; the 'S' or reverse-'S' shape comprised of two LCARS elbows pointing in opposite directions.
-The sweep is effectively two adjacent LCARS boxes separated by an input column and some specific styling to achieve the sweep display." />
+<meta property="og:description" content="Create an LCARS sweep; the 'S' or reverse-'S' shape comprised of two LCARS
+elbows pointing in opposite directions.
+The sweep is effectively two adjacent LCARS boxes separated by an input
+column and some specific styling to achieve the sweep display." />
 <meta property="og:image" content="http://leonawicz.github.io/lcars/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -129,8 +131,10 @@ The sweep is effectively two adjacent LCARS boxes separated by an input column a
     </div>
 
     <div class="ref-description">
-    <p>Create an LCARS sweep; the 'S' or reverse-'S' shape comprised of two LCARS elbows pointing in opposite directions.
-The sweep is effectively two adjacent LCARS boxes separated by an input column and some specific styling to achieve the sweep display.</p>
+    <p>Create an LCARS sweep; the 'S' or reverse-'S' shape comprised of two LCARS
+elbows pointing in opposite directions.
+The sweep is effectively two adjacent LCARS boxes separated by an input
+column and some specific styling to achieve the sweep display.</p>
     </div>
 
     <pre class="usage"><span class='fu'>lcarsSweep</span>(
@@ -152,7 +156,8 @@ The sweep is effectively two adjacent LCARS boxes separated by an input column a
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>column_inputs</th>
-      <td><p>optional input column for right side, for example a column of buttons made with <code>inputColumn</code>. See details.</p></td>
+      <td><p>optional input column for right side, for example a
+column of buttons made with <code>inputColumn</code>. See details.</p></td>
     </tr>
     <tr>
       <th>left_inputs</th>
@@ -180,19 +185,26 @@ The sweep is effectively two adjacent LCARS boxes separated by an input column a
     </tr>
     <tr>
       <th>expand</th>
-      <td><p>integer, length-2 vector, the number of pixels to expand the left and right content containers above or below the implicit border; the top or bottom border where no sweep is present. See example.</p></td>
+      <td><p>integer, length-2 vector, the number of pixels to expand the
+left and right content containers above or below the implicit border; the
+top or bottom border where no sweep is present. See example.</p></td>
     </tr>
     <tr>
       <th>column_width</th>
-      <td><p>integer, width of the sweep column section in pixels. Must be in pixels, 150 maximum. Smaller is permitted but will not conform as well to LCARS style.</p></td>
+      <td><p>integer, width of the sweep column section in pixels.
+Must be in pixels, 150 maximum. Smaller is permitted but will not conform as
+well to LCARS style.</p></td>
     </tr>
     <tr>
       <th>left_width</th>
-      <td><p>numeric, number between 0 and 1 giving the proportional width of the left content section. The right section is 1 - <code>left_width</code>.</p></td>
+      <td><p>numeric, number between 0 and 1 giving the proportional
+width of the left content section.
+The right section is 1 - <code>left_width</code>.</p></td>
     </tr>
     <tr>
       <th>width</th>
-      <td><p>a valid CSS unit, the width of the entire sweep. Fixed pixel width recommended. See details.</p></td>
+      <td><p>a valid CSS unit, the width of the entire sweep. Fixed pixel
+width recommended. See details.</p></td>
     </tr>
     </table>
 
@@ -201,8 +213,12 @@ The sweep is effectively two adjacent LCARS boxes separated by an input column a
     <p>an HTML widget</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>There are limitations to the container responsiveness of the LCARS box and sweep. In some cases, using percentage width, e.g., <code>width = "100%"</code> will work, but it may respond sluggishly or may not work at all.
-Fixed pixel width is recommended for <code>lcarsBox</code> and <code>lcarsSweep</code>. Regardless of responsiveness, these widgets are also not intended to fit very small displays.</p>
+    <p>There are limitations to the container responsiveness of the LCARS box and
+sweep. In some cases, using percentage width, e.g., <code>width = "100%"</code>
+will work, but it may respond sluggishly or may not work at all.
+Fixed pixel width is recommended for <code>lcarsBox</code> and <code>lcarsSweep</code>.
+Regardless of responsiveness, these widgets are also not intended to fit
+very small displays.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='lcarsBox.html'>lcarsBox</a></code></p></div>
@@ -214,7 +230,7 @@ Fixed pixel width is recommended for <code>lcarsBox</code> and <code>lcarsSweep<
   <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
   <span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>500</span>))
   <span class='no'>g</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='no'>d</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='no'>x</span>)) + <span class='fu'><a href='theme_lcars.html'>theme_lcars_dark</a></span>()
-  <span class='no'>g1</span> <span class='kw'>&lt;-</span> <span class='no'>g</span> + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_histogram.html'>geom_histogram</a></span>(<span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"black"</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>lcarsdata</span>$<span class='no'>value</span>[<span class='fl'>11</span>], <span class='kw'>bins</span> <span class='kw'>=</span> <span class='fl'>20</span>) +
+  <span class='no'>g1</span> <span class='kw'>&lt;-</span> <span class='no'>g</span> + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_histogram.html'>geom_histogram</a></span>(<span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"black"</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"#9999FF"</span>, <span class='kw'>bins</span> <span class='kw'>=</span> <span class='fl'>20</span>) +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>"Plot 1"</span>)
   <span class='no'>left</span> <span class='kw'>&lt;-</span> <span class='fu'>div</span>(<span class='fu'>h4</span>(<span class='st'>"Some text"</span>), <span class='fu'>p</span>(<span class='st'>"The fine print."</span>))
 

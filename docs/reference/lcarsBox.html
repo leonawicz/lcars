@@ -168,19 +168,23 @@
     </tr>
     <tr>
       <th>corners</th>
-      <td><p>integer, <code>1:4</code>, a vector specifying which corner elbows to include: top left, top right, bottom right, bottom left. See details.</p></td>
+      <td><p>integer, <code>1:4</code>, a vector specifying which corner elbows
+to include: top left, top right, bottom right, bottom left. See details.</p></td>
     </tr>
     <tr>
       <th>sides</th>
-      <td><p>integer, <code>1:4</code>, a vector specifying which sides to include panels: top, right, bottom, left. See details.</p></td>
+      <td><p>integer, <code>1:4</code>, a vector specifying which sides to include
+panels: top, right, bottom, left. See details.</p></td>
     </tr>
     <tr>
       <th>left_inputs</th>
-      <td><p>optional input column for left side, for example a column of buttons made with <code>inputColumn</code>. See details.</p></td>
+      <td><p>optional input column for left side, for example a column
+of buttons made with <code>inputColumn</code>. See details.</p></td>
     </tr>
     <tr>
       <th>right_inputs</th>
-      <td><p>optional input column for right side, for example a column of buttons made with <code>inputColumn</code>. See details.</p></td>
+      <td><p>optional input column for right side, for example a
+column of buttons made with <code>inputColumn</code>. See details.</p></td>
     </tr>
     <tr>
       <th>color</th>
@@ -212,15 +216,20 @@
     </tr>
     <tr>
       <th>width_left</th>
-      <td><p>numeric, the width of the left side panel in pixels. This also adjusts associated corner elbows to match. Defaults to the maximum allowed: 150.</p></td>
+      <td><p>numeric, the width of the left side panel in pixels. This
+also adjusts associated corner elbows to match. Defaults to the maximum
+allowed: 150.</p></td>
     </tr>
     <tr>
       <th>width_right</th>
-      <td><p>numeric, the width of the right side panel in pixels. This also adjusts associated corner elbows to match. Defaults to the maximum allowed: 150.</p></td>
+      <td><p>numeric, the width of the right side panel in pixels.
+This also adjusts associated corner elbows to match. Defaults to the maximum
+allowed: 150.</p></td>
     </tr>
     <tr>
       <th>width</th>
-      <td><p>a valid CSS unit, the width of the entire box. Fixed pixel width recommended. See details.</p></td>
+      <td><p>a valid CSS unit, the width of the entire box. Fixed pixel
+width recommended. See details.</p></td>
     </tr>
     </table>
 
@@ -229,66 +238,104 @@
     <p>an HTML widget</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This function allows you to customize the inclusion and colors of specific border components of the box. The defaults are closer to standard LCARS style.
-You can turn on or off specific corner elbows, connecting side panels, control colors of each, as well as title and subtitle inclusion, color and alignment.</p>
+    <p>This function allows you to customize the inclusion and colors of specific
+border components of the box. The defaults are closer to standard LCARS
+style.
+You can turn on or off specific corner elbows, connecting side panels,
+control colors of each, as well as title and subtitle inclusion, color and
+alignment.</p>
     <h2 class="hasAnchor" id="corner-elbows"><a class="anchor" href="#corner-elbows"></a>Corner elbows</h2>
 
     
 
-<p>Control which corners of the box display the characteristic LCARS elbow, clockwise from top left.
-The top and bottom borders are independent of one another. Each work in the same manner. For each, you can have a left elbow (default), a right elbow, or both.</p>
-<p>When only one corner is present (on top or on bottom), the bar extends to the other corner and terminates with the characteristic LCARS half pill if the panel border is included (see side panel section below).
-If the side between the elbow areas is excluded, only the elbows are displayed.</p>
-<p>If both elbows are excluded from the top or from the bottom, a simple, straight <code>lcarsHeader</code> element is placed above or below the main content area instead, but this can be controlled via <code>sides</code>.</p>
+<p>Control which corners of the box display the characteristic LCARS elbow,
+clockwise from top left. The top and bottom borders are independent of one
+another. Each work in the same manner. For each, you can have a left elbow
+(default), a right elbow, or both.</p>
+<p>When only one corner is present (on top or on bottom), the bar extends to
+the other corner and terminates with the characteristic LCARS half pill if
+the panel border is included (see side panel section below). If the side
+between the elbow areas is excluded, only the elbows are displayed.</p>
+<p>If both elbows are excluded from the top or from the bottom, a simple,
+straight <code>lcarsHeader</code> element is placed above or below the main
+content area instead, but this can be controlled via <code>sides</code>.</p>
     <h2 class="hasAnchor" id="side-panels"><a class="anchor" href="#side-panels"></a>Side panels</h2>
 
     
 
-<p>Control which sides of the box include an LCARS-styled border, clockwise from top left.
-Sides connect elbows using straight bars. The top and bottom sides are where title and subtitle text are placed.
-The title for the top and subtitle for the bottom are included in the bar with standard LCARS right alignment, which can be switched to left.
-If the top or bottom side panel is excluded, the vertical space remains if <code>title</code> or <code>subtitle</code> are included, respectively, retaining the text labels; otherwise the space is removed.</p>
-<p>By default, left and right sides are 150 pixels wide; top and bottom sides are 30 pixels tall.
-The top and bottom are fixed, but the widths of the left and right side panels can be adjusted using <code>width_left</code> and <code>width_right</code>, respectively.
-They can only be adjusted down to smaller widths. This is to ensure proper scaling for connected corners.
-The side panels are not meant to accommodate wider inputs and should primarily be used for small buttons and short text.</p>
+<p>Control which sides of the box include an LCARS-styled border, clockwise
+from top left. Sides connect elbows using straight bars. The top and bottom
+sides are where title and subtitle text are placed. The title for the top
+and subtitle for the bottom are included in the bar with standard LCARS
+right alignment, which can be switched to left. If the top or bottom side
+panel is excluded, the vertical space remains if <code>title</code> or
+<code>subtitle</code> are included, respectively, retaining the text labels;
+otherwise the space is removed.</p>
+<p>By default, left and right sides are 150 pixels wide; top and bottom sides
+are 30 pixels tall. The top and bottom are fixed, but the widths of the left
+and right side panels can be adjusted using <code>width_left</code> and
+<code>width_right</code>, respectively. They can only be adjusted down to smaller
+widths. This is to ensure proper scaling for connected corners. The side
+panels are not meant to accommodate wider inputs and should primarily be
+used for small buttons and short text.</p>
     <h2 class="hasAnchor" id="side-inputs-columns"><a class="anchor" href="#side-inputs-columns"></a>Side inputs columns</h2>
 
     
 
-<p>Input columns are different from left and right sides. The latter refers to whether or not there are vertical connecting bars from elbow to elbow.
-An input column represents a separate element that is placed in the left or right side panel area above the plain side panel bar itself.</p>
-<p>If the side is included and a column of inputs is provided, they combine vertically to form the side panel. Some amount of plain sidebar will pad the bottom beneath any input column, however tall.
-If the side is excluded, the input column will take up the entire vertical space.</p>
-<p>If the side is excluded and no input column is provided, the side panel area is blank.
-The main content area extends left or right to fill any completely missing left or right side panel. To restrict this, use a black side panel to match the background.</p>
-<p>Since the inputs contained in an input column are defined separately and passed to <code>lcarsBox</code>, they should be defined to have widths that match the box side panel widths.</p>
+<p>Input columns are different from left and right sides. The latter refers to
+whether or not there are vertical connecting bars from elbow to elbow.
+An input column represents a separate element that is placed in the left or
+right side panel area above the plain side panel bar itself.</p>
+<p>If the side is included and a column of inputs is provided, they combine
+vertically to form the side panel. Some amount of plain sidebar will pad the
+bottom beneath any input column, however tall. If the side is excluded, the
+input column will take up the entire vertical space.</p>
+<p>If the side is excluded and no input column is provided, the side panel area
+is blank. The main content area extends left or right to fill any completely
+missing left or right side panel. To restrict this, use a black side panel
+to match the background.</p>
+<p>Since the inputs contained in an input column are defined separately and
+passed to <code>lcarsBox</code>, they should be defined to have widths that match
+the box side panel widths.</p>
     <h2 class="hasAnchor" id="colors"><a class="anchor" href="#colors"></a>Colors</h2>
 
     
 
-<p>Box color can be any color given in hex format. Named colors must be LCARS colors. See <code><a href='lcarsdata.html'>lcarsdata</a></code> for options.
-By default, all border colors inherit from a single color passed to <code>color</code>.</p>
-<p><code>color</code> is recycled to length four as needed. <code>color</code> actually defines all four corner elbow colors.
-For corner elbows, use a vector of four colors for the top left, top right, bottom right, and bottom left, respectively.</p>
-<p>Similarly for the bars between elbows with <code>side_colors</code>, use a vector of four colors for the top, right side, bottom, and left side.
-This is also recycled to length four. If not provided, it inherits from <code>color</code>.</p>
-<p><code>title_color</code> and <code>subtitle_color</code> are scalar. They inherit from the first color in <code>color</code>.</p>
+<p>Box color can be any color given in hex format. Named colors must be LCARS
+colors. See <code><a href='lcarsdata.html'>lcarsdata</a></code> for options. By default, all border
+colors inherit from a single color passed to <code>color</code>.</p>
+<p><code>color</code> is recycled to length four as needed. <code>color</code> actually
+defines all four corner elbow colors. For corner elbows, use a vector of
+four colors for the top left, top right, bottom right, and bottom left,
+respectively.</p>
+<p>Similarly for the bars between elbows with <code>side_colors</code>, use a vector
+of four colors for the top, right side, bottom, and left side. This is also
+recycled to length four. If not provided, it inherits from <code>color</code>.</p>
+<p><code>title_color</code> and <code>subtitle_color</code> are scalar. They inherit from
+the first color in <code>color</code>.</p>
     <h2 class="hasAnchor" id="margin-space"><a class="anchor" href="#margin-space"></a>Margin space</h2>
 
     
 
-<p>When at least one corner elbow is present on a top or bottom side, that side will include empty margin space to the inside of the elbow.
-This space is part of the grid area of the side panel. This is why main panel content does not extend into it.
-You can override this and make use of this space by setting <code>clip = FALSE</code>.</p>
-<p>Note that this should only be done when both side panels are present so that the main panel content is not directly under or above the elbow near the extreme edge of the box.
-If you do not want a side panel, you can include it but set its color to match the background.</p>
+<p>When at least one corner elbow is present on a top or bottom side, that side
+will include empty margin space to the inside of the elbow. This space is
+part of the grid area of the side panel. This is why main panel content does
+not extend into it. You can override this and make use of this space by
+setting <code>clip = FALSE</code>.</p>
+<p>Note that this should only be done when both side panels are present so that
+the main panel content is not directly under or above the elbow near the
+extreme edge of the box. If you do not want a side panel, you can include
+it, but set its color to match the background.</p>
     <h2 class="hasAnchor" id="sizing"><a class="anchor" href="#sizing"></a>Sizing</h2>
 
     
 
-<p>There are limitations to the container responsiveness of the LCARS box and sweep. In some cases, using percentage width, e.g., <code>width = "100%"</code> will work, but it may respond sluggishly or may not work at all.
-Fixed pixel width is recommended for <code>lcarsBox</code> and <code>lcarsSweep</code>. Regardless of responsiveness, these widgets are also not intended to fit very small displays.</p>
+<p>There are limitations to the container responsiveness of the LCARS box and
+sweep. In some cases, using percentage width, e.g., <code>width = "100%"</code>
+will work, but it may respond sluggishly or may not work at all. Fixed pixel
+width is recommended for <code>lcarsBox</code> and <code>lcarsSweep</code>. Regardless
+of responsiveness, these widgets are also not intended to fit very small
+displays.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='lcarsSweep.html'>lcarsSweep</a></code></p></div>

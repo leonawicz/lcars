@@ -97,12 +97,12 @@
 <a href="#library-computer-accessretrieval-system-lcars" class="anchor"></a>Library Computer Access/Retrieval System (<a href="https://en.wikipedia.org/wiki/LCARS">LCARS</a>)</h2>
 <p>The <code>lcars</code> package provides simple approximations to LCARS style and appearance to give static plots and interactive data analysis an LCARS theme.</p>
 <ul>
-<li>One key feature in <code>lcars</code> is the ability to wrap ggplot objects in an LCARS-themed border using <code>lcars_border</code>.</li>
-<li>There is also support for an LCARS-themed Shiny UI using <code>lcarsPage</code> and related functions.</li>
+<li>One feature in <code>lcars</code> is the ability to wrap ggplot objects in an LCARS-themed border using <code>lcars_border</code>. This relies on <code>grid</code> and base graphics and results are relatively basic.</li>
+<li>But an LCARS appearance begs the next obvious step: interactivity. <code>lcars</code> provides functions that support an LCARS-themed Shiny UI using <code>lcarsPage</code> and related Shiny widgets and custom CSS.</li>
 </ul>
-<p>While the former is fun and useful for static graphs, the latter is much more exciting because it means you can make something with the look and feel of LCARS that also <em>actually functions</em>!</p>
+<p>While the former is fun and useful for static graphs, the latter is much more exciting because it means you can make something with the look and feel of LCARS that also is <em>actually operational</em> and not just another piece of static digital fan art!</p>
 <p><img src="reference/figures/README-banner.png"></p>
-<p>That’s right. Make your Shiny app, view it on a touch screen device like your very own Federation issue data PADD, and transport yourself into the future of the Star Trek universe with this 1980s sci-fi television aesthetic!</p>
+<p>That’s right. Make your Shiny app, view it on a touch screen device like your very own Federation-issue data PADD, and transport yourself into the future of the Star Trek universe with this 1980s sci-fi television aesthetic!</p>
 <p>The static plot border and Shiny <code>lcarsBox</code> widget both give plenty of control over the style. Given their different fundamental designs, they provide somewhat different aspects of design control via their respective function arguments.</p>
 <div id="function-names" class="section level3">
 <h3 class="hasAnchor">
@@ -139,7 +139,7 @@
 </ul>
 <p>The key widgets are <code>lcarsHeader</code>, <code>lcarsBox</code> and <code>lcarsSweep</code>. An example of the header and box is shown above. Here is a combined LCARS sweep and reverse sweep:</p>
 <p><img src="reference/figures/README-sweep.png"></p>
-<p>The screenshots above are taken directly from demo apps included in the package. See <code><a href="reference/lcarsApp.html">?lcarsApp</a></code> for details.</p>
+<p>The screenshots above are taken directly from demo apps included in the package. See <code><a href="reference/lcarsApp.html">?lcarsApp</a></code> for details. For detailed examples including Shiny app examples, see the package <a href="https://leonawicz.github.io/lcars/articles/lcars.html">vignette</a>.</p>
 </div>
 </div>
 <div id="installation" class="section level2">
@@ -151,22 +151,11 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># install.packages("remotes")</span></a>
 <a class="sourceLine" id="cb2-2" title="2">remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"leonawicz/lcars"</span>)</a></code></pre></div>
 </div>
-<div id="example" class="section level2">
+<div id="limitations" class="section level2">
 <h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
-<p>Below is a basic example using <code>lcars_border</code> to wrap a basic LCARS-like border around a ggplot object and draw the new plot.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(lcars)</a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a>
-<a class="sourceLine" id="cb3-3" title="3"></a>
-<a class="sourceLine" id="cb3-4" title="4">g &lt;-<span class="st"> </span><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Sepal.Length, Sepal.Width, <span class="dt">color =</span> Species)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-5" title="5"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Species, <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="reference/theme_lcars.html">theme_lcars_light</a></span>()</a>
-<a class="sourceLine" id="cb3-6" title="6"></a>
-<a class="sourceLine" id="cb3-7" title="7">len_frac &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.3</span>, <span class="fl">0.5</span>, <span class="fl">0.2</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.3</span>)</a>
-<a class="sourceLine" id="cb3-8" title="8">n_seg &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">8</span>)</a>
-<a class="sourceLine" id="cb3-9" title="9"><span class="kw"><a href="reference/lcars_border.html">lcars_border</a></span>(g, <span class="dt">corners =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">length_frac =</span> len_frac, <span class="dt">side_n_segments =</span> n_seg)</a></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"></p>
-<p>The appearance can be improved and customized significantly from the basic example above, as shown in the vignette. However, the Shiny widgets are not only interactive, which is a critical feature for an LCARS display, but they also look much better. When sharing a static plot, you may still find it preferable to take a screenshot of a shiny widget rather than using <code>lcars_border</code> with a ggplot object.</p>
-<p>For more detailed examples including Shiny app examples, see the package <a href="https://leonawicz.github.io/lcars/articles/lcars.html">vignette</a>.</p>
+<a href="#limitations" class="anchor"></a>Limitations</h2>
+<p>In adhering closely to sizing and layout rules for LCARS UI design, fixed sizing works best for some container widgets like <code>lcarBox</code> and <code>lcarsSweep</code>. You can use settings like <code>width = "100%"</code> for these containers, but you may notice limitations in maintaining a responsive UI, particularly when they contain plot outputs. Fixed width widgets are generally recommended.</p>
+<p>Visual components such as the LCARS elbow shape underlying some widgets are intended to follow strict sizing and scaling rules. They are not intended to scale arbitrarily or fit well on very small device screens.</p>
 </div>
 <div id="packages-in-the-trekverse" class="section level2">
 <h2 class="hasAnchor">
@@ -190,6 +179,30 @@ Trek package
 
 Datasets related to Star Trek, API wrappers to external data sources,
 and more.
+
+</div>
+
+</div>
+<p><br></p>
+<div class="row">
+
+<div class="col-sm-2">
+
+<a href="https://github.com/leonawicz/lcars"><img src="https://raw.githubusercontent.com/leonawicz/lcars/master/man/figures/logo.png" style="margin-right:20px;margin-bottom:0;" width="120" align="left"></a>
+
+</div>
+
+<div class="col-sm-10">
+
+<h4 style="padding:30px 0 0 0;margin-top:5px;margin-bottom:5px;">
+
+<a href="https://github.com/leonawicz/lcars">lcars</a>: LCARS aesthetic
+for Shiny
+
+</h4>
+
+Create Shiny apps based on the Library Computer Access/Retrieval System
+(LCARS).
 
 </div>
 
