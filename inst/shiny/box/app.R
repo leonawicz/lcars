@@ -66,12 +66,12 @@ ui <- lcarsPage(
               column(6,
                 selectInput("clr5", "Top", clrs, clr),
                 selectInput("clr8", "Left", clrs, clr),
-                selectInput("wl", "Left width", c(30, 60, 100, 150, 200), 150)
+                selectInput("wl", "Left width", c(30, 60, 100, 150), 150)
               ),
               column(6,
                 selectInput("clr7", "Bottom", clrs, clr),
                 selectInput("clr6", "Right", clrs, clr),
-                selectInput("wr", "Right width", c(30, 60, 100, 150, 200), 150)
+                selectInput("wr", "Right width", c(30, 60, 100, 150), 150)
               )
             )
         ),

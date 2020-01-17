@@ -11,14 +11,17 @@ renderLcarsBox(expr, env = parent.frame(), quoted = FALSE)
 renderLcarsSweep(expr, env = parent.frame(), quoted = FALSE)
 }
 \arguments{
-\item{expr}{An expression that returns a Shiny tag object, HTML, or a list of such objects.}
+\item{expr}{An expression that returns a Shiny tag object, HTML, or a list
+of such objects.}
 
 \item{env}{The environment in which to evaluate \code{expr}.}
 
-\item{quoted}{Is \code{expr} a quoted expression (with \code{quote()})? This is useful if you want to save an expression in a variable.}
+\item{quoted}{Is \code{expr} a quoted expression (with \code{quote()})? This
+is useful if you want to save an expression in a variable.}
 }
 \description{
-Server-side functions for creating dynamic \code{lcarBox} and \code{lcarsSweep}.
+Server-side functions for creating dynamic \code{lcarBox} and
+\code{lcarsSweep}.
 }
 \examples{
 ## Only run examples in interactive R sessions

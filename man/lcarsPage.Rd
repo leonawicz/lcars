@@ -23,11 +23,14 @@ lcarsPage(
 
 \item{label_uppercase}{logical, also make widget labels uppercase globally.}
 
-\item{lcars_font_headers}{use LCARS-style font family for major heading text. See details.}
+\item{lcars_font_headers}{use LCARS-style font family for major heading
+text. See details.}
 
-\item{lcars_font_labels}{use LCARS-style font family for LCARS widget labels/titles.}
+\item{lcars_font_labels}{use LCARS-style font family for LCARS widget
+labels/titles.}
 
-\item{lcars_font_text}{use LCARS-style font family for general text (paragraphs, lists, etc.).}
+\item{lcars_font_text}{use LCARS-style font family for general text
+(paragraphs, lists, etc.).}
 }
 \value{
 A UI definition that can be passed to the shinyUI function.
@@ -36,14 +39,19 @@ A UI definition that can be passed to the shinyUI function.
 Create a Shiny UI page with an LCARS theme.
 }
 \details{
-The LCARS style heavily emphasizes uppercase text. Set \code{force_uppercase = TRUE} to force this standard via CSS.
-This does not make everything uppercase; things like input labels are left alone (use \code{label_uppercase = TRUE}). However, text in general in uppercased.
+The LCARS style heavily emphasizes uppercase text. Set
+\code{force_uppercase = TRUE} to force this standard via CSS.
+This does not make everything uppercase; things like input labels are left
+alone (use \code{label_uppercase = TRUE}). However, text in general in
+uppercased.
 
 Set these to \code{FALSE} if you need control over casing.
 This allows sensible judgment over how to balance the tension between
 making something that conforms well to the familiar LCARS aesthetic
-and making something that communicates information with a lower cognitive load for the user.
-Similarly, set \code{lcars_font*} arguments to \code{FALSE} to use a more readable sans serif font as desired.
+and making something that communicates information with a lower cognitive
+load for the user.
+Similarly, set \code{lcars_font*} arguments to \code{FALSE} to use a more
+readable sans serif font as desired.
 See examples for recommendations.
 }
 \examples{

@@ -13,9 +13,12 @@ inputColumn(...)
 HTML
 }
 \description{
-An LCARS input column is a container for inputs like \code{lcarsButton} and \code{lcarsToggle} that can be passed to \code{lcarsBox}.
-The inputs occur vertically in the left or right side panel of the box. To fit properly, input widths should be 150px or less,
-matching the widths of the side panels of the given \code{lcarsBox} container.
+An LCARS input column is a container for inputs like \code{lcarsButton} and
+\code{lcarsToggle} that can be passed to \code{lcarsBox}.
+The inputs occur vertically in the left or right side panel of the box. To
+fit properly, input widths should be 150px or less,
+matching the widths of the side panels of the given \code{lcarsBox}
+container.
 }
 \examples{
 # inputColumn()

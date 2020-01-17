@@ -1,10 +1,13 @@
 #' Create an LCARS outputs (server side)
 #'
-#' Server-side functions for creating dynamic \code{lcarBox} and \code{lcarsSweep}.
+#' Server-side functions for creating dynamic \code{lcarBox} and
+#' \code{lcarsSweep}.
 #'
-#' @param expr An expression that returns a Shiny tag object, HTML, or a list of such objects.
+#' @param expr An expression that returns a Shiny tag object, HTML, or a list
+#' of such objects.
 #' @param env The environment in which to evaluate \code{expr}.
-#' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This is useful if you want to save an expression in a variable.
+#' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
+#' is useful if you want to save an expression in a variable.
 #'
 #' @export
 #' @name renderLcars
@@ -51,7 +54,8 @@ renderLcarsSweep <- function(expr, env = parent.frame(), quoted = FALSE){
 #' @export
 #' @name lcarsOutput
 #'
-#' @seealso \code{\link{renderLcars}} for the corresponding server-side function.
+#' @seealso \code{\link{renderLcars}} for the corresponding server-side
+#' function.
 #' @examples
 #' ## Only run examples in interactive R sessions
 #' if (interactive()) {

@@ -3,72 +3,114 @@
 #' Create a configurable LCARS box.
 #'
 #' @details
-#' This function allows you to customize the inclusion and colors of specific border components of the box. The defaults are closer to standard LCARS style.
-#' You can turn on or off specific corner elbows, connecting side panels, control colors of each, as well as title and subtitle inclusion, color and alignment.
+#' This function allows you to customize the inclusion and colors of specific
+#' border components of the box. The defaults are closer to standard LCARS
+#' style.
+#' You can turn on or off specific corner elbows, connecting side panels,
+#' control colors of each, as well as title and subtitle inclusion, color and
+#' alignment.
 #'
 #' @section Corner elbows:
-#' Control which corners of the box display the characteristic LCARS elbow, clockwise from top left.
-#' The top and bottom borders are independent of one another. Each work in the same manner. For each, you can have a left elbow (default), a right elbow, or both.
+#' Control which corners of the box display the characteristic LCARS elbow,
+#' clockwise from top left. The top and bottom borders are independent of one
+#' another. Each work in the same manner. For each, you can have a left elbow
+#' (default), a right elbow, or both.
 #'
-#' When only one corner is present (on top or on bottom), the bar extends to the other corner and terminates with the characteristic LCARS half pill if the panel border is included (see side panel section below).
-#' If the side between the elbow areas is excluded, only the elbows are displayed.
+#' When only one corner is present (on top or on bottom), the bar extends to
+#' the other corner and terminates with the characteristic LCARS half pill if
+#' the panel border is included (see side panel section below). If the side
+#' between the elbow areas is excluded, only the elbows are displayed.
 #'
-#' If both elbows are excluded from the top or from the bottom, a simple, straight \code{lcarsHeader} element is placed above or below the main content area instead, but this can be controlled via \code{sides}.
+#' If both elbows are excluded from the top or from the bottom, a simple,
+#' straight \code{lcarsHeader} element is placed above or below the main
+#' content area instead, but this can be controlled via \code{sides}.
 #'
 #' @section Side panels:
-#' Control which sides of the box include an LCARS-styled border, clockwise from top left.
-#' Sides connect elbows using straight bars. The top and bottom sides are where title and subtitle text are placed.
-#' The title for the top and subtitle for the bottom are included in the bar with standard LCARS right alignment, which can be switched to left.
-#' If the top or bottom side panel is excluded, the vertical space remains if \code{title} or \code{subtitle} are included, respectively, retaining the text labels; otherwise the space is removed.
+#' Control which sides of the box include an LCARS-styled border, clockwise
+#' from top left. Sides connect elbows using straight bars. The top and bottom
+#' sides are where title and subtitle text are placed. The title for the top
+#' and subtitle for the bottom are included in the bar with standard LCARS
+#' right alignment, which can be switched to left. If the top or bottom side
+#' panel is excluded, the vertical space remains if \code{title} or
+#' \code{subtitle} are included, respectively, retaining the text labels;
+#' otherwise the space is removed.
 #'
-#' By default, left and right sides are 150 pixels wide; top and bottom sides are 30 pixels tall.
-#' The top and bottom are fixed, but the widths of the left and right side panels can be adjusted using \code{width_left} and \code{width_right}, respectively.
-#' They can only be adjusted down to smaller widths. This is to ensure proper scaling for connected corners.
-#' The side panels are not meant to accommodate wider inputs and should primarily be used for small buttons and short text.
+#' By default, left and right sides are 150 pixels wide; top and bottom sides
+#' are 30 pixels tall. The top and bottom are fixed, but the widths of the left
+#' and right side panels can be adjusted using \code{width_left} and
+#' \code{width_right}, respectively. They can only be adjusted down to smaller
+#' widths. This is to ensure proper scaling for connected corners. The side
+#' panels are not meant to accommodate wider inputs and should primarily be
+#' used for small buttons and short text.
 #'
 #' @section Side inputs columns:
-#' Input columns are different from left and right sides. The latter refers to whether or not there are vertical connecting bars from elbow to elbow.
-#' An input column represents a separate element that is placed in the left or right side panel area above the plain side panel bar itself.
+#' Input columns are different from left and right sides. The latter refers to
+#' whether or not there are vertical connecting bars from elbow to elbow.
+#' An input column represents a separate element that is placed in the left or
+#' right side panel area above the plain side panel bar itself.
 #'
-#' If the side is included and a column of inputs is provided, they combine vertically to form the side panel. Some amount of plain sidebar will pad the bottom beneath any input column, however tall.
-#' If the side is excluded, the input column will take up the entire vertical space.
+#' If the side is included and a column of inputs is provided, they combine
+#' vertically to form the side panel. Some amount of plain sidebar will pad the
+#' bottom beneath any input column, however tall. If the side is excluded, the
+#' input column will take up the entire vertical space.
 #'
-#' If the side is excluded and no input column is provided, the side panel area is blank.
-#' The main content area extends left or right to fill any completely missing left or right side panel. To restrict this, use a black side panel to match the background.
+#' If the side is excluded and no input column is provided, the side panel area
+#' is blank. The main content area extends left or right to fill any completely
+#' missing left or right side panel. To restrict this, use a black side panel
+#' to match the background.
 #'
-#' Since the inputs contained in an input column are defined separately and passed to \code{lcarsBox}, they should be defined to have widths that match the box side panel widths.
+#' Since the inputs contained in an input column are defined separately and
+#' passed to \code{lcarsBox}, they should be defined to have widths that match
+#' the box side panel widths.
 #'
 #' @section Colors:
-#' Box color can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.
-#' By default, all border colors inherit from a single color passed to \code{color}.
+#' Box color can be any color given in hex format. Named colors must be LCARS
+#' colors. See \code{\link{lcarsdata}} for options. By default, all border
+#' colors inherit from a single color passed to \code{color}.
 #'
-#' \code{color} is recycled to length four as needed. \code{color} actually defines all four corner elbow colors.
-#' For corner elbows, use a vector of four colors for the top left, top right, bottom right, and bottom left, respectively.
+#' \code{color} is recycled to length four as needed. \code{color} actually
+#' defines all four corner elbow colors. For corner elbows, use a vector of
+#' four colors for the top left, top right, bottom right, and bottom left,
+#' respectively.
 #'
-#' Similarly for the bars between elbows with \code{side_colors}, use a vector of four colors for the top, right side, bottom, and left side.
-#' This is also recycled to length four. If not provided, it inherits from \code{color}.
+#' Similarly for the bars between elbows with \code{side_colors}, use a vector
+#' of four colors for the top, right side, bottom, and left side. This is also
+#' recycled to length four. If not provided, it inherits from \code{color}.
 #'
-#' \code{title_color} and \code{subtitle_color} are scalar. They inherit from the first color in \code{color}.
+#' \code{title_color} and \code{subtitle_color} are scalar. They inherit from
+#' the first color in \code{color}.
 #'
 #' @section Margin space:
-#' When at least one corner elbow is present on a top or bottom side, that side will include empty margin space to the inside of the elbow.
-#' This space is part of the grid area of the side panel. This is why main panel content does not extend into it.
-#' You can override this and make use of this space by setting \code{clip = FALSE}.
+#' When at least one corner elbow is present on a top or bottom side, that side
+#' will include empty margin space to the inside of the elbow. This space is
+#' part of the grid area of the side panel. This is why main panel content does
+#' not extend into it. You can override this and make use of this space by
+#' setting \code{clip = FALSE}.
 #'
-#' Note that this should only be done when both side panels are present so that the main panel content is not directly under or above the elbow near the extreme edge of the box.
-#' If you do not want a side panel, you can include it but set its color to match the background.
+#' Note that this should only be done when both side panels are present so that
+#' the main panel content is not directly under or above the elbow near the
+#' extreme edge of the box. If you do not want a side panel, you can include
+#' it, but set its color to match the background.
 #'
 #' @section Sizing:
-#' There are limitations to the container responsiveness of the LCARS box and sweep. In some cases, using percentage width, e.g., \code{width = "100\%"} will work, but it may respond sluggishly or may not work at all.
-#' Fixed pixel width is recommended for \code{lcarsBox} and \code{lcarsSweep}. Regardless of responsiveness, these widgets are also not intended to fit very small displays.
+#' There are limitations to the container responsiveness of the LCARS box and
+#' sweep. In some cases, using percentage width, e.g., \code{width = "100\%"}
+#' will work, but it may respond sluggishly or may not work at all. Fixed pixel
+#' width is recommended for \code{lcarsBox} and \code{lcarsSweep}. Regardless
+#' of responsiveness, these widgets are also not intended to fit very small
+#' displays.
 #'
 #' @param ... box contents.
 #' @param title character, box title at top right.
 #' @param subtitle character, box subtitle at bottom right.
-#' @param corners integer, \code{1:4}, a vector specifying which corner elbows to include: top left, top right, bottom right, bottom left. See details.
-#' @param sides integer, \code{1:4}, a vector specifying which sides to include panels: top, right, bottom, left. See details.
-#' @param left_inputs optional input column for left side, for example a column of buttons made with \code{inputColumn}. See details.
-#' @param right_inputs optional input column for right side, for example a column of buttons made with \code{inputColumn}. See details.
+#' @param corners integer, \code{1:4}, a vector specifying which corner elbows
+#' to include: top left, top right, bottom right, bottom left. See details.
+#' @param sides integer, \code{1:4}, a vector specifying which sides to include
+#' panels: top, right, bottom, left. See details.
+#' @param left_inputs optional input column for left side, for example a column
+#' of buttons made with \code{inputColumn}. See details.
+#' @param right_inputs optional input column for right side, for example a
+#' column of buttons made with \code{inputColumn}. See details.
 #' @param color box border colors. See details.
 #' @param side_color box border colors. See details.
 #' @param title_color text title color.
@@ -76,9 +118,14 @@
 #' @param title_right logical, right align title.
 #' @param subtitle_right logical, right align subtitle.
 #' @param clip logical, use empty margin space. See details.
-#' @param width_left numeric, the width of the left side panel in pixels. This also adjusts associated corner elbows to match. Defaults to the maximum allowed: 150.
-#' @param width_right numeric, the width of the right side panel in pixels. This also adjusts associated corner elbows to match. Defaults to the maximum allowed: 150.
-#' @param width a valid CSS unit, the width of the entire box. Fixed pixel width recommended. See details.
+#' @param width_left numeric, the width of the left side panel in pixels. This
+#' also adjusts associated corner elbows to match. Defaults to the maximum
+#' allowed: 150.
+#' @param width_right numeric, the width of the right side panel in pixels.
+#' This also adjusts associated corner elbows to match. Defaults to the maximum
+#' allowed: 150.
+#' @param width a valid CSS unit, the width of the entire box. Fixed pixel
+#' width recommended. See details.
 #'
 #' @return an HTML widget
 #' @export
@@ -117,7 +164,8 @@
 #'
 #'   shinyApp(ui, server)
 #' }
-lcarsBox <- function(..., title = NULL, subtitle = NULL, corners = c(1, 4), sides = c(1, 3, 4),
+lcarsBox <- function(..., title = NULL, subtitle = NULL, corners = c(1, 4),
+                     sides = c(1, 3, 4),
                      left_inputs = NULL, right_inputs = NULL,
                      color = "atomic-tangerine", side_color = color,
                      title_color = color, subtitle_color = color,
@@ -158,25 +206,30 @@ lcarsBox <- function(..., title = NULL, subtitle = NULL, corners = c(1, 4), side
   centerstyle <- .box_center_style(centerclass, width_left, width_right)
   left_bar <- !is.null(sides) && 4 %in% sides
   right_bar <- !is.null(sides) && 2 %in% sides
-  title_div <- div(class = "lcars-box-title", title, style = paste0("color:", x[9], ";"))
-  subtitle_div <- div(class = "lcars-box-subtitle", subtitle, style = paste0("color:", x[10], ";"))
+  title_div <- div(class = "lcars-box-title", title,
+                   style = paste0("color:", x[9], ";"))
+  subtitle_div <- div(class = "lcars-box-subtitle", subtitle,
+                      style = paste0("color:", x[10], ";"))
 
   div(class = "lcars-box",
-      style = paste0("grid-template-areas: ", topclass, " ", centerclass, " ", botclass, ";",
-                     "width:", width, ";"),
+      style = paste0("grid-template-areas: ", topclass, " ", centerclass, " ",
+                     botclass, ";", "width:", width, ";"),
       if(grepl("none", topclass)){
         if(is.null(title)){
           if(1 %in% sides) lcarsHeader(NULL, x[5], x[9])
         } else {
-          lcarsHeader(title, if(1 %in% sides) x[5] else "#000000", x[9],  title_right = title_right)
+          lcarsHeader(title, if(1 %in% sides) x[5] else "#000000", x[9],
+                      title_right = title_right)
         }
       } else {
         div(class = topclass,
-            style = paste0("--corner-width-left: ", 2 * width_left, "px; --corner-width-right: ", 2* width_right, "px;"),
+            style = paste0("--corner-width-left: ", 2 * width_left,
+                           "px; --corner-width-right: ", 2* width_right, "px;"),
             .box_tl_div(corners, x[1], width_left),
             if(!is.null(title) & !title_right) title_div,
             div(class = "lcars-rect-top",
-                style = paste0("background-color:", if(1 %in% sides) x[5] else "#000000", ";")),
+                style = paste0("background-color:",
+                               if(1 %in% sides) x[5] else "#000000", ";")),
             if(!is.null(title) & title_right) title_div,
             .box_tr_div(corners, x[2], width_right)
         )
@@ -191,10 +244,12 @@ lcarsBox <- function(..., title = NULL, subtitle = NULL, corners = c(1, 4), side
                   "grid-template-rows: auto; grid-template-areas: 'lcars-button-col';"
                 },
                 if(left_input) left_inputs,
-                if(left_bar) div(class = "lcars-rect-side", style = paste0("background-color:", x[8], ";"))
+                if(left_bar) div(class = "lcars-rect-side",
+                                 style = paste0("background-color:", x[8], ";"))
             )
           },
-          div(class = "lcars-box-main text", style = if(!clip) "margin: -45px 0 -45px 0;", ...),
+          div(class = "lcars-box-main text",
+              style = if(!clip) "margin: -45px 0 -45px 0;", ...),
           if(right_bar | right_input){
             div(class = "lcars-box-buttons-right",
                 style = if(right_bar){
@@ -203,7 +258,8 @@ lcarsBox <- function(..., title = NULL, subtitle = NULL, corners = c(1, 4), side
                   "grid-template-rows: auto; grid-template-areas: 'lcars-button-col';"
                 },
                 if(right_input) right_inputs,
-                if(right_bar) div(class = "lcars-rect-side", style = paste0("background-color:", x[6], ";"))
+                if(right_bar) div(class = "lcars-rect-side",
+                                  style = paste0("background-color:", x[6], ";"))
             )
           }
       ),
@@ -211,15 +267,18 @@ lcarsBox <- function(..., title = NULL, subtitle = NULL, corners = c(1, 4), side
         if(is.null(subtitle)){
           if(3 %in% sides) lcarsHeader(NULL, x[7], x[10])
         } else {
-          lcarsHeader(subtitle, if(3 %in% sides) x[7] else "#000000", x[10], title_right = subtitle_right)
+          lcarsHeader(subtitle, if(3 %in% sides) x[7] else "#000000", x[10],
+                      title_right = subtitle_right)
         }
       } else {
         div(class = botclass,
-            style = paste0("--corner-width-left: ", 2 * width_left, "px; --corner-width-right: ", 2* width_right, "px;"),
+            style = paste0("--corner-width-left: ", 2 * width_left,
+                           "px; --corner-width-right: ", 2* width_right, "px;"),
             .box_bl_div(corners, x[4], width_left),
             if(!is.null(subtitle) & !subtitle_right) subtitle_div,
             div(class = "lcars-rect-bot",
-                style = paste0("background-color:", if(3 %in% sides) x[7] else "#000000", ";")),
+                style = paste0("background-color:",
+                               if(3 %in% sides) x[7] else "#000000", ";")),
             if(!is.null(subtitle) & subtitle_right) subtitle_div,
             .box_br_div(corners, x[3], width_right)
         )
@@ -243,9 +302,9 @@ lcarsBox <- function(..., title = NULL, subtitle = NULL, corners = c(1, 4), side
 .box_center_style <- function(x, wl, wr){
   if(x == "lcars-box-centernone") return("")
   switch(x,
-         "lcars-box-center" = paste0("grid-template-columns: ", wl, "px auto ", wr, "px;"),
-         "lcars-box-centerleft" = paste0("grid-template-columns: ", wl, "px auto;"),
-         "lcars-box-centerright" = paste0("grid-template-columns: auto ", wr, "px;"))
+    "lcars-box-center" = paste0("grid-template-columns: ", wl, "px auto ", wr, "px;"),
+    "lcars-box-centerleft" = paste0("grid-template-columns: ", wl, "px auto;"),
+    "lcars-box-centerright" = paste0("grid-template-columns: auto ", wr, "px;"))
 }
 
 .box_top_class <- function(corners, title, right){

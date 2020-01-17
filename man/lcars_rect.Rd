@@ -4,7 +4,7 @@
 \alias{lcars_rect}
 \title{LCARS rectangle}
 \usage{
-lcars_rect(xmin, xmax, ymin, ymax, color)
+lcars_rect(xmin, xmax, ymin, ymax, color = "atomic-tangerine")
 }
 \arguments{
 \item{xmin}{numeric, left x positions.}
@@ -15,7 +15,8 @@ lcars_rect(xmin, xmax, ymin, ymax, color)
 
 \item{ymax}{numeric, top y positions.}
 
-\item{color}{fill and border color.}
+\item{color}{fill and border color. Can be any color given in hex format.
+Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.}
 }
 \value{
 draws a rectangle
@@ -25,5 +26,5 @@ A simple wrapper around \code{rect}.
 }
 \examples{
 plot(0:1, 0:1)
-lcars_rect(0.1, 0.9, 0.6, 0.9, "#CD6363")
+lcars_rect(0.1, 0.9, 0.6, 0.9)
 }

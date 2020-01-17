@@ -19,7 +19,8 @@ lcarsSweep(
 )
 }
 \arguments{
-\item{column_inputs}{optional input column for right side, for example a column of buttons made with \code{inputColumn}. See details.}
+\item{column_inputs}{optional input column for right side, for example a
+column of buttons made with \code{inputColumn}. See details.}
 
 \item{left_inputs}{content on the left side of the sweep.}
 
@@ -33,24 +34,37 @@ lcarsSweep(
 
 \item{reverse}{logical, create a reverse sweep.}
 
-\item{expand}{integer, length-2 vector, the number of pixels to expand the left and right content containers above or below the implicit border; the top or bottom border where no sweep is present. See example.}
+\item{expand}{integer, length-2 vector, the number of pixels to expand the
+left and right content containers above or below the implicit border; the
+top or bottom border where no sweep is present. See example.}
 
-\item{column_width}{integer, width of the sweep column section in pixels. Must be in pixels, 150 maximum. Smaller is permitted but will not conform as well to LCARS style.}
+\item{column_width}{integer, width of the sweep column section in pixels.
+Must be in pixels, 150 maximum. Smaller is permitted but will not conform as
+well to LCARS style.}
 
-\item{left_width}{numeric, number between 0 and 1 giving the proportional width of the left content section. The right section is 1 - \code{left_width}.}
+\item{left_width}{numeric, number between 0 and 1 giving the proportional
+width of the left content section.
+The right section is 1 - \code{left_width}.}
 
-\item{width}{a valid CSS unit, the width of the entire sweep. Fixed pixel width recommended. See details.}
+\item{width}{a valid CSS unit, the width of the entire sweep. Fixed pixel
+width recommended. See details.}
 }
 \value{
 an HTML widget
 }
 \description{
-Create an LCARS sweep; the 'S' or reverse-'S' shape comprised of two LCARS elbows pointing in opposite directions.
-The sweep is effectively two adjacent LCARS boxes separated by an input column and some specific styling to achieve the sweep display.
+Create an LCARS sweep; the 'S' or reverse-'S' shape comprised of two LCARS
+elbows pointing in opposite directions.
+The sweep is effectively two adjacent LCARS boxes separated by an input
+column and some specific styling to achieve the sweep display.
 }
 \details{
-There are limitations to the container responsiveness of the LCARS box and sweep. In some cases, using percentage width, e.g., \code{width = "100\%"} will work, but it may respond sluggishly or may not work at all.
-Fixed pixel width is recommended for \code{lcarsBox} and \code{lcarsSweep}. Regardless of responsiveness, these widgets are also not intended to fit very small displays.
+There are limitations to the container responsiveness of the LCARS box and
+sweep. In some cases, using percentage width, e.g., \code{width = "100\%"}
+will work, but it may respond sluggishly or may not work at all.
+Fixed pixel width is recommended for \code{lcarsBox} and \code{lcarsSweep}.
+Regardless of responsiveness, these widgets are also not intended to fit
+very small displays.
 }
 \examples{
 ## Only run examples in interactive R sessions
@@ -59,7 +73,7 @@ if (interactive()) {
   library(ggplot2)
   d <- data.frame(x = rnorm(500))
   g <- ggplot(d, aes(x)) + theme_lcars_dark()
-  g1 <- g + geom_histogram(color = "black", fill = lcarsdata$value[11], bins = 20) +
+  g1 <- g + geom_histogram(color = "black", fill = "#9999FF", bins = 20) +
     ggtitle("Plot 1")
   left <- div(h4("Some text"), p("The fine print."))
 

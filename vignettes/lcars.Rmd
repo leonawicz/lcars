@@ -19,12 +19,13 @@ This examples adds an LCARS-style border around a static plot. Keep in mind that
 
 ```{r ex-1}
 library(lcars)
+library(trekcolors)
 library(ggplot2)
 library(grid)
 library(png)
 
 logo <- rasterGrob(readPNG(system.file("stlogo-white.png", package = "lcars")))
-clrs <- c("firebrick1", "#FFFF33", "lightseagreen")
+clrs <- c("#FF3030", "#FFFF33", "#20B2AA")
 
 g <- ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
   geom_point() + 
@@ -35,9 +36,9 @@ g <- ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
 
 len_frac <- c(0.55, 0.25, 0.2, 0.4, 0.1, 0.2, 0.1, 0.1)
 n_seg <- c(1, 2, 0, 8)
-corner_colors = c("#CD6363", "#CC99CC", "#FFFF9C", "#FFFF9C")
-side_colors <- list("#FFFF9C", c("#99CCFF", "#CC99CC"), NA, 
-                    c(rep("#99CCFF", 3), rep("#FF9E63", 5)))
+corner_colors <- c("chestnut-rose", "lilac", rep("pale-canary", 2))
+side_colors <- list("pale-canary", c("anakiwa", "lilac"), NA,
+                    c("#000000", rep("anakiwa", 2), rep("orange-peel", 5)))
 side_labels <- list(
   "R 47.0.2", c("47", "B4"), NA, 
   c("LCARS", "47174-A", "...", "O'Brien", "Lefler", "La Forge", "Barclay", "Argyle"))
@@ -45,8 +46,11 @@ side_labels <- list(
 lcars_border(g, corners = 1:3, length_frac = len_frac, side_n_segments = n_seg, 
              corner_color = corner_colors, side_color = side_colors, 
              side_label = side_labels, label_size = 0.7)
-text(2.8, 0.1, "Iris dataset (classic Terran flora sample)", col = "#99CCFF", font = 2, cex = 0.7)
-text(7.55, 0.1, "LCARS BETA R Interface v0.0.1", col = "#FFFF9C", font = 2, cex = 0.7)
+
+text(2.8, 0.1, "Iris dataset (classic Terran flora sample)", 
+     col = lcars_colors("anakiwa"), font = 2, cex = 0.7)
+text(7.55, 0.1, "LCARS BETA R Interface v0.0.1", 
+     col = lcars_colors("pale-canary"), font = 2, cex = 0.7)
 ```
 
 As you can see, a decent plot is still going to take some customization with additional commands in order to give it the level of polish it deserves.
@@ -63,9 +67,7 @@ There are several functions you can explore. There are a handful of simple wrapp
 
 The primary function of interest is `lcarsBox`. This is the container that captures the LCARS style. Additional functions worth focusing on include `lcarsHeader` for breaking up sections of the UI; also `lcarsButton` and `lcarsToggle`, which in conjunction with `buttonColumn` produce column inputs that fit well into the sidebars of an `lcarsBox`.
 
-### Example
-
-Here is a simple example:
+Here is a simple example.
 
 ```{r ex1, eval=FALSE}
 if (interactive()) {
@@ -101,7 +103,7 @@ if (interactive()) {
 }
 ```
 
-### Demo apps
+## Demo apps
 
 Rather than post lots of code here in a non-interactive package vignette, the best suggestion is to explore the example apps included in the package. The source code is easy to browse in the GitHub repository.
 
@@ -117,13 +119,13 @@ lcarsApp("elements")
 
 The `box` example is helpful for exploring the many ways you can control the style of an `lcarsBox`. Here are a couple examples highlighting some of the versatility:
 
-#### Corner elbows only
+### Corner elbows only
 
 ```{r img1, echo=FALSE}
 knitr::include_graphics("lcarsBox-ex1.png")
 ```
 
-#### Colored segments and input panels
+### Colored segments and input panels
 
 ```{r img2, echo=FALSE}
 knitr::include_graphics("lcarsBox-ex2.png")
@@ -131,23 +133,39 @@ knitr::include_graphics("lcarsBox-ex2.png")
 
 Running these apps will prompt you to install required packages if you do not already have them installed. These are necessary for the examples but not a necessary component of `lcars`, specifically `ggrepel` and `showtext`.
 
-### Recommendations
+## Recommendations
 
-#### Font and casing
+### Font and casing
 
 Pay attention to the arguments to `lcarsPage`. Depending on the nature of text content in your app, you may find you need to deviate from some LCARS-style defaults (e.g., uppercase font) to make the text in your app more pleasant to read.
 It will also allow you to revert to sans serif. It is not an all or nothing switch; you have some control over what to change and what to leave alone.
 
-#### Responsiveness limitations
+### Responsiveness limitations
 
-There are limitations to the container responsiveness of the LCARS box and sweep. In some cases, using percentage width, e.g., `width = "100%"` will work, but it may respond sluggishly or may not work at all. Fixed pixel width is recommended for `lcarsBox` and `lcarsSweep`. Regardless of responsiveness, these widgets are also not intended to fit very small displays.
+In adhering closely to sizing and layout rules for LCARS UI design, fixed sizing works best for some container widgets like `lcarBox` and `lcarsSweep`. You can use settings like `width = "100%"` for these containers, but you may notice limitations in maintaining a responsive UI, particularly when they contain plot outputs. Fixed width widgets are generally recommended.
 
-#### Official LCARS colors
+Visual components such as the LCARS elbow shape underlying some widgets are intended to follow strict sizing and scaling rules. They are not intended to scale arbitrarily or fit well on very small device screens. 
+
+### Official LCARS colors
 
 Familiarize yourself with LCARS colors from the `trekcolors` package. This package is a dependency of `lcars`. It includes various other Star Trek color palettes. Most notably it includes a function for previewing the palettes.
 
+There are several generations of LCARS color palettes. The `lcarsdata` dataset in `lcars` provides a convenient data frame of the four main series of LCARS color palettes with official color names, but `trekcolors` offers several helpful functions related to LCARS colors, including LCARS-themed `scale_*` functions for use with `ggplot2`.
+
 ```{r lcars-colors}
-# show lcars colors here
+head(lcarsdata)
+
+library(ggplot2)
+library(trekcolors)
+
+lcars_colors()
+
+lcars_colors("melrose")
+
+view_trek_pals(c("lcars_2357", "lcars_2369", "lcars_2375", "lcars_2379"))
+
+ggplot(diamonds, aes(carat, stat(count), fill = cut)) +
+  geom_density(position = "fill") + scale_fill_lcars("2357")
 ```
 
-There are several generations of LCARS color palettes. Functions in `lcars` that accept color arguments will take any hex color, but will also accept official LCARS colors by name.
+Functions in `lcars` that accept color arguments will take any hex color, but will also accept official LCARS colors by name.

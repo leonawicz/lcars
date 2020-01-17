@@ -6,37 +6,51 @@
 #' @param xmax numeric, right x positions.
 #' @param ymin numeric, bottom y positions.
 #' @param ymax numeric, top y positions.
-#' @param color fill and border color.
+#' @param color fill and border color. Can be any color given in hex format.
+#' Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.
 #'
 #' @return draws a rectangle
 #' @export
 #'
 #' @examples
 #' plot(0:1, 0:1)
-#' lcars_rect(0.1, 0.9, 0.6, 0.9, "#CD6363")
-lcars_rect <- function(xmin, xmax, ymin, ymax, color){
+#' lcars_rect(0.1, 0.9, 0.6, 0.9)
+lcars_rect <- function(xmin, xmax, ymin, ymax, color = "atomic-tangerine"){
+  color <- .lcars_color_check(color)
   graphics::rect(xmin, ymin, xmax, ymax, col = color, border = color)
 }
 
 
 #' LCARS pill
 #'
-#' Wrappers around \code{lcars_rect} that add rounded edges on one side or two opposing sides to make an LCARS pill.
+#' Wrappers around \code{lcars_rect} that add rounded edges on one side or two
+#' opposing sides to make an LCARS pill.
 #'
 #' @param xmin numeric, scalar left x position.
 #' @param xmax numeric, scalar right x position.
 #' @param ymin numeric, scalar bottom y position.
 #' @param ymax numeric, scalar top y position.
-#' @param x numeric, x position for edge of horizontal half pill or midpoint of vertical half pill.
-#' @param y numeric, y position for edge of vertical half pill or midpoint of horizontal half pill.
+#' @param x numeric, x position for edge of horizontal half pill or midpoint of
+#' vertical half pill.
+#' @param y numeric, y position for edge of vertical half pill or midpoint of
+#' horizontal half pill.
 #' @param r numeric, radius of half pill.
-#' @param color pill color.
-#' @param direction integer 1:4 or character: \code{topleft}, \code{topright}, \code{bottomleft}, \code{bottomright}. May be abbreviated as \code{tl}, \code{tr}, \code{br}, \code{bl}.
+#' @param color pill color. Can be any color given in hex format.
+#' Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.
+#' @param direction integer 1:4 or character: \code{topleft}, \code{topright},
+#' \code{bottomleft}, \code{bottomright}. May be abbreviated as \code{tl},
+#' \code{tr}, \code{br}, \code{bl}.
 #' @param vertical logical, vertical pill.
-#' @param gap numeric or \code{"auto"}, the gap between the pill half circle edge and pill rectangle edge.
+#' @param gap numeric or \code{"auto"}, the gap between the pill half circle
+#' edge and pill rectangle edge.
 #' @param n integer, number of points to define rounded edge.
-#' @param asp numeric, aspect ratio. This is useful for preventing distortion of pill half circle for plots with different width and height.
-#' @param gap_color the color of gaps if present. This is likely black, but because of the way the pill is drawn, it must be specified to match if the plot background color is not black.
+#' @param asp numeric, aspect ratio. This is useful for preventing distortion
+#' of pill half circle for plots with different width and height.
+#' @param gap_color the color of gaps if present.
+#' This is likely black, but because of the way the pill is drawn,
+#' it must be specified to match if the plot background color is not black.
+#' Can be any color given in hex format. Named colors must be LCARS colors.
+#' See \code{\link{lcarsdata}} for options.
 #'
 #' @return draws to plot
 #' @export
@@ -45,22 +59,24 @@ lcars_rect <- function(xmin, xmax, ymin, ymax, color){
 #' @examples
 #' op <- par(bg = "black")
 #' plot(0:1, 0:1, asp = 1)
-#' lcars_pill(0.05, 0.45, 0.7, 0.9, "#CD6363", "left")
-#' lcars_pill(0.05, 0.45, 0.4, 0.6, "#CC99CC", "both")
-#' lcars_pill(0.05, 0.45, 0.1, 0.3, "#FF9E63", "right")
-#' lcars_pill(0.55, 0.65, 0.1, 0.9, "#CD6363", "left", vertical = TRUE)
-#' lcars_pill(0.7, 0.8, 0.1, 0.9, "#CC99CC", "both", vertical = TRUE)
-#' lcars_pill(0.85, 0.95, 0.1, 0.9, "#FF9E63", "right", vertical = TRUE)
+#' lcars_pill(0.05, 0.45, 0.7, 0.9, "chestnut-rose", "left")
+#' lcars_pill(0.05, 0.45, 0.4, 0.6, "lilac", "both")
+#' lcars_pill(0.05, 0.45, 0.1, 0.3, "orange-peel", "right")
+#' lcars_pill(0.55, 0.65, 0.1, 0.9, "chestnut-rose", "left", vertical = TRUE)
+#' lcars_pill(0.7, 0.8, 0.1, 0.9, "lilac", "both", vertical = TRUE)
+#' lcars_pill(0.85, 0.95, 0.1, 0.9, "orange-peel", "right", vertical = TRUE)
 #' par(op)
-lcars_pill <- function(xmin, xmax, ymin, ymax, color, direction = c("both", "left", "right"),
-                       vertical = FALSE, gap = "auto", n = 50, asp = 1, gap_color = "black"){
+lcars_pill <- function(xmin, xmax, ymin, ymax, color = "atomic-tangerine",
+                       direction = c("both", "left", "right"), vertical = FALSE,
+                       gap = "auto", n = 50, asp = 1, gap_color = "#000000"){
   if(gap == "auto") gap <- min(c(xmax - xmin, ymax - ymin)) / 10
   direction <- match.arg(direction)
   if(direction == "both") direction <- c("left", "right")
   gap <- rep(gap, 2)
   if(!"left" %in% direction) gap[1] <- 0
   if(!"right" %in% direction) gap[2] <- 0
-  #lcars_rect(xmin, xmax, ymin, ymax, color)
+  color <- .lcars_color_check(color)
+  gap_color <- .lcars_color_check(gap_color)
   if(vertical){
     r <- (xmax - xmin) / 2
     m <- xmax - r
@@ -97,7 +113,8 @@ lcars_pill <- function(xmin, xmax, ymin, ymax, color, direction = c("both", "lef
 
 #' @export
 #' @rdname lcars_pill
-lcars_half_pill <- function(x, y, r, direction, color, n = 50, asp = 1){
+lcars_half_pill <- function(x, y, r, direction, color = "atomic-tangerine",
+                            n = 50, asp = 1){
   direction <- .lcars_direction(direction, "direction")
   f <- switch(direction, "1" = lcars_top_pill, "2" = lcars_right_pill,
               "3" = lcars_bottom_pill, "4" = lcars_left_pill)
@@ -106,7 +123,8 @@ lcars_half_pill <- function(x, y, r, direction, color, n = 50, asp = 1){
 
 #' @export
 #' @rdname lcars_pill
-lcars_left_pill <- function(x, y, r, color, n = 50, asp = 1){
+lcars_left_pill <- function(x, y, r, color = "atomic-tangerine", n = 50,
+                            asp = 1){
   if(n %% 2 == 0) n <- n + 1
   a <- pi * seq(1.5, 0.5, length.out = n)
   m <- y
@@ -115,13 +133,15 @@ lcars_left_pill <- function(x, y, r, color, n = 50, asp = 1){
   n2 <- (n + 1) / 2
   p1 <- list(x = x[c(1:n2, (n2 - 1):1)], y = c(rep(m, n2), y[(n2 - 1):1]))
   p2 <- list(x = x[c(n2:n, n:n2)], y = c(rep(m, length(n2:n)), y[n:n2]))
+  color <- .lcars_color_check(color)
   graphics::polygon(p1$x, p1$y, border = color, col = color)
   graphics::polygon(p2$x, p2$y, border = color, col = color)
 }
 
 #' @export
 #' @rdname lcars_pill
-lcars_right_pill <- function(x, y, r, color, n = 50, asp = 1){
+lcars_right_pill <- function(x, y, r, color = "atomic-tangerine", n = 50,
+                             asp = 1){
   if(n %% 2 == 0) n <- n + 1
   a <- pi * seq(1.5, 0.5, length.out = n)
   m <- y
@@ -130,45 +150,57 @@ lcars_right_pill <- function(x, y, r, color, n = 50, asp = 1){
   n2 <- (n + 1) / 2
   p1 <- list(x = x[c(1:n2, (n2 - 1):1)], y = c(rep(m, n2), y[(n2 - 1):1]))
   p2 <- list(x = x[c(n2:n, n:n2)], y = c(rep(m, length(n2:n)), y[n:n2]))
+  color <- .lcars_color_check(color)
   graphics::polygon(p1$x, p1$y, border = color, col = color)
   graphics::polygon(p2$x, p2$y, border = color, col = color)
 }
 
 #' @export
 #' @rdname lcars_pill
-lcars_bottom_pill <- function(x, y, r, color, n = 50, asp = 1){
+lcars_bottom_pill <- function(x, y, r, color = "atomic-tangerine", n = 50,
+                              asp = 1){
   if(n %% 2 == 0) n <- n + 1
   a <- pi * seq(1, 2, length.out = n)
   x <- r * cos(a) + x
   y <- r * sin(a) * asp + y
+  color <- .lcars_color_check(color)
   graphics::polygon(x, y, border = color, col = color)
 }
 
 #' @export
 #' @rdname lcars_pill
-lcars_top_pill <- function(x, y, r, color, n = 50, asp = 1){
+lcars_top_pill <- function(x, y, r, color = "atomic-tangerine", n = 50,
+                           asp = 1){
   if(n %% 2 == 0) n <- n + 1
   a <- pi * seq(0, 1, length.out = n)
   x <- r * cos(a) + x
   y <- r * sin(a) * asp + y
+  color <- .lcars_color_check(color)
   graphics::polygon(x, y, border = color, col = color)
 }
 
 #' LCARS corner elbow
 #'
-#' Draw a, LCARS elbow polygon. This is a 90-degree rounded corner bend for top left, top right, bottom right and bottom left LCARS corner panels.
+#' Draw a, LCARS elbow polygon. This is a 90-degree rounded corner bend for top
+#' left, top right, bottom right and bottom left LCARS corner panels.
 #'
 #' @param xmin numeric, scalar left x position.
 #' @param xmax numeric, scalar right x position.
 #' @param ymin numeric, scalar bottom y position.
 #' @param ymax numeric, scalar top y position.
-#' @param corner integer 1:4 or character: \code{topleft}, \code{topright}, \code{bottomleft}, \code{bottomright}. May be abbreviated as \code{tl}, \code{tr}, \code{br}, \code{bl}.
+#' @param corner integer 1:4 or character: \code{topleft}, \code{topright},
+#' \code{bottomleft}, \code{bottomright}. May be abbreviated as \code{tl},
+#' \code{tr}, \code{br}, \code{bl}.
 #' @param width numeric, the width of the vertical segment of the bend.
 #' @param height numeric, the height of the horizontal segment of the bend.
 #' @param ro radius of the outer rounded corner.
 #' @param ri radius of the inner rounded corner.
-#' @param n number of points to define the curve of the inner radial quarter circle. The number of points then used to define the outer curve and extensions of the segments are scaled respectively based on this.
-#' @param color ignored if \code{draw = FALSE}.
+#' @param n number of points to define the curve of the inner radial quarter
+#' circle. The number of points then used to define the outer curve and
+#' extensions of the segments are scaled respectively based on this.
+#' @param color ignored if \code{draw = FALSE}. Can be any color given in hex
+#' format. Named colors must be LCARS colors. See \code{\link{lcarsdata}} for
+#' options.
 #' @param draw draw the corner. Return values if \code{FALSE}.
 #'
 #' @return draws a polygon
@@ -177,23 +209,27 @@ lcars_top_pill <- function(x, y, r, color, n = 50, asp = 1){
 #' @examples
 #' plot(0:1, 0:1)
 #' lcars_elbow(0.1, 0.9, 0.6, 0.9, "tl", 0.2, 0.05)
-lcars_elbow <- function(xmin, xmax, ymin, ymax, corner, width, height, ro = width / 2, ri = height / 2,
-                       n = 20, color, draw = TRUE){
+lcars_elbow <- function(xmin, xmax, ymin, ymax, corner, width, height,
+                        ro = width / 2, ri = height / 2, n = 20,
+                        color = "atomic-tangerine", draw = TRUE){
   corner <- .lcars_direction(corner, "corner")
   f <- switch(corner, "1" = .tlc, "2" = .trc, "3" = .brc, "4" = .blc)
   f2 <- function(d) list(x = c(d$xo, rev(d$xi)), y = c(d$yo, rev(d$yi)))
   d <- f2(f(xmin, xmax, ymin, ymax, width, height, ro, ri, n))
   if(draw){
-    if(missing(color)) color <- "#CD6363"
+    color <- .lcars_color_check(color)
     graphics::polygon(d$x, d$y, col = color[1], border = color[1])
     invisible(d)
   } else d
 }
 
 .lcars_direction <- function(x, argname){
-  id <- c("topleft", "topright", "bottomright", "bottomleft", "tl", "tr", "br", "bl")
-  if(length(x) > 1) stop(paste0("`", argname, "` must be a single value."), call. = FALSE)
-  valid <- paste0("`", argname, "` must be an 1:4 or one of '", paste(id, collapse = "', '"), "'.")
+  id <- c("topleft", "topright", "bottomright", "bottomleft", "tl", "tr", "br",
+          "bl")
+  if(length(x) > 1)
+    stop(paste0("`", argname, "` must be a single value."), call. = FALSE)
+  valid <- paste0("`", argname, "` must be an 1:4 or one of '",
+                  paste(id, collapse = "', '"), "'.")
   if(is.character(x) & !x %in% id){
     stop(valid, call. = FALSE)
   } else if(is.character(x)){
@@ -203,7 +239,8 @@ lcars_elbow <- function(xmin, xmax, ymin, ymax, corner, width, height, ro = widt
   x
 }
 
-.tlc <- function(xmin, xmax, ymin, ymax, w = 2, h = 0.4, ro = w / 2, ri = h / 2, n = 10){
+.tlc <- function(xmin, xmax, ymin, ymax, w = 2, h = 0.4, ro = w / 2, ri = h / 2,
+                 n = 10){
   n2 <- round(n * ro / ri)
   ao <- pi * seq(1, 0.5, length.out = n2)
   ai <- pi * seq(1, 0.5, length.out = n)
@@ -268,7 +305,8 @@ lcars_elbow <- function(xmin, xmax, ymin, ymax, corner, width, height, ro = widt
   list(xo = xo, yo = yo, xi = xi, yi = yi)
 }
 
-.blc <- function(xmin, xmax, ymin, ymax, w = 2, h = 0.4, ro = w / 2, ri = h / 2, n = 10){
+.blc <- function(xmin, xmax, ymin, ymax, w = 2, h = 0.4, ro = w / 2, ri = h / 2,
+                 n = 10){
   d <- .tlc(xmin, xmax, ymin, ymax, w, h, ro, ri, n = 10)
   r <- range(d$yo)
   d$yo <- -(d$yo - r[1]) + r[2]
@@ -276,7 +314,8 @@ lcars_elbow <- function(xmin, xmax, ymin, ymax, corner, width, height, ro = widt
   d
 }
 
-.trc <- function(xmin, xmax, ymin, ymax, w = 2, h = 0.4, ro = w / 2, ri = h / 2, n = 10){
+.trc <- function(xmin, xmax, ymin, ymax, w = 2, h = 0.4, ro = w / 2, ri = h / 2,
+                 n = 10){
   d <- .tlc(xmin, xmax, ymin, ymax, w, h, ro, ri, n = 10)
   r <- range(d$xo)
   d$xo <- -(d$xo - r[1]) + r[2]
@@ -284,7 +323,8 @@ lcars_elbow <- function(xmin, xmax, ymin, ymax, corner, width, height, ro = widt
   d
 }
 
-.brc <- function(xmin, xmax, ymin, ymax, w = 2, h = 0.4, ro = w / 2, ri = h / 2, n = 10){
+.brc <- function(xmin, xmax, ymin, ymax, w = 2, h = 0.4, ro = w / 2, ri = h / 2,
+                 n = 10){
   d <- .tlc(xmin, xmax, ymin, ymax, w, h, ro, ri, n = 10)
   r <- range(d$xo)
   d$xo <- -(d$xo - r[1]) + r[2]

@@ -59,9 +59,12 @@ lcarsRightPill(
 \arguments{
 \item{text}{character, rectangle text.}
 
-\item{round}{character, sides of rectangle to round to make an LCARS pill or half pill.}
+\item{round}{character, sides of rectangle to round to make an LCARS pill or
+half pill.}
 
-\item{decorate}{character, sides of rectangle to decorate with cut pill; applicable if a given side is rounded via \code{round}. Logical for \code{lcarsLeftPill} and \code{lcarsRightPill}.}
+\item{decorate}{character, sides of rectangle to decorate with cut pill;
+applicable if a given side is rounded via \code{round}. Logical for
+\code{lcarsLeftPill} and \code{lcarsRightPill}.}
 
 \item{color}{rectangle color. Any hex color or a named LCARS color.}
 
@@ -71,7 +74,8 @@ lcarsRightPill(
 
 \item{text_size}{size of \code{text} in pixels.}
 
-\item{title}{optional title text to insert in blank gap in rectangle. Used for header-style rectangles.}
+\item{title}{optional title text to insert in blank gap in rectangle. Used
+for header-style rectangles.}
 
 \item{width}{a valid CSS unit.}
 
@@ -84,7 +88,9 @@ a div
 A basic rectangle HTML element that conforms to LCARS specifications.
 }
 \details{
-While \code{text} can be made arbitrarily large using \code{text_size}, the font size of the optional \code{title} is fixed at standard header size (\code{height = 0.5}).
+While \code{text} can be made arbitrarily large using \code{text_size}, the
+font size of the optional \code{title} is fixed at standard header size
+(\code{height = 0.5}).
 }
 \examples{
 if (interactive()) {

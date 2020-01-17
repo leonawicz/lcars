@@ -17,9 +17,11 @@ lcarsBracket(
 
 \item{color}{bracket color. Any hex color or a named LCARS color.}
 
-\item{background_color}{background color. Any hex color or a named LCARS color. Applies when \code{hollow = TRUE}.}
+\item{background_color}{background color. Any hex color or a named LCARS
+color. Applies when \code{hollow = TRUE}.}
 
-\item{hollow}{logical, use a hollow bracket. The cutout section has \code{background_color}.}
+\item{hollow}{logical, use a hollow bracket. The cutout section has
+\code{background_color}.}
 
 \item{width}{a valid CSS unit.}
 }

@@ -15,7 +15,7 @@ lcars_elbow(
   ro = width/2,
   ri = height/2,
   n = 20,
-  color,
+  color = "atomic-tangerine",
   draw = TRUE
 )
 }
@@ -28,7 +28,9 @@ lcars_elbow(
 
 \item{ymax}{numeric, scalar top y position.}
 
-\item{corner}{integer 1:4 or character: \code{topleft}, \code{topright}, \code{bottomleft}, \code{bottomright}. May be abbreviated as \code{tl}, \code{tr}, \code{br}, \code{bl}.}
+\item{corner}{integer 1:4 or character: \code{topleft}, \code{topright},
+\code{bottomleft}, \code{bottomright}. May be abbreviated as \code{tl},
+\code{tr}, \code{br}, \code{bl}.}
 
 \item{width}{numeric, the width of the vertical segment of the bend.}
 
@@ -38,9 +40,13 @@ lcars_elbow(
 
 \item{ri}{radius of the inner rounded corner.}
 
-\item{n}{number of points to define the curve of the inner radial quarter circle. The number of points then used to define the outer curve and extensions of the segments are scaled respectively based on this.}
+\item{n}{number of points to define the curve of the inner radial quarter
+circle. The number of points then used to define the outer curve and
+extensions of the segments are scaled respectively based on this.}
 
-\item{color}{ignored if \code{draw = FALSE}.}
+\item{color}{ignored if \code{draw = FALSE}. Can be any color given in hex
+format. Named colors must be LCARS colors. See \code{\link{lcarsdata}} for
+options.}
 
 \item{draw}{draw the corner. Return values if \code{FALSE}.}
 }
@@ -48,7 +54,8 @@ lcars_elbow(
 draws a polygon
 }
 \description{
-Draw a, LCARS elbow polygon. This is a 90-degree rounded corner bend for top left, top right, bottom right and bottom left LCARS corner panels.
+Draw a, LCARS elbow polygon. This is a 90-degree rounded corner bend for top
+left, top right, bottom right and bottom left LCARS corner panels.
 }
 \examples{
 plot(0:1, 0:1)

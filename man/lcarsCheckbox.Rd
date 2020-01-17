@@ -16,13 +16,16 @@ lcarsCheckbox(
 )
 }
 \arguments{
-\item{inputId}{character, the input slot that will be used to access the value.}
+\item{inputId}{character, the input slot that will be used to access the
+value.}
 
-\item{label}{character, display label for the control, or \code{NULL} for no label.}
+\item{label}{character, display label for the control, or \code{NULL} for no
+label.}
 
 \item{value}{logical, initial value.}
 
-\item{color}{Check color. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.}
+\item{color}{Check color. Can be any color given in hex format. Named colors
+must be LCARS colors. See \code{\link{lcarsdata}} for options.}
 
 \item{background_color}{background color, as above.}
 
@@ -36,7 +39,8 @@ lcarsCheckbox(
 A checkbox control that can be added to a UI definition
 }
 \description{
-An LCARS styled toggle button that can be used in place of \code{checkboxInput}.
+An LCARS styled toggle button that can be used in place of
+\code{checkboxInput}.
 }
 \examples{
 ## Only run examples in interactive R sessions

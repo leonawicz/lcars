@@ -11,13 +11,15 @@ lcarsWell(..., color = "atomic-tangerine", background_color = "#000000")
 
 \item{color}{border color. Any hex color or a named LCARS color.}
 
-\item{background_color}{background color. Any hex color or a named LCARS color.}
+\item{background_color}{background color. Any hex color or a named LCARS
+color.}
 }
 \value{
 HTML
 }
 \description{
-A simple LCARS well panel wrapper that takes color and background color arguments and understands LCARS color names.
+A simple LCARS well panel wrapper that takes color and background color
+arguments and understands LCARS color names.
 }
 \examples{
 # lcarsWell()

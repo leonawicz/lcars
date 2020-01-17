@@ -2,17 +2,25 @@
 #'
 #' LCARS-styled radio buttons functions.
 #'
-#' \code{lcarsRadio} is a minimal replacement for \code{radioButtons} that provides two additional color arguments for consistency with functions like \code{lcarsCheckbox}.
-#' \code{lcarsRadioToggle} is a more customized toggle style radio buttons wrapper with more color controls.
+#' \code{lcarsRadio} is a minimal replacement for \code{radioButtons} that
+#' provides two additional color arguments for consistency with functions like
+#' \code{lcarsCheckbox}.
+#' \code{lcarsRadioToggle} is a more customized toggle style radio buttons
+#' wrapper with more color controls.
 #'
-#' @param inputId character, the input slot that will be used to access the value.
-#' @param label character, display label for the control, or \code{NULL} for no label.
+#' @param inputId character, the input slot that will be used to access the
+#' value.
+#' @param label character, display label for the control, or \code{NULL} for no
+#' label.
 #' @param choices see \code{shiny::radioButtons} for details.
-#' @param selected The initially selected value (if not specified then defaults to the first value).
+#' @param selected The initially selected value (if not specified then defaults
+#' to the first value).
 #' @param inline If \code{TRUE}, render the choices inline (i.e. horizontally).
 #' @param width a valid CSS unit.
 #' @param choiceNames,choiceValues see \code{shiny::radioButtons} for details.
-#' @param label_color,choice_color,background_color,checked_color,checked_background, Color for the label, choices text, choices background, checked text and checked background. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.
+#' @param label_color,choice_color,background_color,checked_color,checked_background, Color for the label, choices text, choices background, checked text and checked background.
+#' Can be any color given in hex format. Named colors must be LCARS colors.
+#' See \code{\link{lcarsdata}} for options.
 #'
 #' @return A set of radio buttons that can be added to a UI definition.
 #' @export
@@ -71,16 +79,17 @@
 #'
 #'   shinyApp(ui, server)
 #' }
-lcarsRadio <- function(inputId, label, choices = NULL, selected = NULL, inline = FALSE,
-                       width = NULL, choiceNames = NULL, choiceValues = NULL,
-                       label_color = "#FFFFFF", choice_color = label_color){
+lcarsRadio <- function(inputId, label, choices = NULL, selected = NULL,
+                       inline = FALSE, width = NULL, choiceNames = NULL,
+                       choiceValues = NULL, label_color = "#FFFFFF",
+                       choice_color = label_color){
   x <- c(label_color, choice_color)
   x <- .lcars_color_check(x)
   shiny::tagList(
     shiny::radioButtons(inputId, label, choices, selected, inline,
                  width, choiceNames, choiceValues),
-    tags$style(paste0("#", inputId, " label{color:", x[1], ";}
-                        #", inputId, " input[type='radio']+span{color: ", x[2], ";}")),
+    tags$style(paste0("#", inputId, " label{color:", x[1], ";}\n#", inputId,
+                      " input[type='radio']+span{color: ", x[2], ";}")),
     tags$script(paste0("$('#", inputId,"').addClass('lcars-radio');"))
   )
 }
@@ -88,24 +97,30 @@ lcarsRadio <- function(inputId, label, choices = NULL, selected = NULL, inline =
 #' @export
 #' @rdname lcarsRadio
 lcarsRadioToggle <- function(inputId, label, choices = NULL, selected = NULL,
-                             width = NULL, choiceNames = NULL, choiceValues = NULL,
-                             label_color = "atomic-tangerine", choice_color = "#000000",
+                             width = NULL, choiceNames = NULL,
+                             choiceValues = NULL,
+                             label_color = "atomic-tangerine",
+                             choice_color = "#000000",
                              background_color = label_color,
                              checked_color = choice_color,
                              checked_background = "pale-canary"){
-  x <- c(label_color, choice_color, background_color, checked_color, checked_background)
+  x <- c(label_color, choice_color, background_color, checked_color,
+         checked_background)
   x <- .lcars_color_check(x)
   shiny::tagList(
     shiny::div(class = "lcars-radio-toggle",
-               shiny::radioButtons(inputId, label, choices, selected, inline = FALSE, width,
-                                   choiceNames, choiceValues)
+               shiny::radioButtons(inputId, label, choices, selected,
+                                   inline = FALSE, width, choiceNames,
+                                   choiceValues)
     ),
     tags$style(
-      paste0(".lcars-radio-toggle #", inputId, " .shiny-options-group .radio{margin:",
+      paste0(".lcars-radio-toggle #", inputId,
+             " .shiny-options-group .radio{margin:",
              if(is.null(label)) "0px 0 8px 0" else "6px 0 11px 0", ";}",
              ".lcars-radio-toggle #", inputId, " label{color:", x[1], ";}",
              ".lcars-radio-toggle #", inputId, "
-             .shiny-options-group span{color:", x[2], ";background-color:", x[3], ";}",
+             .shiny-options-group span{color:", x[2], ";background-color:",
+             x[3], ";}",
              ".lcars-radio-toggle #", inputId,
              " .shiny-options-group input:checked + span{color:",
              x[4], ";background-color: ", x[5], ";}"

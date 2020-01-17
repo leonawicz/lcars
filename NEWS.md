@@ -2,6 +2,8 @@
 
 * Added `lcarsSweep`.
 * Added demo app for sweep.
+* Added dependency on `trekcolors`.
+* Updated function defaults to be more consistent.
 * Updated documentation.
 
 # lcars 0.2.0

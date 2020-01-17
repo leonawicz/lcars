@@ -92,13 +92,16 @@ lcarsh6(
 
 \item{title_right}{logical, right align title.}
 
-\item{title_invert}{logical, invert the color and background color for the title rectangle.}
+\item{title_invert}{logical, invert the color and background color for the
+title rectangle.}
 
-\item{round}{character, sides of header to round. The default is to present the header in LCARS full pill style.}
+\item{round}{character, sides of header to round. The default is to present
+the header in LCARS full pill style.}
 
 \item{width}{a valid CSS unit.}
 
-\item{title_align}{character, for the heading replacers: center, right or left.}
+\item{title_align}{character, for the heading replacers: center, right or
+left.}
 }
 \value{
 HTML
@@ -107,8 +110,10 @@ HTML
 An LCARS header panel.
 }
 \details{
-In addition to \code{lcarsHeader} there are also some LCARS style heading replacers, \code{lcarsh1} through \code{lcarsh6}.
-These default to centered text, whereas \code{lcarsHeader} is strictly right or left.
+In addition to \code{lcarsHeader} there are also some LCARS style heading
+replacers, \code{lcarsh1} through \code{lcarsh6}.
+These default to centered text, whereas \code{lcarsHeader} is strictly right
+or left.
 }
 \examples{
 # lcarsHeader("A title")

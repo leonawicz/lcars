@@ -1,22 +1,36 @@
 #' LCARS sweep
 #'
-#' Create an LCARS sweep; the 'S' or reverse-'S' shape comprised of two LCARS elbows pointing in opposite directions.
-#' The sweep is effectively two adjacent LCARS boxes separated by an input column and some specific styling to achieve the sweep display.
+#' Create an LCARS sweep; the 'S' or reverse-'S' shape comprised of two LCARS
+#' elbows pointing in opposite directions.
+#' The sweep is effectively two adjacent LCARS boxes separated by an input
+#' column and some specific styling to achieve the sweep display.
 #'
-#' There are limitations to the container responsiveness of the LCARS box and sweep. In some cases, using percentage width, e.g., \code{width = "100\%"} will work, but it may respond sluggishly or may not work at all.
-#' Fixed pixel width is recommended for \code{lcarsBox} and \code{lcarsSweep}. Regardless of responsiveness, these widgets are also not intended to fit very small displays.
+#' There are limitations to the container responsiveness of the LCARS box and
+#' sweep. In some cases, using percentage width, e.g., \code{width = "100\%"}
+#' will work, but it may respond sluggishly or may not work at all.
+#' Fixed pixel width is recommended for \code{lcarsBox} and \code{lcarsSweep}.
+#' Regardless of responsiveness, these widgets are also not intended to fit
+#' very small displays.
 #'
-#' @param column_inputs optional input column for right side, for example a column of buttons made with \code{inputColumn}. See details.
+#' @param column_inputs optional input column for right side, for example a
+#' column of buttons made with \code{inputColumn}. See details.
 #' @param left_inputs content on the left side of the sweep.
 #' @param right_inputs content on the right side of the sweep.
 #' @param title character, title for box with header.
 #' @param subtitle character, subtitle for box with footer.
 #' @param color sweep elbow colors. Any hex color or a named LCARS color.
 #' @param reverse logical, create a reverse sweep.
-#' @param expand integer, length-2 vector, the number of pixels to expand the left and right content containers above or below the implicit border; the top or bottom border where no sweep is present. See example.
-#' @param column_width integer, width of the sweep column section in pixels. Must be in pixels, 150 maximum. Smaller is permitted but will not conform as well to LCARS style.
-#' @param left_width numeric, number between 0 and 1 giving the proportional width of the left content section. The right section is 1 - \code{left_width}.
-#' @param width a valid CSS unit, the width of the entire sweep. Fixed pixel width recommended. See details.
+#' @param expand integer, length-2 vector, the number of pixels to expand the
+#' left and right content containers above or below the implicit border; the
+#' top or bottom border where no sweep is present. See example.
+#' @param column_width integer, width of the sweep column section in pixels.
+#' Must be in pixels, 150 maximum. Smaller is permitted but will not conform as
+#' well to LCARS style.
+#' @param left_width numeric, number between 0 and 1 giving the proportional
+#' width of the left content section.
+#' The right section is 1 - \code{left_width}.
+#' @param width a valid CSS unit, the width of the entire sweep. Fixed pixel
+#' width recommended. See details.
 #'
 #' @return an HTML widget
 #' @export
@@ -29,7 +43,7 @@
 #'   library(ggplot2)
 #'   d <- data.frame(x = rnorm(500))
 #'   g <- ggplot(d, aes(x)) + theme_lcars_dark()
-#'   g1 <- g + geom_histogram(color = "black", fill = lcarsdata$value[11], bins = 20) +
+#'   g1 <- g + geom_histogram(color = "black", fill = "#9999FF", bins = 20) +
 #'     ggtitle("Plot 1")
 #'   left <- div(h4("Some text"), p("The fine print."))
 #'
@@ -65,14 +79,15 @@
 #'
 #'   shinyApp(ui, server)
 #' }
-lcarsSweep <- function(column_inputs = NULL, left_inputs = NULL, right_inputs = NULL,
-                       title = NULL, subtitle = NULL,
+lcarsSweep <- function(column_inputs = NULL, left_inputs = NULL,
+                       right_inputs = NULL, title = NULL, subtitle = NULL,
                        color = "atomic-tangerine", reverse = FALSE, expand = c(0, 0),
                        column_width = 150, left_width = 0.5, width = "100%"){
   width <- shiny::validateCssUnit(width)
   if(is.null(width)) width <- "100%"
   column_width <- as.numeric(column_width)
-  if(left_width < 0 | left_width > 1) stop("`left_width` must be between 0 and 1.")
+  if(left_width < 0 | left_width > 1)
+    stop("`left_width` must be between 0 and 1.")
   wl <- round(100 * left_width)
   wr <- 100 - wl
   wrn <- "Column width must be <= 150 pixels to ensure proper corner scaling."
@@ -104,7 +119,8 @@ lcarsSweep <- function(column_inputs = NULL, left_inputs = NULL, right_inputs = 
           )
         }
     ),
-    div(class = cl[3], style = style, .sweep_bottom_div(reverse, x, column_width))
+    div(class = cl[3],
+        style = style, .sweep_bottom_div(reverse, x, column_width))
   )
 
   r <- c("right", "left")
@@ -113,8 +129,10 @@ lcarsSweep <- function(column_inputs = NULL, left_inputs = NULL, right_inputs = 
     r <- rev(r)
     title_right <- !title_right
   }
-  headers <- list(lcarsHeader(title, x, title_right = title_right, round = r[1]),
-                  lcarsHeader(subtitle, x, title_right = !title_right, round = r[2]))
+  headers <- list(lcarsHeader(title, x, title_right = title_right,
+                              round = r[1]),
+                  lcarsHeader(subtitle, x, title_right = !title_right,
+                              round = r[2]))
   cl <- c("lcars-sweep-box-left", "lcars-sweep-box-right")
   style <- c("margin:10px 0 15px;", "margin:0 0 15px;")
   if(reverse){
@@ -124,7 +142,8 @@ lcarsSweep <- function(column_inputs = NULL, left_inputs = NULL, right_inputs = 
   }
 
   div(class = if(reverse) "lcars-sweep-box-rev" else "lcars-sweep-box",
-    style = paste0("width:", width, "; --width1: ", wl, "fr; --width2: ", column_width * 230 / 150,
+    style = paste0("width:", width, "; --width1: ", wl, "fr; --width2: ",
+                   column_width * 230 / 150,
                    "px; --width3: ", wr, "fr;"),
     div(class = cl[1], style = style[1],
       if(reverse){

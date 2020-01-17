@@ -10,12 +10,12 @@ lcars_border(
   height = 6,
   corners = 1:4,
   length_frac = rep(0.5, 8),
-  corner_color = c("#CD6363", "#CC99CC", "#FF9E63", "#FFFF9C"),
+  corner_color = rep("atomic-tangerine", 4),
   ro = width/20,
   ri = height/60,
   side_width = c(1, 2, 1, 5)/5,
   side_n_segments = rep(0, 4),
-  side_color = list("#99CCFF", "#99CCFF", "#99CCFF", "#99CCFF"),
+  side_color = as.list(rep("atomic-tangerine", 4)),
   side_label = rep(NA, 4),
   label_size = 1,
   side_label_adj = list(c(0.5, 0.5), c(-0.2, -0.2), c(0.5, 0.5), c(1.1, -0.2)),
@@ -31,11 +31,16 @@ lcars_border(
 
 \item{height}{full plot height in inches.}
 
-\item{corners}{integer, \code{1:4}, a vector specifying which corner elbows to include the LCARS elbow bend: top left, top right, bottom right, bottom left.}
+\item{corners}{integer, \code{1:4}, a vector specifying which corner elbows
+to include the LCARS elbow bend: top left, top right, bottom right, bottom
+left.}
 
-\item{length_frac}{numeric, the fraction of a side that a corner extends over. See details.}
+\item{length_frac}{numeric, the fraction of a side that a corner extends
+over. See details.}
 
-\item{corner_color}{vector of corner colors, clockwise from top left.}
+\item{corner_color}{vector of corner colors, clockwise from top left. Can be
+any color given in hex format. Named colors must be LCARS colors.
+See \code{\link{lcarsdata}} for options.}
 
 \item{ro}{vector of corner outer radii, clockwise from top left.}
 
@@ -43,21 +48,30 @@ lcars_border(
 
 \item{side_width}{width of each side, clockwise from top left.}
 
-\item{side_n_segments}{for each side clockwise from top left, the number of rectangle segments used to evenly fill the space between corner bends.}
+\item{side_n_segments}{for each side clockwise from top left, the number of
+rectangle segments used to evenly fill the space between corner bends.}
 
-\item{side_color}{list of color vectors for side segments. Each vector must have the same number of colors as the number of segments for a given side.}
+\item{side_color}{list of color vectors for side segments. Each vector must
+have the same number of colors as the number of segments for a given side.
+Can be any color given in hex format. Named colors must be LCARS colors.
+See \code{\link{lcarsdata}} for options.}
 
-\item{side_label}{list of label vectors for side segments. Each vector must have the same number of colors as the number of segments for a given side.}
+\item{side_label}{list of label vectors for side segments. Each vector must
+have the same number of colors as the number of segments for a given side.}
 
 \item{label_size}{numeric, global label text size.}
 
-\item{side_label_adj}{list of four vectors, each giving the \code{adj} argument to \code{text} for each side.}
+\item{side_label_adj}{list of four vectors, each giving the \code{adj}
+argument to \code{text} for each side.}
 
-\item{gap}{vector of two values giving the gap fraction from 0 to 1, based on full plot width and height, for the gap between horizontal and vertical segments, respectively.}
+\item{gap}{vector of two values giving the gap fraction from 0 to 1, based
+on full plot width and height, for the gap between horizontal and vertical
+segments, respectively.}
 
 \item{bg}{background color, should be left black for LCARS standard.}
 
-\item{n}{integer, number of points used to define inner radii quarter circles for corner bends.}
+\item{n}{integer, number of points used to define inner radii quarter
+circles for corner bends.}
 }
 \value{
 draws a plot
@@ -68,14 +82,21 @@ Wrap a ggplot object with an LCARS-themed border or only plot the border.
 \details{
 This function draws a plot. It does not return a new ggplot object.
 
-For \code{length_frac}, a vector of eight values from 0 to 1 is required. Starting from the top side, clockwise around to the left side,
-they refer to fraction of that side's length over which the relevant corner bend extends.
-For example, the first value refers to the top left corner bend's rightward horizontal segment.
-The second value refers to the top right corner bend's leftward horizontal segment. This takes care of the top side.
-Finally, the last value refers to the downward vertical arm of the top left corner bend.
+For \code{length_frac}, a vector of eight values from 0 to 1 is required.
+Starting from the top side, clockwise around to the left side,
+they refer to fraction of that side's length over which the relevant corner
+bend extends.
+For example, the first value refers to the top left corner bend's rightward
+horizontal segment.
+The second value refers to the top right corner bend's leftward horizontal
+segment. This takes care of the top side.
+Finally, the last value refers to the downward vertical arm of the top left
+corner bend.
 
-All arguments that take vectors or lists of length four are in clockwise order from either the top left corner for corner-related arguments or
-the top side for side-related arguments.
+All arguments that take vectors or lists of length four are in clockwise
+order from either the top left corner for corner-related arguments or
+the top side for side-related arguments. Colors may be given as official
+LCARS color names.
 }
 \examples{
 lcars_border()

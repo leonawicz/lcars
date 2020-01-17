@@ -16,13 +16,17 @@ lcarsButton(
 \arguments{
 \item{inputId}{The input slot that will be used to access the value.}
 
-\item{label}{The contents of the button or link–usually a text label, but you could also use any other HTML, like an image.}
+\item{label}{The contents of the button or link–usually a text label, but
+you could also use any other HTML, like an image.}
 
 \item{icon}{An optional icon to appear on the button.}
 
-\item{color}{button color. Can be any color given in hex format. Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.}
+\item{color}{button color. Can be any color given in hex format. Named
+colors must be LCARS colors. See \code{\link{lcarsdata}} for options.}
 
-\item{hover_color}{Named colors must be LCARS colors. Other arbitrary colors are not supported for hovering. If \code{hover_color = NULL}, the button will darken on hover.}
+\item{hover_color}{Named colors must be LCARS colors. Other arbitrary colors
+are not supported for hovering. If \code{hover_color = NULL}, the button
+will darken on hover.}
 
 \item{...}{Named attributes to be applied to the button.}
 }
@@ -30,7 +34,8 @@ lcarsButton(
 HTML
 }
 \description{
-An LCARS wrapper around \code{shiny::actionButton} with additional color control.
+An LCARS wrapper around \code{shiny::actionButton} with additional color
+control.
 }
 \examples{
 # lcarsButton("btn", "A button")

@@ -9,14 +9,16 @@
 #'
 #' @name theme_lcars
 #' @export
-theme_lcars_light <- function(base_size = 11, base_family = "", base_line_size = base_size/22,
-                         base_rect_size = base_size/22){
+theme_lcars_light <- function(base_size = 11, base_family = "",
+                              base_line_size = base_size/22,
+                              base_rect_size = base_size/22){
   clr <- c("#FFFFCC", "#FFFFCC", "#000000", "#000000", "#99CCFF", "#AAAAAA")
   ggplot2::theme_gray(base_size, base_family, base_line_size, base_rect_size) +
     ggplot2::theme(
       plot.background = ggplot2::element_rect(color = clr[1], fill = clr[1]),
       panel.background = ggplot2::element_rect(color = clr[1], fill = clr[1]),
-      panel.border = ggplot2::element_rect(color = clr[4], size = 1, fill = "transparent"),
+      panel.border = ggplot2::element_rect(color = clr[4], size = 1,
+                                           fill = "transparent"),
       panel.grid = ggplot2::element_line(color = clr[6]),
       legend.background = ggplot2::element_rect(color = clr[1], fill = clr[1]),
       text = ggplot2::element_text(color = clr[4], face = "bold"),
@@ -29,14 +31,16 @@ theme_lcars_light <- function(base_size = 11, base_family = "", base_line_size =
 
 #' @rdname theme_lcars
 #' @export
-theme_lcars_dark <- function(base_size = 11, base_family = "", base_line_size = base_size/22,
-                              base_rect_size = base_size/22){
+theme_lcars_dark <- function(base_size = 11, base_family = "",
+                             base_line_size = base_size/22,
+                             base_rect_size = base_size/22){
   clr <- c("#000000", "#000000", "#FFFFCC", "#FFFFCC", "#000000", "#AAAAAA")
   ggplot2::theme_gray(base_size, base_family, base_line_size, base_rect_size) +
     ggplot2::theme(
       plot.background = ggplot2::element_rect(color = clr[1], fill = clr[1]),
       panel.background = ggplot2::element_rect(color = clr[1], fill = clr[1]),
-      panel.border = ggplot2::element_rect(color = clr[4], size = 1, fill = "transparent"),
+      panel.border = ggplot2::element_rect(color = clr[4], size = 1,
+                                           fill = "transparent"),
       panel.grid = ggplot2::element_line(color = clr[6]),
       legend.background = ggplot2::element_rect(color = clr[1], fill = clr[1]),
       text = ggplot2::element_text(color = clr[4], face = "bold"),

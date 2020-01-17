@@ -1,4 +1,5 @@
 library(rtrek)
+library(trekcolors)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
@@ -26,7 +27,7 @@ totals <- group_by(x, character) %>%
 
 id <- totals$character
 chr <- factor(totals$character, levels = id)
-uniform_colors <- c("#5B1414", "#AD722C", "#1A6384")
+uniform_colors <- trek_pal("starfleet")
 ulev <- c("Command", "Operations", "Science")
 uniform <- factor(ulev[c(1, 2, 1, 2, 3, 3, 2, 3)], levels = ulev)
 totals <- mutate(totals, character = chr, uniform = uniform)

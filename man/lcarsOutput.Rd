@@ -38,5 +38,6 @@ if (interactive()) {
 }
 }
 \seealso{
-\code{\link{renderLcars}} for the corresponding server-side function.
+\code{\link{renderLcars}} for the corresponding server-side
+function.
 }
