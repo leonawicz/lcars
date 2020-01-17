@@ -1,14 +1,12 @@
-#' lcars: an LCARS R package
+#' lcars: LCARS aesthetic for Shiny
 #'
 #' Library Computer Access/Retrieval System
 #' (\href{https://en.wikipedia.org/wiki/LCARS}{LCARS}.
 #'
-#' The \code{lcars} package provides simple approximations to 'Library Computer
-#' Access/Retrieval System' (LCARS) style and appearance to give plots an LCARS
-#' theme.
-#' More details about LCARS can be found at
-#' <https://en.wikipedia.org/wiki/LCARS>. The key feature in \code{lcars} is
-#' the ability to wrap plots in an LCARS-themed border.
+#' The \code{lcars} package provides Shiny widgets and Shiny UI theme that
+#' support a 'Library Computer Access/Retrieval System' (LCARS) aesthetic for
+#' Shiny apps. The package also includes functions for adding a minimal LCARS
+#' theme to static \code{ggplot2} graphs.
 #'
 #' @docType package
 #' @name lcars

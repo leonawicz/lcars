@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LCARS theme for R Graphics • lcars</title>
+<title>LCARS Aesthetic for Shiny • lcars</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -17,10 +17,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
-<meta property="og:title" content="LCARS theme for R Graphics">
-<meta property="og:description" content="Provides simple approximations to Library Computer Access/Retrieval System (LCARS) style and appearance to give plots an LCARS theme. 
-    This package also includes a collection of functions for generating HTML widgets. 
-    These are used with the shiny package to make interactive dashboards with an LCARS theme. 
+<meta property="og:title" content="LCARS Aesthetic for Shiny">
+<meta property="og:description" content="Provides Shiny widgets and Shiny UI theme that support a Library Computer Access/Retrieval System (LCARS) aesthetic for Shiny apps. 
+    The package also includes functions for adding a minimal LCARS theme to static ggplot2 graphs. 
     More details about LCARS can be found at &lt;https://en.wikipedia.org/wiki/LCARS&gt;.">
 <meta property="og:image" content="http://leonawicz.github.io/lcars/logo.png">
 <meta name="twitter:card" content="summary">
@@ -95,19 +94,15 @@
 <div id="library-computer-accessretrieval-system-lcars" class="section level2">
 <h2 class="hasAnchor">
 <a href="#library-computer-accessretrieval-system-lcars" class="anchor"></a>Library Computer Access/Retrieval System (<a href="https://en.wikipedia.org/wiki/LCARS">LCARS</a>)</h2>
-<p>The <code>lcars</code> package provides simple approximations to LCARS style and appearance to give static plots and interactive data analysis an LCARS theme.</p>
-<ul>
-<li>One feature in <code>lcars</code> is the ability to wrap ggplot objects in an LCARS-themed border using <code>lcars_border</code>. This relies on <code>grid</code> and base graphics and results are relatively basic.</li>
-<li>But an LCARS appearance begs the next obvious step: interactivity. <code>lcars</code> provides functions that support an LCARS-themed Shiny UI using <code>lcarsPage</code> and related Shiny widgets and custom CSS.</li>
-</ul>
-<p>While the former is fun and useful for static graphs, the latter is much more exciting because it means you can make something with the look and feel of LCARS that also is <em>actually operational</em> and not just another piece of static digital fan art!</p>
+<p>The <code>lcars</code> package provides Shiny widgets and Shiny UI theme that support an LCARS aesthetic for Shiny apps.</p>
+<p>Using an LCARS aesthetic to visually frame the results of your analysis is fun and quirky in its own right, but it begs the next obvious step: interactivity. LCARS-themed displays can be fun to make, but using Shiny is much more exciting because you can make something with the look and feel of LCARS that also is <em>actually operational</em> and not just another piece of static digital fan art!</p>
 <p><img src="reference/figures/README-banner.png"></p>
 <p>That’s right. Make your Shiny app, view it on a touch screen device like your very own Federation-issue data PADD, and transport yourself into the future of the Star Trek universe with this 1980s sci-fi television aesthetic!</p>
-<p>The static plot border and Shiny <code>lcarsBox</code> widget both give plenty of control over the style. Given their different fundamental designs, they provide somewhat different aspects of design control via their respective function arguments.</p>
 <div id="function-names" class="section level3">
 <h3 class="hasAnchor">
 <a href="#function-names" class="anchor"></a>Function names</h3>
-<p>On the topic of the split between Shiny and non-Shiny functions, most of the package is Shiny-related. There is less focus on the ggplot border effect and related border component functions. Shiny functions use camel case like <code>lcarsBox</code> whereas non-Shiny functions use snake case like <code>lcars_border</code>.</p>
+<p>The package also offers <code>lcars_border</code> and associated functions for adding a minimal LCARS theme to static ggplot2 graphs, but this is less interesting given the context and won’t look as authentic and the Shiny counterparts.</p>
+<p>On the topic of the split between Shiny and non-Shiny functions, most of the package is Shiny-related. There is less focus on the ggplot border effect and related border component functions. Shiny functions use camel case like <code>lcarsBox</code> whereas non-Shiny functions use snake case like <code>lcars_border</code>. Most users will probably only use the Shiny functions.</p>
 </div>
 <div id="shiny-functions" class="section level3">
 <h3 class="hasAnchor">

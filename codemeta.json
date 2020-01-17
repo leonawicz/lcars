@@ -1,9 +1,12 @@
 {
-  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@context": [
+    "https://doi.org/10.5063/schema/codemeta-2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "lcars",
-  "description": "Provides simple approximations to 'Library Computer Access/Retrieval System' (LCARS) style and appearance to give plots an LCARS theme. \n    This package also includes a collection of functions for generating HTML widgets. \n    These are used with the 'shiny' package to make interactive dashboards with an LCARS theme. \n    More details about LCARS can be found at <https://en.wikipedia.org/wiki/LCARS>.",
-  "name": "lcars: LCARS theme for R Graphics",
+  "description": "Provides Shiny widgets and Shiny UI theme that support a 'Library Computer Access/Retrieval System' (LCARS) aesthetic for Shiny apps. \n    The package also includes functions for adding a minimal LCARS theme to static 'ggplot2' graphs. \n    More details about LCARS can be found at <https://en.wikipedia.org/wiki/LCARS>.",
+  "name": "lcars: LCARS Aesthetic for Shiny",
   "codeRepository": "https://github.com/leonawicz/lcars",
   "issueTracker": "https://github.com/leonawicz/lcars/issues",
   "license": "https://spdx.org/licenses/MIT",
@@ -11,10 +14,10 @@
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.6.1",
+    "version": "3.6.2",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.1 (2019-07-05)",
+  "runtimePlatform": "R version 3.6.2 (2019-12-12)",
   "author": [
     {
       "@type": "Person",
@@ -157,11 +160,27 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=shiny"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "trekcolors",
+      "name": "trekcolors",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=trekcolors"
     }
   ],
   "releaseNotes": "https://github.com/leonawicz/lcars/blob/master/NEWS.md",
   "readme": "https://github.com/leonawicz/lcars/blob/master/README.md",
-  "fileSize": "374.091KB",
-  "contIntegration": ["https://travis-ci.org/leonawicz/lcars", "https://ci.appveyor.com/project/leonawicz/lcars", "https://codecov.io/gh/leonawicz/lcars?branch=master"],
+  "fileSize": "441.314KB",
+  "contIntegration": [
+    "https://travis-ci.org/leonawicz/lcars",
+    "https://ci.appveyor.com/project/leonawicz/lcars",
+    "https://codecov.io/gh/leonawicz/lcars?branch=master"
+  ],
   "developmentStatus": "http://www.repostatus.org/#active"
 }

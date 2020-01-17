@@ -29,19 +29,13 @@ Stars](https://img.shields.io/github/stars/leonawicz/lcars.svg?style=social&labe
 
 ## Library Computer Access/Retrieval System ([LCARS](https://en.wikipedia.org/wiki/LCARS))
 
-The `lcars` package provides simple approximations to LCARS style and
-appearance to give static plots and interactive data analysis an LCARS
-theme.
+The `lcars` package provides Shiny widgets and Shiny UI theme that
+support an LCARS aesthetic for Shiny apps.
 
-  - One feature in `lcars` is the ability to wrap ggplot objects in an
-    LCARS-themed border using `lcars_border`. This relies on `grid` and
-    base graphics and results are relatively basic.
-  - But an LCARS appearance begs the next obvious step: interactivity.
-    `lcars` provides functions that support an LCARS-themed Shiny UI
-    using `lcarsPage` and related Shiny widgets and custom CSS.
-
-While the former is fun and useful for static graphs, the latter is much
-more exciting because it means you can make something with the look and
+Using an LCARS aesthetic to visually frame the results of your analysis
+is fun and quirky in its own right, but it begs the next obvious step:
+interactivity. LCARS-themed displays can be fun to make, but using Shiny
+is much more exciting because you can make something with the look and
 feel of LCARS that also is *actually operational* and not just another
 piece of static digital fan art\!
 
@@ -52,18 +46,18 @@ your very own Federation-issue data PADD, and transport yourself into
 the future of the Star Trek universe with this 1980s sci-fi television
 aesthetic\!
 
-The static plot border and Shiny `lcarsBox` widget both give plenty of
-control over the style. Given their different fundamental designs, they
-provide somewhat different aspects of design control via their
-respective function arguments.
-
 ### Function names
+
+The package also offers `lcars_border` and associated functions for
+adding a minimal LCARS theme to static ggplot2 graphs, but this is less
+interesting given the context and won’t look as authentic and the Shiny
+counterparts.
 
 On the topic of the split between Shiny and non-Shiny functions, most of
 the package is Shiny-related. There is less focus on the ggplot border
 effect and related border component functions. Shiny functions use camel
 case like `lcarsBox` whereas non-Shiny functions use snake case like
-`lcars_border`.
+`lcars_border`. Most users will probably only use the Shiny functions.
 
 ### Shiny functions
 

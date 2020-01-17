@@ -3,5 +3,18 @@
 language: R
 cache: packages
 
-after_success:
-  - Rscript -e 'covr::codecov()'
+matrix:
+  include:
+   - r: release
+     after_success:
+       - Rscript -e 'covr::codecov()'
+   - r: devel
+     r_build_args: --no-build-vignettes
+     r_check_args: --ignore-vignettes --no-examples
+   - r: oldrel
+     r_build_args: --no-build-vignettes
+     r_check_args: --ignore-vignettes --no-examples
+   - os: osx
+     r: release
+     before_install: ''
+     disable_homebrew: false
