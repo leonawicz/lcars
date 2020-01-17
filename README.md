@@ -33,19 +33,22 @@ The `lcars` package provides simple approximations to LCARS style and
 appearance to give static plots and interactive data analysis an LCARS
 theme.
 
-  - One key feature in `lcars` is the ability to wrap ggplot objects in
-    an LCARS-themed border using `lcars_border`.
-  - There is also support for an LCARS-themed Shiny UI using `lcarsPage`
-    and related functions.
+  - One feature in `lcars` is the ability to wrap ggplot objects in an
+    LCARS-themed border using `lcars_border`. This relies on `grid` and
+    base graphics and results are relatively basic.
+  - But an LCARS appearance begs the next obvious step: interactivity.
+    `lcars` provides functions that support an LCARS-themed Shiny UI
+    using `lcarsPage` and related Shiny widgets and custom CSS.
 
 While the former is fun and useful for static graphs, the latter is much
 more exciting because it means you can make something with the look and
-feel of LCARS that also *actually functions*\!
+feel of LCARS that also is *actually operational* and not just another
+piece of static digital fan art\!
 
 ![](man/figures/README-banner.png)
 
 That’s right. Make your Shiny app, view it on a touch screen device like
-your very own Federation issue data PADD, and transport yourself into
+your very own Federation-issue data PADD, and transport yourself into
 the future of the Star Trek universe with this 1980s sci-fi television
 aesthetic\!
 
@@ -96,7 +99,9 @@ sweep and reverse sweep:
 ![](man/figures/README-sweep.png)
 
 The screenshots above are taken directly from demo apps included in the
-package. See `?lcarsApp` for details.
+package. See `?lcarsApp` for details. For detailed examples including
+Shiny app examples, see the package
+[vignette](https://leonawicz.github.io/lcars/articles/lcars.html).
 
 ## Installation
 
@@ -114,34 +119,18 @@ You can install the development version of `lcars` from GitHub with:
 remotes::install_github("leonawicz/lcars")
 ```
 
-## Example
+## Limitations
 
-Below is a basic example using `lcars_border` to wrap a basic LCARS-like
-border around a ggplot object and draw the new plot.
+In adhering closely to sizing and layout rules for LCARS UI design,
+fixed sizing works best for some container widgets like `lcarBox` and
+`lcarsSweep`. You can use settings like `width = "100%"` for these
+containers, but you may notice limitations in maintaining a responsive
+UI, particularly when they contain plot outputs. Fixed width widgets are
+generally recommended.
 
-``` r
-library(lcars)
-library(ggplot2)
-
-g <- ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + 
-  geom_point() + facet_wrap(~Species, 2) + theme_lcars_light()
-
-len_frac <- c(0.3, 0.5, 0.2, 0.4, 0.3, 0.2, 0.1, 0.3)
-n_seg <- c(1, 2, 0, 8)
-lcars_border(g, corners = 1:3, length_frac = len_frac, side_n_segments = n_seg)
-```
-
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
-
-The appearance can be improved and customized significantly from the
-basic example above, as shown in the vignette. However, the Shiny
-widgets are not only interactive, which is a critical feature for an
-LCARS display, but they also look much better. When sharing a static
-plot, you may still find it preferable to take a screenshot of a shiny
-widget rather than using `lcars_border` with a ggplot object.
-
-For more detailed examples including Shiny app examples, see the package
-[vignette](https://leonawicz.github.io/lcars/articles/lcars.html).
+Visual components such as the LCARS elbow shape underlying some widgets
+are intended to follow strict sizing and scaling rules. They are not
+intended to scale arbitrarily or fit well on very small device screens.
 
 ## Packages in the trekverse
 
@@ -164,6 +153,32 @@ Trek package
 
 Datasets related to Star Trek, API wrappers to external data sources,
 and more.
+
+</div>
+
+</div>
+
+<br/>
+
+<div class="row">
+
+<div class="col-sm-2">
+
+<a href="https://github.com/leonawicz/lcars"><img src="https://raw.githubusercontent.com/leonawicz/lcars/master/man/figures/logo.png" style="margin-right:20px;margin-bottom:0;" width="60" align="left"></a>
+
+</div>
+
+<div class="col-sm-10">
+
+<h4 style="padding:30px 0 0 0;margin-top:5px;margin-bottom:5px;">
+
+<a href="https://github.com/leonawicz/lcars">lcars</a>: LCARS aesthetic
+for Shiny
+
+</h4>
+
+Create Shiny apps based on the Library Computer Access/Retrieval System
+(LCARS).
 
 </div>
 
