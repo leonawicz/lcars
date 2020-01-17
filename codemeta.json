@@ -5,7 +5,7 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "lcars",
-  "description": "Provides Shiny widgets and Shiny UI theme that support a 'Library Computer Access/Retrieval System' (LCARS) aesthetic for Shiny apps. \n    The package also includes functions for adding a minimal LCARS theme to static 'ggplot2' graphs. \n    More details about LCARS can be found at <https://en.wikipedia.org/wiki/LCARS>.",
+  "description": "Provides Shiny widgets and theme that support a 'Library Computer Access/Retrieval System' (LCARS) aesthetic for Shiny apps. \n    The package also includes functions for adding a minimal LCARS theme to static 'ggplot2' graphs. \n    More details about LCARS can be found at <https://en.wikipedia.org/wiki/LCARS>.",
   "name": "lcars: LCARS Aesthetic for Shiny",
   "codeRepository": "https://github.com/leonawicz/lcars",
   "issueTracker": "https://github.com/leonawicz/lcars/issues",
