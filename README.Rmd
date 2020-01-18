@@ -78,15 +78,15 @@ The screenshots above are taken directly from demo apps included in the package.
 
 ## Installation
 
-You can install the released version of `lcars` from [CRAN](https://CRAN.R-project.org) with:
+Install the CRAN release of `lcars` with
 
-``` r
+```r
 install.packages("lcars")
 ```
 
-You can install the development version of `lcars` from GitHub with:
+Install the development version from GitHub with
 
-``` r
+```r
 # install.packages("remotes")
 remotes::install_github("leonawicz/lcars")
 ```
@@ -135,7 +135,7 @@ Predefined and customizable Star Trek themed color palettes and related function
 True (Trek) type fonts to style your Star Trek themed graphics text.
 </div></div>
 
----
+<br>
 
 *If you enjoy my R community contributions, consider* ***[buying me a coffee in Ko-fi](https://ko-fi.com/leonawicz)*** *so I can keep developing and maintaining this and other packages :)*
 

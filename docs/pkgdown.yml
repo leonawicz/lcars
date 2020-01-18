@@ -4,6 +4,6 @@ pkgdown_sha: ~
 articles:
   lcars: lcars.html
 urls:
-  reference: http://leonawicz.github.io/lcars/reference
-  article: http://leonawicz.github.io/lcars/articles
+  reference: https://leonawicz.github.io/lcars/reference
+  article: https://leonawicz.github.io/lcars/articles
 

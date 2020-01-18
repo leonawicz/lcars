@@ -176,7 +176,7 @@
   ],
   "releaseNotes": "https://github.com/leonawicz/lcars/blob/master/NEWS.md",
   "readme": "https://github.com/leonawicz/lcars/blob/master/README.md",
-  "fileSize": "441.314KB",
+  "fileSize": "441.312KB",
   "contIntegration": [
     "https://travis-ci.org/leonawicz/lcars",
     "https://ci.appveyor.com/project/leonawicz/lcars",

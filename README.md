@@ -99,14 +99,13 @@ Shiny app examples, see the package
 
 ## Installation
 
-You can install the released version of `lcars` from
-[CRAN](https://CRAN.R-project.org) with:
+Install the CRAN release of `lcars` with
 
 ``` r
 install.packages("lcars")
 ```
 
-You can install the development version of `lcars` from GitHub with:
+Install the development version from GitHub with
 
 ``` r
 # install.packages("remotes")
@@ -229,7 +228,7 @@ True (Trek) type fonts to style your Star Trek themed graphics text.
 
 </div>
 
------
+<br>
 
 *If you enjoy my R community contributions, consider* ***[buying me a
 coffee in Ko-fi](https://ko-fi.com/leonawicz)*** *so I can keep

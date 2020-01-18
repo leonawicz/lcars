@@ -16,3 +16,4 @@
 ^tests/testthat/Rplots\.pdf$
 ^README\.html$
 ^codemeta\.json$
+^CRAN-RELEASE$
