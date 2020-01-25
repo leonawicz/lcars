@@ -33,13 +33,15 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # Recommended settings
+#' # (results stored in x and not printed due to length)
+#'
 #' # for a more standard LCARS style: default settings.
-#' lcarsPage()
+#' x <- lcarsPage()
 #'
 #' # for a more readable style: less uppercase, switch to sans font
-#' lcarsPage(force_uppercase = FALSE, label_uppercase = FALSE,
+#' x <- lcarsPage(force_uppercase = FALSE, label_uppercase = FALSE,
 #'   lcars_font_labels = FALSE, lcars_font_text = FALSE)
 #' }
 lcarsPage <- function (..., title = NULL, force_uppercase = TRUE,
@@ -109,7 +111,7 @@ lcars_init <- function(force_uppercase = FALSE, label_uppercase = FALSE,
 #' @export
 #'
 #' @examples
-#' # lcarsHeader("A title")
+#' lcarsHeader("A title")
 lcarsHeader <- function(title = NULL, color = "golden-tanoi",
                         title_color = color, background_color = "#000000",
                         title_right = TRUE, title_invert = FALSE,
@@ -274,7 +276,7 @@ lcarsh6 <- function(title = NULL, color = "atomic-tangerine",
 #' @export
 #'
 #' @examples
-#' # lcarsWell()
+#' lcarsWell()
 lcarsWell <- function(..., color = "atomic-tangerine",
                       background_color = "#000000"){
   x <- .lcars_color_check(c(color, background_color))
@@ -292,7 +294,9 @@ lcarsWell <- function(..., color = "atomic-tangerine",
 
 #' @export
 #' @examples
-#' \dontrun{lcarsApp("demo")}
+#' if (interactive()) {
+#'   lcarsApp("demo")
+#' }
 lcarsApp <- function(id = "demo"){
   ids <- c("demo", "box", "sweep", "toggle", "elements")
   if(!id %in% ids) stop("Invalid app `id`.")

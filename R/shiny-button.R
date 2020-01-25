@@ -19,7 +19,7 @@
 #' @export
 #'
 #' @examples
-#' # lcarsButton("btn", "A button")
+#' lcarsButton("btn", "A button")
 lcarsButton <- function(inputId, label, icon = NULL, color = "atomic-tangerine",
                         hover_color = "red-damask", ...){
   cl <- if(!is.null(hover_color) &&
@@ -48,7 +48,7 @@ lcarsButton <- function(inputId, label, icon = NULL, color = "atomic-tangerine",
 #' @export
 #'
 #' @examples
-#' # inputColumn()
+#' inputColumn()
 inputColumn <- function(...){
   div(class = "lcars-button-col", ...)
 }

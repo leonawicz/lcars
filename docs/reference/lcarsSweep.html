@@ -82,7 +82,7 @@ column and some specific styling to achieve the sweep display." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lcars</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
       </span>
     </div>
 
@@ -248,8 +248,7 @@ very small displays.</p>
       <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"pale-canary"</span>, <span class='kw'>left_width</span> <span class='kw'>=</span> <span class='fl'>0.3</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>900</span>,
       <span class='kw'>expand</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>350</span>) <span class='co'># negative bottom margin added to right side div</span>
     ),
-    <span class='co'># content from the sweep box above extends into the sweep box below</span>
-    <span class='fu'>lcarsSweep</span>(
+    <span class='fu'>lcarsSweep</span>( <span class='co'># content from sweep box above extends into sweep box below</span>
       <span class='fu'><a href='inputColumn.html'>inputColumn</a></span>(
         <span class='fu'><a href='lcarsButton.html'>lcarsButton</a></span>(<span class='st'>"x2"</span>, <span class='st'>"Button A"</span>),
         <span class='fu'><a href='lcarsButton.html'>lcarsButton</a></span>(<span class='st'>"x3"</span>, <span class='st'>"Button B"</span>),

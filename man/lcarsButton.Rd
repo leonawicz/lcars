@@ -38,7 +38,7 @@ An LCARS wrapper around \code{shiny::actionButton} with additional color
 control.
 }
 \examples{
-# lcarsButton("btn", "A button")
+lcarsButton("btn", "A button")
 }
 \seealso{
 \code{\link{lcarsdata}}

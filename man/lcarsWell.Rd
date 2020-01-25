@@ -22,5 +22,5 @@ A simple LCARS well panel wrapper that takes color and background color
 arguments and understands LCARS color names.
 }
 \examples{
-# lcarsWell()
+lcarsWell()
 }

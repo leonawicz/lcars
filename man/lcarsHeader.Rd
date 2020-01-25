@@ -116,7 +116,7 @@ These default to centered text, whereas \code{lcarsHeader} is strictly right
 or left.
 }
 \examples{
-# lcarsHeader("A title")
+lcarsHeader("A title")
 }
 \seealso{
 \code{\link{lcarsdata}}.

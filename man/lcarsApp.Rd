@@ -14,5 +14,7 @@ Currently available apps include: \code{demo}, \code{box}, \code{sweep},
 \code{toggle}, \code{elements}.
 }
 \examples{
-\dontrun{lcarsApp("demo")}
+if (interactive()) {
+  lcarsApp("demo")
+}
 }

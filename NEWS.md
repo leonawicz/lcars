@@ -1,3 +1,7 @@
+# lcars.0.3.1
+
+* Made changes to some examples per CRAN request.
+
 # lcars 0.3.0
 
 * Added `lcarsSweep`.

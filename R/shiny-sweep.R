@@ -61,8 +61,7 @@
 #'       color = "pale-canary", left_width = 0.3, width = 900,
 #'       expand = c(0, 350) # negative bottom margin added to right side div
 #'     ),
-#'     # content from the sweep box above extends into the sweep box below
-#'     lcarsSweep(
+#'     lcarsSweep( # content from sweep box above extends into sweep box below
 #'       inputColumn(
 #'         lcarsButton("x2", "Button A"),
 #'         lcarsButton("x3", "Button B"),

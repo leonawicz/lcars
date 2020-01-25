@@ -55,13 +55,15 @@ readable sans serif font as desired.
 See examples for recommendations.
 }
 \examples{
-\dontrun{
+\donttest{
 # Recommended settings
+# (results stored in x and not printed due to length)
+
 # for a more standard LCARS style: default settings.
-lcarsPage()
+x <- lcarsPage()
 
 # for a more readable style: less uppercase, switch to sans font
-lcarsPage(force_uppercase = FALSE, label_uppercase = FALSE,
+x <- lcarsPage(force_uppercase = FALSE, label_uppercase = FALSE,
   lcars_font_labels = FALSE, lcars_font_text = FALSE)
 }
 }

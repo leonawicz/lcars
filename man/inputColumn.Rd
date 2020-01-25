@@ -21,5 +21,5 @@ matching the widths of the side panels of the given \code{lcarsBox}
 container.
 }
 \examples{
-# inputColumn()
+inputColumn()
 }

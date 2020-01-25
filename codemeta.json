@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/leonawicz/lcars",
   "issueTracker": "https://github.com/leonawicz/lcars/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -176,11 +176,17 @@
   ],
   "releaseNotes": "https://github.com/leonawicz/lcars/blob/master/NEWS.md",
   "readme": "https://github.com/leonawicz/lcars/blob/master/README.md",
-  "fileSize": "441.312KB",
+  "fileSize": "441.42KB",
   "contIntegration": [
     "https://travis-ci.org/leonawicz/lcars",
     "https://ci.appveyor.com/project/leonawicz/lcars",
     "https://codecov.io/gh/leonawicz/lcars?branch=master"
   ],
-  "developmentStatus": "http://www.repostatus.org/#active"
+  "developmentStatus": "http://www.repostatus.org/#active",
+  "keywords": [
+    "r-package",
+    "r-shiny",
+    "star-trek",
+    "lcars"
+  ]
 }
