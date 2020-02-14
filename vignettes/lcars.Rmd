@@ -115,6 +115,7 @@ lcarsApp("box")
 lcarsApp("sweep")
 lcarsApp("toggle")
 lcarsApp("elements")
+lcarsApp("leaflet")
 ```
 
 The `box` example is helpful for exploring the many ways you can control the style of an `lcarsBox`. Here are a couple examples highlighting some of the versatility:

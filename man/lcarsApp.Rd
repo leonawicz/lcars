@@ -11,7 +11,7 @@ lcarsApp(id = "demo")
 }
 \description{
 Currently available apps include: \code{demo}, \code{box}, \code{sweep},
-\code{toggle}, \code{elements}.
+\code{toggle}, \code{elements}, \code{leaflet}.
 }
 \examples{
 if (interactive()) {

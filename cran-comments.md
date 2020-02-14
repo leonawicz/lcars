@@ -9,11 +9,9 @@
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 0 note
 
-* This is a new release resubmission.
+* This is an update release.
 
 Note: Because this is a Shiny add-on package, examples are not executed if they require an interactive session.
 For consistency, I structured the code of Shiny examples to follow the conditional execution style used in examples in the `shiny` package.
-
-Per CRAN request, other examples' issues have been fixed and the license year has been fixed.
