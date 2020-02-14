@@ -288,7 +288,7 @@ lcarsWell <- function(..., color = "atomic-tangerine",
 #' Launch LCARS demo apps.
 #'
 #' Currently available apps include: \code{demo}, \code{box}, \code{sweep},
-#' \code{toggle}, \code{elements}.
+#' \code{toggle}, \code{elements}, \code{leaflet}.
 #'
 #' @param id character, app id.
 
@@ -298,7 +298,7 @@ lcarsWell <- function(..., color = "atomic-tangerine",
 #'   lcarsApp("demo")
 #' }
 lcarsApp <- function(id = "demo"){
-  ids <- c("demo", "box", "sweep", "toggle", "elements")
+  ids <- c("demo", "box", "sweep", "toggle", "elements", "leaflet")
   if(!id %in% ids) stop("Invalid app `id`.")
   if(id == "demo"){
     if(!requireNamespace("ggrepel", quietly = TRUE)){
@@ -313,6 +313,16 @@ lcarsApp <- function(id = "demo"){
   if(id == "box"){
     if(!requireNamespace("showtext", quietly = TRUE)){
       message("This app requires the `showtext` package. Install and rerun.")
+      return(invisible())
+    }
+  }
+  if(id == "leaflet"){
+    if(!requireNamespace("leaflet", quietly = TRUE)){
+      message("This app requires the `leaflet` package. Install and rerun.")
+      return(invisible())
+    }
+    if(!requireNamespace("leaflet.extras", quietly = TRUE)){
+      message("This app requires the `leaflet.extras` package. Install and rerun.")
       return(invisible())
     }
   }
