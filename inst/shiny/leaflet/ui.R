@@ -1,6 +1,6 @@
 shinyUI(
   lcarsPage(
-    tags$style(".leaflet-container { background: #000000 !important; } .leaflet-popup-content-wrapper { border-radius: 4px !important; color: #ffffff !important; background-color: rgba(45, 45, 45, 0.9) !important; width: 540px; font-size: 16px; } .leaflet-popup { border-color: #888888 !important; }"),
+    tags$style(".leaflet-container { background: #000000 !important; } .leaflet-grab { cursor: pointer; } .leaflet-popup-content-wrapper { border-radius: 4px !important; color: #ffffff !important; background-color: rgba(45, 45, 45, 0.9) !important; width: 540px; font-size: 16px; } .leaflet-popup { border-color: #888888 !important; }"),
     lcarsHeader("Shiny :: Star Trek Computer Console"), gap, gap,
     lcarsBox(
       div(
