@@ -86,7 +86,7 @@ server <- function(input, output) {
     g + scale_color_manual(values = uniform_colors) +
       geom_text_repel(aes(label = paste0(title, " (", character, ")")), color = clr(),
                       size = 3, hjust = -0.1, direction = "y", segment.size = 0.15, min.segment.length = 0.65) +
-      scale_x_continuous(breaks = 1:7, labels = 1:7, expand = expand_scale(0, c(0.1, 0.8))) +
+      scale_x_continuous(breaks = 1:7, labels = 1:7, expand = expansion(0, c(0.1, 0.8))) +
       ptheme() + theme(panel.grid.minor = element_blank(), text = element_text(size = 30)) +
       labs(x = "SEASON", y = "TOTAL WORDS")
   })
@@ -123,7 +123,7 @@ server <- function(input, output) {
     g + scale_color_manual(values = clrs) +
       geom_text_repel(aes(label = paste0(title, " (", character, ")")), color = clr(),
                       size = 6, hjust = -0.1, direction = "y", segment.size = 0.15, min.segment.length = 0.65) +
-      scale_x_continuous(breaks = 1:7, labels = 1:7, expand = expand_scale(0, c(0.1, 0.8))) +
+      scale_x_continuous(breaks = 1:7, labels = 1:7, expand = expansion(0, c(0.1, 0.8))) +
       ptheme() + theme(panel.grid.minor = element_blank(), text = element_text(size = 30)) +
       labs(x = "SEASON", y = "TOTAL WORDS")
   })

@@ -10,14 +10,13 @@
   "codeRepository": "https://github.com/leonawicz/lcars",
   "issueTracker": "https://github.com/leonawicz/lcars/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.6.2",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.2 (2019-12-12)",
+  "runtimePlatform": "R version 4.0.2 (2020-06-22)",
   "author": [
     {
       "@type": "Person",
@@ -200,12 +199,8 @@
   ],
   "releaseNotes": "https://github.com/leonawicz/lcars/blob/master/NEWS.md",
   "readme": "https://github.com/leonawicz/lcars/blob/master/README.md",
-  "fileSize": "482.691KB",
-  "contIntegration": [
-    "https://travis-ci.org/leonawicz/lcars",
-    "https://ci.appveyor.com/project/leonawicz/lcars",
-    "https://codecov.io/gh/leonawicz/lcars?branch=master"
-  ],
+  "fileSize": "2798.798KB",
+  "contIntegration": ["https://travis-ci.org/leonawicz/lcars", "https://ci.appveyor.com/project/leonawicz/lcars", "https://codecov.io/gh/leonawicz/lcars?branch=master"],
   "developmentStatus": "http://www.repostatus.org/#active",
   "keywords": [
     "r-package",

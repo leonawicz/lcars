@@ -4,7 +4,9 @@
 \name{lcarsdata}
 \alias{lcarsdata}
 \title{LCARS colors}
-\format{A data frame}
+\format{
+A data frame
+}
 \usage{
 lcarsdata
 }
