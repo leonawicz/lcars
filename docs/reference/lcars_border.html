@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -47,7 +51,6 @@
 <meta property="og:title" content="LCARS border plot — lcars_border" />
 <meta property="og:description" content="Wrap a ggplot object with an LCARS-themed border or only plot the border." />
 <meta property="og:image" content="https://leonawicz.github.io/lcars/logo.png" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -65,7 +68,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -79,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lcars</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.6</span>
       </span>
     </div>
 
@@ -131,25 +134,25 @@
     <p>Wrap a ggplot object with an LCARS-themed border or only plot the border.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>lcars_border</span>(
-  <span class='kw'>x</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>10</span>,
-  <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>6</span>,
-  <span class='kw'>corners</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>4</span>,
-  <span class='kw'>length_frac</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0.5</span>, <span class='fl'>8</span>),
-  <span class='kw'>corner_color</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"atomic-tangerine"</span>, <span class='fl'>4</span>),
-  <span class='kw'>ro</span> <span class='kw'>=</span> <span class='no'>width</span>/<span class='fl'>20</span>,
-  <span class='kw'>ri</span> <span class='kw'>=</span> <span class='no'>height</span>/<span class='fl'>60</span>,
-  <span class='kw'>side_width</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>5</span>)/<span class='fl'>5</span>,
-  <span class='kw'>side_n_segments</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0</span>, <span class='fl'>4</span>),
-  <span class='kw'>side_color</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>as.list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"atomic-tangerine"</span>, <span class='fl'>4</span>)),
-  <span class='kw'>side_label</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>NA</span>, <span class='fl'>4</span>),
-  <span class='kw'>label_size</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>side_label_adj</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.5</span>, <span class='fl'>0.5</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(-<span class='fl'>0.2</span>, -<span class='fl'>0.2</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.5</span>, <span class='fl'>0.5</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1.1</span>, -<span class='fl'>0.2</span>)),
-  <span class='kw'>gap</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.02</span>, <span class='fl'>0.01</span>),
-  <span class='kw'>bg</span> <span class='kw'>=</span> <span class='st'>"black"</span>,
-  <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>20</span>
-)</pre>
+    <pre class="usage"><span class='fu'>lcars_border</span><span class='op'>(</span>
+  x <span class='op'>=</span> <span class='cn'>NULL</span>,
+  width <span class='op'>=</span> <span class='fl'>10</span>,
+  height <span class='op'>=</span> <span class='fl'>6</span>,
+  corners <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>,
+  length_frac <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>0.5</span>, <span class='fl'>8</span><span class='op'>)</span>,
+  corner_color <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='st'>"atomic-tangerine"</span>, <span class='fl'>4</span><span class='op'>)</span>,
+  ro <span class='op'>=</span> <span class='va'>width</span><span class='op'>/</span><span class='fl'>20</span>,
+  ri <span class='op'>=</span> <span class='va'>height</span><span class='op'>/</span><span class='fl'>60</span>,
+  side_width <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>5</span><span class='op'>)</span><span class='op'>/</span><span class='fl'>5</span>,
+  side_n_segments <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>4</span><span class='op'>)</span>,
+  side_color <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>as.list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='st'>"atomic-tangerine"</span>, <span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span>,
+  side_label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='cn'>NA</span>, <span class='fl'>4</span><span class='op'>)</span>,
+  label_size <span class='op'>=</span> <span class='fl'>1</span>,
+  side_label_adj <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.5</span>, <span class='fl'>0.5</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>0.2</span>, <span class='op'>-</span><span class='fl'>0.2</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.5</span>, <span class='fl'>0.5</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1.1</span>, <span class='op'>-</span><span class='fl'>0.2</span><span class='op'>)</span><span class='op'>)</span>,
+  gap <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.02</span>, <span class='fl'>0.01</span><span class='op'>)</span>,
+  bg <span class='op'>=</span> <span class='st'>"black"</span>,
+  n <span class='op'>=</span> <span class='fl'>20</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -260,25 +263,24 @@ the top side for side-related arguments. Colors may be given as official
 LCARS color names.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>lcars_border</span>()</div><div class='img'><img src='lcars_border-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='no'>sw</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0.2</span>, <span class='fl'>2</span>, <span class='kw'>length</span> <span class='kw'>=</span> <span class='fl'>4</span>)
-<span class='fu'>lcars_border</span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>ro</span> <span class='kw'>=</span> <span class='no'>sw</span>, <span class='kw'>ri</span> <span class='kw'>=</span> <span class='no'>sw</span> / <span class='fl'>2</span>, <span class='kw'>side_width</span> <span class='kw'>=</span> <span class='no'>sw</span>)</div><div class='input'>
-<span class='no'>len_frac</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.3</span>, <span class='fl'>0.5</span>, <span class='fl'>0.2</span>, <span class='fl'>0.4</span>, <span class='fl'>0.3</span>, <span class='fl'>0.2</span>, <span class='fl'>0.1</span>, <span class='fl'>0.3</span>)
-<span class='no'>n_seg</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>0</span>, <span class='fl'>8</span>)
+    <pre class="examples"><div class='input'><span class='fu'>lcars_border</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='img'><img src='lcars_border-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='va'>sw</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0.2</span>, <span class='fl'>2</span>, length <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
+<span class='fu'>lcars_border</span><span class='op'>(</span>width <span class='op'>=</span> <span class='fl'>5</span>, height <span class='op'>=</span> <span class='fl'>5</span>, ro <span class='op'>=</span> <span class='va'>sw</span>, ri <span class='op'>=</span> <span class='va'>sw</span> <span class='op'>/</span> <span class='fl'>2</span>, side_width <span class='op'>=</span> <span class='va'>sw</span><span class='op'>)</span>
+</div><div class='input'>
+<span class='va'>len_frac</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.3</span>, <span class='fl'>0.5</span>, <span class='fl'>0.2</span>, <span class='fl'>0.4</span>, <span class='fl'>0.3</span>, <span class='fl'>0.2</span>, <span class='fl'>0.1</span>, <span class='fl'>0.3</span><span class='op'>)</span>
+<span class='va'>n_seg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>0</span>, <span class='fl'>8</span><span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)</div><div class='img'><img src='lcars_border-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>g</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='no'>iris</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='no'>Sepal.Length</span>, <span class='no'>Sepal.Width</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='no'>Species</span>)) +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span>() + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span>(~<span class='no'>Species</span>, <span class='fl'>2</span>) + <span class='fu'><a href='theme_lcars.html'>theme_lcars_light</a></span>()
-<span class='fu'>lcars_border</span>(<span class='no'>g</span>, <span class='kw'>corners</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>3</span>, <span class='kw'>length_frac</span> <span class='kw'>=</span> <span class='no'>len_frac</span>, <span class='kw'>side_n_segments</span> <span class='kw'>=</span> <span class='no'>n_seg</span>)</div><div class='img'><img src='lcars_border-3.png' alt='' width='700' height='433' /></div></pre>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
+</div><div class='img'><img src='lcars_border-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='va'>g</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>iris</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>Sepal.Length</span>, <span class='va'>Sepal.Width</span>, color <span class='op'>=</span> <span class='va'>Species</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span><span class='op'>~</span><span class='va'>Species</span>, <span class='fl'>2</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='theme_lcars.html'>theme_lcars_light</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>lcars_border</span><span class='op'>(</span><span class='va'>g</span>, corners <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, length_frac <span class='op'>=</span> <span class='va'>len_frac</span>, side_n_segments <span class='op'>=</span> <span class='va'>n_seg</span><span class='op'>)</span>
+</div><div class='img'><img src='lcars_border-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -289,7 +291,7 @@ LCARS color names.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

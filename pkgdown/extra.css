@@ -13,6 +13,8 @@ body, p, h1, h2, h3, h4, h5, h6{
 
 /* syntaxt highlighting */
 .fl      {color: #63B8FF;}
+.va      {color: #00F5FF;}
+.va a    {color: #00F5FF;}
 .fu      {color: #00F5FF;} /* function */
 .fu a    {color: #00F5FF;}
 code.sourceCode.r a    {color: #00FFFF;}

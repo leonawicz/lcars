@@ -16,7 +16,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.0.2 (2020-06-22)",
+  "runtimePlatform": "R version 4.0.3 (2020-10-10)",
   "author": [
     {
       "@type": "Person",
@@ -199,7 +199,7 @@
   ],
   "releaseNotes": "https://github.com/leonawicz/lcars/blob/master/NEWS.md",
   "readme": "https://github.com/leonawicz/lcars/blob/master/README.md",
-  "fileSize": "2798.798KB",
+  "fileSize": "3151.434KB",
   "contIntegration": ["https://travis-ci.org/leonawicz/lcars", "https://ci.appveyor.com/project/leonawicz/lcars", "https://codecov.io/gh/leonawicz/lcars?branch=master"],
   "developmentStatus": "http://www.repostatus.org/#active",
   "keywords": [

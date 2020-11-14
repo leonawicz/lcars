@@ -1,7 +1,7 @@
 ## Test environments
 
-* local Windows 10 install, R 4.0.0
-* Windows 10 (AppVeyor), R 4.0.0
+* local Windows 10 install, R 4.0.3
+* Windows 10 (AppVeyor), R 4.0.3
 * Ubuntu 16.04 (Travis CI), R-devel, R-release, R-oldrel
 * Mac OSX (Travis CI) R-release
 * win-builder (devel and release)
