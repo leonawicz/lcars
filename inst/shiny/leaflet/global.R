@@ -10,7 +10,7 @@ label_opts <- list(
   "border-size" = "10px", "border-radius" = "4px")
 
 eq_popup <- function(x){
-  logo <- paste0("<img src=\"", x$avatar, "\" style=\"float:right;width:200px\"/>")
+  logo <- paste0("<img src=\"", x$avatar, "\" style=\"float:right;max-height:250px\"/>")
   paste0("<div style=\"width:500px;height:270px;\">", logo, strong("Identification: "), x$loc, "<br/>",
          strong("Geopolitical domain: "), x$zone, "<br/>", strong("Primary species: "), x$species,
          "<br/>", strong("Stellar body: "), x$body, "<br/>", strong("Classification: "), x$category, "</div>")
