@@ -11,7 +11,7 @@
 
 0 errors | 0 warnings | 0 note
 
-* This is an update release.
+* Fixed URL in Readme and resubmitted.
 
 Note: Because this is a Shiny add-on package, examples are not executed if they require an interactive session.
 For consistency, I structured the code of Shiny examples to follow the conditional execution style used in examples in the `shiny` package.
