@@ -1,3 +1,7 @@
+# lcars 0.3.7
+
+* Minor updates.
+
 # lcars 0.3.6
 
 * Replaced deprecated functions in demo apps.
