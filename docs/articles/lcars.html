@@ -27,6 +27,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -39,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lcars</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.8</span>
       </span>
     </div>
 
@@ -47,7 +49,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa-home"></span>
+    <span class="fa fa-home"></span>
      
     Home
   </a>
@@ -64,8 +66,8 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/leonawicz/lcars">
-    <span class="fas fa-github fa-lg"></span>
+  <a href="https://github.com/leonawicz/lcars" class="external-link">
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -79,189 +81,238 @@
 
       
 
-      </header><script src="lcars_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction to lcars</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/leonawicz/lcars/blob/master/vignettes/lcars.Rmd"><code>vignettes/lcars.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/leonawicz/lcars/blob/HEAD/vignettes/lcars.Rmd" class="external-link"><code>vignettes/lcars.Rmd</code></a></small>
       <div class="hidden name"><code>lcars.Rmd</code></div>
 
     </div>
 
     
     
-<div id="making-a-static-plot" class="section level2">
-<h2 class="hasAnchor">
-<a href="#making-a-static-plot" class="anchor"></a>Making a static plot</h2>
-<p>This examples adds an LCARS-style border around a static plot. Keep in mind that while the <code>lcars_border</code> function below takes a ggplot object, the result is not a returnable ggplot object. The function uses the <code>grid</code> package underneath the hood and draws the necessary elements using viewports.</p>
+<div class="section level2">
+<h2 id="making-a-static-plot">Making a static plot<a class="anchor" aria-label="anchor" href="#making-a-static-plot"></a>
+</h2>
+<p>This examples adds an LCARS-style border around a static plot. Keep
+in mind that while the <code>lcars_border</code> function below takes a
+ggplot object, the result is not a returnable ggplot object. The
+function uses the <code>grid</code> package underneath the hood and
+draws the necessary elements using viewports.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leonawicz/lcars">lcars</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leonawicz/trekcolors">trekcolors</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">grid</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.rforge.net/png/">png</a></span><span class="op">)</span>
-
-<span class="va">logo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grid/grid.raster.html">rasterGrob</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/png/man/readPNG.html">readPNG</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"stlogo-white.png"</span>, package <span class="op">=</span> <span class="st">"lcars"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-<span class="va">clrs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#FF3030"</span>, <span class="st">"#FFFF33"</span>, <span class="st">"#20B2AA"</span><span class="op">)</span>
-
-<span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">Sepal.Length</span>, <span class="va">Sepal.Width</span>, color <span class="op">=</span> <span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="../reference/theme_lcars.html">theme_lcars_dark</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html">coord_cartesian</a></span><span class="op">(</span>clip <span class="op">=</span> <span class="st">"off"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotation_custom.html">annotation_custom</a></span><span class="op">(</span><span class="va">logo</span>, xmin <span class="op">=</span> <span class="fl">9.4</span>, xmax <span class="op">=</span> <span class="cn">Inf</span>, ymin <span class="op">=</span> <span class="fl">3.6</span>, ymax <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">clrs</span><span class="op">)</span>
-
-<span class="va">len_frac</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.55</span>, <span class="fl">0.25</span>, <span class="fl">0.2</span>, <span class="fl">0.4</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span><span class="op">)</span>
-<span class="va">n_seg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">0</span>, <span class="fl">8</span><span class="op">)</span>
-<span class="va">corner_colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"chestnut-rose"</span>, <span class="st">"lilac"</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"pale-canary"</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
-<span class="va">side_colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"pale-canary"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"anakiwa"</span>, <span class="st">"lilac"</span><span class="op">)</span>, <span class="cn">NA</span>,
-                    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#000000"</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"anakiwa"</span>, <span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"orange-peel"</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-<span class="va">side_labels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
-  <span class="st">"R 47.0.2"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"47"</span>, <span class="st">"B4"</span><span class="op">)</span>, <span class="cn">NA</span>, 
-  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"LCARS"</span>, <span class="st">"47174-A"</span>, <span class="st">"..."</span>, <span class="st">"O'Brien"</span>, <span class="st">"Lefler"</span>, <span class="st">"La Forge"</span>, <span class="st">"Barclay"</span>, <span class="st">"Argyle"</span><span class="op">)</span><span class="op">)</span>
-
-<span class="fu"><a href="../reference/lcars_border.html">lcars_border</a></span><span class="op">(</span><span class="va">g</span>, corners <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, length_frac <span class="op">=</span> <span class="va">len_frac</span>, side_n_segments <span class="op">=</span> <span class="va">n_seg</span>, 
-             corner_color <span class="op">=</span> <span class="va">corner_colors</span>, side_color <span class="op">=</span> <span class="va">side_colors</span>, 
-             side_label <span class="op">=</span> <span class="va">side_labels</span>, label_size <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="fl">2.8</span>, <span class="fl">0.1</span>, <span class="st">"Iris dataset (classic Terran flora sample)"</span>, 
-     col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/trekcolors/man/lcars_colors.html">lcars_colors</a></span><span class="op">(</span><span class="st">"anakiwa"</span><span class="op">)</span>, font <span class="op">=</span> <span class="fl">2</span>, cex <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="fl">7.55</span>, <span class="fl">0.1</span>, <span class="st">"LCARS BETA R Interface v0.0.1"</span>, 
-     col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/trekcolors/man/lcars_colors.html">lcars_colors</a></span><span class="op">(</span><span class="st">"pale-canary"</span><span class="op">)</span>, font <span class="op">=</span> <span class="fl">2</span>, cex <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leonawicz/lcars" class="external-link">lcars</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leonawicz/trekcolors" class="external-link">trekcolors</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">grid</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://www.rforge.net/png/" class="external-link">png</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">logo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grid/grid.raster.html" class="external-link">rasterGrob</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/png/man/readPNG.html" class="external-link">readPNG</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"stlogo-white.png"</span>, package <span class="op">=</span> <span class="st">"lcars"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">clrs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#FF3030"</span>, <span class="st">"#FFFF33"</span>, <span class="st">"#20B2AA"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">Sepal.Length</span>, <span class="va">Sepal.Width</span>, color <span class="op">=</span> <span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="../reference/theme_lcars.html">theme_lcars_dark</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html" class="external-link">coord_cartesian</a></span><span class="op">(</span>clip <span class="op">=</span> <span class="st">"off"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotation_custom.html" class="external-link">annotation_custom</a></span><span class="op">(</span><span class="va">logo</span>, xmin <span class="op">=</span> <span class="fl">9.4</span>, xmax <span class="op">=</span> <span class="cn">Inf</span>, ymin <span class="op">=</span> <span class="fl">3.6</span>, ymax <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">clrs</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">len_frac</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.55</span>, <span class="fl">0.25</span>, <span class="fl">0.2</span>, <span class="fl">0.4</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span><span class="op">)</span></span>
+<span><span class="va">n_seg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">0</span>, <span class="fl">8</span><span class="op">)</span></span>
+<span><span class="va">corner_colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"chestnut-rose"</span>, <span class="st">"lilac"</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"pale-canary"</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">side_colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"pale-canary"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"anakiwa"</span>, <span class="st">"lilac"</span><span class="op">)</span>, <span class="cn">NA</span>,</span>
+<span>                    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#000000"</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"anakiwa"</span>, <span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"orange-peel"</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">side_labels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>  <span class="st">"R 47.0.2"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"47"</span>, <span class="st">"B4"</span><span class="op">)</span>, <span class="cn">NA</span>, </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"LCARS"</span>, <span class="st">"47174-A"</span>, <span class="st">"..."</span>, <span class="st">"O'Brien"</span>, <span class="st">"Lefler"</span>, <span class="st">"La Forge"</span>, <span class="st">"Barclay"</span>, <span class="st">"Argyle"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/lcars_border.html">lcars_border</a></span><span class="op">(</span><span class="va">g</span>, corners <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, length_frac <span class="op">=</span> <span class="va">len_frac</span>, side_n_segments <span class="op">=</span> <span class="va">n_seg</span>, </span>
+<span>             corner_color <span class="op">=</span> <span class="va">corner_colors</span>, side_color <span class="op">=</span> <span class="va">side_colors</span>, </span>
+<span>             side_label <span class="op">=</span> <span class="va">side_labels</span>, label_size <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html" class="external-link">text</a></span><span class="op">(</span><span class="fl">2.8</span>, <span class="fl">0.1</span>, <span class="st">"Iris dataset (classic Terran flora sample)"</span>, </span>
+<span>     col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/trekcolors/man/lcars_colors.html" class="external-link">lcars_colors</a></span><span class="op">(</span><span class="st">"anakiwa"</span><span class="op">)</span>, font <span class="op">=</span> <span class="fl">2</span>, cex <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html" class="external-link">text</a></span><span class="op">(</span><span class="fl">7.55</span>, <span class="fl">0.1</span>, <span class="st">"LCARS BETA R Interface v0.0.1"</span>, </span>
+<span>     col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/trekcolors/man/lcars_colors.html" class="external-link">lcars_colors</a></span><span class="op">(</span><span class="st">"pale-canary"</span><span class="op">)</span>, font <span class="op">=</span> <span class="fl">2</span>, cex <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span></span></code></pre></div>
 <p><img src="lcars_files/figure-html/ex-1-1.png" width="100%"></p>
-<p>As you can see, a decent plot is still going to take some customization with additional commands in order to give it the level of polish it deserves.</p>
+<p>As you can see, a decent plot is still going to take some
+customization with additional commands in order to give it the level of
+polish it deserves.</p>
 <p>But this is just the appetizer; next is the Shiny version.</p>
 </div>
-<div id="lcars-in-shiny" class="section level2">
-<h2 class="hasAnchor">
-<a href="#lcars-in-shiny" class="anchor"></a>LCARS in Shiny</h2>
-<p>In the <code>lcars</code> package, functions whose names are lowercase and contain underscores deal with general R use. Functions whose names use camel case are related to Shiny.</p>
-<p>First, use <code>lcarsPage</code> to set up the Shiny UI. This is a wrapper around Shiny’s <code>bootstrapPage</code>. It loads the required CSS and other assets.</p>
-<p>There are several functions you can explore. There are a handful of simple wrappers around various Shiny inputs that give them an LCARS aesthetic, but not many currently and they will continue to be improved upon in subsequent package versions.</p>
-<p>The primary function of interest is <code>lcarsBox</code>. This is the container that captures the LCARS style. Additional functions worth focusing on include <code>lcarsHeader</code> for breaking up sections of the UI; also <code>lcarsButton</code> and <code>lcarsToggle</code>, which in conjunction with <code>buttonColumn</code> produce column inputs that fit well into the sidebars of an <code>lcarsBox</code>.</p>
+<div class="section level2">
+<h2 id="lcars-in-shiny">LCARS in Shiny<a class="anchor" aria-label="anchor" href="#lcars-in-shiny"></a>
+</h2>
+<p>In the <code>lcars</code> package, functions whose names are
+lowercase and contain underscores deal with general R use. Functions
+whose names use camel case are related to Shiny.</p>
+<p>First, use <code>lcarsPage</code> to set up the Shiny UI. This is a
+wrapper around Shiny’s <code>bootstrapPage</code>. It loads the required
+CSS and other assets.</p>
+<p>There are several functions you can explore. There are a handful of
+simple wrappers around various Shiny inputs that give them an LCARS
+aesthetic, but not many currently and they will continue to be improved
+upon in subsequent package versions.</p>
+<p>The primary function of interest is <code>lcarsBox</code>. This is
+the container that captures the LCARS style. Additional functions worth
+focusing on include <code>lcarsHeader</code> for breaking up sections of
+the UI; also <code>lcarsButton</code> and <code>lcarsToggle</code>,
+which in conjunction with <code>buttonColumn</code> produce column
+inputs that fit well into the sidebars of an <code>lcarsBox</code>.</p>
 <p>Here is a simple example.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-
-  <span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lcarsPage.html">lcarsPage</a></span><span class="op">(</span>
-    <span class="fu"><a href="../reference/lcarsBox.html">lcarsBox</a></span><span class="op">(</span>
-      <span class="fu">fluidRow</span><span class="op">(</span>
-        <span class="fu">column</span><span class="op">(</span><span class="fl">3</span>,
-          <span class="fu">h4</span><span class="op">(</span><span class="st">"Main panel area"</span><span class="op">)</span>,
-          <span class="fu">HTML</span><span class="op">(</span><span class="st">"&lt;p&gt;Some paragraph text and &lt;a href='#'&gt;a link&lt;/a&gt;
-          with LCARS styling.&lt;/p&gt;
-          &lt;p&gt;Use &lt;code&gt;lcarsPage&lt;/code&gt;
-          to apply the LCARS theme and &lt;code&gt;lcarsBox&lt;/code&gt;
-          to draw a characteristic box for framing content.&lt;/p&gt;
-          &lt;p&gt;Many of the &lt;code&gt;lcarsBox&lt;/code&gt;
-          properties are configurable.
-          See &lt;code&gt;lcars::lcarsApp(\"box\")&lt;/code&gt; for a demo&lt;/p&gt;"</span><span class="op">)</span>
-        <span class="op">)</span>,
-        <span class="fu">column</span><span class="op">(</span><span class="fl">9</span>, <span class="fu">plotOutput</span><span class="op">(</span><span class="st">"plot1"</span><span class="op">)</span><span class="op">)</span>
-      <span class="op">)</span>,
-      title <span class="op">=</span> <span class="st">"box title"</span>,
-      left_inputs <span class="op">=</span> <span class="fu">buttonColumn</span><span class="op">(</span><span class="fu"><a href="../reference/lcarsButton.html">lcarsButton</a></span><span class="op">(</span><span class="st">"btn1"</span>, <span class="st">"A button"</span><span class="op">)</span><span class="op">)</span>
-    <span class="op">)</span>
-  <span class="op">)</span>
-
-  <span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
-    <span class="va">output</span><span class="op">$</span><span class="va">plot1</span> <span class="op">&lt;-</span> <span class="fu">renderPlot</span><span class="op">(</span><span class="op">{</span>
-      <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">500</span><span class="op">)</span><span class="op">)</span>
-    <span class="op">}</span><span class="op">)</span>
-  <span class="op">}</span>
-
-  <span class="fu">shinyApp</span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span></span>
+<span>  <span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lcarsPage.html">lcarsPage</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="../reference/lcarsBox.html">lcarsBox</a></span><span class="op">(</span></span>
+<span>      <span class="fu">fluidRow</span><span class="op">(</span></span>
+<span>        <span class="fu">column</span><span class="op">(</span><span class="fl">3</span>,</span>
+<span>          <span class="fu">h4</span><span class="op">(</span><span class="st">"Main panel area"</span><span class="op">)</span>,</span>
+<span>          <span class="fu">HTML</span><span class="op">(</span><span class="st">"&lt;p&gt;Some paragraph text and &lt;a href='#'&gt;a link&lt;/a&gt;</span></span>
+<span><span class="st">          with LCARS styling.&lt;/p&gt;</span></span>
+<span><span class="st">          &lt;p&gt;Use &lt;code&gt;lcarsPage&lt;/code&gt;</span></span>
+<span><span class="st">          to apply the LCARS theme and &lt;code&gt;lcarsBox&lt;/code&gt;</span></span>
+<span><span class="st">          to draw a characteristic box for framing content.&lt;/p&gt;</span></span>
+<span><span class="st">          &lt;p&gt;Many of the &lt;code&gt;lcarsBox&lt;/code&gt;</span></span>
+<span><span class="st">          properties are configurable.</span></span>
+<span><span class="st">          See &lt;code&gt;lcars::lcarsApp(\"box\")&lt;/code&gt; for a demo&lt;/p&gt;"</span><span class="op">)</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        <span class="fu">column</span><span class="op">(</span><span class="fl">9</span>, <span class="fu">plotOutput</span><span class="op">(</span><span class="st">"plot1"</span><span class="op">)</span><span class="op">)</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      title <span class="op">=</span> <span class="st">"box title"</span>,</span>
+<span>      left_inputs <span class="op">=</span> <span class="fu">buttonColumn</span><span class="op">(</span><span class="fu"><a href="../reference/lcarsButton.html">lcarsButton</a></span><span class="op">(</span><span class="st">"btn1"</span>, <span class="st">"A button"</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">output</span><span class="op">$</span><span class="va">plot1</span> <span class="op">&lt;-</span> <span class="fu">renderPlot</span><span class="op">(</span><span class="op">{</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">500</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="op">}</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span></span>
+<span>  <span class="fu">shinyApp</span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 </div>
-<div id="demo-apps" class="section level2">
-<h2 class="hasAnchor">
-<a href="#demo-apps" class="anchor"></a>Demo apps</h2>
-<p>Rather than post lots of code here in a non-interactive package vignette, the best suggestion is to explore the example apps included in the package. The source code is easy to browse in the GitHub repository.</p>
+<div class="section level2">
+<h2 id="demo-apps">Demo apps<a class="anchor" aria-label="anchor" href="#demo-apps"></a>
+</h2>
+<p>Rather than post lots of code here in a non-interactive package
+vignette, the best suggestion is to explore the example apps included in
+the package. The source code is easy to browse in the GitHub
+repository.</p>
 <p>Use <code>lcarsApp</code> to loads various demo apps:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/lcarsApp.html">lcarsApp</a></span><span class="op">(</span><span class="st">"demo"</span><span class="op">)</span>
-<span class="fu"><a href="../reference/lcarsApp.html">lcarsApp</a></span><span class="op">(</span><span class="st">"box"</span><span class="op">)</span>
-<span class="fu"><a href="../reference/lcarsApp.html">lcarsApp</a></span><span class="op">(</span><span class="st">"sweep"</span><span class="op">)</span>
-<span class="fu"><a href="../reference/lcarsApp.html">lcarsApp</a></span><span class="op">(</span><span class="st">"toggle"</span><span class="op">)</span>
-<span class="fu"><a href="../reference/lcarsApp.html">lcarsApp</a></span><span class="op">(</span><span class="st">"elements"</span><span class="op">)</span>
-<span class="fu"><a href="../reference/lcarsApp.html">lcarsApp</a></span><span class="op">(</span><span class="st">"leaflet"</span><span class="op">)</span></code></pre></div>
-<p>The <code>box</code> example is helpful for exploring the many ways you can control the style of an <code>lcarsBox</code>. Here are a couple examples highlighting some of the versatility:</p>
-<div id="corner-elbows-only" class="section level3">
-<h3 class="hasAnchor">
-<a href="#corner-elbows-only" class="anchor"></a>Corner elbows only</h3>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/lcarsApp.html">lcarsApp</a></span><span class="op">(</span><span class="st">"demo"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/lcarsApp.html">lcarsApp</a></span><span class="op">(</span><span class="st">"box"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/lcarsApp.html">lcarsApp</a></span><span class="op">(</span><span class="st">"sweep"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/lcarsApp.html">lcarsApp</a></span><span class="op">(</span><span class="st">"toggle"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/lcarsApp.html">lcarsApp</a></span><span class="op">(</span><span class="st">"elements"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/lcarsApp.html">lcarsApp</a></span><span class="op">(</span><span class="st">"leaflet"</span><span class="op">)</span></span></code></pre></div>
+<p>The <code>box</code> example is helpful for exploring the many ways
+you can control the style of an <code>lcarsBox</code>. Here are a couple
+examples highlighting some of the versatility:</p>
+<div class="section level3">
+<h3 id="corner-elbows-only">Corner elbows only<a class="anchor" aria-label="anchor" href="#corner-elbows-only"></a>
+</h3>
 <p><img src="lcarsBox-ex1.png" width="100%"></p>
 </div>
-<div id="colored-segments-and-input-panels" class="section level3">
-<h3 class="hasAnchor">
-<a href="#colored-segments-and-input-panels" class="anchor"></a>Colored segments and input panels</h3>
+<div class="section level3">
+<h3 id="colored-segments-and-input-panels">Colored segments and input panels<a class="anchor" aria-label="anchor" href="#colored-segments-and-input-panels"></a>
+</h3>
 <p><img src="lcarsBox-ex2.png" width="100%"></p>
-<p>Running these apps will prompt you to install required packages if you do not already have them installed. These are necessary for the examples but not a necessary component of <code>lcars</code>, specifically <code>ggrepel</code> and <code>showtext</code>.</p>
+<p>Running these apps will prompt you to install required packages if
+you do not already have them installed. These are necessary for the
+examples but not a necessary component of <code>lcars</code>,
+specifically <code>ggrepel</code> and <code>showtext</code>.</p>
 </div>
 </div>
-<div id="recommendations" class="section level2">
-<h2 class="hasAnchor">
-<a href="#recommendations" class="anchor"></a>Recommendations</h2>
-<div id="font-and-casing" class="section level3">
-<h3 class="hasAnchor">
-<a href="#font-and-casing" class="anchor"></a>Font and casing</h3>
-<p>Pay attention to the arguments to <code>lcarsPage</code>. Depending on the nature of text content in your app, you may find you need to deviate from some LCARS-style defaults (e.g., uppercase font) to make the text in your app more pleasant to read. It will also allow you to revert to sans serif. It is not an all or nothing switch; you have some control over what to change and what to leave alone.</p>
+<div class="section level2">
+<h2 id="recommendations">Recommendations<a class="anchor" aria-label="anchor" href="#recommendations"></a>
+</h2>
+<div class="section level3">
+<h3 id="font-and-casing">Font and casing<a class="anchor" aria-label="anchor" href="#font-and-casing"></a>
+</h3>
+<p>Pay attention to the arguments to <code>lcarsPage</code>. Depending
+on the nature of text content in your app, you may find you need to
+deviate from some LCARS-style defaults (e.g., uppercase font) to make
+the text in your app more pleasant to read. It will also allow you to
+revert to sans serif. It is not an all or nothing switch; you have some
+control over what to change and what to leave alone.</p>
 </div>
-<div id="responsiveness-limitations" class="section level3">
-<h3 class="hasAnchor">
-<a href="#responsiveness-limitations" class="anchor"></a>Responsiveness limitations</h3>
-<p>In adhering closely to sizing and layout rules for LCARS UI design, fixed sizing works best for some container widgets like <code>lcarBox</code> and <code>lcarsSweep</code>. You can use settings like <code>width = "100%"</code> for these containers, but you may notice limitations in maintaining a responsive UI, particularly when they contain plot outputs. Fixed width widgets are generally recommended.</p>
-<p>Visual components such as the LCARS elbow shape underlying some widgets are intended to follow strict sizing and scaling rules. They are not intended to scale arbitrarily or fit well on very small device screens.</p>
+<div class="section level3">
+<h3 id="responsiveness-limitations">Responsiveness limitations<a class="anchor" aria-label="anchor" href="#responsiveness-limitations"></a>
+</h3>
+<p>In adhering closely to sizing and layout rules for LCARS UI design,
+fixed sizing works best for some container widgets like
+<code>lcarBox</code> and <code>lcarsSweep</code>. You can use settings
+like <code>width = "100%"</code> for these containers, but you may
+notice limitations in maintaining a responsive UI, particularly when
+they contain plot outputs. Fixed width widgets are generally
+recommended.</p>
+<p>Visual components such as the LCARS elbow shape underlying some
+widgets are intended to follow strict sizing and scaling rules. They are
+not intended to scale arbitrarily or fit well on very small device
+screens.</p>
 </div>
-<div id="official-lcars-colors" class="section level3">
-<h3 class="hasAnchor">
-<a href="#official-lcars-colors" class="anchor"></a>Official LCARS colors</h3>
-<p>Familiarize yourself with LCARS colors from the <code>trekcolors</code> package. This package is a dependency of <code>lcars</code>. It includes various other Star Trek color palettes. Most notably it includes a function for previewing the palettes.</p>
-<p>There are several generations of LCARS color palettes. The <code>lcarsdata</code> dataset in <code>lcars</code> provides a convenient data frame of the four main series of LCARS color palettes with official color names, but <code>trekcolors</code> offers several helpful functions related to LCARS colors, including LCARS-themed <code>scale_*</code> functions for use with <code>ggplot2</code>.</p>
+<div class="section level3">
+<h3 id="official-lcars-colors">Official LCARS colors<a class="anchor" aria-label="anchor" href="#official-lcars-colors"></a>
+</h3>
+<p>Familiarize yourself with LCARS colors from the
+<code>trekcolors</code> package. This package is a dependency of
+<code>lcars</code>. It includes various other Star Trek color palettes.
+Most notably it includes a function for previewing the palettes.</p>
+<p>There are several generations of LCARS color palettes. The
+<code>lcarsdata</code> dataset in <code>lcars</code> provides a
+convenient data frame of the four main series of LCARS color palettes
+with official color names, but <code>trekcolors</code> offers several
+helpful functions related to LCARS colors, including LCARS-themed
+<code>scale_*</code> functions for use with <code>ggplot2</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lcarsdata</span><span class="op">)</span>
-<span class="co">#&gt;              series         name   value</span>
-<span class="co">#&gt; pale-canary    2357  pale-canary #FFFF99</span>
-<span class="co">#&gt; tanoi          2357        tanoi #FFCC99</span>
-<span class="co">#&gt; golden-tanoi   2357 golden-tanoi #FFCC66</span>
-<span class="co">#&gt; neon-carrot    2357  neon-carrot #FF9933</span>
-<span class="co">#&gt; eggplant       2357     eggplant #664466</span>
-<span class="co">#&gt; lilac          2357        lilac #CC99CC</span>
-
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leonawicz/trekcolors">trekcolors</a></span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/pkg/trekcolors/man/lcars_colors.html">lcars_colors</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt;      pale-canary            tanoi     golden-tanoi      neon-carrot </span>
-<span class="co">#&gt;        "#FFFF99"        "#FFCC99"        "#FFCC66"        "#FF9933" </span>
-<span class="co">#&gt;         eggplant            lilac          anakiwa          mariner </span>
-<span class="co">#&gt;        "#664466"        "#CC99CC"        "#99CCFF"        "#3366CC" </span>
-<span class="co">#&gt;      bahama-blue        blue-bell          melrose          hopbush </span>
-<span class="co">#&gt;        "#006699"        "#9999CC"        "#9999FF"        "#CC6699" </span>
-<span class="co">#&gt;    chestnut-rose      orange-peel atomic-tangerine            danub </span>
-<span class="co">#&gt;        "#CC6666"        "#FF9966"        "#FF9900"        "#6688CC" </span>
-<span class="co">#&gt;           indigo  lavender-purple           cosmic       red-damask </span>
-<span class="co">#&gt;        "#4455BB"        "#9977AA"        "#774466"        "#DD6644" </span>
-<span class="co">#&gt;   medium-carmine          bourbon      sandy-brown       periwinkle </span>
-<span class="co">#&gt;        "#AA5533"        "#BB6622"        "#EE9955"        "#CCDDFF" </span>
-<span class="co">#&gt;      dodger-pale      dodger-soft        near-blue        navy-blue </span>
-<span class="co">#&gt;        "#5599FF"        "#3366FF"        "#0011EE"        "#000088" </span>
-<span class="co">#&gt;             husk             rust        tamarillo </span>
-<span class="co">#&gt;        "#BBAA55"        "#BB4411"        "#882211"</span>
-
-<span class="fu"><a href="https://rdrr.io/pkg/trekcolors/man/lcars_colors.html">lcars_colors</a></span><span class="op">(</span><span class="st">"melrose"</span><span class="op">)</span>
-<span class="co">#&gt;   melrose </span>
-<span class="co">#&gt; "#9999FF"</span>
-
-<span class="fu"><a href="https://rdrr.io/pkg/trekcolors/man/trek_pal.html">view_trek_pals</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lcars_2357"</span>, <span class="st">"lcars_2369"</span>, <span class="st">"lcars_2375"</span>, <span class="st">"lcars_2379"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">lcarsdata</span><span class="op">)</span></span>
+<span><span class="co">#&gt;              series         name   value</span></span>
+<span><span class="co">#&gt; pale-canary    2357  pale-canary #FFFF99</span></span>
+<span><span class="co">#&gt; tanoi          2357        tanoi #FFCC99</span></span>
+<span><span class="co">#&gt; golden-tanoi   2357 golden-tanoi #FFCC66</span></span>
+<span><span class="co">#&gt; neon-carrot    2357  neon-carrot #FF9933</span></span>
+<span><span class="co">#&gt; eggplant       2357     eggplant #664466</span></span>
+<span><span class="co">#&gt; lilac          2357        lilac #CC99CC</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leonawicz/trekcolors" class="external-link">trekcolors</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/trekcolors/man/lcars_colors.html" class="external-link">lcars_colors</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt;      pale-canary            tanoi     golden-tanoi      neon-carrot </span></span>
+<span><span class="co">#&gt;        "#FFFF99"        "#FFCC99"        "#FFCC66"        "#FF9933" </span></span>
+<span><span class="co">#&gt;         eggplant            lilac          anakiwa          mariner </span></span>
+<span><span class="co">#&gt;        "#664466"        "#CC99CC"        "#99CCFF"        "#3366CC" </span></span>
+<span><span class="co">#&gt;      bahama-blue        blue-bell          melrose          hopbush </span></span>
+<span><span class="co">#&gt;        "#006699"        "#9999CC"        "#9999FF"        "#CC6699" </span></span>
+<span><span class="co">#&gt;    chestnut-rose      orange-peel atomic-tangerine            danub </span></span>
+<span><span class="co">#&gt;        "#CC6666"        "#FF9966"        "#FF9900"        "#6688CC" </span></span>
+<span><span class="co">#&gt;           indigo  lavender-purple           cosmic       red-damask </span></span>
+<span><span class="co">#&gt;        "#4455BB"        "#9977AA"        "#774466"        "#DD6644" </span></span>
+<span><span class="co">#&gt;   medium-carmine          bourbon      sandy-brown       periwinkle </span></span>
+<span><span class="co">#&gt;        "#AA5533"        "#BB6622"        "#EE9955"        "#CCDDFF" </span></span>
+<span><span class="co">#&gt;      dodger-pale      dodger-soft        near-blue        navy-blue </span></span>
+<span><span class="co">#&gt;        "#5599FF"        "#3366FF"        "#0011EE"        "#000088" </span></span>
+<span><span class="co">#&gt;             husk             rust        tamarillo </span></span>
+<span><span class="co">#&gt;        "#BBAA55"        "#BB4411"        "#882211"</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/trekcolors/man/lcars_colors.html" class="external-link">lcars_colors</a></span><span class="op">(</span><span class="st">"melrose"</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   melrose </span></span>
+<span><span class="co">#&gt; "#9999FF"</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/trekcolors/man/trek_pal.html" class="external-link">view_trek_pals</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lcars_2357"</span>, <span class="st">"lcars_2369"</span>, <span class="st">"lcars_2375"</span>, <span class="st">"lcars_2379"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="lcars_files/figure-html/lcars-colors-1.png" width="100%"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">carat</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">stat</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span>, fill <span class="op">=</span> <span class="va">cut</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"fill"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/pkg/trekcolors/man/scale_lcars.html">scale_fill_lcars</a></span><span class="op">(</span><span class="st">"2357"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">carat</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html" class="external-link">stat</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span>, fill <span class="op">=</span> <span class="va">cut</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html" class="external-link">geom_density</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"fill"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/pkg/trekcolors/man/scale_lcars.html" class="external-link">scale_fill_lcars</a></span><span class="op">(</span><span class="st">"2357"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="lcars_files/figure-html/lcars-colors-2.png" width="100%"></p>
-<p>Functions in <code>lcars</code> that accept color arguments will take any hex color, but will also accept official LCARS colors by name.</p>
+<p>Functions in <code>lcars</code> that accept color arguments will take
+any hex color, but will also accept official LCARS colors by name.</p>
 </div>
 </div>
   </div>
@@ -277,11 +328,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://github.com/leonawicz">Matthew Leonawicz</a>.</p>
+  <p></p>
+<p>Developed by <a href="https://github.com/leonawicz" class="external-link">Matthew Leonawicz</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
@@ -289,6 +342,8 @@
 
   
 
+
+  
 
   </body>
 </html>

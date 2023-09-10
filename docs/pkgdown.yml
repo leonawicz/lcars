@@ -1,9 +1,9 @@
-pandoc: 2.7.3
-pkgdown: 1.6.1
+pandoc: 3.1.1
+pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   lcars: lcars.html
-last_built: 2021-05-04T15:22Z
+last_built: 2023-09-10T02:46Z
 urls:
   reference: https://leonawicz.github.io/lcars/reference
   article: https://leonawicz.github.io/lcars/articles

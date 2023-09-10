@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://leonawicz.github.io/lcars/404.html</loc>
+  </url>
+  <url>
+    <loc>https://leonawicz.github.io/lcars/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://leonawicz.github.io/lcars/articles/lcars.html</loc>
+  </url>
+  <url>
+    <loc>https://leonawicz.github.io/lcars/authors.html</loc>
+  </url>
+  <url>
+    <loc>https://leonawicz.github.io/lcars/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
     <loc>https://leonawicz.github.io/lcars/index.html</loc>
+  </url>
+  <url>
+    <loc>https://leonawicz.github.io/lcars/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://leonawicz.github.io/lcars/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://leonawicz.github.io/lcars/news/index.html</loc>
+  </url>
+  <url>
+    <loc>https://leonawicz.github.io/lcars/reference/index.html</loc>
   </url>
   <url>
     <loc>https://leonawicz.github.io/lcars/reference/inputColumn.html</loc>
@@ -68,8 +95,5 @@
   </url>
   <url>
     <loc>https://leonawicz.github.io/lcars/reference/theme_lcars.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/articles/lcars.html</loc>
   </url>
 </urlset>
