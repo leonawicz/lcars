@@ -10,6 +10,7 @@
 #'
 #' @docType package
 #' @name lcars
+#' @aliases lcars-package
 NULL
 
 #' @importFrom shiny tags div

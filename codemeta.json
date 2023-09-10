@@ -1,22 +1,25 @@
 {
-  "@context": [
-    "https://doi.org/10.5063/schema/codemeta-2.0",
-    "http://schema.org"
-  ],
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "lcars",
-  "description": "Provides Shiny widgets and theme that support a 'Library Computer Access/Retrieval System' (LCARS) aesthetic for Shiny apps. \n    The package also includes functions for adding a minimal LCARS theme to static 'ggplot2' graphs. \n    More details about LCARS can be found at <https://en.wikipedia.org/wiki/LCARS>.",
+  "description": "Provides Shiny widgets and theme that support a 'Library Computer Access/Retrieval System' (LCARS) aesthetic for Shiny apps. The package also includes functions for adding a minimal LCARS theme to static 'ggplot2' graphs. More details about LCARS can be found at <https://en.wikipedia.org/wiki/LCARS>.",
   "name": "lcars: LCARS Aesthetic for Shiny",
   "codeRepository": "https://github.com/leonawicz/lcars",
   "issueTracker": "https://github.com/leonawicz/lcars/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.0.5 (2021-03-31)",
+  "runtimePlatform": "R version 4.3.1 (2023-06-16 ucrt)",
+  "provider": {
+    "@id": "https://cran.r-project.org",
+    "@type": "Organization",
+    "name": "Comprehensive R Archive Network (CRAN)",
+    "url": "https://cran.r-project.org"
+  },
   "author": [
     {
       "@type": "Person",
@@ -26,9 +29,6 @@
       "@id": "https://orcid.org/0000-0001-9452-2771"
     }
   ],
-  "contributor": {},
-  "copyrightHolder": {},
-  "funder": {},
   "maintainer": [
     {
       "@type": "Person",
@@ -74,18 +74,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "covr",
-      "name": "covr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=covr"
     },
     {
       "@type": "SoftwareApplication",
@@ -148,19 +136,19 @@
       "sameAs": "https://CRAN.R-project.org/package=leaflet.extras"
     }
   ],
-  "softwareRequirements": [
-    {
+  "softwareRequirements": {
+    "1": {
       "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
       "version": ">= 3.5.0"
     },
-    {
+    "2": {
       "@type": "SoftwareApplication",
       "identifier": "grid",
       "name": "grid"
     },
-    {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "ggplot2",
       "name": "ggplot2",
@@ -172,7 +160,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=ggplot2"
     },
-    {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "shiny",
       "name": "shiny",
@@ -184,7 +172,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=shiny"
     },
-    {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "trekcolors",
       "name": "trekcolors",
@@ -195,24 +183,8 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=trekcolors"
-    }
-  ],
-  "releaseNotes": "https://github.com/leonawicz/lcars/blob/master/NEWS.md",
-  "readme": "https://github.com/leonawicz/lcars/blob/master/README.md",
-  "fileSize": "3154.398KB",
-  "contIntegration": ["https://travis-ci.org/leonawicz/lcars", "https://ci.appveyor.com/project/leonawicz/lcars", "https://codecov.io/gh/leonawicz/lcars?branch=master"],
-  "developmentStatus": "https://www.repostatus.org/",
-  "keywords": [
-    "r-package",
-    "r-shiny",
-    "star-trek",
-    "lcars"
-  ],
-  "provider": {
-    "@id": "https://cran.r-project.org",
-    "@type": "Organization",
-    "name": "Comprehensive R Archive Network (CRAN)",
-    "url": "https://cran.r-project.org"
+    },
+    "SystemRequirements": null
   },
-  "relatedLink": "https://CRAN.R-project.org/package=lcars"
+  "fileSize": "693.781KB"
 }

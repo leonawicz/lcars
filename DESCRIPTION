@@ -1,13 +1,11 @@
 Package: lcars
 Title: LCARS Aesthetic for Shiny
-Version: 0.3.7
+Version: 0.3.8
 Authors@R: person("Matthew", "Leonawicz", email = "mfleonawicz@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-9452-2771"))
 Description: Provides Shiny widgets and theme that support a 'Library Computer Access/Retrieval System' (LCARS) aesthetic for Shiny apps. 
     The package also includes functions for adding a minimal LCARS theme to static 'ggplot2' graphs. 
     More details about LCARS can be found at <https://en.wikipedia.org/wiki/LCARS>.
 License: MIT + file LICENSE
-Encoding: UTF-8
-LazyData: true
 URL: https://github.com/leonawicz/lcars
 BugReports: https://github.com/leonawicz/lcars/issues
 Depends: R (>= 3.5.0)
@@ -20,12 +18,13 @@ Suggests:
     testthat,
     knitr,
     rmarkdown,
-    covr,
     png,
     ggrepel,
     showtext,
     leaflet,
     leaflet.extras
 VignetteBuilder: knitr
+Encoding: UTF-8
 Language: en-US
-RoxygenNote: 7.1.1
+LazyData: true
+RoxygenNote: 7.2.3

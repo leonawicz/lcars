@@ -4,15 +4,10 @@
 ^CODE_OF_CONDUCT\.md$
 ^docs$
 ^pkgdown$
-^clone-comments\.md$
 ^cran-comments\.md$
 ^data-raw$
 ^README\.Rmd$
 ^revdep$
-^\.lintr$
-^appveyor\.yml$
-^\.travis\.yml$
-^codecov\.yml$
 ^tests/testthat/Rplots\.pdf$
 ^README\.html$
 ^codemeta\.json$

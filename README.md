@@ -11,13 +11,6 @@
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/)
-[![Travis build
-status](https://travis-ci.org/leonawicz/lcars.svg?branch=master)](https://travis-ci.org/leonawicz/lcars)
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/leonawicz/lcars?branch=master&svg=true)](https://ci.appveyor.com/project/leonawicz/lcars)
-[![Codecov test
-coverage](https://codecov.io/gh/leonawicz/lcars/branch/master/graph/badge.svg)](https://codecov.io/gh/leonawicz/lcars?branch=master)
-
 [![CRAN
 status](http://www.r-pkg.org/badges/version/lcars)](https://cran.r-project.org/package=lcars)
 [![CRAN
@@ -35,14 +28,14 @@ is fun and quirky in its own right, but it begs the next obvious step:
 interactivity. LCARS-themed displays can be fun to make, but using Shiny
 is much more exciting because you can make something with the look and
 feel of LCARS that also is *actually operational* and not just another
-piece of static digital fan art\!
+piece of static digital fan art!
 
 ![](man/figures/README-banner.png)
 
 That’s right. Make your Shiny app, view it on a touch screen device like
 your very own Federation-issue data PADD, and transport yourself into
 the future of the Star Trek universe with this 1980s sci-fi television
-aesthetic\!
+aesthetic!
 
 ### Function names
 
@@ -64,25 +57,25 @@ widgets that provide various LCARS aesthetics.
 
 UI setup and containers:
 
-  - `lcarsPage`
-  - `lcarsBox`
-  - `lcarsSweep`
-  - `lcarsBracket`
-  - `lcarsWell`
-  - `inputColumn`
+- `lcarsPage`
+- `lcarsBox`
+- `lcarsSweep`
+- `lcarsBracket`
+- `lcarsWell`
+- `inputColumn`
 
 Headers and indicators:
 
-  - `lcarsHeader`, `lcarsh1` through `lcarsh6`.
-  - `lcarsRect`, `lcarsPill`, etc.
+- `lcarsHeader`, `lcarsh1` through `lcarsh6`.
+- `lcarsRect`, `lcarsPill`, etc.
 
 Input controls
 
-  - `lcarsButton`
-  - `lcarsCheckbox`
-  - `lcarsToggle`
-  - `lcarsRadio`
-  - `lcarsRadioToggle`
+- `lcarsButton`
+- `lcarsCheckbox`
+- `lcarsToggle`
+- `lcarsRadio`
+- `lcarsRadioToggle`
 
 The key widgets are `lcarsHeader`, `lcarsBox` and `lcarsSweep`. An
 example of the header and box is shown above. Here is a combined LCARS
@@ -136,10 +129,8 @@ intended to scale arbitrarily or fit well on very small device screens.
 <div class="col-sm-10">
 
 <h4 style="padding:30px 0 0 0;margin-top:5px;margin-bottom:5px;">
-
 <a href="https://github.com/leonawicz/rtrek">rtrek</a>: The core Star
 Trek package
-
 </h4>
 
 Datasets related to Star Trek, API wrappers to external data sources,
@@ -162,10 +153,8 @@ and more.
 <div class="col-sm-10">
 
 <h4 style="padding:30px 0 0 0;margin-top:5px;margin-bottom:5px;">
-
 <a href="https://github.com/leonawicz/lcars">lcars</a>: LCARS aesthetic
 for Shiny
-
 </h4>
 
 Create Shiny apps based on the Library Computer Access/Retrieval System
@@ -188,10 +177,8 @@ Create Shiny apps based on the Library Computer Access/Retrieval System
 <div class="col-sm-10">
 
 <h4 style="padding:30px 0 0 0;margin-top:5px;margin-bottom:5px;">
-
 <a href="https://github.com/leonawicz/trekcolors">trekcolors</a>: A
 color palette package
-
 </h4>
 
 Predefined and customizable Star Trek themed color palettes and related
@@ -214,10 +201,8 @@ functions.
 <div class="col-sm-10">
 
 <h4 style="padding:30px 0 0 0;margin-top:5px;margin-bottom:5px;">
-
 <a href="https://github.com/leonawicz/trekfont">trekfont</a>: A fonts
 package
-
 </h4>
 
 True (Trek) type fonts to style your Star Trek themed graphics text.
@@ -230,7 +215,7 @@ True (Trek) type fonts to style your Star Trek themed graphics text.
 
 ## Citation
 
-Matthew Leonawicz (2021). lcars: LCARS Aesthetic for Shiny. R package
+Matthew Leonawicz (2023). lcars: LCARS Aesthetic for Shiny. R package
 version 0.3.7. <https://github.com/leonawicz/lcars>
 
 ## Contribute
@@ -239,7 +224,7 @@ Contributions are welcome. Contribute through GitHub via pull request.
 Please create an issue first if it is regarding any substantive feature
 add or change.
 
------
+------------------------------------------------------------------------
 
 Please note that the `lcars` project is released with a [Contributor
 Code of

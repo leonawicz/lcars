@@ -1,3 +1,7 @@
+# lcars 0.3.8
+
+* Added required package alias in documentation.
+
 # lcars 0.3.7
 
 * Minor updates.
@@ -10,7 +14,7 @@
 
 * Added demo Shiny app containing Leaflet examples.
 
-# lcars.0.3.1
+# lcars 0.3.1
 
 * Made changes to some examples per CRAN request.
 

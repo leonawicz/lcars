@@ -17,10 +17,6 @@ knitr::opts_chunk$set(
 **License:** [MIT](https://opensource.org/licenses/MIT)<br/>
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/)
-[![Travis build status](https://travis-ci.org/leonawicz/lcars.svg?branch=master)](https://travis-ci.org/leonawicz/lcars)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/leonawicz/lcars?branch=master&svg=true)](https://ci.appveyor.com/project/leonawicz/lcars)
-[![Codecov test coverage](https://codecov.io/gh/leonawicz/lcars/branch/master/graph/badge.svg)](https://codecov.io/gh/leonawicz/lcars?branch=master)
-
 [![CRAN status](http://www.r-pkg.org/badges/version/lcars)](https://cran.r-project.org/package=lcars)
 [![CRAN downloads](http://cranlogs.r-pkg.org/badges/grand-total/lcars)](https://cran.r-project.org/package=lcars) 
 [![Github Stars](https://img.shields.io/github/stars/leonawicz/lcars.svg?style=social&label=Github)](https://github.com/leonawicz/lcars)
@@ -137,7 +133,7 @@ True (Trek) type fonts to style your Star Trek themed graphics text.
 
 ## Citation
 
-Matthew Leonawicz (2021). lcars: LCARS Aesthetic for Shiny. R package version 0.3.7. https://github.com/leonawicz/lcars
+Matthew Leonawicz (`r substr(Sys.Date(), 1, 4)`). lcars: LCARS Aesthetic for Shiny. R package version 0.3.7. https://github.com/leonawicz/lcars
 
 ## Contribute
 

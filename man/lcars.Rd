@@ -3,6 +3,7 @@
 \docType{package}
 \name{lcars}
 \alias{lcars}
+\alias{lcars-package}
 \title{lcars: LCARS aesthetic for Shiny}
 \description{
 Library Computer Access/Retrieval System
