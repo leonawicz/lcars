@@ -3,11 +3,6 @@
 
 # lcars <img src="man/figures/logo.png" style="margin-left:10px;margin-bottom:5px;" width="120" align="right">
 
-**Author:** [Matthew Leonawicz](https://github.com/leonawicz)
-<a href="https://orcid.org/0000-0001-9452-2771" target="orcid.widget">
-<img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" /></a>
-<br/> **License:** [MIT](https://opensource.org/licenses/MIT/)<br/>
-
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/)
