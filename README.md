@@ -211,7 +211,7 @@ True (Trek) type fonts to style your Star Trek themed graphics text.
 ## Citation
 
 Matthew Leonawicz (2023). lcars: LCARS Aesthetic for Shiny. R package
-version 0.3.7. <https://github.com/leonawicz/lcars>
+version 0.3.8. <https://CRAN.R-project.org/package=lcars>
 
 ## Contribute
 
