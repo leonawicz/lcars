@@ -16,5 +16,5 @@ For consistency, I structured the code of Shiny examples to follow the condition
 0 errors | 0 warnings | 0 notes
 
 I have also run R CMD check on downstream dependencies 
-(https://github.com/leonawicz/imgpalr/blob/master/revdep/). 
+(https://github.com/leonawicz/lcars/blob/master/revdep/). 
 All packages passed.
