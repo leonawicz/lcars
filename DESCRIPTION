@@ -6,7 +6,7 @@ Description: Provides Shiny widgets and theme that support a 'Library Computer A
     The package also includes functions for adding a minimal LCARS theme to static 'ggplot2' graphs. 
     More details about LCARS can be found at <https://en.wikipedia.org/wiki/LCARS>.
 License: MIT + file LICENSE
-URL: https://github.com/leonawicz/lcars
+URL: https://github.com/leonawicz/lcars, https://leonawicz.github.io/lcars/
 BugReports: https://github.com/leonawicz/lcars/issues
 Depends: R (>= 3.5.0)
 Imports: 
