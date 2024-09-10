@@ -38,10 +38,10 @@ to include: top left, top right, bottom right, bottom left. See details.}
 panels: top, right, bottom, left. See details.}
 
 \item{left_inputs}{optional input column for left side, for example a column
-of buttons made with \code{inputColumn}. See details.}
+of buttons made with \code{inputColumn()}. See details.}
 
 \item{right_inputs}{optional input column for right side, for example a
-column of buttons made with \code{inputColumn}. See details.}
+column of buttons made with \code{inputColumn()}. See details.}
 
 \item{color}{box border colors. See details.}
 
@@ -95,7 +95,7 @@ the panel border is included (see side panel section below). If the side
 between the elbow areas is excluded, only the elbows are displayed.
 
 If both elbows are excluded from the top or from the bottom, a simple,
-straight \code{lcarsHeader} element is placed above or below the main
+straight \code{lcarsHeader()} element is placed above or below the main
 content area instead, but this can be controlled via \code{sides}.
 }
 
@@ -106,17 +106,17 @@ from top left. Sides connect elbows using straight bars. The top and bottom
 sides are where title and subtitle text are placed. The title for the top
 and subtitle for the bottom are included in the bar with standard LCARS
 right alignment, which can be switched to left. If the top or bottom side
-panel is excluded, the vertical space remains if \code{title} or
-\code{subtitle} are included, respectively, retaining the text labels;
-otherwise the space is removed.
+panel is excluded, the vertical space remains if \code{title} or \code{subtitle} are
+included, respectively, retaining the text labels; otherwise the space is
+removed.
 
 By default, left and right sides are 150 pixels wide; top and bottom sides
 are 30 pixels tall. The top and bottom are fixed, but the widths of the left
-and right side panels can be adjusted using \code{width_left} and
-\code{width_right}, respectively. They can only be adjusted down to smaller
-widths. This is to ensure proper scaling for connected corners. The side
-panels are not meant to accommodate wider inputs and should primarily be
-used for small buttons and short text.
+and right side panels can be adjusted using \code{width_left} and \code{width_right},
+respectively. They can only be adjusted down to smaller widths. This is to
+ensure proper scaling for connected corners. The side panels are not meant to
+accommodate wider inputs and should primarily be used for small buttons and
+short text.
 }
 
 \section{Side inputs columns}{
@@ -137,27 +137,26 @@ missing left or right side panel. To restrict this, use a black side panel
 to match the background.
 
 Since the inputs contained in an input column are defined separately and
-passed to \code{lcarsBox}, they should be defined to have widths that match
+passed to \code{lcarsBox()}, they should be defined to have widths that match
 the box side panel widths.
 }
 
 \section{Colors}{
 
 Box color can be any color given in hex format. Named colors must be LCARS
-colors. See \code{\link{lcarsdata}} for options. By default, all border
-colors inherit from a single color passed to \code{color}.
+colors. See \link{lcarsdata} for options. By default, all border colors inherit
+from a single color passed to \code{color}.
 
-\code{color} is recycled to length four as needed. \code{color} actually
-defines all four corner elbow colors. For corner elbows, use a vector of
-four colors for the top left, top right, bottom right, and bottom left,
-respectively.
+\code{color} is recycled to length four as needed. \code{color} actually defines all
+four corner elbow colors. For corner elbows, use a vector of four colors for
+the top left, top right, bottom right, and bottom left, respectively.
 
 Similarly for the bars between elbows with \code{side_colors}, use a vector
 of four colors for the top, right side, bottom, and left side. This is also
 recycled to length four. If not provided, it inherits from \code{color}.
 
-\code{title_color} and \code{subtitle_color} are scalar. They inherit from
-the first color in \code{color}.
+\code{title_color} and \code{subtitle_color} are scalar. They inherit from the first
+color in \code{color}.
 }
 
 \section{Margin space}{
@@ -177,11 +176,10 @@ it, but set its color to match the background.
 \section{Sizing}{
 
 There are limitations to the container responsiveness of the LCARS box and
-sweep. In some cases, using percentage width, e.g., \code{width = "100\%"}
-will work, but it may respond sluggishly or may not work at all. Fixed pixel
-width is recommended for \code{lcarsBox} and \code{lcarsSweep}. Regardless
-of responsiveness, these widgets are also not intended to fit very small
-displays.
+sweep. In some cases, using percentage width, e.g., \code{width = "100\%"} will
+work, but it may respond sluggishly or may not work at all. Fixed pixel
+width is recommended for \code{lcarsBox()} and \code{lcarsSweep()}. Regardless of
+responsiveness, these widgets are also not intended to fit very small displays.
 }
 
 \examples{
@@ -219,5 +217,5 @@ if (interactive()) {
 }
 }
 \seealso{
-\code{\link{lcarsSweep}}
+\code{\link[=lcarsSweep]{lcarsSweep()}}
 }

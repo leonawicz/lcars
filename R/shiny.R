@@ -2,20 +2,17 @@
 #'
 #' Create a Shiny UI page with an LCARS theme.
 #'
-#' The LCARS style heavily emphasizes uppercase text. Set
-#' \code{force_uppercase = TRUE} to force this standard via CSS.
-#' This does not make everything uppercase; things like input labels are left
-#' alone (use \code{label_uppercase = TRUE}). However, text in general in
-#' uppercased.
+#' The LCARS style heavily emphasizes uppercase text. Set `force_uppercase = TRUE`
+#' to force this standard via CSS. This does not make everything uppercase;
+#' things like input labels are left alone (use `label_uppercase = TRUE`).
+#' However, text in general in uppercased.
 #'
-#' Set these to \code{FALSE} if you need control over casing.
-#' This allows sensible judgment over how to balance the tension between
-#' making something that conforms well to the familiar LCARS aesthetic
-#' and making something that communicates information with a lower cognitive
-#' load for the user.
-#' Similarly, set \code{lcars_font*} arguments to \code{FALSE} to use a more
-#' readable sans serif font as desired.
-#' See examples for recommendations.
+#' Set these to `FALSE` if you need control over casing. This allows sensible
+#' judgment over how to balance the tension between making something that
+#' conforms well to the familiar LCARS aesthetic and making something that
+#' communicates information with a lower cognitive load for the user.
+#' Similarly, set `lcars_font*` arguments to `FALSE` to use a more readable sans
+#' serif font as desired. See examples for recommendations.
 #'
 #' @param ... The contents of the document body.
 #' @param title The browser window title (defaults to the host URL of the page).
@@ -87,10 +84,9 @@ lcars_init <- function(force_uppercase = FALSE, label_uppercase = FALSE,
 #'
 #' An LCARS header panel.
 #'
-#' In addition to \code{lcarsHeader} there are also some LCARS style heading
-#' replacers, \code{lcarsh1} through \code{lcarsh6}.
-#' These default to centered text, whereas \code{lcarsHeader} is strictly right
-#' or left.
+#' In addition to `lcarsHeader()` there are also some LCARS style heading
+#' replacers, `lcarsh1()` through `lcarsh6()`. These default to centered text,
+#' whereas `lcarsHeader()` is strictly right or left.
 #'
 #' @param title character, optional title.
 #' @param color header color. Any hex color or a named LCARS color.
@@ -106,7 +102,7 @@ lcars_init <- function(force_uppercase = FALSE, label_uppercase = FALSE,
 #' @param width a valid CSS unit.
 #'
 #' @return HTML
-#' @seealso \code{\link{lcarsdata}}.
+#' @seealso [lcarsdata].
 #' @name lcarsHeader
 #' @export
 #'
@@ -287,8 +283,8 @@ lcarsWell <- function(..., color = "atomic-tangerine",
 
 #' Launch LCARS demo apps.
 #'
-#' Currently available apps include: \code{demo}, \code{box}, \code{sweep},
-#' \code{toggle}, \code{elements}, \code{leaflet}.
+#' Currently available apps include: `demo`, `box`, `sweep`, `toggle`,
+#' `elements`, `leaflet`.
 #'
 #' @param id character, app id.
 

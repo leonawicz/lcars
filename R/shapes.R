@@ -1,13 +1,13 @@
 #' LCARS rectangle
 #'
-#' A simple wrapper around \code{rect}.
+#' A simple wrapper around `rect()`.
 #'
 #' @param xmin numeric, left x positions.
 #' @param xmax numeric, right x positions.
 #' @param ymin numeric, bottom y positions.
 #' @param ymax numeric, top y positions.
 #' @param color fill and border color. Can be any color given in hex format.
-#' Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.
+#' Named colors must be LCARS colors. See [lcarsdata] for options.
 #'
 #' @return draws a rectangle
 #' @export
@@ -23,7 +23,7 @@ lcars_rect <- function(xmin, xmax, ymin, ymax, color = "atomic-tangerine"){
 
 #' LCARS pill
 #'
-#' Wrappers around \code{lcars_rect} that add rounded edges on one side or two
+#' Wrappers around `lcars_rect()` that add rounded edges on one side or two
 #' opposing sides to make an LCARS pill.
 #'
 #' @param xmin numeric, scalar left x position.
@@ -36,12 +36,11 @@ lcars_rect <- function(xmin, xmax, ymin, ymax, color = "atomic-tangerine"){
 #' horizontal half pill.
 #' @param r numeric, radius of half pill.
 #' @param color pill color. Can be any color given in hex format.
-#' Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.
-#' @param direction integer 1:4 or character: \code{topleft}, \code{topright},
-#' \code{bottomleft}, \code{bottomright}. May be abbreviated as \code{tl},
-#' \code{tr}, \code{br}, \code{bl}.
+#' Named colors must be LCARS colors. See [lcarsdata] for options.
+#' @param direction integer `1:4` or character: `"topleft"`, `"topright"`, `"bottomleft"`,
+#' `"bottomright"`. May be abbreviated as `"tl"`, `"tr"`, `"br"`, `"bl"`.
 #' @param vertical logical, vertical pill.
-#' @param gap numeric or \code{"auto"}, the gap between the pill half circle
+#' @param gap numeric or `"auto"`, the gap between the pill half circle
 #' edge and pill rectangle edge.
 #' @param n integer, number of points to define rounded edge.
 #' @param asp numeric, aspect ratio. This is useful for preventing distortion
@@ -50,7 +49,7 @@ lcars_rect <- function(xmin, xmax, ymin, ymax, color = "atomic-tangerine"){
 #' This is likely black, but because of the way the pill is drawn,
 #' it must be specified to match if the plot background color is not black.
 #' Can be any color given in hex format. Named colors must be LCARS colors.
-#' See \code{\link{lcarsdata}} for options.
+#' See [lcarsdata] for options.
 #'
 #' @return draws to plot
 #' @export
@@ -188,9 +187,8 @@ lcars_top_pill <- function(x, y, r, color = "atomic-tangerine", n = 50,
 #' @param xmax numeric, scalar right x position.
 #' @param ymin numeric, scalar bottom y position.
 #' @param ymax numeric, scalar top y position.
-#' @param corner integer 1:4 or character: \code{topleft}, \code{topright},
-#' \code{bottomleft}, \code{bottomright}. May be abbreviated as \code{tl},
-#' \code{tr}, \code{br}, \code{bl}.
+#' @param corner integer `1:4` or character: `"topleft"`, `"topright"`,`"bottomleft"`,
+#' `"bottomright"`. May be abbreviated as `"tl"`, `"tr"`, `"br"`, `"bl"`.
 #' @param width numeric, the width of the vertical segment of the bend.
 #' @param height numeric, the height of the horizontal segment of the bend.
 #' @param ro radius of the outer rounded corner.
@@ -198,10 +196,10 @@ lcars_top_pill <- function(x, y, r, color = "atomic-tangerine", n = 50,
 #' @param n number of points to define the curve of the inner radial quarter
 #' circle. The number of points then used to define the outer curve and
 #' extensions of the segments are scaled respectively based on this.
-#' @param color ignored if \code{draw = FALSE}. Can be any color given in hex
-#' format. Named colors must be LCARS colors. See \code{\link{lcarsdata}} for
+#' @param color ignored if `draw = FALSE`. Can be any color given in hex
+#' format. Named colors must be LCARS colors. See [lcarsdata] for
 #' options.
-#' @param draw draw the corner. Return values if \code{FALSE}.
+#' @param draw draw the corner. Return values if `FALSE`.
 #'
 #' @return draws a polygon
 #' @export

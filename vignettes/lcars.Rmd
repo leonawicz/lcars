@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 
 ## Making a static plot
 
-This examples adds an LCARS-style border around a static plot. Keep in mind that while the `lcars_border` function below takes a ggplot object, the result is not a returnable ggplot object. The function uses the `grid` package underneath the hood and draws the necessary elements using viewports.
+This examples adds an LCARS-style border around a static plot. Keep in mind that while the `lcars_border()` function below takes a ggplot object, the result is not a returnable ggplot object. The function uses the `grid` package underneath the hood and draws the necessary elements using viewports.
 
 ```{r ex-1}
 library(lcars)
@@ -61,11 +61,11 @@ But this is just the appetizer; next is the Shiny version.
 
 In the `lcars` package, functions whose names are lowercase and contain underscores deal with general R use. Functions whose names use camel case are related to Shiny.
 
-First, use `lcarsPage` to set up the Shiny UI. This is a wrapper around Shiny's `bootstrapPage`. It loads the required CSS and other assets.
+First, use `lcarsPage()` to set up the Shiny UI. This is a wrapper around Shiny's `bootstrapPage()`. It loads the required CSS and other assets.
 
 There are several functions you can explore. There are a handful of simple wrappers around various Shiny inputs that give them an LCARS aesthetic, but not many currently and they will continue to be improved upon in subsequent package versions.
 
-The primary function of interest is `lcarsBox`. This is the container that captures the LCARS style. Additional functions worth focusing on include `lcarsHeader` for breaking up sections of the UI; also `lcarsButton` and `lcarsToggle`, which in conjunction with `buttonColumn` produce column inputs that fit well into the sidebars of an `lcarsBox`.
+The primary function of interest is `lcarsBox()`. This is the container that captures the LCARS style. Additional functions worth focusing on include `lcarsHeader()` for breaking up sections of the UI; also `lcarsButton()` and `lcarsToggle()`, which in conjunction with `buttonColumn()` produce column inputs that fit well into the sidebars of an `lcarsBox()`.
 
 Here is a simple example.
 
@@ -118,7 +118,7 @@ lcarsApp("elements")
 lcarsApp("leaflet")
 ```
 
-The `box` example is helpful for exploring the many ways you can control the style of an `lcarsBox`. Here are a couple examples highlighting some of the versatility:
+The `box` example is helpful for exploring the many ways you can control the style of an `lcarsBox()`. Here are a couple examples highlighting some of the versatility:
 
 ### Corner elbows only
 
@@ -138,12 +138,12 @@ Running these apps will prompt you to install required packages if you do not al
 
 ### Font and casing
 
-Pay attention to the arguments to `lcarsPage`. Depending on the nature of text content in your app, you may find you need to deviate from some LCARS-style defaults (e.g., uppercase font) to make the text in your app more pleasant to read.
+Pay attention to the arguments to `lcarsPage()`. Depending on the nature of text content in your app, you may find you need to deviate from some LCARS-style defaults (e.g., uppercase font) to make the text in your app more pleasant to read.
 It will also allow you to revert to sans serif. It is not an all or nothing switch; you have some control over what to change and what to leave alone.
 
 ### Responsiveness limitations
 
-In adhering closely to sizing and layout rules for LCARS UI design, fixed sizing works best for some container widgets like `lcarBox` and `lcarsSweep`. You can use settings like `width = "100%"` for these containers, but you may notice limitations in maintaining a responsive UI, particularly when they contain plot outputs. Fixed width widgets are generally recommended.
+In adhering closely to sizing and layout rules for LCARS UI design, fixed sizing works best for some container widgets like `lcarBox()` and `lcarsSweep()`. You can use settings like `width = "100%"` for these containers, but you may notice limitations in maintaining a responsive UI, particularly when they contain plot outputs. Fixed width widgets are generally recommended.
 
 Visual components such as the LCARS elbow shape underlying some widgets are intended to follow strict sizing and scaling rules. They are not intended to scale arbitrarily or fit well on very small device screens. 
 

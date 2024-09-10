@@ -14,7 +14,7 @@ lcarsSweepOutput(outputId)
 \item{outputId}{Output variable name.}
 }
 \description{
-UI-side functions for creating dynamic \code{lcarBox} and \code{lcarsSweep}.
+UI-side functions for creating dynamic \code{lcarBox()} and \code{lcarsSweep()}.
 }
 \examples{
 ## Only run examples in interactive R sessions
@@ -38,6 +38,6 @@ if (interactive()) {
 }
 }
 \seealso{
-\code{\link{renderLcars}} for the corresponding server-side
+\code{\link[=renderLcars]{renderLcars()}} for the corresponding server-side
 function.
 }

@@ -12,3 +12,5 @@
 ^README\.html$
 ^codemeta\.json$
 ^CRAN-RELEASE$
+^CRAN-SUBMISSION$
+^\.github$

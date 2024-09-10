@@ -51,11 +51,10 @@ lcars_top_pill(x, y, r, color = "atomic-tangerine", n = 50, asp = 1)
 \item{ymax}{numeric, scalar top y position.}
 
 \item{color}{pill color. Can be any color given in hex format.
-Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.}
+Named colors must be LCARS colors. See \link{lcarsdata} for options.}
 
-\item{direction}{integer 1:4 or character: \code{topleft}, \code{topright},
-\code{bottomleft}, \code{bottomright}. May be abbreviated as \code{tl},
-\code{tr}, \code{br}, \code{bl}.}
+\item{direction}{integer \code{1:4} or character: \code{"topleft"}, \code{"topright"}, \code{"bottomleft"},
+\code{"bottomright"}. May be abbreviated as \code{"tl"}, \code{"tr"}, \code{"br"}, \code{"bl"}.}
 
 \item{vertical}{logical, vertical pill.}
 
@@ -71,7 +70,7 @@ of pill half circle for plots with different width and height.}
 This is likely black, but because of the way the pill is drawn,
 it must be specified to match if the plot background color is not black.
 Can be any color given in hex format. Named colors must be LCARS colors.
-See \code{\link{lcarsdata}} for options.}
+See \link{lcarsdata} for options.}
 
 \item{x}{numeric, x position for edge of horizontal half pill or midpoint of
 vertical half pill.}
@@ -85,7 +84,7 @@ horizontal half pill.}
 draws to plot
 }
 \description{
-Wrappers around \code{lcars_rect} that add rounded edges on one side or two
+Wrappers around \code{lcars_rect()} that add rounded edges on one side or two
 opposing sides to make an LCARS pill.
 }
 \examples{

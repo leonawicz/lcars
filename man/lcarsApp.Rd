@@ -10,8 +10,8 @@ lcarsApp(id = "demo")
 \item{id}{character, app id.}
 }
 \description{
-Currently available apps include: \code{demo}, \code{box}, \code{sweep},
-\code{toggle}, \code{elements}, \code{leaflet}.
+Currently available apps include: \code{demo}, \code{box}, \code{sweep}, \code{toggle},
+\code{elements}, \code{leaflet}.
 }
 \examples{
 if (interactive()) {

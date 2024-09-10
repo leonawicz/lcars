@@ -7,13 +7,13 @@
   "codeRepository": "https://github.com/leonawicz/lcars",
   "issueTracker": "https://github.com/leonawicz/lcars/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.3.8",
+  "version": "0.4.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.3.1 (2023-06-16 ucrt)",
+  "runtimePlatform": "R version 4.4.1 (2024-06-14 ucrt)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -25,7 +25,7 @@
       "@type": "Person",
       "givenName": "Matthew",
       "familyName": "Leonawicz",
-      "email": "mfleonawicz@gmail.com",
+      "email": "rpkgs@pm.me",
       "@id": "https://orcid.org/0000-0001-9452-2771"
     }
   ],
@@ -34,7 +34,7 @@
       "@type": "Person",
       "givenName": "Matthew",
       "familyName": "Leonawicz",
-      "email": "mfleonawicz@gmail.com",
+      "email": "rpkgs@pm.me",
       "@id": "https://orcid.org/0000-0001-9452-2771"
     }
   ],
@@ -186,5 +186,5 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "693.781KB"
+  "fileSize": "693.113KB"
 }

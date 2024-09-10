@@ -1,32 +1,30 @@
 #' LCARS toggle button
 #'
 #' An LCARS styled toggle button that can be used in place of
-#' \code{checkboxInput} and \code{lcarsCheckbox}.
+#' `shiny::checkboxInput()` and `lcarsCheckbox()`.
 #'
 #' @param inputId character, the input slot that will be used to access the
 #' value.
-#' @param label character, display label for the control, or \code{NULL} for no
-#' label.
+#' @param label character, display label for the control, or `NULL` for no label.
 #' @param value logical, initial value.
 #' @param pill logical, use an LCARS pill style with rounded ends instead of
 #' the default rounded rectangle.
 #' @param inverse logical, invert the color presentation.
-#' @param true character, text label for \code{TRUE} position.
-#' @param false character, text label for \code{FALSE} position.
-#' @param true_color Color for \code{TRUE} position. Can be any color given in
-#' hex format. Named colors must be LCARS colors. See \code{\link{lcarsdata}}
-#' for options.
-#' @param false_color Color for \code{FALSE} position, as above.
+#' @param true character, text label for `TRUE` position.
+#' @param false character, text label for `FALSE` position.
+#' @param true_color Color for `TRUE` position. Can be any color given in hex
+#' format. Named colors must be LCARS colors. See [lcarsdata] for options.
+#' @param false_color Color for `FALSE` position, as above.
 #' @param background_color background color, as above.
 #' @param border_color border color, as above.
 #' @param outer_border logical, use outer border. This makes some adjustments
 #' to inner elements if used.
 #' @param outer_color outer border color, as above.
 #' @param label_color label text color, as above.
-#' @param label_right logical, set to \code{TRUE} to right align label text.
-#' @param width character, use only \code{px} units for this widget, e.g.
-#' \code{"150px"} (the default when \code{NULL}). Percentage is the only other
-#' unit allowed. It works, but not as well. Fixed widths recommended.
+#' @param label_right logical, set to `TRUE` to right align label text.
+#' @param width character, use only `px` units for this widget, e.g. `"150px"`
+#' (the default when `NULL`). Percentage is the only other unit allowed. It
+#' works, but not as well. Fixed widths recommended.
 #'
 #' @return A toggle button control that can be added to a UI definition.
 #' @export

@@ -37,23 +37,22 @@ lcarsRadioToggle(
 \item{inputId}{character, the input slot that will be used to access the
 value.}
 
-\item{label}{character, display label for the control, or \code{NULL} for no
-label.}
+\item{label}{character, display label for the control, or \code{NULL} for no label.}
 
-\item{choices}{see \code{shiny::radioButtons} for details.}
+\item{choices}{see \code{shiny::radioButtons()} for details.}
 
-\item{selected}{The initially selected value (if not specified then defaults
-to the first value).}
+\item{selected}{The initially selected value; if not specified then defaults
+to the first value.}
 
-\item{inline}{If \code{TRUE}, render the choices inline (i.e. horizontally).}
+\item{inline}{If \code{TRUE}, render the choices inline, i.e., horizontally.}
 
 \item{width}{a valid CSS unit.}
 
-\item{choiceNames, choiceValues}{see \code{shiny::radioButtons} for details.}
+\item{choiceNames, choiceValues}{see \code{shiny::radioButtons()} for details.}
 
-\item{label_color, choice_color, background_color, checked_color, checked_background, }{Color for the label, choices text, choices background, checked text and checked background.
-Can be any color given in hex format. Named colors must be LCARS colors.
-See \code{\link{lcarsdata}} for options.}
+\item{label_color, choice_color, background_color, checked_color, checked_background, }{Color for the label, choices text, choices background, checked text and
+checked background. Can be any color given in hex format. Named colors must
+be LCARS colors. See \link{lcarsdata} for options.}
 }
 \value{
 A set of radio buttons that can be added to a UI definition.
@@ -62,11 +61,10 @@ A set of radio buttons that can be added to a UI definition.
 LCARS-styled radio buttons functions.
 }
 \details{
-\code{lcarsRadio} is a minimal replacement for \code{radioButtons} that
+\code{lcarsRadio()} is a minimal replacement for \code{shiny::radioButtons()} that
 provides two additional color arguments for consistency with functions like
-\code{lcarsCheckbox}.
-\code{lcarsRadioToggle} is a more customized toggle style radio buttons
-wrapper with more color controls.
+\code{lcarsCheckbox()}. \code{lcarsRadioToggle()} is a more customized toggle style
+radio buttons wrapper with more color controls.
 }
 \examples{
 ## Only run examples in interactive R sessions

@@ -1,3 +1,7 @@
+# lcars 0.4.0
+
+* Minor updates.
+
 # lcars 0.3.8
 
 * Added required package alias in documentation.

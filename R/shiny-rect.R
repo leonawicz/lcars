@@ -2,20 +2,19 @@
 #'
 #' A basic rectangle HTML element that conforms to LCARS specifications.
 #'
-#' While \code{text} can be made arbitrarily large using \code{text_size}, the
-#' font size of the optional \code{title} is fixed at standard header size
-#' (\code{height = 0.5}).
+#' While `text` can be made arbitrarily large using `text_size`, the font size
+#' of the optional `title` is fixed at standard header size `height = 0.5`.
 #'
 #' @param text character, rectangle text.
 #' @param round character, sides of rectangle to round to make an LCARS pill or
 #' half pill.
 #' @param decorate character, sides of rectangle to decorate with cut pill;
-#' applicable if a given side is rounded via \code{round}. Logical for
-#' \code{lcarsLeftPill} and \code{lcarsRightPill}.
+#' applicable if a given side is rounded via `round`. Logical for
+#' `lcarsLeftPill()` and `lcarsRightPill()`.
 #' @param color rectangle color. Any hex color or a named LCARS color.
 #' @param text_color text color. Any hex color or a named LCARS color.
 #' @param title_color title color. Any hex color or a named LCARS color.
-#' @param text_size size of \code{text} in pixels.
+#' @param text_size size of `text` in pixels.
 #' @param title optional title text to insert in blank gap in rectangle. Used
 #' for header-style rectangles.
 #' @param width a valid CSS unit.
@@ -120,9 +119,9 @@ lcarsRightPill <- function(text = "", decorate = FALSE, color = "golden-tanoi",
 #' @param ... div contents.
 #' @param color bracket color. Any hex color or a named LCARS color.
 #' @param background_color background color. Any hex color or a named LCARS
-#' color. Applies when \code{hollow = TRUE}.
+#' color. Applies when `hollow = TRUE`.
 #' @param hollow logical, use a hollow bracket. The cutout section has
-#' \code{background_color}.
+#' `background_color`.
 #' @param width a valid CSS unit.
 #'
 #' @return an HTML widget

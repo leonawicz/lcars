@@ -20,7 +20,7 @@ lcarsSweep(
 }
 \arguments{
 \item{column_inputs}{optional input column for right side, for example a
-column of buttons made with \code{inputColumn}. See details.}
+column of buttons made with \code{inputColumn()}. See details.}
 
 \item{left_inputs}{content on the left side of the sweep.}
 
@@ -60,11 +60,10 @@ column and some specific styling to achieve the sweep display.
 }
 \details{
 There are limitations to the container responsiveness of the LCARS box and
-sweep. In some cases, using percentage width, e.g., \code{width = "100\%"}
-will work, but it may respond sluggishly or may not work at all.
-Fixed pixel width is recommended for \code{lcarsBox} and \code{lcarsSweep}.
-Regardless of responsiveness, these widgets are also not intended to fit
-very small displays.
+sweep. In some cases, using percentage width, e.g., \code{width = "100\%"} will
+work, but it may respond sluggishly or may not work at all. Fixed pixel width
+is recommended for \code{lcarsBox()} and \code{lcarsSweep()}. Regardless of
+responsiveness, these widgets are also not intended to fit very small displays.
 }
 \examples{
 ## Only run examples in interactive R sessions
@@ -110,5 +109,5 @@ if (interactive()) {
 }
 }
 \seealso{
-\code{\link{lcarsBox}}
+\code{\link[=lcarsBox]{lcarsBox()}}
 }

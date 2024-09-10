@@ -2,25 +2,24 @@
 #'
 #' LCARS-styled radio buttons functions.
 #'
-#' \code{lcarsRadio} is a minimal replacement for \code{radioButtons} that
+#' `lcarsRadio()` is a minimal replacement for `shiny::radioButtons()` that
 #' provides two additional color arguments for consistency with functions like
-#' \code{lcarsCheckbox}.
-#' \code{lcarsRadioToggle} is a more customized toggle style radio buttons
-#' wrapper with more color controls.
+#' `lcarsCheckbox()`. `lcarsRadioToggle()` is a more customized toggle style
+#' radio buttons wrapper with more color controls.
 #'
 #' @param inputId character, the input slot that will be used to access the
 #' value.
-#' @param label character, display label for the control, or \code{NULL} for no
-#' label.
-#' @param choices see \code{shiny::radioButtons} for details.
-#' @param selected The initially selected value (if not specified then defaults
-#' to the first value).
-#' @param inline If \code{TRUE}, render the choices inline (i.e. horizontally).
+#' @param label character, display label for the control, or `NULL` for no label.
+#' @param choices see `shiny::radioButtons()` for details.
+#' @param selected The initially selected value; if not specified then defaults
+#' to the first value.
+#' @param inline If `TRUE`, render the choices inline, i.e., horizontally.
 #' @param width a valid CSS unit.
-#' @param choiceNames,choiceValues see \code{shiny::radioButtons} for details.
-#' @param label_color,choice_color,background_color,checked_color,checked_background, Color for the label, choices text, choices background, checked text and checked background.
-#' Can be any color given in hex format. Named colors must be LCARS colors.
-#' See \code{\link{lcarsdata}} for options.
+#' @param choiceNames,choiceValues see `shiny::radioButtons()` for details.
+#' @param label_color,choice_color,background_color,checked_color,checked_background,
+#' Color for the label, choices text, choices background, checked text and
+#' checked background. Can be any color given in hex format. Named colors must
+#' be LCARS colors. See [lcarsdata] for options.
 #'
 #' @return A set of radio buttons that can be added to a UI definition.
 #' @export

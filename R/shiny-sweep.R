@@ -6,14 +6,13 @@
 #' column and some specific styling to achieve the sweep display.
 #'
 #' There are limitations to the container responsiveness of the LCARS box and
-#' sweep. In some cases, using percentage width, e.g., \code{width = "100\%"}
-#' will work, but it may respond sluggishly or may not work at all.
-#' Fixed pixel width is recommended for \code{lcarsBox} and \code{lcarsSweep}.
-#' Regardless of responsiveness, these widgets are also not intended to fit
-#' very small displays.
+#' sweep. In some cases, using percentage width, e.g., `width = "100%"` will
+#' work, but it may respond sluggishly or may not work at all. Fixed pixel width
+#' is recommended for `lcarsBox()` and `lcarsSweep()`. Regardless of
+#' responsiveness, these widgets are also not intended to fit very small displays.
 #'
 #' @param column_inputs optional input column for right side, for example a
-#' column of buttons made with \code{inputColumn}. See details.
+#' column of buttons made with `inputColumn()`. See details.
 #' @param left_inputs content on the left side of the sweep.
 #' @param right_inputs content on the right side of the sweep.
 #' @param title character, title for box with header.
@@ -28,13 +27,13 @@
 #' well to LCARS style.
 #' @param left_width numeric, number between 0 and 1 giving the proportional
 #' width of the left content section.
-#' The right section is 1 - \code{left_width}.
+#' The right section is 1 - `left_width`.
 #' @param width a valid CSS unit, the width of the entire sweep. Fixed pixel
 #' width recommended. See details.
 #'
 #' @return an HTML widget
 #' @export
-#' @seealso \code{\link{lcarsBox}}
+#' @seealso [lcarsBox()]
 #'
 #' @examples
 #' ## Only run examples in interactive R sessions

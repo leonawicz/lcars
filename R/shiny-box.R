@@ -22,8 +22,8 @@
 #' between the elbow areas is excluded, only the elbows are displayed.
 #'
 #' If both elbows are excluded from the top or from the bottom, a simple,
-#' straight \code{lcarsHeader} element is placed above or below the main
-#' content area instead, but this can be controlled via \code{sides}.
+#' straight `lcarsHeader()` element is placed above or below the main
+#' content area instead, but this can be controlled via `sides`.
 #'
 #' @section Side panels:
 #' Control which sides of the box include an LCARS-styled border, clockwise
@@ -31,17 +31,17 @@
 #' sides are where title and subtitle text are placed. The title for the top
 #' and subtitle for the bottom are included in the bar with standard LCARS
 #' right alignment, which can be switched to left. If the top or bottom side
-#' panel is excluded, the vertical space remains if \code{title} or
-#' \code{subtitle} are included, respectively, retaining the text labels;
-#' otherwise the space is removed.
+#' panel is excluded, the vertical space remains if `title` or `subtitle` are
+#' included, respectively, retaining the text labels; otherwise the space is
+#' removed.
 #'
 #' By default, left and right sides are 150 pixels wide; top and bottom sides
 #' are 30 pixels tall. The top and bottom are fixed, but the widths of the left
-#' and right side panels can be adjusted using \code{width_left} and
-#' \code{width_right}, respectively. They can only be adjusted down to smaller
-#' widths. This is to ensure proper scaling for connected corners. The side
-#' panels are not meant to accommodate wider inputs and should primarily be
-#' used for small buttons and short text.
+#' and right side panels can be adjusted using `width_left` and `width_right`,
+#' respectively. They can only be adjusted down to smaller widths. This is to
+#' ensure proper scaling for connected corners. The side panels are not meant to
+#' accommodate wider inputs and should primarily be used for small buttons and
+#' short text.
 #'
 #' @section Side inputs columns:
 #' Input columns are different from left and right sides. The latter refers to
@@ -60,32 +60,31 @@
 #' to match the background.
 #'
 #' Since the inputs contained in an input column are defined separately and
-#' passed to \code{lcarsBox}, they should be defined to have widths that match
+#' passed to `lcarsBox()`, they should be defined to have widths that match
 #' the box side panel widths.
 #'
 #' @section Colors:
 #' Box color can be any color given in hex format. Named colors must be LCARS
-#' colors. See \code{\link{lcarsdata}} for options. By default, all border
-#' colors inherit from a single color passed to \code{color}.
+#' colors. See [lcarsdata] for options. By default, all border colors inherit
+#' from a single color passed to `color`.
 #'
-#' \code{color} is recycled to length four as needed. \code{color} actually
-#' defines all four corner elbow colors. For corner elbows, use a vector of
-#' four colors for the top left, top right, bottom right, and bottom left,
-#' respectively.
+#' `color` is recycled to length four as needed. `color` actually defines all
+#' four corner elbow colors. For corner elbows, use a vector of four colors for
+#' the top left, top right, bottom right, and bottom left, respectively.
 #'
-#' Similarly for the bars between elbows with \code{side_colors}, use a vector
+#' Similarly for the bars between elbows with `side_colors`, use a vector
 #' of four colors for the top, right side, bottom, and left side. This is also
-#' recycled to length four. If not provided, it inherits from \code{color}.
+#' recycled to length four. If not provided, it inherits from `color`.
 #'
-#' \code{title_color} and \code{subtitle_color} are scalar. They inherit from
-#' the first color in \code{color}.
+#' `title_color` and `subtitle_color` are scalar. They inherit from the first
+#' color in `color`.
 #'
 #' @section Margin space:
 #' When at least one corner elbow is present on a top or bottom side, that side
 #' will include empty margin space to the inside of the elbow. This space is
 #' part of the grid area of the side panel. This is why main panel content does
 #' not extend into it. You can override this and make use of this space by
-#' setting \code{clip = FALSE}.
+#' setting `clip = FALSE`.
 #'
 #' Note that this should only be done when both side panels are present so that
 #' the main panel content is not directly under or above the elbow near the
@@ -94,23 +93,22 @@
 #'
 #' @section Sizing:
 #' There are limitations to the container responsiveness of the LCARS box and
-#' sweep. In some cases, using percentage width, e.g., \code{width = "100\%"}
-#' will work, but it may respond sluggishly or may not work at all. Fixed pixel
-#' width is recommended for \code{lcarsBox} and \code{lcarsSweep}. Regardless
-#' of responsiveness, these widgets are also not intended to fit very small
-#' displays.
+#' sweep. In some cases, using percentage width, e.g., `width = "100%"` will
+#' work, but it may respond sluggishly or may not work at all. Fixed pixel
+#' width is recommended for `lcarsBox()` and `lcarsSweep()`. Regardless of
+#' responsiveness, these widgets are also not intended to fit very small displays.
 #'
 #' @param ... box contents.
 #' @param title character, box title at top right.
 #' @param subtitle character, box subtitle at bottom right.
-#' @param corners integer, \code{1:4}, a vector specifying which corner elbows
+#' @param corners integer, `1:4`, a vector specifying which corner elbows
 #' to include: top left, top right, bottom right, bottom left. See details.
-#' @param sides integer, \code{1:4}, a vector specifying which sides to include
+#' @param sides integer, `1:4`, a vector specifying which sides to include
 #' panels: top, right, bottom, left. See details.
 #' @param left_inputs optional input column for left side, for example a column
-#' of buttons made with \code{inputColumn}. See details.
+#' of buttons made with `inputColumn()`. See details.
 #' @param right_inputs optional input column for right side, for example a
-#' column of buttons made with \code{inputColumn}. See details.
+#' column of buttons made with `inputColumn()`. See details.
 #' @param color box border colors. See details.
 #' @param side_color box border colors. See details.
 #' @param title_color text title color.
@@ -129,7 +127,7 @@
 #'
 #' @return an HTML widget
 #' @export
-#' @seealso \code{\link{lcarsSweep}}
+#' @seealso [lcarsSweep()]
 #'
 #' @examples
 #' ## Only run examples in interactive R sessions

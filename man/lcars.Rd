@@ -2,16 +2,23 @@
 % Please edit documentation in R/lcars.R
 \docType{package}
 \name{lcars}
-\alias{lcars}
 \alias{lcars-package}
-\title{lcars: LCARS aesthetic for Shiny}
+\alias{lcars}
+\title{lcars: LCARS Aesthetic for Shiny}
 \description{
-Library Computer Access/Retrieval System
-(\href{https://en.wikipedia.org/wiki/LCARS}{LCARS}.
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
+Provides Shiny widgets and theme that support a 'Library Computer Access/Retrieval System' (LCARS) aesthetic for Shiny apps. The package also includes functions for adding a minimal LCARS theme to static 'ggplot2' graphs. More details about LCARS can be found at \url{https://en.wikipedia.org/wiki/LCARS}.
 }
-\details{
-The \code{lcars} package provides Shiny widgets and Shiny UI theme that
-support a 'Library Computer Access/Retrieval System' (LCARS) aesthetic for
-Shiny apps. The package also includes functions for adding a minimal LCARS
-theme to static \code{ggplot2} graphs.
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/leonawicz/lcars}
+  \item Report bugs at \url{https://github.com/leonawicz/lcars/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Matthew Leonawicz \email{rpkgs@pm.me} (\href{https://orcid.org/0000-0001-9452-2771}{ORCID})
+
 }

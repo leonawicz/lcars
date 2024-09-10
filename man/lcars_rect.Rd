@@ -16,13 +16,13 @@ lcars_rect(xmin, xmax, ymin, ymax, color = "atomic-tangerine")
 \item{ymax}{numeric, top y positions.}
 
 \item{color}{fill and border color. Can be any color given in hex format.
-Named colors must be LCARS colors. See \code{\link{lcarsdata}} for options.}
+Named colors must be LCARS colors. See \link{lcarsdata} for options.}
 }
 \value{
 draws a rectangle
 }
 \description{
-A simple wrapper around \code{rect}.
+A simple wrapper around \code{rect()}.
 }
 \examples{
 plot(0:1, 0:1)

@@ -3,15 +3,21 @@
 
 # lcars <img src="man/figures/logo.png" style="margin-left:10px;margin-bottom:5px;" width="120" align="right">
 
+<!-- badges: start -->
+
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/)
+[![R-CMD-check](https://github.com/leonawicz/lcars/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/leonawicz/lcars/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/leonawicz/lcars/graph/badge.svg)](https://app.codecov.io/gh/leonawicz/lcars)
 [![CRAN
-status](http://www.r-pkg.org/badges/version/lcars)](https://cran.r-project.org/package=lcars)
+status](https://www.r-pkg.org/badges/version/lcars)](https://CRAN.R-project.org/package=lcars)
 [![CRAN
-downloads](http://cranlogs.r-pkg.org/badges/grand-total/lcars)](https://cran.r-project.org/package=lcars)
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/lcars)](https://cran.r-project.org/package=lcars)
 [![Github
 Stars](https://img.shields.io/github/stars/leonawicz/lcars.svg?style=social&label=Github)](https://github.com/leonawicz/lcars)
+<!-- badges: end -->
 
 ## Library Computer Access/Retrieval System ([LCARS](https://en.wikipedia.org/wiki/LCARS))
 
@@ -34,7 +40,7 @@ aesthetic!
 
 ### Function names
 
-The package also offers `lcars_border` and associated functions for
+The package also offers `lcars_border()` and associated functions for
 adding a minimal LCARS theme to static ggplot2 graphs, but this is less
 interesting given the context and won’t look as authentic and the Shiny
 counterparts.
@@ -42,8 +48,8 @@ counterparts.
 On the topic of the split between Shiny and non-Shiny functions, most of
 the package is Shiny-related. There is less focus on the ggplot border
 effect and related border component functions. Shiny functions use camel
-case like `lcarsBox` whereas non-Shiny functions use snake case like
-`lcars_border`. Most users will probably only use the Shiny functions.
+case like `lcarsBox()` whereas non-Shiny functions use snake case like
+`lcars_border()`. Most users will probably only use the Shiny functions.
 
 ### Shiny functions
 
@@ -52,34 +58,34 @@ widgets that provide various LCARS aesthetics.
 
 UI setup and containers:
 
-- `lcarsPage`
-- `lcarsBox`
-- `lcarsSweep`
-- `lcarsBracket`
-- `lcarsWell`
-- `inputColumn`
+- `lcarsPage()`
+- `lcarsBox()`
+- `lcarsSweep()`
+- `lcarsBracket()`
+- `lcarsWell()`
+- `inputColumn()`
 
 Headers and indicators:
 
-- `lcarsHeader`, `lcarsh1` through `lcarsh6`.
-- `lcarsRect`, `lcarsPill`, etc.
+- `lcarsHeader()`, `lcarsh1()` through `lcarsh6()`.
+- `lcarsRect()`, `lcarsPill()`, etc.
 
 Input controls
 
-- `lcarsButton`
-- `lcarsCheckbox`
-- `lcarsToggle`
-- `lcarsRadio`
-- `lcarsRadioToggle`
+- `lcarsButton()`
+- `lcarsCheckbox()`
+- `lcarsToggle()`
+- `lcarsRadio()`
+- `lcarsRadioToggle()`
 
-The key widgets are `lcarsHeader`, `lcarsBox` and `lcarsSweep`. An
+The key widgets are `lcarsHeader()`, `lcarsBox()` and `lcarsSweep()`. An
 example of the header and box is shown above. Here is a combined LCARS
 sweep and reverse sweep:
 
 ![](man/figures/README-sweep.png)
 
 The screenshots above are taken directly from demo apps included in the
-package. See `?lcarsApp` for details. For detailed examples including
+package. See `lcarsApp()` for details. For detailed examples including
 Shiny app examples, see the package
 [vignette](https://leonawicz.github.io/lcars/articles/lcars.html).
 
@@ -101,8 +107,8 @@ remotes::install_github("leonawicz/lcars")
 ## Limitations
 
 In adhering closely to sizing and layout rules for LCARS UI design,
-fixed sizing works best for some container widgets like `lcarBox` and
-`lcarsSweep`. You can use settings like `width = "100%"` for these
+fixed sizing works best for some container widgets like `lcarBox()` and
+`lcarsSweep()`. You can use settings like `width = "100%"` for these
 containers, but you may notice limitations in maintaining a responsive
 UI, particularly when they contain plot outputs. Fixed width widgets are
 generally recommended.
@@ -210,8 +216,8 @@ True (Trek) type fonts to style your Star Trek themed graphics text.
 
 ## Citation
 
-Matthew Leonawicz (2023). lcars: LCARS Aesthetic for Shiny. R package
-version 0.3.8. <https://CRAN.R-project.org/package=lcars>
+Matthew Leonawicz (2024). lcars: LCARS Aesthetic for Shiny. R package
+version 0.4.0. <https://CRAN.R-project.org/package=lcars>
 
 ## Contribute
 

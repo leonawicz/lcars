@@ -39,20 +39,17 @@ A UI definition that can be passed to the shinyUI function.
 Create a Shiny UI page with an LCARS theme.
 }
 \details{
-The LCARS style heavily emphasizes uppercase text. Set
-\code{force_uppercase = TRUE} to force this standard via CSS.
-This does not make everything uppercase; things like input labels are left
-alone (use \code{label_uppercase = TRUE}). However, text in general in
-uppercased.
+The LCARS style heavily emphasizes uppercase text. Set \code{force_uppercase = TRUE}
+to force this standard via CSS. This does not make everything uppercase;
+things like input labels are left alone (use \code{label_uppercase = TRUE}).
+However, text in general in uppercased.
 
-Set these to \code{FALSE} if you need control over casing.
-This allows sensible judgment over how to balance the tension between
-making something that conforms well to the familiar LCARS aesthetic
-and making something that communicates information with a lower cognitive
-load for the user.
-Similarly, set \code{lcars_font*} arguments to \code{FALSE} to use a more
-readable sans serif font as desired.
-See examples for recommendations.
+Set these to \code{FALSE} if you need control over casing. This allows sensible
+judgment over how to balance the tension between making something that
+conforms well to the familiar LCARS aesthetic and making something that
+communicates information with a lower cognitive load for the user.
+Similarly, set \verb{lcars_font*} arguments to \code{FALSE} to use a more readable sans
+serif font as desired. See examples for recommendations.
 }
 \examples{
 \donttest{

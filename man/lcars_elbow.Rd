@@ -28,9 +28,8 @@ lcars_elbow(
 
 \item{ymax}{numeric, scalar top y position.}
 
-\item{corner}{integer 1:4 or character: \code{topleft}, \code{topright},
-\code{bottomleft}, \code{bottomright}. May be abbreviated as \code{tl},
-\code{tr}, \code{br}, \code{bl}.}
+\item{corner}{integer \code{1:4} or character: \code{"topleft"}, \code{"topright"},\code{"bottomleft"},
+\code{"bottomright"}. May be abbreviated as \code{"tl"}, \code{"tr"}, \code{"br"}, \code{"bl"}.}
 
 \item{width}{numeric, the width of the vertical segment of the bend.}
 
@@ -45,7 +44,7 @@ circle. The number of points then used to define the outer curve and
 extensions of the segments are scaled respectively based on this.}
 
 \item{color}{ignored if \code{draw = FALSE}. Can be any color given in hex
-format. Named colors must be LCARS colors. See \code{\link{lcarsdata}} for
+format. Named colors must be LCARS colors. See \link{lcarsdata} for
 options.}
 
 \item{draw}{draw the corner. Return values if \code{FALSE}.}

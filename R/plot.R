@@ -4,7 +4,7 @@
 #'
 #' This function draws a plot. It does not return a new ggplot object.
 #'
-#' For \code{length_frac}, a vector of eight values from 0 to 1 is required.
+#' For `length_frac`, a vector of eight values from 0 to 1 is required.
 #' Starting from the top side, clockwise around to the left side,
 #' they refer to fraction of that side's length over which the relevant corner
 #' bend extends.
@@ -23,14 +23,14 @@
 #' @param x optional inset ggplot object.
 #' @param width full plot width in inches.
 #' @param height full plot height in inches.
-#' @param corners integer, \code{1:4}, a vector specifying which corner elbows
+#' @param corners integer, `1:4`, a vector specifying which corner elbows
 #' to include the LCARS elbow bend: top left, top right, bottom right, bottom
 #' left.
 #' @param length_frac numeric, the fraction of a side that a corner extends
 #' over. See details.
 #' @param corner_color vector of corner colors, clockwise from top left. Can be
 #' any color given in hex format. Named colors must be LCARS colors.
-#' See \code{\link{lcarsdata}} for options.
+#' See [lcarsdata] for options.
 #' @param ro vector of corner outer radii, clockwise from top left.
 #' @param ri vector of inner outer radii, clockwise from top left.
 #' @param side_width width of each side, clockwise from top left.
@@ -39,12 +39,12 @@
 #' @param side_color list of color vectors for side segments. Each vector must
 #' have the same number of colors as the number of segments for a given side.
 #' Can be any color given in hex format. Named colors must be LCARS colors.
-#' See \code{\link{lcarsdata}} for options.
+#' See [lcarsdata] for options.
 #' @param side_label list of label vectors for side segments. Each vector must
 #' have the same number of colors as the number of segments for a given side.
 #' @param label_size numeric, global label text size.
-#' @param side_label_adj list of four vectors, each giving the \code{adj}
-#' argument to \code{text} for each side.
+#' @param side_label_adj list of four vectors, each giving the `adj`
+#' argument to `text` for each side.
 #' @param gap vector of two values giving the gap fraction from 0 to 1, based
 #' on full plot width and height, for the gap between horizontal and vertical
 #' segments, respectively.

@@ -110,14 +110,13 @@ HTML
 An LCARS header panel.
 }
 \details{
-In addition to \code{lcarsHeader} there are also some LCARS style heading
-replacers, \code{lcarsh1} through \code{lcarsh6}.
-These default to centered text, whereas \code{lcarsHeader} is strictly right
-or left.
+In addition to \code{lcarsHeader()} there are also some LCARS style heading
+replacers, \code{lcarsh1()} through \code{lcarsh6()}. These default to centered text,
+whereas \code{lcarsHeader()} is strictly right or left.
 }
 \examples{
 lcarsHeader("A title")
 }
 \seealso{
-\code{\link{lcarsdata}}.
+\link{lcarsdata}.
 }

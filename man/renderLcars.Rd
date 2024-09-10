@@ -20,8 +20,7 @@ of such objects.}
 is useful if you want to save an expression in a variable.}
 }
 \description{
-Server-side functions for creating dynamic \code{lcarBox} and
-\code{lcarsSweep}.
+Server-side functions for creating dynamic \code{lcarBox()} and \code{lcarsSweep()}.
 }
 \examples{
 ## Only run examples in interactive R sessions
@@ -45,5 +44,5 @@ if (interactive()) {
 }
 }
 \seealso{
-\code{\link{lcarsOutput}} for the corresponding UI-side function.
+\code{\link[=lcarsOutput]{lcarsOutput()}} for the corresponding UI-side function.
 }

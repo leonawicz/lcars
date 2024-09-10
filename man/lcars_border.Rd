@@ -40,7 +40,7 @@ over. See details.}
 
 \item{corner_color}{vector of corner colors, clockwise from top left. Can be
 any color given in hex format. Named colors must be LCARS colors.
-See \code{\link{lcarsdata}} for options.}
+See \link{lcarsdata} for options.}
 
 \item{ro}{vector of corner outer radii, clockwise from top left.}
 
@@ -54,7 +54,7 @@ rectangle segments used to evenly fill the space between corner bends.}
 \item{side_color}{list of color vectors for side segments. Each vector must
 have the same number of colors as the number of segments for a given side.
 Can be any color given in hex format. Named colors must be LCARS colors.
-See \code{\link{lcarsdata}} for options.}
+See \link{lcarsdata} for options.}
 
 \item{side_label}{list of label vectors for side segments. Each vector must
 have the same number of colors as the number of segments for a given side.}

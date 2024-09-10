@@ -12,22 +12,20 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="Introduction to lcars">
-<meta property="og:description" content="lcars">
-<meta property="og:image" content="https://leonawicz.github.io/lcars/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-article">
       <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -41,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lcars</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.0</span>
       </span>
     </div>
 
@@ -50,7 +48,7 @@
 <li>
   <a href="../index.html">
     <span class="fa fa-home"></span>
-     
+
     Home
   </a>
 </li>
@@ -68,7 +66,7 @@
 <li>
   <a href="https://github.com/leonawicz/lcars" class="external-link">
     <span class="fa fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul>
@@ -79,7 +77,7 @@
 </div>
 <!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
@@ -98,8 +96,8 @@
 <h2 id="making-a-static-plot">Making a static plot<a class="anchor" aria-label="anchor" href="#making-a-static-plot"></a>
 </h2>
 <p>This examples adds an LCARS-style border around a static plot. Keep
-in mind that while the <code>lcars_border</code> function below takes a
-ggplot object, the result is not a returnable ggplot object. The
+in mind that while the <code><a href="../reference/lcars_border.html">lcars_border()</a></code> function below takes
+a ggplot object, the result is not a returnable ggplot object. The
 function uses the <code>grid</code> package underneath the hood and
 draws the necessary elements using viewports.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -148,19 +146,20 @@ polish it deserves.</p>
 <p>In the <code>lcars</code> package, functions whose names are
 lowercase and contain underscores deal with general R use. Functions
 whose names use camel case are related to Shiny.</p>
-<p>First, use <code>lcarsPage</code> to set up the Shiny UI. This is a
-wrapper around Shiny’s <code>bootstrapPage</code>. It loads the required
-CSS and other assets.</p>
+<p>First, use <code><a href="../reference/lcarsPage.html">lcarsPage()</a></code> to set up the Shiny UI. This is a
+wrapper around Shiny’s <code>bootstrapPage()</code>. It loads the
+required CSS and other assets.</p>
 <p>There are several functions you can explore. There are a handful of
 simple wrappers around various Shiny inputs that give them an LCARS
 aesthetic, but not many currently and they will continue to be improved
 upon in subsequent package versions.</p>
-<p>The primary function of interest is <code>lcarsBox</code>. This is
+<p>The primary function of interest is <code><a href="../reference/lcarsBox.html">lcarsBox()</a></code>. This is
 the container that captures the LCARS style. Additional functions worth
-focusing on include <code>lcarsHeader</code> for breaking up sections of
-the UI; also <code>lcarsButton</code> and <code>lcarsToggle</code>,
-which in conjunction with <code>buttonColumn</code> produce column
-inputs that fit well into the sidebars of an <code>lcarsBox</code>.</p>
+focusing on include <code><a href="../reference/lcarsHeader.html">lcarsHeader()</a></code> for breaking up sections
+of the UI; also <code><a href="../reference/lcarsButton.html">lcarsButton()</a></code> and
+<code><a href="../reference/lcarsToggle.html">lcarsToggle()</a></code>, which in conjunction with
+<code>buttonColumn()</code> produce column inputs that fit well into the
+sidebars of an <code><a href="../reference/lcarsBox.html">lcarsBox()</a></code>.</p>
 <p>Here is a simple example.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
@@ -211,8 +210,8 @@ repository.</p>
 <span><span class="fu"><a href="../reference/lcarsApp.html">lcarsApp</a></span><span class="op">(</span><span class="st">"elements"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/lcarsApp.html">lcarsApp</a></span><span class="op">(</span><span class="st">"leaflet"</span><span class="op">)</span></span></code></pre></div>
 <p>The <code>box</code> example is helpful for exploring the many ways
-you can control the style of an <code>lcarsBox</code>. Here are a couple
-examples highlighting some of the versatility:</p>
+you can control the style of an <code><a href="../reference/lcarsBox.html">lcarsBox()</a></code>. Here are a
+couple examples highlighting some of the versatility:</p>
 <div class="section level3">
 <h3 id="corner-elbows-only">Corner elbows only<a class="anchor" aria-label="anchor" href="#corner-elbows-only"></a>
 </h3>
@@ -234,7 +233,7 @@ specifically <code>ggrepel</code> and <code>showtext</code>.</p>
 <div class="section level3">
 <h3 id="font-and-casing">Font and casing<a class="anchor" aria-label="anchor" href="#font-and-casing"></a>
 </h3>
-<p>Pay attention to the arguments to <code>lcarsPage</code>. Depending
+<p>Pay attention to the arguments to <code><a href="../reference/lcarsPage.html">lcarsPage()</a></code>. Depending
 on the nature of text content in your app, you may find you need to
 deviate from some LCARS-style defaults (e.g., uppercase font) to make
 the text in your app more pleasant to read. It will also allow you to
@@ -246,9 +245,9 @@ control over what to change and what to leave alone.</p>
 </h3>
 <p>In adhering closely to sizing and layout rules for LCARS UI design,
 fixed sizing works best for some container widgets like
-<code>lcarBox</code> and <code>lcarsSweep</code>. You can use settings
-like <code>width = "100%"</code> for these containers, but you may
-notice limitations in maintaining a responsive UI, particularly when
+<code>lcarBox()</code> and <code><a href="../reference/lcarsSweep.html">lcarsSweep()</a></code>. You can use
+settings like <code>width = "100%"</code> for these containers, but you
+may notice limitations in maintaining a responsive UI, particularly when
 they contain plot outputs. Fixed width widgets are generally
 recommended.</p>
 <p>Visual components such as the LCARS elbow shape underlying some
@@ -319,9 +318,7 @@ any hex color, but will also accept official LCARS colors by name.</p>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
-    </nav>
-</div>
+      </div>
 
 </div>
 
@@ -334,16 +331,16 @@ any hex color, but will also accept official LCARS colors by name.</p>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
 </div>
 
       </footer>
 </div>
 
-  
 
 
-  
+
+
 
   </body>
 </html>

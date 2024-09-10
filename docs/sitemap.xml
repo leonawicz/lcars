@@ -1,99 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://leonawicz.github.io/lcars/404.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/articles/lcars.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/index.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/inputColumn.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/lcars.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/lcarsApp.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/lcarsBox.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/lcarsBracket.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/lcarsButton.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/lcarsCheckbox.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/lcarsdata.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/lcarsHeader.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/lcarsOutput.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/lcarsPage.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/lcarsRadio.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/lcarsRect.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/lcarsSweep.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/lcarsToggle.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/lcarsWell.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/lcars_border.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/lcars_elbow.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/lcars_pill.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/lcars_rect.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/renderLcars.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/lcars/reference/theme_lcars.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://leonawicz.github.io/lcars/404.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/articles/index.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/articles/lcars.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/authors.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/index.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/LICENSE-text.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/LICENSE.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/news/index.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/index.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/inputColumn.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/lcars.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/lcarsApp.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/lcarsBox.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/lcarsBracket.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/lcarsButton.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/lcarsCheckbox.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/lcarsdata.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/lcarsHeader.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/lcarsOutput.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/lcarsPage.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/lcarsRadio.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/lcarsRect.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/lcarsSweep.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/lcarsToggle.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/lcarsWell.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/lcars_border.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/lcars_elbow.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/lcars_pill.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/lcars_rect.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/renderLcars.html</loc></url>
+<url><loc>https://leonawicz.github.io/lcars/reference/theme_lcars.html</loc></url>
 </urlset>
+

@@ -27,8 +27,7 @@ lcarsToggle(
 \item{inputId}{character, the input slot that will be used to access the
 value.}
 
-\item{label}{character, display label for the control, or \code{NULL} for no
-label.}
+\item{label}{character, display label for the control, or \code{NULL} for no label.}
 
 \item{value}{logical, initial value.}
 
@@ -41,9 +40,8 @@ the default rounded rectangle.}
 
 \item{false}{character, text label for \code{FALSE} position.}
 
-\item{true_color}{Color for \code{TRUE} position. Can be any color given in
-hex format. Named colors must be LCARS colors. See \code{\link{lcarsdata}}
-for options.}
+\item{true_color}{Color for \code{TRUE} position. Can be any color given in hex
+format. Named colors must be LCARS colors. See \link{lcarsdata} for options.}
 
 \item{false_color}{Color for \code{FALSE} position, as above.}
 
@@ -60,16 +58,16 @@ to inner elements if used.}
 
 \item{label_right}{logical, set to \code{TRUE} to right align label text.}
 
-\item{width}{character, use only \code{px} units for this widget, e.g.
-\code{"150px"} (the default when \code{NULL}). Percentage is the only other
-unit allowed. It works, but not as well. Fixed widths recommended.}
+\item{width}{character, use only \code{px} units for this widget, e.g. \code{"150px"}
+(the default when \code{NULL}). Percentage is the only other unit allowed. It
+works, but not as well. Fixed widths recommended.}
 }
 \value{
 A toggle button control that can be added to a UI definition.
 }
 \description{
 An LCARS styled toggle button that can be used in place of
-\code{checkboxInput} and \code{lcarsCheckbox}.
+\code{shiny::checkboxInput()} and \code{lcarsCheckbox()}.
 }
 \examples{
 ## Only run examples in interactive R sessions
