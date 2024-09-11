@@ -11,6 +11,4 @@
 ^tests/testthat/Rplots\.pdf$
 ^README\.html$
 ^codemeta\.json$
-^CRAN-RELEASE$
-^CRAN-SUBMISSION$
 ^\.github$
