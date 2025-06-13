@@ -1,3 +1,7 @@
+# lcars 0.4.1
+
+* Fixes related to changes in `ggplot2` dependency.
+
 # lcars 0.4.0
 
 * Minor updates.

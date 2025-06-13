@@ -130,6 +130,7 @@ intended to scale arbitrarily or fit well on very small device screens.
 <div class="col-sm-10">
 
 <h4 style="padding:30px 0 0 0;margin-top:5px;margin-bottom:5px;">
+
 <a href="https://github.com/leonawicz/rtrek">rtrek</a>: The core Star
 Trek package
 </h4>
@@ -154,6 +155,7 @@ and more.
 <div class="col-sm-10">
 
 <h4 style="padding:30px 0 0 0;margin-top:5px;margin-bottom:5px;">
+
 <a href="https://github.com/leonawicz/lcars">lcars</a>: LCARS aesthetic
 for Shiny
 </h4>
@@ -178,6 +180,7 @@ Create Shiny apps based on the Library Computer Access/Retrieval System
 <div class="col-sm-10">
 
 <h4 style="padding:30px 0 0 0;margin-top:5px;margin-bottom:5px;">
+
 <a href="https://github.com/leonawicz/trekcolors">trekcolors</a>: A
 color palette package
 </h4>
@@ -202,6 +205,7 @@ functions.
 <div class="col-sm-10">
 
 <h4 style="padding:30px 0 0 0;margin-top:5px;margin-bottom:5px;">
+
 <a href="https://github.com/leonawicz/trekfont">trekfont</a>: A fonts
 package
 </h4>
@@ -216,8 +220,8 @@ True (Trek) type fonts to style your Star Trek themed graphics text.
 
 ## Citation
 
-Matthew Leonawicz (2024). lcars: LCARS Aesthetic for Shiny. R package
-version 0.4.0. <https://CRAN.R-project.org/package=lcars>
+Matthew Leonawicz (2025). lcars: LCARS Aesthetic for Shiny. R package
+version 0.4.1. <https://CRAN.R-project.org/package=lcars>
 
 ## Contribute
 
